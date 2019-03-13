@@ -1,0 +1,14 @@
+C:\Users\Administrator\source\repos\Xlettler\Model\Model\bin\Release\Model.dll
+C:\Users\Administrator\source\repos\Xlettler\Model\Model\bin\Release\Model.pdb
+C:\Users\Administrator\source\repos\Xlettler\Model\Model\obj\Release\Model.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\source\repos\Xlettler\Model\Model\obj\Release\Model.dll
+C:\Users\Administrator\source\repos\Xlettler\Model\Model\obj\Release\Model.pdb
+C:\Users\Administrator\source\repos\Xlettler\Model\Model\bin\Release\Model.dll.config
+C:\Users\Administrator\source\repos\Xlettler\Model\Model\bin\Release\EntityFramework.dll
+C:\Users\Administrator\source\repos\Xlettler\Model\Model\bin\Release\Newtonsoft.Json.dll
+C:\Users\Administrator\source\repos\Xlettler\Model\Model\bin\Release\EntityFramework.xml
+C:\Users\Administrator\source\repos\Xlettler\Model\Model\bin\Release\Newtonsoft.Json.pdb
+C:\Users\Administrator\source\repos\Xlettler\Model\Model\bin\Release\Newtonsoft.Json.xml
+C:\Users\Administrator\source\repos\Xlettler\Model\Model\bin\Release\zh-Hans\EntityFramework.resources.dll
+C:\Users\Administrator\source\repos\Xlettler\Model\Model\obj\Release\Model.csproj.CopyComplete
+C:\Users\Administrator\source\repos\Xlettler\Model\Model\obj\Release\Model.csprojAssemblyReference.cache

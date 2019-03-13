@@ -1,0 +1,358 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="SESENT_USERS" EntityType="Model.Store.SESENT_USERS" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SESENT_Order" EntityType="Model.Store.SESENT_Order" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SESENT_PhoneXCodes" EntityType="Model.Store.SESENT_PhoneXCodes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SESENT_Channels" EntityType="Model.Store.SESENT_Channels" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SESENT_MessageText" EntityType="Model.Store.SESENT_MessageText" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SESENT_MessageObj" EntityType="Model.Store.SESENT_MessageObj" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SESENT_Settings" EntityType="Model.Store.SESENT_Settings" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="SESENT_USERS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="userName" Type="nvarchar(max)" Nullable="false" DefaultValue="迷彩玩家" />
+    <Property Name="userPwd" Type="nvarchar(max)" Nullable="false" DefaultValue="123456" />
+    <Property Name="Phone" Type="nvarchar" Nullable="false" MaxLength="11" />
+    <Property Name="UseAmount" Type="decimal" Nullable="false" DefaultValue="0" />
+    <Property Name="userType" Type="smallint" Nullable="false" DefaultValue="0" />
+    <Property Name="userPayPwd" Type="nvarchar(max)" Nullable="false" DefaultValue="654321" />
+    <Property Name="SuperiorAgent" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AgentMoney" Type="decimal" Nullable="false" DefaultValue="0" />
+    <Property Name="AccountID" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Lv" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SESENT_Order">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="OrderID" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="OrderType" Type="smallint" Nullable="false" />
+    <Property Name="AccountID" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="InputMoney" Type="decimal" Nullable="false" />
+    <Property Name="OutMoney" Type="decimal" Nullable="false" />
+    <Property Name="Status" Type="smallint" Nullable="false" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SESENT_PhoneXCodes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="Life" Type="smallint" Nullable="false" />
+    <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Type" Type="smallint" Nullable="false" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SESENT_Channels">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ChannelID" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="ChannelName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Status" Type="smallint" Nullable="false" DefaultValue="0" />
+    <Property Name="LimitMin" Type="int" Nullable="false" DefaultValue="0" />
+    <Property Name="LimitMax" Type="int" Nullable="false" DefaultValue="99999" />
+    <Property Name="ChannelType" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SESENT_MessageText">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SendID" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreateDateTime" Type="datetime" Nullable="false" />
+    <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Type" Type="smallint" Nullable="false" />
+    <Property Name="Recld" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Gift" Type="decimal" Nullable="false" />
+    <Property Name="HasGift" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SESENT_MessageObj">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RecId" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ReciveDateTime" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="smallint" Nullable="false" />
+    <Property Name="MessageID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SESENT_Settings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="image" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Status" Type="smallint" Nullable="false" />
+    <Property Name="Type" Type="smallint" Nullable="false" />
+    <Property Name="Width" Type="smallint" Nullable="false" />
+    <Property Name="Height" Type="smallint" Nullable="false" />
+  </EntityType>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="ModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="SESENT_USERS" EntityType="Model.SESENT_USERS" />
+          <EntitySet Name="SESENT_Order" EntityType="Model.SESENT_Order" />
+          <EntitySet Name="SESENT_PhoneXCodes" EntityType="Model.SESENT_PhoneXCodes" />
+          <EntitySet Name="SESENT_Channels" EntityType="Model.SESENT_Channels" />
+          <EntitySet Name="SESENT_MessageText" EntityType="Model.SESENT_MessageText" />
+          <EntitySet Name="SESENT_MessageObj" EntityType="Model.SESENT_MessageObj" />
+          <EntitySet Name="SESENT_Settings" EntityType="Model.SESENT_Settings" />
+        </EntityContainer>
+        <EntityType Name="SESENT_USERS">
+          <Documentation>
+            <LongDescription>用户表</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="userName" Type="String" Nullable="false" DefaultValue="迷彩玩家" >
+            <Documentation>
+              <LongDescription>账号</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="userPwd" Type="String" Nullable="false" DefaultValue="123456" >
+            <Documentation>
+              <LongDescription>登陆密码</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="Phone" Type="String" Nullable="false" ConcurrencyMode="None" FixedLength="false" MaxLength="11" >
+            <Documentation>
+              <LongDescription>用户手机号</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="UseAmount" Type="Decimal" Nullable="false" DefaultValue="0" >
+            <Documentation>
+              <LongDescription>用户可用金额</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="userType" Type="Int16" Nullable="false" DefaultValue="0" >
+            <Documentation>
+              <LongDescription>用户类型</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="userPayPwd" Type="String" Nullable="false" DefaultValue="654321" >
+            <Documentation>
+              <LongDescription>支付密码</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="SuperiorAgent" Type="String" Nullable="false" >
+            <Documentation>
+              <LongDescription>上级代理编号</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="AgentMoney" Type="Decimal" Nullable="false" DefaultValue="0" >
+            <Documentation>
+              <LongDescription>代理返点金额</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="AccountID" Type="String" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Lv" Type="Int16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SESENT_Order">
+          <Documentation>
+            <LongDescription>订单表</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="OrderID" Type="String" Nullable="false" />
+          <Property Name="OrderType" Type="Int16" Nullable="false" />
+          <Property Name="AccountID" Type="String" Nullable="false" />
+          <Property Name="InputMoney" Type="Decimal" Nullable="false" />
+          <Property Name="OutMoney" Type="Decimal" Nullable="false" />
+          <Property Name="Status" Type="Int16" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" ConcurrencyMode="None" />
+          <Property Name="OrderTime" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SESENT_PhoneXCodes">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="Life" Type="Int16" Nullable="false" />
+          <Property Name="Content" Type="String" Nullable="false" />
+          <Property Name="Type" Type="Int16" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="SESENT_Channels">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ChannelID" Type="String" Nullable="false" MaxLength="100" />
+          <Property Name="ChannelName" Type="String" Nullable="false" MaxLength="50" />
+          <Property Name="Status" Type="Int16" Nullable="false" DefaultValue="0" />
+          <Property Name="LimitMin" Type="Int32" Nullable="false" DefaultValue="0" />
+          <Property Name="LimitMax" Type="Int32" Nullable="false" DefaultValue="99999" />
+          <Property Name="ChannelType" Type="Int16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SESENT_MessageText">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SendID" Type="String" Nullable="false" />
+          <Property Name="CreateDateTime" Type="DateTime" Nullable="false" />
+          <Property Name="Content" Type="String" Nullable="false" />
+          <Property Name="Title" Type="String" Nullable="false" />
+          <Property Name="Type" Type="Int16" Nullable="false" />
+          <Property Name="Recld" Type="String" Nullable="false" />
+          <Property Name="Gift" Type="Decimal" Nullable="false" />
+          <Property Name="HasGift" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SESENT_MessageObj">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RecId" Type="String" Nullable="false" />
+          <Property Name="ReciveDateTime" Type="DateTime" Nullable="false" />
+          <Property Name="Status" Type="Int16" Nullable="false" />
+          <Property Name="MessageID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SESENT_Settings">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="image" Type="String" Nullable="false" MaxLength="Max" />
+          <Property Name="Status" Type="Int16" Nullable="false" />
+          <Property Name="Type" Type="Int16" Nullable="false" />
+          <Property Name="Width" Type="Int16" Nullable="false" />
+          <Property Name="Height" Type="Int16" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="ModelContainer">
+    <EntitySetMapping Name="SESENT_USERS">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.SESENT_USERS)">
+        <MappingFragment StoreEntitySet="SESENT_USERS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="userPwd" ColumnName="userPwd" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="UseAmount" ColumnName="UseAmount" />
+          <ScalarProperty Name="userType" ColumnName="userType" />
+          <ScalarProperty Name="userPayPwd" ColumnName="userPayPwd" />
+          <ScalarProperty Name="SuperiorAgent" ColumnName="SuperiorAgent" />
+          <ScalarProperty Name="AgentMoney" ColumnName="AgentMoney" />
+          <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+          <ScalarProperty Name="Lv" ColumnName="Lv" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SESENT_Order">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.SESENT_Order)">
+        <MappingFragment StoreEntitySet="SESENT_Order">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="OrderType" ColumnName="OrderType" />
+          <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+          <ScalarProperty Name="InputMoney" ColumnName="InputMoney" />
+          <ScalarProperty Name="OutMoney" ColumnName="OutMoney" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="OrderTime" ColumnName="OrderTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SESENT_PhoneXCodes">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.SESENT_PhoneXCodes)">
+        <MappingFragment StoreEntitySet="SESENT_PhoneXCodes">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Life" ColumnName="Life" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SESENT_Channels">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.SESENT_Channels)">
+        <MappingFragment StoreEntitySet="SESENT_Channels">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ChannelID" ColumnName="ChannelID" />
+          <ScalarProperty Name="ChannelName" ColumnName="ChannelName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="LimitMin" ColumnName="LimitMin" />
+          <ScalarProperty Name="LimitMax" ColumnName="LimitMax" />
+          <ScalarProperty Name="ChannelType" ColumnName="ChannelType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SESENT_MessageText">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.SESENT_MessageText)">
+        <MappingFragment StoreEntitySet="SESENT_MessageText">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SendID" ColumnName="SendID" />
+          <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Recld" ColumnName="Recld" />
+          <ScalarProperty Name="Gift" ColumnName="Gift" />
+          <ScalarProperty Name="HasGift" ColumnName="HasGift" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SESENT_MessageObj">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.SESENT_MessageObj)">
+        <MappingFragment StoreEntitySet="SESENT_MessageObj">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RecId" ColumnName="RecId" />
+          <ScalarProperty Name="ReciveDateTime" ColumnName="ReciveDateTime" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="MessageID" ColumnName="MessageID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SESENT_Settings">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.SESENT_Settings)">
+        <MappingFragment StoreEntitySet="SESENT_Settings">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Width" ColumnName="Width" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

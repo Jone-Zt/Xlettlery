@@ -1,0 +1,15 @@
+C:\Users\Administrator\source\repos\Xlettler\XlettlerInterFace\ServicesInterface\bin\Release\ServicesInterface.dll
+C:\Users\Administrator\source\repos\Xlettler\XlettlerInterFace\ServicesInterface\bin\Release\ServicesInterface.pdb
+C:\Users\Administrator\source\repos\Xlettler\XlettlerInterFace\ServicesInterface\obj\Release\ServicesInterface.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\source\repos\Xlettler\XlettlerInterFace\ServicesInterface\obj\Release\ServicesInterface.dll
+C:\Users\Administrator\source\repos\Xlettler\XlettlerInterFace\ServicesInterface\obj\Release\ServicesInterface.pdb
+C:\Users\Administrator\source\repos\Xlettler\XlettlerInterFace\ServicesInterface\bin\Release\PublicDefined.dll
+C:\Users\Administrator\source\repos\Xlettler\XlettlerInterFace\ServicesInterface\bin\Release\PublicDefined.pdb
+C:\Users\Administrator\source\repos\Xlettler\XlettlerInterFace\ServicesInterface\obj\Release\ServicesInterface.csproj.CopyComplete
+C:\Users\Administrator\source\repos\Xlettler\XlettlerInterFace\ServicesInterface\bin\Release\Model.dll
+C:\Users\Administrator\source\repos\Xlettler\XlettlerInterFace\ServicesInterface\bin\Release\EntityFramework.dll
+C:\Users\Administrator\source\repos\Xlettler\XlettlerInterFace\ServicesInterface\bin\Release\Model.pdb
+C:\Users\Administrator\source\repos\Xlettler\XlettlerInterFace\ServicesInterface\bin\Release\Model.dll.config
+C:\Users\Administrator\source\repos\Xlettler\XlettlerInterFace\ServicesInterface\bin\Release\EntityFramework.xml
+C:\Users\Administrator\source\repos\Xlettler\XlettlerInterFace\ServicesInterface\bin\Release\zh-Hans\EntityFramework.resources.dll
+C:\Users\Administrator\source\repos\Xlettler\XlettlerInterFace\ServicesInterface\obj\Release\ServicesInterface.csprojAssemblyReference.cache

@@ -1,0 +1,18 @@
+﻿using Model;
+using PublicDefined;
+using System;
+using System.Collections.Generic;
+using System.ServiceModel;
+
+namespace ServicesInterface
+{
+    [ServiceContract]
+    public interface IPayInterface
+    {
+        [OperationContract]
+        IList<SESENT_Channels> QueryChannels();
+        [OperationContract]
+        bool MakeOrder(decimal amount,string accountID,out string payUrl,out string errMsg);
+        IList<SESENT_Order> QueryOrder(string accountID,DateTime OrderTime,int pageIndex,int pageSize,out string errMsg);
+    }
+}

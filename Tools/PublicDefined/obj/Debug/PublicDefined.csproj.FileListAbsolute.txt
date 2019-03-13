@@ -1,0 +1,5 @@
+C:\Users\Administrator\source\repos\Xlettler\Tools\PublicDefined\bin\Debug\PublicDefined.dll
+C:\Users\Administrator\source\repos\Xlettler\Tools\PublicDefined\bin\Debug\PublicDefined.pdb
+C:\Users\Administrator\source\repos\Xlettler\Tools\PublicDefined\obj\Debug\PublicDefined.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\source\repos\Xlettler\Tools\PublicDefined\obj\Debug\PublicDefined.dll
+C:\Users\Administrator\source\repos\Xlettler\Tools\PublicDefined\obj\Debug\PublicDefined.pdb

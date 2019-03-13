@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="ModelContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="SESENT_USERS" EntityType="Model.SESENT_USERS" />
+    <EntitySet Name="SESENT_Order" EntityType="Model.SESENT_Order" />
+    <EntitySet Name="SESENT_PhoneXCodes" EntityType="Model.SESENT_PhoneXCodes" />
+    <EntitySet Name="SESENT_Channels" EntityType="Model.SESENT_Channels" />
+    <EntitySet Name="SESENT_MessageText" EntityType="Model.SESENT_MessageText" />
+    <EntitySet Name="SESENT_MessageObj" EntityType="Model.SESENT_MessageObj" />
+    <EntitySet Name="SESENT_Settings" EntityType="Model.SESENT_Settings" />
+  </EntityContainer>
+  <EntityType Name="SESENT_USERS">
+    <Documentation>
+      <LongDescription>用户表</LongDescription>
+    </Documentation>
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="userName" Type="String" Nullable="false" DefaultValue="迷彩玩家">
+      <Documentation>
+        <LongDescription>账号</LongDescription>
+      </Documentation>
+    </Property>
+    <Property Name="userPwd" Type="String" Nullable="false" DefaultValue="123456">
+      <Documentation>
+        <LongDescription>登陆密码</LongDescription>
+      </Documentation>
+    </Property>
+    <Property Name="Phone" Type="String" Nullable="false" ConcurrencyMode="None" FixedLength="false" MaxLength="11">
+      <Documentation>
+        <LongDescription>用户手机号</LongDescription>
+      </Documentation>
+    </Property>
+    <Property Name="UseAmount" Type="Decimal" Nullable="false" DefaultValue="0">
+      <Documentation>
+        <LongDescription>用户可用金额</LongDescription>
+      </Documentation>
+    </Property>
+    <Property Name="userType" Type="Int16" Nullable="false" DefaultValue="0">
+      <Documentation>
+        <LongDescription>用户类型</LongDescription>
+      </Documentation>
+    </Property>
+    <Property Name="userPayPwd" Type="String" Nullable="false" DefaultValue="654321">
+      <Documentation>
+        <LongDescription>支付密码</LongDescription>
+      </Documentation>
+    </Property>
+    <Property Name="SuperiorAgent" Type="String" Nullable="false">
+      <Documentation>
+        <LongDescription>上级代理编号</LongDescription>
+      </Documentation>
+    </Property>
+    <Property Name="AgentMoney" Type="Decimal" Nullable="false" DefaultValue="0">
+      <Documentation>
+        <LongDescription>代理返点金额</LongDescription>
+      </Documentation>
+    </Property>
+    <Property Name="AccountID" Type="String" Nullable="false" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Lv" Type="Int16" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SESENT_Order">
+    <Documentation>
+      <LongDescription>订单表</LongDescription>
+    </Documentation>
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="OrderID" Type="String" Nullable="false" />
+    <Property Name="OrderType" Type="Int16" Nullable="false" />
+    <Property Name="AccountID" Type="String" Nullable="false" />
+    <Property Name="InputMoney" Type="Decimal" Nullable="false" />
+    <Property Name="OutMoney" Type="Decimal" Nullable="false" />
+    <Property Name="Status" Type="Int16" Nullable="false" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" ConcurrencyMode="None" />
+    <Property Name="OrderTime" Type="DateTime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SESENT_PhoneXCodes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="Life" Type="Int16" Nullable="false" />
+    <Property Name="Content" Type="String" Nullable="false" />
+    <Property Name="Type" Type="Int16" Nullable="false" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="SESENT_Channels">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ChannelID" Type="String" Nullable="false" MaxLength="100" />
+    <Property Name="ChannelName" Type="String" Nullable="false" MaxLength="50" />
+    <Property Name="Status" Type="Int16" Nullable="false" DefaultValue="0" />
+    <Property Name="LimitMin" Type="Int32" Nullable="false" DefaultValue="0" />
+    <Property Name="LimitMax" Type="Int32" Nullable="false" DefaultValue="99999" />
+    <Property Name="ChannelType" Type="Int16" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SESENT_MessageText">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SendID" Type="String" Nullable="false" />
+    <Property Name="CreateDateTime" Type="DateTime" Nullable="false" />
+    <Property Name="Content" Type="String" Nullable="false" />
+    <Property Name="Title" Type="String" Nullable="false" />
+    <Property Name="Type" Type="Int16" Nullable="false" />
+    <Property Name="Recld" Type="String" Nullable="false" />
+    <Property Name="Gift" Type="Decimal" Nullable="false" />
+    <Property Name="HasGift" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SESENT_MessageObj">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RecId" Type="String" Nullable="false" />
+    <Property Name="ReciveDateTime" Type="DateTime" Nullable="false" />
+    <Property Name="Status" Type="Int16" Nullable="false" />
+    <Property Name="MessageID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SESENT_Settings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="image" Type="String" Nullable="false" MaxLength="Max" />
+    <Property Name="Status" Type="Int16" Nullable="false" />
+    <Property Name="Type" Type="Int16" Nullable="false" />
+    <Property Name="Width" Type="Int16" Nullable="false" />
+    <Property Name="Height" Type="Int16" Nullable="false" />
+  </EntityType>
+</Schema>

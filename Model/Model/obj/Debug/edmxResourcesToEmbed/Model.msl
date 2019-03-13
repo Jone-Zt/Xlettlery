@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="ModelContainer">
+    <EntitySetMapping Name="SESENT_USERS">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.SESENT_USERS)">
+        <MappingFragment StoreEntitySet="SESENT_USERS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="userPwd" ColumnName="userPwd" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="UseAmount" ColumnName="UseAmount" />
+          <ScalarProperty Name="userType" ColumnName="userType" />
+          <ScalarProperty Name="userPayPwd" ColumnName="userPayPwd" />
+          <ScalarProperty Name="SuperiorAgent" ColumnName="SuperiorAgent" />
+          <ScalarProperty Name="AgentMoney" ColumnName="AgentMoney" />
+          <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+          <ScalarProperty Name="Lv" ColumnName="Lv" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SESENT_Order">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.SESENT_Order)">
+        <MappingFragment StoreEntitySet="SESENT_Order">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="OrderType" ColumnName="OrderType" />
+          <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+          <ScalarProperty Name="InputMoney" ColumnName="InputMoney" />
+          <ScalarProperty Name="OutMoney" ColumnName="OutMoney" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="OrderTime" ColumnName="OrderTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SESENT_PhoneXCodes">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.SESENT_PhoneXCodes)">
+        <MappingFragment StoreEntitySet="SESENT_PhoneXCodes">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Life" ColumnName="Life" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SESENT_Channels">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.SESENT_Channels)">
+        <MappingFragment StoreEntitySet="SESENT_Channels">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ChannelID" ColumnName="ChannelID" />
+          <ScalarProperty Name="ChannelName" ColumnName="ChannelName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="LimitMin" ColumnName="LimitMin" />
+          <ScalarProperty Name="LimitMax" ColumnName="LimitMax" />
+          <ScalarProperty Name="ChannelType" ColumnName="ChannelType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SESENT_MessageText">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.SESENT_MessageText)">
+        <MappingFragment StoreEntitySet="SESENT_MessageText">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SendID" ColumnName="SendID" />
+          <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Recld" ColumnName="Recld" />
+          <ScalarProperty Name="Gift" ColumnName="Gift" />
+          <ScalarProperty Name="HasGift" ColumnName="HasGift" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SESENT_MessageObj">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.SESENT_MessageObj)">
+        <MappingFragment StoreEntitySet="SESENT_MessageObj">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RecId" ColumnName="RecId" />
+          <ScalarProperty Name="ReciveDateTime" ColumnName="ReciveDateTime" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="MessageID" ColumnName="MessageID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SESENT_Settings">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.SESENT_Settings)">
+        <MappingFragment StoreEntitySet="SESENT_Settings">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Width" ColumnName="Width" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
