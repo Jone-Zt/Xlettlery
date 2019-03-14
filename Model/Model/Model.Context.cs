@@ -33,5 +33,6 @@ namespace Model
         public DbSet<SESENT_MessageObj> SESENT_MessageObj { get; set; }
         public DbSet<SESENT_Settings> SESENT_Settings { get; set; }
         public DbSet<SESENT_ChannelProtocol> SESENT_ChannelProtocol { get; set; }
+        public DbSet<SESENT_AdminManger> SESENT_AdminManger { get; set; }
     }
 }

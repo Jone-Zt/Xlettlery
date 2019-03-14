@@ -9,6 +9,7 @@
     <EntitySet Name="SESENT_MessageObj" EntityType="Model.Store.SESENT_MessageObj" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="SESENT_Settings" EntityType="Model.Store.SESENT_Settings" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="SESENT_ChannelProtocol" EntityType="Model.Store.SESENT_ChannelProtocol" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SESENT_AdminManger" EntityType="Model.Store.SESENT_AdminManger" store:Type="Tables" Schema="dbo" />
   </EntityContainer>
   <EntityType Name="SESENT_USERS">
     <Key>
@@ -26,7 +27,7 @@
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Lv" Type="smallint" Nullable="false" />
     <Property Name="Recharge" Type="decimal" Nullable="false" />
-    <Property Name="Consumption" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Consumption" Type="decimal" Nullable="false" />
   </EntityType>
   <EntityType Name="SESENT_Order">
     <Key>
@@ -109,5 +110,15 @@
     <Property Name="ConfigFile" Type="varbinary(max)" Nullable="false" />
     <Property Name="Status" Type="smallint" Nullable="false" />
     <Property Name="EntriTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SESENT_AdminManger">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userName" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="userPwd" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="LoginLastTime" Type="datetime" Nullable="false" />
+    <Property Name="IP" Type="nvarchar" Nullable="false" MaxLength="20" />
   </EntityType>
 </Schema>

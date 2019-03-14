@@ -68,6 +68,9 @@
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SESENT_AdminManger.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="SESENT_ChannelProtocol.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

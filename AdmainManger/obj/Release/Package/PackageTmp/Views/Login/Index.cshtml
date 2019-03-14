@@ -1,0 +1,84 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="#" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>迷彩科技.McSport</title>
+    <link rel="icon" href="/favicon.ico">
+    <link href="~/Content/main.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+</head>
+<body>
+    <div id="bg">
+        <div id="hint">
+            <p>登录失败</p>
+        </div>
+        <div id="login_wrap">
+            <div id="login">
+                <div id="status">
+                    <i style="top: 0">登</i>
+                    <i style="right: 5px">录</i>
+                </div>
+                <span>
+                    @using (Ajax.BeginForm("Login", ajaxOptions: new AjaxOptions() { HttpMethod = "POST" }))
+                    {
+                    <p class="form"><input type="text" id="user" name="userName" placeholder="账号"></p>
+                    <p class="form"><input type="password" id="passwd" name="userPwd" placeholder="密码"></p>
+                    <input type="submit" value="登录" class="btn" style="margin-right: 20px;">
+                    }
+                    <a href="#">忘记密码?</a>
+                </span>
+            </div>
+
+            <div id="login_img">
+                <span class="circle">
+                    <span></span>
+                    <span></span>
+                </span>
+                <span class="star">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+                <span class="fly_star">
+                    <span></span>
+                    <span></span>
+                </span>
+                <p id="title">迷彩科技</p>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    var onoff = true
+    var confirm = document.getElementsByClassName("confirm")[0]
+    var name_c = document.getElementById("title")
+    name = name_c.innerHTML.split("")
+    name_c.innerHTML = ""
+    for (i = 0; i < name.length; i++)
+        if (name[i] != ",")
+            name_c.innerHTML += "<i>" + name[i] + "</i>"
+    function hint() {
+        let hit = document.getElementById("hint")
+        hit.style.display = "block"
+        setTimeout("hit.style.opacity = 1", 0)
+        setTimeout("hit.style.opacity = 0", 2000)
+        setTimeout('hit.style.display = "none"', 3000)
+    }
+</script>
+迷彩科技:<a href="#" target="_blank">MC.Sports</a>
+</html>

@@ -12,7 +12,8 @@ namespace Tools
         {
             StringBuilder builder = new StringBuilder();
             builder.Append("<script>");
-            builder.Append("alert('"+ msg + "')");
+            builder.Append("alert('"+ msg + "');");
+            builder.Append("history.go(-1)");
             builder.Append("</script>");
             return builder.ToString();
         }

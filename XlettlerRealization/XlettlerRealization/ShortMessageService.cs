@@ -9,7 +9,7 @@ namespace XlettlerRealization
 {
     public class ShortMessageService : IShortMessageInterface
     {
-        public bool QueryInbox(string AccountID, out IList<object> result, out string errMsg)
+        public bool QueryInbox(string AccountID, out IList<Dictionary<string,string>> result, out string errMsg)
         {
             result = null;
             errMsg = string.Empty;
@@ -17,7 +17,7 @@ namespace XlettlerRealization
             {
                 using (ModelContainer container=new ModelContainer())
                 {
-                   result = new List<object>();
+                   result = new List<Dictionary<string, string>>();
                    IQueryable<SESENT_MessageText> texts=container.SESENT_MessageText.Where(a => a.Type == (short)MessageObjType.All||(a.Type==(short)MessageObjType.Singler&&a.Recld==AccountID));
                     var item = texts.GetEnumerator();
                     while (item.MoveNext())
@@ -45,16 +45,6 @@ namespace XlettlerRealization
                 LogTool.LogWriter.WriteError($"查询收件箱 【账号：{AccountID}】",err);
                 return false;
             }
-        }
-
-        public bool QueryOutBox(string AccountID)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool SendBox()
-        {
-            throw new NotImplementedException();
         }
     }
 }

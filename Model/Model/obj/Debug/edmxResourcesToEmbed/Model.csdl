@@ -9,6 +9,7 @@
     <EntitySet Name="SESENT_MessageObj" EntityType="Model.SESENT_MessageObj" />
     <EntitySet Name="SESENT_Settings" EntityType="Model.SESENT_Settings" />
     <EntitySet Name="SESENT_ChannelProtocol" EntityType="Model.SESENT_ChannelProtocol" />
+    <EntitySet Name="SESENT_AdminManger" EntityType="Model.SESENT_AdminManger" />
   </EntityContainer>
   <EntityType Name="SESENT_USERS">
     <Documentation>
@@ -147,5 +148,15 @@
     <Property Name="ConfigFile" Type="Binary" Nullable="false" />
     <Property Name="Status" Type="Int16" Nullable="false" />
     <Property Name="EntriTime" Type="DateTime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SESENT_AdminManger">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userName" Type="String" Nullable="false" MaxLength="100" />
+    <Property Name="userPwd" Type="String" Nullable="false" MaxLength="100" />
+    <Property Name="LoginLastTime" Type="DateTime" Nullable="false" />
+    <Property Name="IP" Type="String" Nullable="false" MaxLength="20" />
   </EntityType>
 </Schema>

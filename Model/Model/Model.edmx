@@ -14,6 +14,7 @@
     <EntitySet Name="SESENT_MessageObj" EntityType="Model.Store.SESENT_MessageObj" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="SESENT_Settings" EntityType="Model.Store.SESENT_Settings" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="SESENT_ChannelProtocol" EntityType="Model.Store.SESENT_ChannelProtocol" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SESENT_AdminManger" EntityType="Model.Store.SESENT_AdminManger" store:Type="Tables" Schema="dbo" />
   </EntityContainer>
   <EntityType Name="SESENT_USERS">
     <Key>
@@ -115,6 +116,16 @@
     <Property Name="Status" Type="smallint" Nullable="false" />
     <Property Name="EntriTime" Type="datetime" Nullable="false" />
   </EntityType>
+  <EntityType Name="SESENT_AdminManger">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userName" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="userPwd" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="LoginLastTime" Type="datetime" Nullable="false" />
+    <Property Name="IP" Type="nvarchar" Nullable="false" MaxLength="20" />
+  </EntityType>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -128,6 +139,7 @@
           <EntitySet Name="SESENT_MessageObj" EntityType="Model.SESENT_MessageObj" />
           <EntitySet Name="SESENT_Settings" EntityType="Model.SESENT_Settings" />
           <EntitySet Name="SESENT_ChannelProtocol" EntityType="Model.SESENT_ChannelProtocol" />
+          <EntitySet Name="SESENT_AdminManger" EntityType="Model.SESENT_AdminManger" />
         </EntityContainer>
         <EntityType Name="SESENT_USERS">
           <Documentation>
@@ -267,6 +279,16 @@
           <Property Name="Status" Type="Int16" Nullable="false" />
           <Property Name="EntriTime" Type="DateTime" Nullable="false" />
         </EntityType>
+        <EntityType Name="SESENT_AdminManger">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userName" Type="String" Nullable="false" MaxLength="100" />
+          <Property Name="userPwd" Type="String" Nullable="false" MaxLength="100" />
+          <Property Name="LoginLastTime" Type="DateTime" Nullable="false" />
+          <Property Name="IP" Type="String" Nullable="false" MaxLength="20" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -378,6 +400,17 @@
           <ScalarProperty Name="ConfigFile" ColumnName="ConfigFile" />
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="EntriTime" ColumnName="EntriTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SESENT_AdminManger">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.SESENT_AdminManger)">
+        <MappingFragment StoreEntitySet="SESENT_AdminManger">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="userPwd" ColumnName="userPwd" />
+          <ScalarProperty Name="LoginLastTime" ColumnName="LoginLastTime" />
+          <ScalarProperty Name="IP" ColumnName="IP" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

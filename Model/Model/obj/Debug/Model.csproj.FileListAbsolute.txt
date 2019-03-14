@@ -25,3 +25,4 @@ E:\Xlettlery\Xlettlery\Model\Model\obj\Debug\Model.csproj.CoreCompileInputs.cach
 E:\Xlettlery\Xlettlery\Model\Model\obj\Debug\Model.csproj.CopyComplete
 E:\Xlettlery\Xlettlery\Model\Model\obj\Debug\Model.dll
 E:\Xlettlery\Xlettlery\Model\Model\obj\Debug\Model.pdb
+E:\Xlettlery\Xlettlery\Model\Model\obj\Debug\Model.csprojAssemblyReference.cache

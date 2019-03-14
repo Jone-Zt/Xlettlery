@@ -1,0 +1,5 @@
+E:\Xlettlery\Xlettlery\SecurityTools\bin\Release\SecurityTools.dll
+E:\Xlettlery\Xlettlery\SecurityTools\bin\Release\SecurityTools.pdb
+E:\Xlettlery\Xlettlery\SecurityTools\obj\Release\SecurityTools.csproj.CoreCompileInputs.cache
+E:\Xlettlery\Xlettlery\SecurityTools\obj\Release\SecurityTools.dll
+E:\Xlettlery\Xlettlery\SecurityTools\obj\Release\SecurityTools.pdb

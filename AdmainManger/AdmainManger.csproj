@@ -45,6 +45,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\Lib\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\Lib\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -127,22 +133,84 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Filter\CheckLoginAttribute.cs" />
+    <Compile Include="Filter\SkipCheckLoginAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="component\font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="component\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="component\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="component\layer-v3.0.3\layer\layer.full.js" />
+    <Content Include="component\layer-v3.0.3\layer\layer.js" />
+    <Content Include="component\layer-v3.0.3\layer\mobile\layer.js" />
+    <Content Include="component\layer-v3.0.3\layer\mobile\need\layer.css" />
+    <Content Include="component\layer-v3.0.3\layer\skin\default\icon-ext.png" />
+    <Content Include="component\layer-v3.0.3\layer\skin\default\icon.png" />
+    <Content Include="component\layer-v3.0.3\layer\skin\default\layer.css" />
+    <Content Include="component\layer-v3.0.3\layer\skin\default\loading-0.gif" />
+    <Content Include="component\layer-v3.0.3\layer\skin\default\loading-1.gif" />
+    <Content Include="component\layer-v3.0.3\layer\skin\default\loading-2.gif" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\main.css" />
+    <Content Include="css\animate.css" />
+    <Content Include="css\default.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\1.png" />
+    <Content Include="images\blogger.png" />
+    <Content Include="images\doc.png" />
+    <Content Include="images\download.png" />
+    <Content Include="images\github.png" />
+    <Content Include="images\login.jpg" />
+    <Content Include="images\main.jpg" />
+    <Content Include="images\mobile.jpg" />
+    <Content Include="images\win10.png" />
+    <Content Include="img\avatar.jpg" />
+    <Content Include="img\icon\baidu.png" />
+    <Content Include="img\icon\blogger.png" />
+    <Content Include="img\icon\demo.png" />
+    <Content Include="img\icon\doc.png" />
+    <Content Include="img\icon\download.png" />
+    <Content Include="img\icon\github.png" />
+    <Content Include="img\icon\kyzg.png" />
+    <Content Include="img\icon\website.png" />
+    <Content Include="img\icon\win10.png" />
+    <Content Include="img\presentation\1.png" />
+    <Content Include="img\presentation\bluescreen.jpg" />
+    <Content Include="img\presentation\donation.jpg" />
+    <Content Include="img\presentation\wangyiyun.gif" />
+    <Content Include="img\wallpapers\login.jpg" />
+    <Content Include="img\wallpapers\main.jpg" />
+    <Content Include="img\wallpapers\mobile.jpg" />
+    <Content Include="img\windows.ico" />
+    <Content Include="js\jquery-2.2.4.min.js" />
+    <Content Include="js\win10.child.js" />
+    <Content Include="js\win10.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="fonts\NEOTERICc.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="component\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="component\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="component\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="component\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="component\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -153,6 +221,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\layer.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -166,6 +235,11 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Home\OrderManger.cshtml" />
+    <Content Include="Views\Home\Console.cshtml" />
+    <Content Include="Views\Home\ChannelManger.cshtml" />
+    <Content Include="Views\Home\Setting.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -183,6 +257,20 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Model\Model\Model.csproj">
+      <Project>{b088d9a8-712e-437b-a8a8-426081bcaada}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SecurityTools\SecurityTools.csproj">
+      <Project>{440F362E-5B45-41F3-930A-302370C4795C}</Project>
+      <Name>SecurityTools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tools\Tools\Tools.csproj">
+      <Project>{C6F1BF87-A866-47B2-8BA7-DD5DD43820F4}</Project>
+      <Name>Tools</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

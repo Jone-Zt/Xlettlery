@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 03/14/2019 13:15:37
+-- Date Created: 03/14/2019 14:28:59
 -- Generated from EDMX file: E:\Xlettlery\Xlettlery\Model\Model\Model.edmx
 -- --------------------------------------------------
 
@@ -149,6 +149,16 @@ CREATE TABLE [dbo].[SESENT_ChannelProtocol] (
 );
 GO
 
+-- Creating table 'SESENT_AdminManger'
+CREATE TABLE [dbo].[SESENT_AdminManger] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [userName] nvarchar(100)  NOT NULL,
+    [userPwd] nvarchar(100)  NOT NULL,
+    [LoginLastTime] datetime  NOT NULL,
+    [IP] nvarchar(20)  NOT NULL
+);
+GO
+
 -- --------------------------------------------------
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
@@ -198,6 +208,12 @@ GO
 -- Creating primary key on [Id] in table 'SESENT_ChannelProtocol'
 ALTER TABLE [dbo].[SESENT_ChannelProtocol]
 ADD CONSTRAINT [PK_SESENT_ChannelProtocol]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'SESENT_AdminManger'
+ALTER TABLE [dbo].[SESENT_AdminManger]
+ADD CONSTRAINT [PK_SESENT_AdminManger]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 

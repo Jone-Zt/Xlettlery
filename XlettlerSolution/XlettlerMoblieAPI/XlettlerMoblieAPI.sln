@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RuleUtility", "..\..\Tools\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdmainManger", "..\..\AdmainManger\AdmainManger.csproj", "{ADAC69B0-ABCB-4E66-A31C-CF5A1AF6E457}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecurityTools", "..\..\SecurityTools\SecurityTools.csproj", "{440F362E-5B45-41F3-930A-302370C4795C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{ADAC69B0-ABCB-4E66-A31C-CF5A1AF6E457}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADAC69B0-ABCB-4E66-A31C-CF5A1AF6E457}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ADAC69B0-ABCB-4E66-A31C-CF5A1AF6E457}.Release|Any CPU.Build.0 = Release|Any CPU
+		{440F362E-5B45-41F3-930A-302370C4795C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{440F362E-5B45-41F3-930A-302370C4795C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{440F362E-5B45-41F3-930A-302370C4795C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{440F362E-5B45-41F3-930A-302370C4795C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

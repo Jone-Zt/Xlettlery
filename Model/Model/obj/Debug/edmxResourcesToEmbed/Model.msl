@@ -109,5 +109,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="SESENT_AdminManger">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.SESENT_AdminManger)">
+        <MappingFragment StoreEntitySet="SESENT_AdminManger">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="userPwd" ColumnName="userPwd" />
+          <ScalarProperty Name="LoginLastTime" ColumnName="LoginLastTime" />
+          <ScalarProperty Name="IP" ColumnName="IP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

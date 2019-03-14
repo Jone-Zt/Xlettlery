@@ -22,7 +22,7 @@ namespace MobileAPI.Controllers
         }
         public ActionResult QueryInbox()
         {
-            ResponsePicker<object> picker = new ResponsePicker<object>();
+            ResponsePicker<Dictionary<string, string>> picker = new ResponsePicker<Dictionary<string, string>>();
             try
             {
                 string flowid = RequestCheck.CheckStringValue(Request, "flowID", "流水号", false);
@@ -31,7 +31,7 @@ namespace MobileAPI.Controllers
                 IShortMessageInterface user = GetManger();
                 if (user == null)
                     throw new Exception("未挂载函数!");
-                if (user.QueryInbox(accountID, out IList<object> result, out string errMsg))
+                if (user.QueryInbox(accountID, out IList<Dictionary<string, string>> result, out string errMsg))
                     picker.List = result;
                 else
                     picker.FailInfo = errMsg;
