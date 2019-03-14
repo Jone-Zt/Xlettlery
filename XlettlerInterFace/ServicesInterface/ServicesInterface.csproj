@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IChannelNotify.cs" />
     <Compile Include="IPayInterface.cs" />
     <Compile Include="ISettingInterface.cs" />
     <Compile Include="IShortMessageInterface.cs" />
