@@ -101,6 +101,10 @@
     <Content Include="Log4netConfigFile.xml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\ChannelManagement\ChannelManagement.csproj">
+      <Project>{8C351DB7-B6CB-4B1A-AE3B-B6E13E97A1D5}</Project>
+      <Name>ChannelManagement</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Tools\LogTool\LogTool.csproj">
       <Project>{e837a985-cd29-4724-b907-97570dfc0eba}</Project>
       <Name>LogTool</Name>

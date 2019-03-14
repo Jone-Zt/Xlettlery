@@ -15,6 +15,8 @@
           <ScalarProperty Name="AgentMoney" ColumnName="AgentMoney" />
           <ScalarProperty Name="AccountID" ColumnName="AccountID" />
           <ScalarProperty Name="Lv" ColumnName="Lv" />
+          <ScalarProperty Name="Recharge" ColumnName="Recharge" />
+          <ScalarProperty Name="Consumption" ColumnName="Consumption" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -52,6 +54,7 @@
           <ScalarProperty Name="LimitMin" ColumnName="LimitMin" />
           <ScalarProperty Name="LimitMax" ColumnName="LimitMax" />
           <ScalarProperty Name="ChannelType" ColumnName="ChannelType" />
+          <ScalarProperty Name="ProtocolID" ColumnName="ProtocolID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -90,6 +93,18 @@
           <ScalarProperty Name="Type" ColumnName="Type" />
           <ScalarProperty Name="Width" ColumnName="Width" />
           <ScalarProperty Name="Height" ColumnName="Height" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SESENT_ChannelProtocol">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.SESENT_ChannelProtocol)">
+        <MappingFragment StoreEntitySet="SESENT_ChannelProtocol">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ProtocolID" ColumnName="ProtocolID" />
+          <ScalarProperty Name="ProtocolName" ColumnName="ProtocolName" />
+          <ScalarProperty Name="ConfigFile" ColumnName="ConfigFile" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="EntriTime" ColumnName="EntriTime" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

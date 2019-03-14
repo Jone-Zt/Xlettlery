@@ -28,5 +28,6 @@ namespace Model
         public int LimitMin { get; set; }
         public int LimitMax { get; set; }
         public short ChannelType { get; set; }
+        public string ProtocolID { get; set; }
     }
 }

@@ -35,5 +35,7 @@ namespace Model
         public string AccountID { get; set; }
         public int ID { get; set; }
         public short Lv { get; set; }
+        public decimal Recharge { get; set; }
+        public string Consumption { get; set; }
     }
 }

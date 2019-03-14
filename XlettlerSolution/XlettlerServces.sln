@@ -21,6 +21,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFTest", "..\Test\WCFTest\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RuleUtility", "..\Tools\RuleUtility\RuleUtility.csproj", "{10702011-CC37-41CA-8C67-287B7D919D94}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XlettlerCallBackService", "..\XlettlerCallBackService\XlettlerCallBackService.csproj", "{242DC4CD-71FD-4222-B6DE-0BBA1A92C9C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CallBackManage", "..\CallBackManage\CallBackManage.csproj", "{C9694EB0-3470-4137-BD66-A887BF5D0308}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpServer", "..\HttpServer\HttpServer.csproj", "{55AA5587-B33A-4139-A3BB-E99735DFCA3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChannelManagement", "..\ChannelManagement\ChannelManagement.csproj", "{8C351DB7-B6CB-4B1A-AE3B-B6E13E97A1D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThridPayInterface", "..\ChannelInterface\ThridPayInterface.csproj", "{FF8B40C7-54D5-4D7E-BD52-6580DD14FD2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecurityTools", "..\SecurityTools\SecurityTools.csproj", "{440F362E-5B45-41F3-930A-302370C4795C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +75,30 @@ Global
 		{10702011-CC37-41CA-8C67-287B7D919D94}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10702011-CC37-41CA-8C67-287B7D919D94}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10702011-CC37-41CA-8C67-287B7D919D94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{242DC4CD-71FD-4222-B6DE-0BBA1A92C9C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{242DC4CD-71FD-4222-B6DE-0BBA1A92C9C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{242DC4CD-71FD-4222-B6DE-0BBA1A92C9C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{242DC4CD-71FD-4222-B6DE-0BBA1A92C9C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9694EB0-3470-4137-BD66-A887BF5D0308}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9694EB0-3470-4137-BD66-A887BF5D0308}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9694EB0-3470-4137-BD66-A887BF5D0308}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9694EB0-3470-4137-BD66-A887BF5D0308}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55AA5587-B33A-4139-A3BB-E99735DFCA3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55AA5587-B33A-4139-A3BB-E99735DFCA3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55AA5587-B33A-4139-A3BB-E99735DFCA3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55AA5587-B33A-4139-A3BB-E99735DFCA3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C351DB7-B6CB-4B1A-AE3B-B6E13E97A1D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C351DB7-B6CB-4B1A-AE3B-B6E13E97A1D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C351DB7-B6CB-4B1A-AE3B-B6E13E97A1D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C351DB7-B6CB-4B1A-AE3B-B6E13E97A1D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF8B40C7-54D5-4D7E-BD52-6580DD14FD2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF8B40C7-54D5-4D7E-BD52-6580DD14FD2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF8B40C7-54D5-4D7E-BD52-6580DD14FD2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF8B40C7-54D5-4D7E-BD52-6580DD14FD2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{440F362E-5B45-41F3-930A-302370C4795C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{440F362E-5B45-41F3-930A-302370C4795C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{440F362E-5B45-41F3-930A-302370C4795C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{440F362E-5B45-41F3-930A-302370C4795C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

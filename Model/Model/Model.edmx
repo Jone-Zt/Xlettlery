@@ -13,13 +13,14 @@
     <EntitySet Name="SESENT_MessageText" EntityType="Model.Store.SESENT_MessageText" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="SESENT_MessageObj" EntityType="Model.Store.SESENT_MessageObj" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="SESENT_Settings" EntityType="Model.Store.SESENT_Settings" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SESENT_ChannelProtocol" EntityType="Model.Store.SESENT_ChannelProtocol" store:Type="Tables" Schema="dbo" />
   </EntityContainer>
   <EntityType Name="SESENT_USERS">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="userName" Type="nvarchar(max)" Nullable="false" DefaultValue="迷彩玩家" />
-    <Property Name="userPwd" Type="nvarchar(max)" Nullable="false" DefaultValue="123456" />
+    <Property Name="userName" Type="nvarchar" Nullable="false" DefaultValue="迷彩玩家" MaxLength="50" />
+    <Property Name="userPwd" Type="nvarchar" Nullable="false" DefaultValue="123456" MaxLength="300" />
     <Property Name="Phone" Type="nvarchar" Nullable="false" MaxLength="11" />
     <Property Name="UseAmount" Type="decimal" Nullable="false" DefaultValue="0" />
     <Property Name="userType" Type="smallint" Nullable="false" DefaultValue="0" />
@@ -29,6 +30,8 @@
     <Property Name="AccountID" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Lv" Type="smallint" Nullable="false" />
+    <Property Name="Recharge" Type="decimal" Nullable="false" />
+    <Property Name="Consumption" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="SESENT_Order">
     <Key>
@@ -63,6 +66,7 @@
     <Property Name="LimitMin" Type="int" Nullable="false" DefaultValue="0" />
     <Property Name="LimitMax" Type="int" Nullable="false" DefaultValue="99999" />
     <Property Name="ChannelType" Type="smallint" Nullable="false" />
+    <Property Name="ProtocolID" Type="nvarchar" Nullable="false" MaxLength="50" />
   </EntityType>
   <EntityType Name="SESENT_MessageText">
     <Key>
@@ -99,6 +103,17 @@
     <Property Name="Width" Type="smallint" Nullable="false" />
     <Property Name="Height" Type="smallint" Nullable="false" />
   </EntityType>
+  <EntityType Name="SESENT_ChannelProtocol">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProtocolID" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ProtocolName" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="ConfigFile" Type="varbinary(max)" Nullable="false" />
+    <Property Name="Status" Type="smallint" Nullable="false" />
+    <Property Name="EntriTime" Type="datetime" Nullable="false" />
+  </EntityType>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -111,6 +126,7 @@
           <EntitySet Name="SESENT_MessageText" EntityType="Model.SESENT_MessageText" />
           <EntitySet Name="SESENT_MessageObj" EntityType="Model.SESENT_MessageObj" />
           <EntitySet Name="SESENT_Settings" EntityType="Model.SESENT_Settings" />
+          <EntitySet Name="SESENT_ChannelProtocol" EntityType="Model.SESENT_ChannelProtocol" />
         </EntityContainer>
         <EntityType Name="SESENT_USERS">
           <Documentation>
@@ -119,12 +135,12 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="userName" Type="String" Nullable="false" DefaultValue="迷彩玩家" >
+          <Property Name="userName" Type="String" Nullable="false" DefaultValue="迷彩玩家" MaxLength="50" >
             <Documentation>
               <LongDescription>账号</LongDescription>
             </Documentation>
           </Property>
-          <Property Name="userPwd" Type="String" Nullable="false" DefaultValue="123456" >
+          <Property Name="userPwd" Type="String" Nullable="false" DefaultValue="123456" MaxLength="300" >
             <Documentation>
               <LongDescription>登陆密码</LongDescription>
             </Documentation>
@@ -162,6 +178,8 @@
           <Property Name="AccountID" Type="String" Nullable="false" />
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Lv" Type="Int16" Nullable="false" />
+          <Property Name="Recharge" Type="Decimal" Nullable="false" />
+          <Property Name="Consumption" Type="String" Nullable="false" />
         </EntityType>
         <EntityType Name="SESENT_Order">
           <Documentation>
@@ -199,6 +217,7 @@
           <Property Name="LimitMin" Type="Int32" Nullable="false" DefaultValue="0" />
           <Property Name="LimitMax" Type="Int32" Nullable="false" DefaultValue="99999" />
           <Property Name="ChannelType" Type="Int16" Nullable="false" />
+          <Property Name="ProtocolID" Type="String" Nullable="false" MaxLength="50" />
         </EntityType>
         <EntityType Name="SESENT_MessageText">
           <Key>
@@ -235,6 +254,17 @@
           <Property Name="Width" Type="Int16" Nullable="false" />
           <Property Name="Height" Type="Int16" Nullable="false" />
         </EntityType>
+        <EntityType Name="SESENT_ChannelProtocol">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProtocolID" Type="String" Nullable="false" MaxLength="50" />
+          <Property Name="ProtocolName" Type="String" Nullable="false" MaxLength="100" />
+          <Property Name="ConfigFile" Type="Binary" Nullable="false" />
+          <Property Name="Status" Type="Int16" Nullable="false" />
+          <Property Name="EntriTime" Type="DateTime" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -255,6 +285,8 @@
           <ScalarProperty Name="AgentMoney" ColumnName="AgentMoney" />
           <ScalarProperty Name="AccountID" ColumnName="AccountID" />
           <ScalarProperty Name="Lv" ColumnName="Lv" />
+          <ScalarProperty Name="Recharge" ColumnName="Recharge" />
+          <ScalarProperty Name="Consumption" ColumnName="Consumption" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -292,6 +324,7 @@
           <ScalarProperty Name="LimitMin" ColumnName="LimitMin" />
           <ScalarProperty Name="LimitMax" ColumnName="LimitMax" />
           <ScalarProperty Name="ChannelType" ColumnName="ChannelType" />
+          <ScalarProperty Name="ProtocolID" ColumnName="ProtocolID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -330,6 +363,18 @@
           <ScalarProperty Name="Type" ColumnName="Type" />
           <ScalarProperty Name="Width" ColumnName="Width" />
           <ScalarProperty Name="Height" ColumnName="Height" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SESENT_ChannelProtocol">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.SESENT_ChannelProtocol)">
+        <MappingFragment StoreEntitySet="SESENT_ChannelProtocol">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ProtocolID" ColumnName="ProtocolID" />
+          <ScalarProperty Name="ProtocolName" ColumnName="ProtocolName" />
+          <ScalarProperty Name="ConfigFile" ColumnName="ConfigFile" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="EntriTime" ColumnName="EntriTime" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

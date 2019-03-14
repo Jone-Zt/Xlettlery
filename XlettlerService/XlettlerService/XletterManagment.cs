@@ -1,4 +1,5 @@
-﻿using ServicesInterface;
+﻿using ChannelManagement;
+using ServicesInterface;
 using System;
 using System.Collections.Generic;
 using System.ServiceModel;
@@ -54,7 +55,15 @@ namespace XlettlerService
             }
             catch (Exception err)
             {
-                LogTool.LogWriter.WriteError(err.Message);
+                LogTool.LogWriter.WriteError("初始化WCF服务失败",err);
+            }
+            try
+            {
+                ChannelProtocolManage.GetManagment().Init();
+            }
+            catch(Exception err)
+            {
+                LogTool.LogWriter.WriteError("初始化第三方支付协议失败",err);
             }
         }
         private void CreateRemoting<T>(ServiceHost host)

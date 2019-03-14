@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 03/11/2019 18:00:31
--- Generated from EDMX file: C:\Users\Administrator\source\repos\Xlettler\Model\Model\Model.edmx
+-- Date Created: 03/14/2019 11:14:32
+-- Generated from EDMX file: E:\Xlettlery\Xlettlery\Model\Model\Model.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -48,8 +48,8 @@ GO
 
 -- Creating table 'SESENT_USERS'
 CREATE TABLE [dbo].[SESENT_USERS] (
-    [userName] nvarchar(max)  NOT NULL,
-    [userPwd] nvarchar(max)  NOT NULL,
+    [userName] nvarchar(50)  NOT NULL,
+    [userPwd] nvarchar(300)  NOT NULL,
     [Phone] nvarchar(11)  NOT NULL,
     [UseAmount] decimal(18,0)  NOT NULL,
     [userType] smallint  NOT NULL,
@@ -58,7 +58,9 @@ CREATE TABLE [dbo].[SESENT_USERS] (
     [AgentMoney] decimal(18,0)  NOT NULL,
     [AccountID] nvarchar(max)  NOT NULL,
     [ID] int IDENTITY(1,1) NOT NULL,
-    [Lv] smallint  NOT NULL
+    [Lv] smallint  NOT NULL,
+    [Recharge] decimal(18,0)  NOT NULL,
+    [Consumption] nvarchar(max)  NOT NULL
 );
 GO
 
@@ -92,7 +94,8 @@ CREATE TABLE [dbo].[SESENT_Channels] (
     [Status] smallint  NOT NULL,
     [LimitMin] int  NOT NULL,
     [LimitMax] int  NOT NULL,
-    [ChannelType] smallint  NOT NULL
+    [ChannelType] smallint  NOT NULL,
+    [ProtocolID] nvarchar(50)  NOT NULL
 );
 GO
 
@@ -128,6 +131,17 @@ CREATE TABLE [dbo].[SESENT_Settings] (
     [Type] smallint  NOT NULL,
     [Width] smallint  NOT NULL,
     [Height] smallint  NOT NULL
+);
+GO
+
+-- Creating table 'SESENT_ChannelProtocol'
+CREATE TABLE [dbo].[SESENT_ChannelProtocol] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [ProtocolID] nvarchar(50)  NOT NULL,
+    [ProtocolName] nvarchar(100)  NOT NULL,
+    [ConfigFile] varbinary(max)  NOT NULL,
+    [Status] smallint  NOT NULL,
+    [EntriTime] datetime  NOT NULL
 );
 GO
 
@@ -174,6 +188,12 @@ GO
 -- Creating primary key on [Id] in table 'SESENT_Settings'
 ALTER TABLE [dbo].[SESENT_Settings]
 ADD CONSTRAINT [PK_SESENT_Settings]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'SESENT_ChannelProtocol'
+ALTER TABLE [dbo].[SESENT_ChannelProtocol]
+ADD CONSTRAINT [PK_SESENT_ChannelProtocol]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
