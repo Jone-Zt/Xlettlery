@@ -9,21 +9,9 @@ namespace MobileAPI.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Login()
+        public ActionResult Index()
         {
-            if (Request.HttpMethod == "GET")
-            {
-                return View();
-            }
-            else {
-                string password = Request["password"]?.Trim();
-                string username = Request["username"]?.Trim();
-                return Content(MessageBox.Show("账号错误!"));
-            }
-        }
-        public ActionResult UpdateLoginPwd()
-        {
-            return Content("忘记密码了？");
+            return View();
         }
     }
 }

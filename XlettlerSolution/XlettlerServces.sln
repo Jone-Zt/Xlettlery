@@ -33,6 +33,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThridPayInterface", "..\Cha
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecurityTools", "..\SecurityTools\SecurityTools.csproj", "{440F362E-5B45-41F3-930A-302370C4795C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Channels", "Channels", "{57ABAEEB-B903-4E4C-A40A-7DEF9B605547}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "..\Test\Test\Test.csproj", "{63D1B0C4-F9BD-42EE-B06C-04163287149D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,9 +103,16 @@ Global
 		{440F362E-5B45-41F3-930A-302370C4795C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{440F362E-5B45-41F3-930A-302370C4795C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{440F362E-5B45-41F3-930A-302370C4795C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63D1B0C4-F9BD-42EE-B06C-04163287149D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63D1B0C4-F9BD-42EE-B06C-04163287149D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63D1B0C4-F9BD-42EE-B06C-04163287149D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63D1B0C4-F9BD-42EE-B06C-04163287149D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{63D1B0C4-F9BD-42EE-B06C-04163287149D} = {57ABAEEB-B903-4E4C-A40A-7DEF9B605547}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8DD4F0AC-A66E-484D-B06D-17B967C1C1F4}

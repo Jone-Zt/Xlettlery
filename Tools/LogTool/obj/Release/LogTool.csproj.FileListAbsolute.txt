@@ -6,3 +6,12 @@ C:\Users\Administrator\source\repos\Xlettler\Tools\LogTool\obj\Release\LogTool.c
 C:\Users\Administrator\source\repos\Xlettler\Tools\LogTool\obj\Release\LogTool.csproj.CopyComplete
 C:\Users\Administrator\source\repos\Xlettler\Tools\LogTool\obj\Release\LogTool.dll
 C:\Users\Administrator\source\repos\Xlettler\Tools\LogTool\obj\Release\LogTool.pdb
+E:\Xlettlery\Xlettlery\Tools\LogTool\bin\Release\LogTool.dll
+E:\Xlettlery\Xlettlery\Tools\LogTool\bin\Release\LogTool.pdb
+E:\Xlettlery\Xlettlery\Tools\LogTool\bin\Release\log4net.dll
+E:\Xlettlery\Xlettlery\Tools\LogTool\bin\Release\log4net.xml
+E:\Xlettlery\Xlettlery\Tools\LogTool\obj\Release\LogTool.csprojAssemblyReference.cache
+E:\Xlettlery\Xlettlery\Tools\LogTool\obj\Release\LogTool.csproj.CoreCompileInputs.cache
+E:\Xlettlery\Xlettlery\Tools\LogTool\obj\Release\LogTool.csproj.CopyComplete
+E:\Xlettlery\Xlettlery\Tools\LogTool\obj\Release\LogTool.dll
+E:\Xlettlery\Xlettlery\Tools\LogTool\obj\Release\LogTool.pdb

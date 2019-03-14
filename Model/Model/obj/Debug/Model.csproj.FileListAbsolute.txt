@@ -21,7 +21,6 @@ E:\Xlettlery\Xlettlery\Model\Model\bin\Debug\EntityFramework.xml
 E:\Xlettlery\Xlettlery\Model\Model\bin\Debug\Newtonsoft.Json.pdb
 E:\Xlettlery\Xlettlery\Model\Model\bin\Debug\Newtonsoft.Json.xml
 E:\Xlettlery\Xlettlery\Model\Model\bin\Debug\zh-Hans\EntityFramework.resources.dll
-E:\Xlettlery\Xlettlery\Model\Model\obj\Debug\Model.csprojAssemblyReference.cache
 E:\Xlettlery\Xlettlery\Model\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
 E:\Xlettlery\Xlettlery\Model\Model\obj\Debug\Model.csproj.CopyComplete
 E:\Xlettlery\Xlettlery\Model\Model\obj\Debug\Model.dll

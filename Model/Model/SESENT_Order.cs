@@ -22,5 +22,6 @@ namespace Model
         public short Status { get; set; }
         public int ID { get; set; }
         public System.DateTime OrderTime { get; set; }
+        public string ChannelID { get; set; }
     }
 }

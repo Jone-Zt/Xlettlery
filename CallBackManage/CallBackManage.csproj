@@ -55,6 +55,14 @@
       <Project>{e837a985-cd29-4724-b907-97570dfc0eba}</Project>
       <Name>LogTool</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Tools\Tools\Tools.csproj">
+      <Project>{C6F1BF87-A866-47B2-8BA7-DD5DD43820F4}</Project>
+      <Name>Tools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XlettlerInterFace\ServicesInterface\ServicesInterface.csproj">
+      <Project>{523CBFAA-B538-4B34-AE25-8E256DFB2439}</Project>
+      <Name>ServicesInterface</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

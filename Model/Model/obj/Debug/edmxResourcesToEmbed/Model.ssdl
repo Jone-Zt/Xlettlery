@@ -26,7 +26,7 @@
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Lv" Type="smallint" Nullable="false" />
     <Property Name="Recharge" Type="decimal" Nullable="false" />
-    <Property Name="Consumption" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Consumption" Type="decimal" Nullable="false" />
   </EntityType>
   <EntityType Name="SESENT_Order">
     <Key>
@@ -40,6 +40,7 @@
     <Property Name="Status" Type="smallint" Nullable="false" />
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="OrderTime" Type="datetime" Nullable="false" />
+    <Property Name="ChannelID" Type="nvarchar" Nullable="false" MaxLength="50" />
   </EntityType>
   <EntityType Name="SESENT_PhoneXCodes">
     <Key>

@@ -7,13 +7,15 @@
     <EntitySet Name="SESENT_Channels" EntityType="Model.Store.SESENT_Channels" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="SESENT_MessageText" EntityType="Model.Store.SESENT_MessageText" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="SESENT_MessageObj" EntityType="Model.Store.SESENT_MessageObj" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SESENT_Settings" EntityType="Model.Store.SESENT_Settings" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SESENT_ChannelProtocol" EntityType="Model.Store.SESENT_ChannelProtocol" store:Type="Tables" Schema="dbo" />
   </EntityContainer>
   <EntityType Name="SESENT_USERS">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="userName" Type="nvarchar(max)" Nullable="false" DefaultValue="迷彩玩家" />
-    <Property Name="userPwd" Type="nvarchar(max)" Nullable="false" DefaultValue="123456" />
+    <Property Name="userName" Type="nvarchar" Nullable="false" DefaultValue="迷彩玩家" MaxLength="50" />
+    <Property Name="userPwd" Type="nvarchar" Nullable="false" DefaultValue="123456" MaxLength="300" />
     <Property Name="Phone" Type="nvarchar" Nullable="false" MaxLength="11" />
     <Property Name="UseAmount" Type="decimal" Nullable="false" DefaultValue="0" />
     <Property Name="userType" Type="smallint" Nullable="false" DefaultValue="0" />
@@ -23,6 +25,8 @@
     <Property Name="AccountID" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Lv" Type="smallint" Nullable="false" />
+    <Property Name="Recharge" Type="decimal" Nullable="false" />
+    <Property Name="Consumption" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="SESENT_Order">
     <Key>
@@ -36,6 +40,7 @@
     <Property Name="Status" Type="smallint" Nullable="false" />
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="OrderTime" Type="datetime" Nullable="false" />
+    <Property Name="ChannelID" Type="nvarchar" Nullable="false" MaxLength="50" />
   </EntityType>
   <EntityType Name="SESENT_PhoneXCodes">
     <Key>
@@ -57,6 +62,7 @@
     <Property Name="LimitMin" Type="int" Nullable="false" DefaultValue="0" />
     <Property Name="LimitMax" Type="int" Nullable="false" DefaultValue="99999" />
     <Property Name="ChannelType" Type="smallint" Nullable="false" />
+    <Property Name="ProtocolID" Type="nvarchar" Nullable="false" MaxLength="50" />
   </EntityType>
   <EntityType Name="SESENT_MessageText">
     <Key>
@@ -64,12 +70,12 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="SendID" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="CreateDateTime" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreateDateTime" Type="datetime" Nullable="false" />
     <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Type" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Type" Type="smallint" Nullable="false" />
     <Property Name="Recld" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Gift" Type="smallint" Nullable="false" />
+    <Property Name="Gift" Type="decimal" Nullable="false" />
     <Property Name="HasGift" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="SESENT_MessageObj">
@@ -78,8 +84,30 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="RecId" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="ReciveDateTime" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Status" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="MessageID" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ReciveDateTime" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="smallint" Nullable="false" />
+    <Property Name="MessageID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SESENT_Settings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="image" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Status" Type="smallint" Nullable="false" />
+    <Property Name="Type" Type="smallint" Nullable="false" />
+    <Property Name="Width" Type="smallint" Nullable="false" />
+    <Property Name="Height" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SESENT_ChannelProtocol">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProtocolID" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ProtocolName" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="ConfigFile" Type="varbinary(max)" Nullable="false" />
+    <Property Name="Status" Type="smallint" Nullable="false" />
+    <Property Name="EntriTime" Type="datetime" Nullable="false" />
   </EntityType>
 </Schema>

@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 03/14/2019 11:14:32
+-- Date Created: 03/14/2019 13:15:37
 -- Generated from EDMX file: E:\Xlettlery\Xlettlery\Model\Model\Model.edmx
 -- --------------------------------------------------
 
@@ -41,6 +41,9 @@ GO
 IF OBJECT_ID(N'[dbo].[SESENT_Settings]', 'U') IS NOT NULL
     DROP TABLE [dbo].[SESENT_Settings];
 GO
+IF OBJECT_ID(N'[dbo].[SESENT_ChannelProtocol]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[SESENT_ChannelProtocol];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -60,7 +63,7 @@ CREATE TABLE [dbo].[SESENT_USERS] (
     [ID] int IDENTITY(1,1) NOT NULL,
     [Lv] smallint  NOT NULL,
     [Recharge] decimal(18,0)  NOT NULL,
-    [Consumption] nvarchar(max)  NOT NULL
+    [Consumption] decimal(18,0)  NOT NULL
 );
 GO
 
@@ -73,7 +76,8 @@ CREATE TABLE [dbo].[SESENT_Order] (
     [OutMoney] decimal(18,0)  NOT NULL,
     [Status] smallint  NOT NULL,
     [ID] int IDENTITY(1,1) NOT NULL,
-    [OrderTime] datetime  NOT NULL
+    [OrderTime] datetime  NOT NULL,
+    [ChannelID] nvarchar(50)  NOT NULL
 );
 GO
 

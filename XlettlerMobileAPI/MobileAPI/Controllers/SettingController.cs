@@ -32,9 +32,9 @@ namespace MobileAPI.Controllers
             try
             {
                 string flowid = RequestCheck.CheckStringValue(Request, "flowID", "流水号", false);
+                picker.FlowID = flowid;
                 int? type = RequestCheck.CheckIntValue(Request,"type","配置类别",false);
                 SettingType Settingtype = (SettingType)type;
-                picker.FlowID = flowid;
                 ISettingInterface proxy = GetManger();
                 if (proxy == null) 
                     throw new Exception("未挂载函数!");

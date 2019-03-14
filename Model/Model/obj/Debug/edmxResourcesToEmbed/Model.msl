@@ -31,6 +31,7 @@
           <ScalarProperty Name="OutMoney" ColumnName="OutMoney" />
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="OrderTime" ColumnName="OrderTime" />
+          <ScalarProperty Name="ChannelID" ColumnName="ChannelID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

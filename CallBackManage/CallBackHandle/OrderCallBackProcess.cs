@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using HttpServer;
+using ServicesInterface;
+using Tools;
 
 namespace CallBackManage.CallBackHandle
 {
@@ -14,12 +16,12 @@ namespace CallBackManage.CallBackHandle
 
         public void ProcessCallData(string[] pathArges, Dictionary<string, string> UrlArges, byte[] postBuffer, HttpResponse response)
         {
-            if (pathArges == null || pathArges.Length < 5)
+            if (pathArges == null || pathArges.Length < 4)
                 return;
             try
             {
                 string channelID = pathArges[2];
-                string orderID = pathArges[2];
+                string orderID = pathArges[3];
                 string[] customerArges = null;
                 if (pathArges.Length > 4)
                 {
@@ -27,8 +29,10 @@ namespace CallBackManage.CallBackHandle
                     Array.Copy(pathArges, 4, customerArges, 0, customerArges.Length);
                 }
                 string BackStr = "";
-
-
+                IChannelNotify proxy = RemotingAngency.GetRemoting().GetProxy<IChannelNotify>();
+                if (proxy != null) {
+                    proxy.Notify(orderID, channelID, pathArges, UrlArges, postBuffer, out BackStr);
+                }
                 LogTool.LogWriter.WriteDebug("订单 回调信息处理 url:" + string.Join("/", pathArges) + " Get:" + CallBackProcessServer.GetURLArgesStr(UrlArges) + "\r\nPost:" +
                    CallBackProcessServer.GetPostArgesStr(postBuffer)+"\r\n响应消息:"+ BackStr);
                 response.SendResponseHTML(BackStr);

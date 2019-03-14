@@ -27,6 +27,14 @@ namespace ChannelManagement
         }
         private Dictionary<string, TPayRechargeBase> PayInterfaces = null;
         private Dictionary<string, System.Reflection.Assembly> dllFileData;
+        public TPayRechargeBase GetChannelProtocol(string protocolID)
+        {
+            Dictionary<string, TPayRechargeBase> myChannelInterfaces = PayInterfaces;
+            if (myChannelInterfaces.ContainsKey(protocolID))
+                return myChannelInterfaces[protocolID];
+            else
+                return null;
+        }
         public string Init()
         {
             string msg = "";

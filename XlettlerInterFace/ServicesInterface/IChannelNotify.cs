@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ServicesInterface
 {
-    interface IChannelNotify
+    [ServiceContract]
+    public interface IChannelNotify
     {
-        bool Notify(string OrderID,string ChannelID);
+        [OperationContract]
+        bool Notify(string OrderID,string ChannelID, string[] pathArges, Dictionary<string, string> UrlArges, byte[] postBuffer,out string BackStr);
     }
 }

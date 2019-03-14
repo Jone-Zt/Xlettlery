@@ -75,6 +75,10 @@
     <Content Include="Log4netConfigFile.xml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CallBackManage\CallBackManage.csproj">
+      <Project>{C9694EB0-3470-4137-BD66-A887BF5D0308}</Project>
+      <Name>CallBackManage</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Tools\LogTool\LogTool.csproj">
       <Project>{e837a985-cd29-4724-b907-97570dfc0eba}</Project>
       <Name>LogTool</Name>

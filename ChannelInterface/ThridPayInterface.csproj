@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChannelInterface\IThridRecharge.cs" />
     <Compile Include="ChannelInterface\TPayRechargeBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -48,6 +50,10 @@
     <ProjectReference Include="..\Model\Model\Model.csproj">
       <Project>{b088d9a8-712e-437b-a8a8-426081bcaada}</Project>
       <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XlettlerInterFace\ServicesInterface\ServicesInterface.csproj">
+      <Project>{523CBFAA-B538-4B34-AE25-8E256DFB2439}</Project>
+      <Name>ServicesInterface</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

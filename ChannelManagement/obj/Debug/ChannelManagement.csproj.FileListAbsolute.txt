@@ -20,3 +20,5 @@ E:\Xlettlery\Xlettlery\ChannelManagement\bin\Debug\log4net.xml
 E:\Xlettlery\Xlettlery\ChannelManagement\obj\Debug\ChannelManagement.csproj.CopyComplete
 E:\Xlettlery\Xlettlery\ChannelManagement\obj\Debug\ChannelManagement.dll
 E:\Xlettlery\Xlettlery\ChannelManagement\obj\Debug\ChannelManagement.pdb
+E:\Xlettlery\Xlettlery\ChannelManagement\bin\Debug\ServicesInterface.dll
+E:\Xlettlery\Xlettlery\ChannelManagement\bin\Debug\ServicesInterface.pdb

@@ -94,3 +94,5 @@ E:\Xlettlery\Xlettlery\XlettlerService\XlettlerService\obj\Debug\XlettlerService
 E:\Xlettlery\Xlettlery\XlettlerService\XlettlerService\obj\Debug\XlettlerService.csproj.CopyComplete
 E:\Xlettlery\Xlettlery\XlettlerService\XlettlerService\obj\Debug\XlettlerService.exe
 E:\Xlettlery\Xlettlery\XlettlerService\XlettlerService\obj\Debug\XlettlerService.pdb
+E:\Xlettlery\Xlettlery\XlettlerService\XlettlerService\bin\Debug\Test.dll
+E:\Xlettlery\Xlettlery\XlettlerService\XlettlerService\bin\Debug\Test.pdb

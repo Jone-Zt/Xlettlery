@@ -24,6 +24,8 @@ namespace XlettlerService
                     Console.ForegroundColor = ConsoleColor.DarkGreen;
                     Console.WriteLine("正在初始化服务器。。。");
                     XletterManagment.GetManagment().Init();
+                    Console.ReadLine();
+                    XletterManagment.GetManagment().Stop();
                 }
                 else
                 {

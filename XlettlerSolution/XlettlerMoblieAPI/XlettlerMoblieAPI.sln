@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "..\..\Model\Model\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RuleUtility", "..\..\Tools\RuleUtility\RuleUtility.csproj", "{10702011-CC37-41CA-8C67-287B7D919D94}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdmainManger", "..\..\AdmainManger\AdmainManger.csproj", "{ADAC69B0-ABCB-4E66-A31C-CF5A1AF6E457}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{10702011-CC37-41CA-8C67-287B7D919D94}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10702011-CC37-41CA-8C67-287B7D919D94}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10702011-CC37-41CA-8C67-287B7D919D94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADAC69B0-ABCB-4E66-A31C-CF5A1AF6E457}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADAC69B0-ABCB-4E66-A31C-CF5A1AF6E457}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADAC69B0-ABCB-4E66-A31C-CF5A1AF6E457}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADAC69B0-ABCB-4E66-A31C-CF5A1AF6E457}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

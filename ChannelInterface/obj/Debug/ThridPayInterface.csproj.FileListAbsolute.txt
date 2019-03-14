@@ -11,3 +11,7 @@ E:\Xlettlery\Xlettlery\ChannelInterface\obj\Debug\ThridPayInterface.csproj.CoreC
 E:\Xlettlery\Xlettlery\ChannelInterface\obj\Debug\ThridPayInterface.csproj.CopyComplete
 E:\Xlettlery\Xlettlery\ChannelInterface\obj\Debug\ChannelInterface.dll
 E:\Xlettlery\Xlettlery\ChannelInterface\obj\Debug\ChannelInterface.pdb
+E:\Xlettlery\Xlettlery\ChannelInterface\bin\Debug\ServicesInterface.dll
+E:\Xlettlery\Xlettlery\ChannelInterface\bin\Debug\PublicDefined.dll
+E:\Xlettlery\Xlettlery\ChannelInterface\bin\Debug\ServicesInterface.pdb
+E:\Xlettlery\Xlettlery\ChannelInterface\bin\Debug\PublicDefined.pdb

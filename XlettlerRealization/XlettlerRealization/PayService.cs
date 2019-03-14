@@ -1,4 +1,7 @@
-﻿using Model;
+﻿using ChannelInterface.ChannelInterface;
+using ChannelInterFace;
+using ChannelManagement;
+using Model;
 using PublicDefined;
 using RuleUtility;
 using ServicesInterface;
@@ -10,38 +13,39 @@ namespace XlettlerRealization
 {
     public class PayService : IPayInterface
     {
-        public bool MakeOrder(decimal amount, string accountID, out string payUrl,out string errMsg)
+        public bool MakeOrder(decimal amount, string accountID, string channelID, out MakeOrderNewData result, out string errMsg)
         {
+            result = null;
             errMsg = string.Empty;
-            payUrl = string.Empty;
             if (amount <= 0) { errMsg = "充值金额错误!"; return false; }
-            using (ModelContainer container = new ModelContainer()) 
+            using (ModelContainer container = new ModelContainer())
             {
+                SESENT_Order order = new SESENT_Order(){AccountID = accountID,InputMoney = amount,ChannelID = channelID,OrderID = RuleGenerateOrder.GetOrderID(),OrderType = (short)OrderType.AccountRecharge,Status = (short)OrderStatus.fail, OrderTime=DateTime.Now};
                 try
                 {
-                    SESENT_USERS uSERS=container.SESENT_USERS.Where(a => a.AccountID == accountID).FirstOrDefault();
-                    if (uSERS == null) { errMsg = "充值账户不存在!";return false;}
-                    container.SESENT_Order.Add(new SESENT_Order()
-                    {
-                          AccountID=accountID,
-                          InputMoney=amount,
-                          OrderID= RuleGenerateOrder.GetOrderID(),
-                          OrderType=(short)OrderType.AccountRecharge,
-                          Status= (short)OrderStatus.wait,
-                    });
-                    bool ret = container.SaveChanges() > 0;
-                    if (!ret) { errMsg = "订单创建失败!";return false; }
+                    SESENT_USERS uSERS = container.SESENT_USERS.Where(a => a.AccountID == accountID).FirstOrDefault();
+                    if (uSERS == null) { errMsg = "充值账户不存在!"; return false; }
                     //通道去查询
-
-
-
+                    short channelStatus = (short)Status.Open;
+                    SESENT_Channels channel = container.SESENT_Channels.Where(a => a.ChannelID == channelID && a.Status == channelStatus).FirstOrDefault();
+                    if (channel == null) { errMsg = "通道暂未开放!"; LogTool.LogWriter.WriteError($"订单下单通道查询失败【通道编号:{channelID}】"); return false; }
+                    TPayRechargeBase payRecharge = ChannelProtocolManage.GetManagment().GetChannelProtocol(channel.ProtocolID);
+                    if (payRecharge == null) { errMsg = "未找到通道文件"; return false; }
+                    IThridRecharge thrid = payRecharge as IThridRecharge;
+                    if (thrid == null) { errMsg = "通道未实现"; return false; }
+                    bool ret = thrid.MakeOrder(amount, order.OrderTime, out result, out errMsg);
+                    if (ret) { order.Status = (short)OrderStatus.wait; }
                     return true;
                 }
                 catch (Exception err)
                 {
                     errMsg = "下单失败!";
-                    LogTool.LogWriter.WriteError($"{accountID}账户下单失败!",err);
+                    LogTool.LogWriter.WriteError($"{accountID}账户下单失败!", err);
                     return false;
+                }
+                finally {
+                    container.SESENT_Order.Add(order);
+                    container.SaveChanges();
                 }
             }
         }

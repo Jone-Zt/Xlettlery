@@ -1,0 +1,6 @@
+E:\Xlettlery\Xlettlery\HttpServer\obj\Debug\HttpServer.csproj.CoreCompileInputs.cache
+E:\Xlettlery\Xlettlery\HttpServer\bin\Debug\HttpServer.dll
+E:\Xlettlery\Xlettlery\HttpServer\bin\Debug\HttpServer.pdb
+E:\Xlettlery\Xlettlery\HttpServer\obj\Debug\HttpServer.csprojAssemblyReference.cache
+E:\Xlettlery\Xlettlery\HttpServer\obj\Debug\HttpServer.dll
+E:\Xlettlery\Xlettlery\HttpServer\obj\Debug\HttpServer.pdb

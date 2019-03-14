@@ -61,7 +61,7 @@
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Lv" Type="Int16" Nullable="false" />
     <Property Name="Recharge" Type="Decimal" Nullable="false" />
-    <Property Name="Consumption" Type="String" Nullable="false" />
+    <Property Name="Consumption" Type="Decimal" Nullable="false" />
   </EntityType>
   <EntityType Name="SESENT_Order">
     <Documentation>
@@ -78,6 +78,7 @@
     <Property Name="Status" Type="Int16" Nullable="false" />
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" ConcurrencyMode="None" />
     <Property Name="OrderTime" Type="DateTime" Nullable="false" />
+    <Property Name="ChannelID" Type="String" Nullable="false" MaxLength="50" />
   </EntityType>
   <EntityType Name="SESENT_PhoneXCodes">
     <Key>

@@ -23,5 +23,11 @@ namespace Models
                 throw new Exception($"【{paraName}:{title}】不可为空");
             return val;
         }
+        public static decimal CheckDecimalValue(HttpRequestBase reqesut, string paraName, string title, bool isNull)
+        {
+            if (!decimal.TryParse(reqesut[paraName], out decimal val) && !isNull)
+                throw new Exception($"【{paraName}:{title}】不可为空");
+            return val;
+        }
     }
 }

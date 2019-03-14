@@ -2,6 +2,7 @@
 using PublicDefined;
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.ServiceModel;
 
 namespace ServicesInterface
@@ -12,7 +13,15 @@ namespace ServicesInterface
         [OperationContract]
         IList<SESENT_Channels> QueryChannels();
         [OperationContract]
-        bool MakeOrder(decimal amount,string accountID,out string payUrl,out string errMsg);
+        bool MakeOrder(decimal amount,string accountID,string channelID,out MakeOrderNewData result, out string errMsg);
         IList<SESENT_Order> QueryOrder(string accountID,DateTime OrderTime,int pageIndex,int pageSize,out string errMsg);
+    }
+    [DataContract]
+    public class MakeOrderNewData
+    {
+        [DataMember]
+        public bool IsHtml { get; set; }
+        [DataMember]
+        public string Result { get; set; }
     }
 }

@@ -74,3 +74,7 @@ E:\Xlettlery\Xlettlery\XlettlerRealization\XlettlerRealization\obj\Debug\Xlettle
 E:\Xlettlery\Xlettlery\XlettlerRealization\XlettlerRealization\obj\Debug\XlettlerRealization.csproj.CopyComplete
 E:\Xlettlery\Xlettlery\XlettlerRealization\XlettlerRealization\obj\Debug\XlettlerRealization.dll
 E:\Xlettlery\Xlettlery\XlettlerRealization\XlettlerRealization\obj\Debug\XlettlerRealization.pdb
+E:\Xlettlery\Xlettlery\XlettlerRealization\XlettlerRealization\bin\Debug\ChannelInterface.dll
+E:\Xlettlery\Xlettlery\XlettlerRealization\XlettlerRealization\bin\Debug\ChannelManagement.dll
+E:\Xlettlery\Xlettlery\XlettlerRealization\XlettlerRealization\bin\Debug\ChannelInterface.pdb
+E:\Xlettlery\Xlettlery\XlettlerRealization\XlettlerRealization\bin\Debug\ChannelManagement.pdb

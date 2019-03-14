@@ -47,10 +47,12 @@ namespace XlettlerService
                 ServiceHost pay = new ServiceHost(typeof(PayService));
                 ServiceHost setting = new ServiceHost(typeof(SettingService));
                 ServiceHost shortMessage = new ServiceHost(typeof(ShortMessageService));
+                ServiceHost Notify = new ServiceHost(typeof(ChannelNotifyService));
                 CreateRemoting<IUserInterface>(host);
                 CreateRemoting<IPayInterface>(pay);
                 CreateRemoting<IShortMessageInterface>(shortMessage);
                 CreateRemoting<ISettingInterface>(setting);
+                CreateRemoting<IChannelNotify>(Notify);
                 StartServer();
             }
             catch (Exception err)
