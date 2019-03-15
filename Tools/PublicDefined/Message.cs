@@ -26,7 +26,7 @@ namespace PublicDefined
         [EnumMember]
         Unreaded,
         /// <summary>
-        /// 已阅
+        /// 阅读
         /// </summary>
         [EnumMember]
         Readed,
@@ -36,7 +36,7 @@ namespace PublicDefined
         [EnumMember]
         Uncollected,
         /// <summary>
-        /// 已领取
+        /// 领取
         /// </summary>
         [EnumMember]
         Collected

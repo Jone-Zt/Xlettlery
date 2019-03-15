@@ -1,4 +1,5 @@
 ﻿using Models;
+using PublicDefined;
 using ServicesInterface;
 using System;
 using System.Collections.Generic;
@@ -26,7 +27,7 @@ namespace MobileAPI.Controllers
             try
             {
                 string flowid = RequestCheck.CheckStringValue(Request, "flowID", "流水号", false);
-                string accountID = RequestCheck.CheckStringValue(Request,"AccountID","账号/手机号",false);
+                string accountID = RequestCheck.CheckStringValue(Request, "AccountID", "账号/手机号", false);
                 picker.FlowID = flowid;
                 IShortMessageInterface user = GetManger();
                 if (user == null)
@@ -35,6 +36,30 @@ namespace MobileAPI.Controllers
                     picker.List = result;
                 else
                     picker.FailInfo = errMsg;
+            }
+            catch (Exception err)
+            {
+                picker.FailInfo = err.Message;
+            }
+            return Content(picker.ToString());
+        }
+        public ActionResult InboxOperation()
+        {
+            ResponsePicker<object> picker = new ResponsePicker<object>();
+            try
+            {
+                string flowid = RequestCheck.CheckStringValue(Request, "flowID", "流水号", false);
+                string accountID = RequestCheck.CheckStringValue(Request, "AccountID", "账号", false);
+                string messageID = RequestCheck.CheckStringValue(Request, "messageID", "邮箱编号", false);
+                int? OperationType = RequestCheck.CheckIntValue(Request, "OperationType", "操作类型", false);
+                picker.FlowID = flowid;
+                IShortMessageInterface user = GetManger();
+                if (user == null)
+                    throw new Exception("未挂载函数!");
+                if (user.InboxOperation(accountID, messageID, (MessageStatus)OperationType, out string errMsg))
+                    picker.Data = "操作成功!";
+                else
+                    picker.FailInfo = string.IsNullOrEmpty(errMsg) ? "操作失败!" : errMsg;
             }
             catch (Exception err)
             {

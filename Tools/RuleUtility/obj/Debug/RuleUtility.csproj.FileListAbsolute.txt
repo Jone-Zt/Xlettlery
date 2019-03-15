@@ -8,3 +8,4 @@ E:\Xlettlery\Xlettlery\Tools\RuleUtility\bin\Debug\RuleUtility.pdb
 E:\Xlettlery\Xlettlery\Tools\RuleUtility\obj\Debug\RuleUtility.csproj.CoreCompileInputs.cache
 E:\Xlettlery\Xlettlery\Tools\RuleUtility\obj\Debug\RuleUtility.dll
 E:\Xlettlery\Xlettlery\Tools\RuleUtility\obj\Debug\RuleUtility.pdb
+E:\Xlettlery\Xlettlery\Tools\RuleUtility\obj\Debug\RuleUtility.csprojAssemblyReference.cache

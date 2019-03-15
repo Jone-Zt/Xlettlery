@@ -3,4 +3,3 @@ E:\Xlettlery\Xlettlery\SecurityTools\bin\Debug\SecurityTools.pdb
 E:\Xlettlery\Xlettlery\SecurityTools\obj\Debug\SecurityTools.csproj.CoreCompileInputs.cache
 E:\Xlettlery\Xlettlery\SecurityTools\obj\Debug\SecurityTools.dll
 E:\Xlettlery\Xlettlery\SecurityTools\obj\Debug\SecurityTools.pdb
-E:\Xlettlery\Xlettlery\SecurityTools\obj\Debug\SecurityTools.csprojAssemblyReference.cache

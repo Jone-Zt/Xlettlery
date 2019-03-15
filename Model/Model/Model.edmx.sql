@@ -2,11 +2,13 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 03/14/2019 14:28:59
+-- Date Created: 03/15/2019 14:14:10
 -- Generated from EDMX file: E:\Xlettlery\Xlettlery\Model\Model\Model.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
+GO
+USE [Xlettery];
 GO
 IF SCHEMA_ID(N'dbo') IS NULL EXECUTE(N'CREATE SCHEMA [dbo]');
 GO
@@ -44,6 +46,15 @@ GO
 IF OBJECT_ID(N'[dbo].[SESENT_ChannelProtocol]', 'U') IS NOT NULL
     DROP TABLE [dbo].[SESENT_ChannelProtocol];
 GO
+IF OBJECT_ID(N'[dbo].[SESENT_AdminManger]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[SESENT_AdminManger];
+GO
+IF OBJECT_ID(N'[dbo].[SESENT_ConsumptERecords]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[SESENT_ConsumptERecords];
+GO
+IF OBJECT_ID(N'[dbo].[SESENT_RankingSystemSetting]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[SESENT_RankingSystemSetting];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -63,7 +74,8 @@ CREATE TABLE [dbo].[SESENT_USERS] (
     [ID] int IDENTITY(1,1) NOT NULL,
     [Lv] smallint  NOT NULL,
     [Recharge] decimal(18,0)  NOT NULL,
-    [Consumption] decimal(18,0)  NOT NULL
+    [Consumption] decimal(18,0)  NOT NULL,
+    [UpgradeTime] datetime  NOT NULL
 );
 GO
 
@@ -159,6 +171,29 @@ CREATE TABLE [dbo].[SESENT_AdminManger] (
 );
 GO
 
+-- Creating table 'SESENT_ConsumptERecords'
+CREATE TABLE [dbo].[SESENT_ConsumptERecords] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [AccountID] nvarchar(50)  NOT NULL,
+    [Withdrawable] decimal(18,0)  NOT NULL,
+    [OrderID] nvarchar(50)  NOT NULL,
+    [EntryTime] datetime  NOT NULL,
+    [Status] smallint  NOT NULL,
+    [OutMoney] decimal(18,0)  NOT NULL
+);
+GO
+
+-- Creating table 'SESENT_RankingSystemSetting'
+CREATE TABLE [dbo].[SESENT_RankingSystemSetting] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Lv] smallint  NOT NULL,
+    [Recharge] decimal(18,0)  NOT NULL,
+    [Consumption] decimal(18,0)  NOT NULL,
+    [Reward] smallint  NOT NULL,
+    [UpgradeAward] decimal(18,0)  NOT NULL
+);
+GO
+
 -- --------------------------------------------------
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
@@ -214,6 +249,18 @@ GO
 -- Creating primary key on [Id] in table 'SESENT_AdminManger'
 ALTER TABLE [dbo].[SESENT_AdminManger]
 ADD CONSTRAINT [PK_SESENT_AdminManger]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'SESENT_ConsumptERecords'
+ALTER TABLE [dbo].[SESENT_ConsumptERecords]
+ADD CONSTRAINT [PK_SESENT_ConsumptERecords]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'SESENT_RankingSystemSetting'
+ALTER TABLE [dbo].[SESENT_RankingSystemSetting]
+ADD CONSTRAINT [PK_SESENT_RankingSystemSetting]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 

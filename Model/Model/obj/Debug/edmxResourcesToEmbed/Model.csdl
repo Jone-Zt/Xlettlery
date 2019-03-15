@@ -10,6 +10,8 @@
     <EntitySet Name="SESENT_Settings" EntityType="Model.SESENT_Settings" />
     <EntitySet Name="SESENT_ChannelProtocol" EntityType="Model.SESENT_ChannelProtocol" />
     <EntitySet Name="SESENT_AdminManger" EntityType="Model.SESENT_AdminManger" />
+    <EntitySet Name="SESENT_ConsumptERecords" EntityType="Model.SESENT_ConsumptERecords" />
+    <EntitySet Name="SESENT_RankingSystemSetting" EntityType="Model.SESENT_RankingSystemSetting" />
   </EntityContainer>
   <EntityType Name="SESENT_USERS">
     <Documentation>
@@ -63,6 +65,7 @@
     <Property Name="Lv" Type="Int16" Nullable="false" />
     <Property Name="Recharge" Type="Decimal" Nullable="false" />
     <Property Name="Consumption" Type="Decimal" Nullable="false" />
+    <Property Name="UpgradeTime" Type="DateTime" Nullable="false" />
   </EntityType>
   <EntityType Name="SESENT_Order">
     <Documentation>
@@ -158,5 +161,39 @@
     <Property Name="userPwd" Type="String" Nullable="false" MaxLength="100" />
     <Property Name="LoginLastTime" Type="DateTime" Nullable="false" />
     <Property Name="IP" Type="String" Nullable="false" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="SESENT_ConsumptERecords">
+    <Documentation>
+      <LongDescription>用户消费表</LongDescription>
+    </Documentation>
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AccountID" Type="String" Nullable="false" MaxLength="50" />
+    <Property Name="Withdrawable" Type="Decimal" Nullable="false" />
+    <Property Name="OrderID" Type="String" Nullable="false" MaxLength="50" />
+    <Property Name="EntryTime" Type="DateTime" Nullable="false" />
+    <Property Name="Status" Type="Int16" Nullable="false" />
+    <Property Name="OutMoney" Type="Decimal" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SESENT_RankingSystemSetting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Lv" Type="Int16" Nullable="false" />
+    <Property Name="Recharge" Type="Decimal" Nullable="false" />
+    <Property Name="Consumption" Type="Decimal" Nullable="false" />
+    <Property Name="Reward" Type="Int16" Nullable="false">
+      <Documentation>
+        <LongDescription>每月奖励</LongDescription>
+      </Documentation>
+    </Property>
+    <Property Name="UpgradeAward" Type="Decimal" Nullable="false">
+      <Documentation>
+        <LongDescription>升级奖励</LongDescription>
+      </Documentation>
+    </Property>
   </EntityType>
 </Schema>

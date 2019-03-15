@@ -66,7 +66,7 @@ namespace XlettlerRealization
             }
         }
 
-        public IList<SESENT_Order> QueryOrder(string accountID, DateTime OrderTime,int pageIndex,int pageSize,out string errMsg)
+        public IList<SESENT_Order> QueryOrder(string accountID, DateTime OrderTime,int type,int pageIndex,int pageSize,out string errMsg)
         {
             errMsg = string.Empty;
             using (ModelContainer container = new ModelContainer()) 
@@ -75,7 +75,7 @@ namespace XlettlerRealization
                 try
                 {
                     if (uSERS == null) { errMsg = "查询账户不存在!";return null;}
-                    return container.SESENT_Order.Where(a=>a.AccountID==accountID&&a.OrderTime==OrderTime).Skip(pageIndex*pageSize).Take(pageSize).ToList();
+                    return container.SESENT_Order.Where(a=>a.AccountID==accountID&&a.OrderTime==OrderTime&&a.OrderType==type).Skip(pageIndex*pageSize).Take(pageSize).ToList();
                 }
                 catch (Exception err)
                 {

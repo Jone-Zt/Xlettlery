@@ -22,3 +22,10 @@ E:\Xlettlery\Xlettlery\ChannelManagement\obj\Debug\ChannelManagement.dll
 E:\Xlettlery\Xlettlery\ChannelManagement\obj\Debug\ChannelManagement.pdb
 E:\Xlettlery\Xlettlery\ChannelManagement\bin\Debug\ServicesInterface.dll
 E:\Xlettlery\Xlettlery\ChannelManagement\bin\Debug\ServicesInterface.pdb
+E:\Xlettlery\Xlettlery\ChannelManagement\bin\Debug\Common.Logging.Core.dll
+E:\Xlettlery\Xlettlery\ChannelManagement\bin\Debug\Common.Logging.dll
+E:\Xlettlery\Xlettlery\ChannelManagement\bin\Debug\Quartz.dll
+E:\Xlettlery\Xlettlery\ChannelManagement\bin\Debug\ChannelManagement.dll.config
+E:\Xlettlery\Xlettlery\ChannelManagement\bin\Debug\ChannelInterface.dll.config
+E:\Xlettlery\Xlettlery\ChannelManagement\bin\Debug\DealManagement.dll
+E:\Xlettlery\Xlettlery\ChannelManagement\bin\Debug\DealManagement.pdb

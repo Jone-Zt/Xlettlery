@@ -10,6 +10,8 @@
     <EntitySet Name="SESENT_Settings" EntityType="Model.Store.SESENT_Settings" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="SESENT_ChannelProtocol" EntityType="Model.Store.SESENT_ChannelProtocol" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="SESENT_AdminManger" EntityType="Model.Store.SESENT_AdminManger" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SESENT_ConsumptERecords" EntityType="Model.Store.SESENT_ConsumptERecords" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SESENT_RankingSystemSetting" EntityType="Model.Store.SESENT_RankingSystemSetting" store:Type="Tables" Schema="dbo" />
   </EntityContainer>
   <EntityType Name="SESENT_USERS">
     <Key>
@@ -28,6 +30,7 @@
     <Property Name="Lv" Type="smallint" Nullable="false" />
     <Property Name="Recharge" Type="decimal" Nullable="false" />
     <Property Name="Consumption" Type="decimal" Nullable="false" />
+    <Property Name="UpgradeTime" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="SESENT_Order">
     <Key>
@@ -120,5 +123,28 @@
     <Property Name="userPwd" Type="nvarchar" Nullable="false" MaxLength="100" />
     <Property Name="LoginLastTime" Type="datetime" Nullable="false" />
     <Property Name="IP" Type="nvarchar" Nullable="false" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="SESENT_ConsumptERecords">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AccountID" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Withdrawable" Type="decimal" Nullable="false" />
+    <Property Name="OrderID" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="EntryTime" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="smallint" Nullable="false" />
+    <Property Name="OutMoney" Type="decimal" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SESENT_RankingSystemSetting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Lv" Type="smallint" Nullable="false" />
+    <Property Name="Recharge" Type="decimal" Nullable="false" />
+    <Property Name="Consumption" Type="decimal" Nullable="false" />
+    <Property Name="Reward" Type="smallint" Nullable="false" />
+    <Property Name="UpgradeAward" Type="decimal" Nullable="false" />
   </EntityType>
 </Schema>

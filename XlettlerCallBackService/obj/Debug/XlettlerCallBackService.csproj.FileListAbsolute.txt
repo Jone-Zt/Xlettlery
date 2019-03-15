@@ -41,3 +41,4 @@ E:\Xlettlery\Xlettlery\XlettlerCallBackService\bin\Debug\ServiceStack.Common.xml
 E:\Xlettlery\Xlettlery\XlettlerCallBackService\obj\Debug\XlettlerCallBackService.csproj.CopyComplete
 E:\Xlettlery\Xlettlery\XlettlerCallBackService\obj\Debug\XlettlerCallBackService.exe
 E:\Xlettlery\Xlettlery\XlettlerCallBackService\obj\Debug\XlettlerCallBackService.pdb
+E:\Xlettlery\Xlettlery\XlettlerCallBackService\bin\Debug\CallBackManage.dll.config

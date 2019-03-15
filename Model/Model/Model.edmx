@@ -15,6 +15,8 @@
     <EntitySet Name="SESENT_Settings" EntityType="Model.Store.SESENT_Settings" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="SESENT_ChannelProtocol" EntityType="Model.Store.SESENT_ChannelProtocol" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="SESENT_AdminManger" EntityType="Model.Store.SESENT_AdminManger" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SESENT_ConsumptERecords" EntityType="Model.Store.SESENT_ConsumptERecords" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SESENT_RankingSystemSetting" EntityType="Model.Store.SESENT_RankingSystemSetting" store:Type="Tables" Schema="dbo" />
   </EntityContainer>
   <EntityType Name="SESENT_USERS">
     <Key>
@@ -33,6 +35,7 @@
     <Property Name="Lv" Type="smallint" Nullable="false" />
     <Property Name="Recharge" Type="decimal" Nullable="false" />
     <Property Name="Consumption" Type="decimal" Nullable="false" />
+    <Property Name="UpgradeTime" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="SESENT_Order">
     <Key>
@@ -126,6 +129,29 @@
     <Property Name="LoginLastTime" Type="datetime" Nullable="false" />
     <Property Name="IP" Type="nvarchar" Nullable="false" MaxLength="20" />
   </EntityType>
+  <EntityType Name="SESENT_ConsumptERecords">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AccountID" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Withdrawable" Type="decimal" Nullable="false" />
+    <Property Name="OrderID" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="EntryTime" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="smallint" Nullable="false" />
+    <Property Name="OutMoney" Type="decimal" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SESENT_RankingSystemSetting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Lv" Type="smallint" Nullable="false" />
+    <Property Name="Recharge" Type="decimal" Nullable="false" />
+    <Property Name="Consumption" Type="decimal" Nullable="false" />
+    <Property Name="Reward" Type="smallint" Nullable="false" />
+    <Property Name="UpgradeAward" Type="decimal" Nullable="false" />
+  </EntityType>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -140,6 +166,8 @@
           <EntitySet Name="SESENT_Settings" EntityType="Model.SESENT_Settings" />
           <EntitySet Name="SESENT_ChannelProtocol" EntityType="Model.SESENT_ChannelProtocol" />
           <EntitySet Name="SESENT_AdminManger" EntityType="Model.SESENT_AdminManger" />
+          <EntitySet Name="SESENT_ConsumptERecords" EntityType="Model.SESENT_ConsumptERecords" />
+          <EntitySet Name="SESENT_RankingSystemSetting" EntityType="Model.SESENT_RankingSystemSetting" />
         </EntityContainer>
         <EntityType Name="SESENT_USERS">
           <Documentation>
@@ -193,6 +221,7 @@
           <Property Name="Lv" Type="Int16" Nullable="false" />
           <Property Name="Recharge" Type="Decimal" Nullable="false" />
           <Property Name="Consumption" Type="Decimal" Nullable="false" />
+          <Property Name="UpgradeTime" Type="DateTime" Nullable="false" />
         </EntityType>
         <EntityType Name="SESENT_Order">
           <Documentation>
@@ -289,6 +318,41 @@
           <Property Name="LoginLastTime" Type="DateTime" Nullable="false" />
           <Property Name="IP" Type="String" Nullable="false" MaxLength="20" />
         </EntityType>
+        <EntityType Name="SESENT_ConsumptERecords">
+          <Documentation>
+            <LongDescription>用户消费表</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountID" Type="String" Nullable="false" MaxLength="50" />
+          <Property Name="Withdrawable" Type="Decimal" Nullable="false" />
+          <Property Name="OrderID" Type="String" Nullable="false" MaxLength="50" />
+          <Property Name="EntryTime" Type="DateTime" Nullable="false" />
+          <Property Name="Status" Type="Int16" Nullable="false" />
+          <Property Name="OutMoney" Type="Decimal" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SESENT_RankingSystemSetting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Lv" Type="Int16" Nullable="false" />
+          <Property Name="Recharge" Type="Decimal" Nullable="false" />
+          <Property Name="Consumption" Type="Decimal" Nullable="false" />
+          <Property Name="Reward" Type="Int16" Nullable="false" >
+            <Documentation>
+              <LongDescription>每月奖励</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="UpgradeAward" Type="Decimal" Nullable="false" >
+            <Documentation>
+              <LongDescription>升级奖励</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="InsuredAmount" Type="Decimal" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -311,6 +375,7 @@
           <ScalarProperty Name="Lv" ColumnName="Lv" />
           <ScalarProperty Name="Recharge" ColumnName="Recharge" />
           <ScalarProperty Name="Consumption" ColumnName="Consumption" />
+          <ScalarProperty Name="UpgradeTime" ColumnName="UpgradeTime" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -411,6 +476,31 @@
           <ScalarProperty Name="userPwd" ColumnName="userPwd" />
           <ScalarProperty Name="LoginLastTime" ColumnName="LoginLastTime" />
           <ScalarProperty Name="IP" ColumnName="IP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SESENT_ConsumptERecords">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.SESENT_ConsumptERecords)">
+        <MappingFragment StoreEntitySet="SESENT_ConsumptERecords">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+          <ScalarProperty Name="Withdrawable" ColumnName="Withdrawable" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="EntryTime" ColumnName="EntryTime" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="OutMoney" ColumnName="OutMoney" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SESENT_RankingSystemSetting">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.SESENT_RankingSystemSetting)">
+        <MappingFragment StoreEntitySet="SESENT_RankingSystemSetting">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Lv" ColumnName="Lv" />
+          <ScalarProperty Name="Recharge" ColumnName="Recharge" />
+          <ScalarProperty Name="Consumption" ColumnName="Consumption" />
+          <ScalarProperty Name="Reward" ColumnName="Reward" />
+          <ScalarProperty Name="UpgradeAward" ColumnName="UpgradeAward" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

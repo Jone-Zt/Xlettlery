@@ -79,6 +79,9 @@ namespace XlettlerRealization
                         uSERS.AgentMoney,
                         AccountID=string.IsNullOrEmpty(uSERS.AccountID)?uSERS.Phone:uSERS.AccountID,
                         uSERS.userType,
+                        uSERS.Consumption,
+                        uSERS.Recharge,
+                        uSERS.Phone
                     };
                     return true;
                 }
