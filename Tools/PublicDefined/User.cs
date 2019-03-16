@@ -50,9 +50,9 @@ namespace PublicDefined
     public enum Status
     {
         [EnumMember]
-        Open,
-        [EnumMember]
         Close,
+        [EnumMember]
+        Open,
     }
     [DataContract]
     public enum LoginType
