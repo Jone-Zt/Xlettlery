@@ -26,3 +26,17 @@ E:\Xlettlery\Xlettlery\Model\Model\obj\Debug\Model.csproj.CopyComplete
 E:\Xlettlery\Xlettlery\Model\Model\obj\Debug\Model.dll
 E:\Xlettlery\Xlettlery\Model\Model\obj\Debug\Model.pdb
 E:\Xlettlery\Xlettlery\Model\Model\obj\Debug\Model.csprojAssemblyReference.cache
+C:\Users\张腾\Desktop\Xlettler\Model\Model\bin\Debug\Model.dll.config
+C:\Users\张腾\Desktop\Xlettler\Model\Model\bin\Debug\Model.dll
+C:\Users\张腾\Desktop\Xlettler\Model\Model\bin\Debug\Model.pdb
+C:\Users\张腾\Desktop\Xlettler\Model\Model\bin\Debug\EntityFramework.dll
+C:\Users\张腾\Desktop\Xlettler\Model\Model\bin\Debug\Newtonsoft.Json.dll
+C:\Users\张腾\Desktop\Xlettler\Model\Model\bin\Debug\EntityFramework.xml
+C:\Users\张腾\Desktop\Xlettler\Model\Model\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\张腾\Desktop\Xlettler\Model\Model\bin\Debug\Newtonsoft.Json.xml
+C:\Users\张腾\Desktop\Xlettler\Model\Model\bin\Debug\zh-Hans\EntityFramework.resources.dll
+C:\Users\张腾\Desktop\Xlettler\Model\Model\obj\Debug\Model.csprojAssemblyReference.cache
+C:\Users\张腾\Desktop\Xlettler\Model\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+C:\Users\张腾\Desktop\Xlettler\Model\Model\obj\Debug\Model.csproj.CopyComplete
+C:\Users\张腾\Desktop\Xlettler\Model\Model\obj\Debug\Model.dll
+C:\Users\张腾\Desktop\Xlettler\Model\Model\obj\Debug\Model.pdb

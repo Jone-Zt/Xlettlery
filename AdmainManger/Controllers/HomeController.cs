@@ -4,6 +4,7 @@ using PublicDefined;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -83,12 +84,27 @@ namespace AdmainManger.Controllers
             short type = -1;
             if (short.TryParse(Request["type"], out type))
             {
-                int width = pic.Width;
-                int height = pic.Height;
-                using (ModelContainer db = new ModelContainer())
+                MemoryStream memoryStream = new MemoryStream();
+                using (Stream stm = file.InputStream)
                 {
-                    db.SESENT_Settings.Where();
+                    file.InputStream.Seek(0, SeekOrigin.Begin);
+                    file.InputStream.CopyTo(memoryStream);
                 }
+                    int width = pic.Width;
+                    int height = pic.Height;
+                    using (ModelContainer db = new ModelContainer())
+                    {
+                        db.SESENT_Settings.Add(new SESENT_Settings() {
+                            Height = (short)height,
+                            Width = (short)width,
+                            Type = type,
+                            image = Convert.ToBase64String(memoryStream.ToArray()),
+                            Status = (short)Status.Close,
+                        });
+                     bool ret=db.SaveChanges()>0;
+                    if (ret) return Content(MessageBox.Show("操作成功!"));
+                    else return Content(MessageBox.Show("操作失败!"));
+                    }
             }
             else {
                 return Content(MessageBox.Show("请选择上传文件类型!"));

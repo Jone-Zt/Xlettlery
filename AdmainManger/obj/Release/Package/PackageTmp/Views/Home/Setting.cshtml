@@ -2,17 +2,132 @@
 @{
     Layout = null;
 }
-
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>系统配置</title>
+    <script src="~/Scripts/vue.min.js"></script>
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <link rel="icon" href="/favicon.ico">
+    <script>
+        var Files = null;
+        function AjaxDelteImg(param, remask, type) {
+            $.ajax({
+                "url": "./DeleteImg",
+                "data": { "id": param, "remask": remask, "type": type },
+                "dataType": "json",
+                "success": function (data) {
+                    if (data.MsgCode == "1000") {
+                        alert(data.Data);
+                        location.reload();
+                    } else { alert(data.FailInfo) }
+                }
+            })
+        }
+    </script>
 </head>
 <body>
-    <div> 
-        这里是系统配置页面
+    <ul id="myTab" class="nav nav-tabs">
+        <li class="active">
+            <a href="#FrontEnd" data-toggle="tab">前端配置页</a>
+        </li>
+        <li><a href="#RankingSystem" data-toggle="tab">等级制度配置</a></li>
+    </ul>
+    <div id="myTabContent" class="tab-content">
+        <div class="tab-pane fade in active" id="FrontEnd">
+            <table class="table table-condensed">
+                <caption>迷彩科技-Sports前端配置</caption>
+                <thead>
+                    <tr>
+                        <th>编号</th>
+                        <th>类型</th>
+                        <th>图片预览</th>
+                        <th>宽度(像素)</th>
+                        <th>高度(像素)</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        @foreach (dynamic item in ViewBag.ImgList)
+                        {
+                            <td>@item.Id</td>
+                            if (item.Type==ViewBag.Type){
+                                <th>轮播图</th> }
+                            else{
+                                <th>引导图</th>}
+                            <td><img width="50.0rem" src=@item.image /></td>
+                            <td>@item.Width</td>
+                            <td>@item.Height</td>
+                            if (item.Status == ViewBag.OpenStatus)
+                            { <td><label class="label label-info">使用中</label></td> }
+                            else
+                            {<td><label class="label label-danger">未使用</label></td>}
+                             <td>
+                                 <button onclick="AjaxDelteImg(@item.Id,'delete','')" class="btn btn-danger btn-sm">删除</button>
+                                 @if (item.Status == ViewBag.OpenStatus)
+                                 {
+                                     <button onclick="AjaxDelteImg(@item.Id,'remask',0)" class="btn btn-success btn-sm">标记为未使用</button>
+                                 }
+                                 else
+                                 {
+                                     <button onclick="AjaxDelteImg(@item.Id,'remask',1)" class="btn btn-success btn-sm">标记为使用中</button>
+                                 }
+                             </td>
+                        }
+                    </tr>
+                </tbody>
+            </table>
+            <p class="text-center"><button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#update"> 上传</button></p>
+            <!-- 模态框（Modal） -->
+            <div class="modal fade" id="update" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel">前端配置信息上传</h4>
+                        </div>
+                        <form action="./UpFiles" method="post" enctype="multipart/form-data">
+                            <div class="modal-body form-group">
+                                <select id="selectType" name="type" class="form-control">
+                                    @foreach (KeyValuePair<short, string> item in ViewBag.UpdateType)
+                                    {
+                                        <option value="@item.Key">@item.Value</option>
+                                    }
+                                </select>
+                                <hr />
+                                <input id="update" accept=".jpg,.jpeg,.png" onchange="upload(this.files)" name="UploadFile" class="form-group-sm" type="file" placeholder="请选择上传文件" />
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                <input type="submit" class="btn btn-primary" value="开始上传" />
+                            </div>
+                            </form>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal -->
+            </div>
+        </div>
+        <div class="tab-pane fade" id="RankingSystem">
+            <p>
+                iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple
+                TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。
+            </p>
+        </div>
+        <div class="tab-pane fade" id="jmeter">
+            <p>jMeter 是一款开源的测试软件。它是 100% 纯 Java 应用程序，用于负载和性能测试。</p>
+        </div>
+        <div class="tab-pane fade" id="ejb">
+            <p>
+                Enterprise Java Beans（EJB）是一个创建高度可扩展性和强大企业级应用程序的开发架构，部署在兼容应用程序服务器（比如 JBOSS、Web Logic 等）的 J2EE 上。
+            </p>
+        </div>
     </div>
 </body>
 </html>

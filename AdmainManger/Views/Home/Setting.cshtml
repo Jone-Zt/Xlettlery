@@ -30,23 +30,6 @@
                 }
             })
         }
-        function upload(files) {
-            var type = (files[0].name.substr(files[0].name.lastIndexOf("."))).toLowerCase();
-            if (type != ".jpg" && type != ".gif" && type != ".jpeg" && type != ".png") {
-                alert("您上传图片的类型不符合(.jpg|.jpeg|.gif|.png)！");
-                return false;
-            }
-            Files = files;
-        }
-        function imgSel() {
-            var img = new Image();//构造JS的Image对象
-            img.src = document.imageForm.file.value;//将本地图片赋给image对象
-            img.onreadystatechange = function () {
-                if (img.readyState == "complete") {
-                    alert(["图片大小是:", img.width, img.height]);
-                }
-            }
-        }
     </script>
 </head>
 <body>

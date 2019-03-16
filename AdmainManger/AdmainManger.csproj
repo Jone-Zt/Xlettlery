@@ -213,6 +213,7 @@
     <Content Include="component\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
     <Content Include="component\font-awesome-4.7.0\fonts\FontAwesome.otf" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\CustomProfile1.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

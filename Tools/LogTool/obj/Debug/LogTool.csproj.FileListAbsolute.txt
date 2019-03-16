@@ -16,3 +16,12 @@ E:\Xlettlery\Xlettlery\Tools\LogTool\obj\Debug\LogTool.csproj.CoreCompileInputs.
 E:\Xlettlery\Xlettlery\Tools\LogTool\obj\Debug\LogTool.csproj.CopyComplete
 E:\Xlettlery\Xlettlery\Tools\LogTool\obj\Debug\LogTool.dll
 E:\Xlettlery\Xlettlery\Tools\LogTool\obj\Debug\LogTool.pdb
+C:\Users\张腾\Desktop\Xlettler\Tools\LogTool\bin\Debug\LogTool.dll
+C:\Users\张腾\Desktop\Xlettler\Tools\LogTool\bin\Debug\LogTool.pdb
+C:\Users\张腾\Desktop\Xlettler\Tools\LogTool\bin\Debug\log4net.dll
+C:\Users\张腾\Desktop\Xlettler\Tools\LogTool\bin\Debug\log4net.xml
+C:\Users\张腾\Desktop\Xlettler\Tools\LogTool\obj\Debug\LogTool.csprojAssemblyReference.cache
+C:\Users\张腾\Desktop\Xlettler\Tools\LogTool\obj\Debug\LogTool.csproj.CoreCompileInputs.cache
+C:\Users\张腾\Desktop\Xlettler\Tools\LogTool\obj\Debug\LogTool.csproj.CopyComplete
+C:\Users\张腾\Desktop\Xlettler\Tools\LogTool\obj\Debug\LogTool.dll
+C:\Users\张腾\Desktop\Xlettler\Tools\LogTool\obj\Debug\LogTool.pdb
