@@ -30,5 +30,13 @@ namespace PublicDefined
         /// 账户充值
         /// </summary>
         AccountRecharge,
+        /// <summary>
+        /// 账户消费
+        /// </summary>
+        AccountConsumption,
+        /// <summary>
+        /// 等级奖励
+        /// </summary>
+        GradeAward
     }
 }

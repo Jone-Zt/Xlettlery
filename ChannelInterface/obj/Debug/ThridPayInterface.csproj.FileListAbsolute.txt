@@ -5,7 +5,6 @@ E:\Xlettlery\Xlettlery\ChannelInterface\bin\Debug\EntityFramework.dll
 E:\Xlettlery\Xlettlery\ChannelInterface\bin\Debug\Model.pdb
 E:\Xlettlery\Xlettlery\ChannelInterface\bin\Debug\Model.dll.config
 E:\Xlettlery\Xlettlery\ChannelInterface\bin\Debug\EntityFramework.xml
-E:\Xlettlery\Xlettlery\ChannelInterface\bin\Debug\zh-Hans\EntityFramework.resources.dll
 E:\Xlettlery\Xlettlery\ChannelInterface\obj\Debug\ThridPayInterface.csprojAssemblyReference.cache
 E:\Xlettlery\Xlettlery\ChannelInterface\obj\Debug\ThridPayInterface.csproj.CoreCompileInputs.cache
 E:\Xlettlery\Xlettlery\ChannelInterface\obj\Debug\ThridPayInterface.csproj.CopyComplete
@@ -15,3 +14,4 @@ E:\Xlettlery\Xlettlery\ChannelInterface\bin\Debug\ServicesInterface.dll
 E:\Xlettlery\Xlettlery\ChannelInterface\bin\Debug\PublicDefined.dll
 E:\Xlettlery\Xlettlery\ChannelInterface\bin\Debug\ServicesInterface.pdb
 E:\Xlettlery\Xlettlery\ChannelInterface\bin\Debug\PublicDefined.pdb
+E:\Xlettlery\Xlettlery\ChannelInterface\bin\Debug\ChannelInterface.dll.config

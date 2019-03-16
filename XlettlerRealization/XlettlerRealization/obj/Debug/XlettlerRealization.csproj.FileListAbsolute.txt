@@ -78,3 +78,11 @@ E:\Xlettlery\Xlettlery\XlettlerRealization\XlettlerRealization\bin\Debug\Channel
 E:\Xlettlery\Xlettlery\XlettlerRealization\XlettlerRealization\bin\Debug\ChannelManagement.dll
 E:\Xlettlery\Xlettlery\XlettlerRealization\XlettlerRealization\bin\Debug\ChannelInterface.pdb
 E:\Xlettlery\Xlettlery\XlettlerRealization\XlettlerRealization\bin\Debug\ChannelManagement.pdb
+E:\Xlettlery\Xlettlery\XlettlerRealization\XlettlerRealization\bin\Debug\XlettlerRealization.dll.config
+E:\Xlettlery\Xlettlery\XlettlerRealization\XlettlerRealization\bin\Debug\Quartz.dll
+E:\Xlettlery\Xlettlery\XlettlerRealization\XlettlerRealization\bin\Debug\Common.Logging.Core.dll
+E:\Xlettlery\Xlettlery\XlettlerRealization\XlettlerRealization\bin\Debug\Common.Logging.dll
+E:\Xlettlery\Xlettlery\XlettlerRealization\XlettlerRealization\bin\Debug\ChannelManagement.dll.config
+E:\Xlettlery\Xlettlery\XlettlerRealization\XlettlerRealization\bin\Debug\ChannelInterface.dll.config
+E:\Xlettlery\Xlettlery\XlettlerRealization\XlettlerRealization\bin\Debug\DealManagement.dll
+E:\Xlettlery\Xlettlery\XlettlerRealization\XlettlerRealization\bin\Debug\DealManagement.pdb

@@ -16,5 +16,7 @@ namespace ServicesInterface
         /// </summary>
         [OperationContract]
         bool QueryInbox(string AccountID,out IList<Dictionary<string, string>> result,out string errMsg);
+        [OperationContract]
+        bool InboxOperation(string AccountID,string MessageID,MessageStatus OperationType,out string errMsg);
     }
 }

@@ -3,6 +3,7 @@ E:\Xlettlery\Xlettlery\SecurityTools\bin\Debug\SecurityTools.pdb
 E:\Xlettlery\Xlettlery\SecurityTools\obj\Debug\SecurityTools.csproj.CoreCompileInputs.cache
 E:\Xlettlery\Xlettlery\SecurityTools\obj\Debug\SecurityTools.dll
 E:\Xlettlery\Xlettlery\SecurityTools\obj\Debug\SecurityTools.pdb
+<<<<<<< HEAD
 E:\Xlettlery\Xlettlery\SecurityTools\obj\Debug\SecurityTools.csprojAssemblyReference.cache
 C:\Users\张腾\Desktop\Xlettler\SecurityTools\bin\Debug\SecurityTools.dll
 C:\Users\张腾\Desktop\Xlettler\SecurityTools\bin\Debug\SecurityTools.pdb
@@ -10,3 +11,5 @@ C:\Users\张腾\Desktop\Xlettler\SecurityTools\obj\Debug\SecurityTools.csprojAss
 C:\Users\张腾\Desktop\Xlettler\SecurityTools\obj\Debug\SecurityTools.csproj.CoreCompileInputs.cache
 C:\Users\张腾\Desktop\Xlettler\SecurityTools\obj\Debug\SecurityTools.dll
 C:\Users\张腾\Desktop\Xlettler\SecurityTools\obj\Debug\SecurityTools.pdb
+=======
+>>>>>>> 397429c58e584fc1133524b35a475053f35d0dc7

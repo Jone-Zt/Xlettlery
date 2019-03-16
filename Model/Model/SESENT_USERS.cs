@@ -37,5 +37,6 @@ namespace Model
         public short Lv { get; set; }
         public decimal Recharge { get; set; }
         public decimal Consumption { get; set; }
+        public System.DateTime UpgradeTime { get; set; }
     }
 }

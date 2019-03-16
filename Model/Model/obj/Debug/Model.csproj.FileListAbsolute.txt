@@ -16,15 +16,13 @@ E:\Xlettlery\Xlettlery\Model\Model\bin\Debug\Model.dll.config
 E:\Xlettlery\Xlettlery\Model\Model\bin\Debug\Model.dll
 E:\Xlettlery\Xlettlery\Model\Model\bin\Debug\Model.pdb
 E:\Xlettlery\Xlettlery\Model\Model\bin\Debug\EntityFramework.dll
-E:\Xlettlery\Xlettlery\Model\Model\bin\Debug\Newtonsoft.Json.dll
 E:\Xlettlery\Xlettlery\Model\Model\bin\Debug\EntityFramework.xml
-E:\Xlettlery\Xlettlery\Model\Model\bin\Debug\Newtonsoft.Json.pdb
-E:\Xlettlery\Xlettlery\Model\Model\bin\Debug\Newtonsoft.Json.xml
-E:\Xlettlery\Xlettlery\Model\Model\bin\Debug\zh-Hans\EntityFramework.resources.dll
 E:\Xlettlery\Xlettlery\Model\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
 E:\Xlettlery\Xlettlery\Model\Model\obj\Debug\Model.csproj.CopyComplete
 E:\Xlettlery\Xlettlery\Model\Model\obj\Debug\Model.dll
 E:\Xlettlery\Xlettlery\Model\Model\obj\Debug\Model.pdb
+E:\Xlettlery\Xlettlery\Model\Model\bin\Debug\EntityFramework.SqlServer.dll
+E:\Xlettlery\Xlettlery\Model\Model\bin\Debug\EntityFramework.SqlServer.xml
 E:\Xlettlery\Xlettlery\Model\Model\obj\Debug\Model.csprojAssemblyReference.cache
 C:\Users\张腾\Desktop\Xlettler\Model\Model\bin\Debug\Model.dll.config
 C:\Users\张腾\Desktop\Xlettler\Model\Model\bin\Debug\Model.dll

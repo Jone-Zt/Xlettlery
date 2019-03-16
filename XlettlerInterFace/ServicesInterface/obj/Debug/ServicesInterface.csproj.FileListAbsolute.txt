@@ -22,7 +22,6 @@ E:\Xlettlery\Xlettlery\XlettlerInterFace\ServicesInterface\bin\Debug\PublicDefin
 E:\Xlettlery\Xlettlery\XlettlerInterFace\ServicesInterface\bin\Debug\Model.pdb
 E:\Xlettlery\Xlettlery\XlettlerInterFace\ServicesInterface\bin\Debug\Model.dll.config
 E:\Xlettlery\Xlettlery\XlettlerInterFace\ServicesInterface\bin\Debug\EntityFramework.xml
-E:\Xlettlery\Xlettlery\XlettlerInterFace\ServicesInterface\bin\Debug\zh-Hans\EntityFramework.resources.dll
 E:\Xlettlery\Xlettlery\XlettlerInterFace\ServicesInterface\obj\Debug\ServicesInterface.csprojAssemblyReference.cache
 E:\Xlettlery\Xlettlery\XlettlerInterFace\ServicesInterface\obj\Debug\ServicesInterface.csproj.CoreCompileInputs.cache
 E:\Xlettlery\Xlettlery\XlettlerInterFace\ServicesInterface\obj\Debug\ServicesInterface.csproj.CopyComplete
