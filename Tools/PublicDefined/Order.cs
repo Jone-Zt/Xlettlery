@@ -22,6 +22,26 @@ namespace PublicDefined
        wait,
     }
     /// <summary>
+    /// 提现流程
+    /// </summary>
+    public enum CashWithdrawalProcess
+    {
+        /// <summary>
+        /// 未绑定手机
+        /// </summary>
+        NoBindRealName=100,
+        /// <summary>
+        /// 未绑定银行卡
+        /// </summary>
+        NoBindBankCard=200,
+        /// <summary>
+        /// 意外错误
+        /// </summary>
+        CashNoneFind=400,
+    }
+
+
+    /// <summary>
     /// 订单类型
     /// </summary>
     public enum OrderType
@@ -37,6 +57,10 @@ namespace PublicDefined
         /// <summary>
         /// 等级奖励
         /// </summary>
-        GradeAward
+        GradeAward,
+        /// <summary>
+        /// 用户提现
+        /// </summary>
+        CashWithdrow,
     }
 }

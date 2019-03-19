@@ -36,6 +36,7 @@
     <Property Name="Recharge" Type="decimal" Nullable="false" />
     <Property Name="Consumption" Type="decimal" Nullable="false" />
     <Property Name="UpgradeTime" Type="datetime" Nullable="false" />
+    <Property Name="RealName" Type="nvarchar" Nullable="true" MaxLength="20" />
   </EntityType>
   <EntityType Name="SESENT_Order">
     <Key>
@@ -151,6 +152,7 @@
     <Property Name="Consumption" Type="decimal" Nullable="false" />
     <Property Name="Reward" Type="smallint" Nullable="false" />
     <Property Name="UpgradeAward" Type="decimal" Nullable="false" />
+    <Property Name="InsuredAmount" Type="decimal" Nullable="false" />
   </EntityType>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -168,6 +170,7 @@
           <EntitySet Name="SESENT_AdminManger" EntityType="Model.SESENT_AdminManger" />
           <EntitySet Name="SESENT_ConsumptERecords" EntityType="Model.SESENT_ConsumptERecords" />
           <EntitySet Name="SESENT_RankingSystemSetting" EntityType="Model.SESENT_RankingSystemSetting" />
+          <EntitySet Name="SESENT_CashCard" EntityType="Model.SESENT_CashCard" />
         </EntityContainer>
         <EntityType Name="SESENT_USERS">
           <Documentation>
@@ -222,6 +225,7 @@
           <Property Name="Recharge" Type="Decimal" Nullable="false" />
           <Property Name="Consumption" Type="Decimal" Nullable="false" />
           <Property Name="UpgradeTime" Type="DateTime" Nullable="false" />
+          <Property Name="RealName" Type="String" MaxLength="20" Nullable="true" />
         </EntityType>
         <EntityType Name="SESENT_Order">
           <Documentation>
@@ -239,6 +243,7 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" ConcurrencyMode="None" />
           <Property Name="OrderTime" Type="DateTime" Nullable="false" />
           <Property Name="ChannelID" Type="String" Nullable="false" MaxLength="50" />
+          <Property Name="BankID" Type="Int32" Nullable="true" />
         </EntityType>
         <EntityType Name="SESENT_PhoneXCodes">
           <Key>
@@ -353,6 +358,18 @@
           </Property>
           <Property Name="InsuredAmount" Type="Decimal" Nullable="false" />
         </EntityType>
+        <EntityType Name="SESENT_CashCard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountID" Type="String" Nullable="false" />
+          <Property Name="BankName" Type="String" Nullable="false" />
+          <Property Name="BankCode" Type="String" Nullable="false" />
+          <Property Name="LineNumber" Type="String" Nullable="false" />
+          <Property Name="NetSite" Type="String" Nullable="false" />
+          <Property Name="BankNumber" Type="String" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -376,6 +393,7 @@
           <ScalarProperty Name="Recharge" ColumnName="Recharge" />
           <ScalarProperty Name="Consumption" ColumnName="Consumption" />
           <ScalarProperty Name="UpgradeTime" ColumnName="UpgradeTime" />
+          <ScalarProperty Name="RealName" ColumnName="RealName" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -501,6 +519,7 @@
           <ScalarProperty Name="Consumption" ColumnName="Consumption" />
           <ScalarProperty Name="Reward" ColumnName="Reward" />
           <ScalarProperty Name="UpgradeAward" ColumnName="UpgradeAward" />
+          <ScalarProperty Name="InsuredAmount" ColumnName="InsuredAmount" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

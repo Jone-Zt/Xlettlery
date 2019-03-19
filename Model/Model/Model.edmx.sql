@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 03/15/2019 14:14:10
--- Generated from EDMX file: E:\Xlettlery\Xlettlery\Model\Model\Model.edmx
+-- Date Created: 03/19/2019 10:45:24
+-- Generated from EDMX file: C:\Users\Administrator\Desktop\Xlettlery\Model\Model\Model.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -75,7 +75,8 @@ CREATE TABLE [dbo].[SESENT_USERS] (
     [Lv] smallint  NOT NULL,
     [Recharge] decimal(18,0)  NOT NULL,
     [Consumption] decimal(18,0)  NOT NULL,
-    [UpgradeTime] datetime  NOT NULL
+    [UpgradeTime] datetime  NOT NULL,
+    [RealName] nvarchar(20)  NULL
 );
 GO
 
@@ -190,7 +191,8 @@ CREATE TABLE [dbo].[SESENT_RankingSystemSetting] (
     [Recharge] decimal(18,0)  NOT NULL,
     [Consumption] decimal(18,0)  NOT NULL,
     [Reward] smallint  NOT NULL,
-    [UpgradeAward] decimal(18,0)  NOT NULL
+    [UpgradeAward] decimal(18,0)  NOT NULL,
+    [InsuredAmount] decimal(18,0)  NOT NULL
 );
 GO
 

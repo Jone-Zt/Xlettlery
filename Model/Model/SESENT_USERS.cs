@@ -38,5 +38,6 @@ namespace Model
         public decimal Recharge { get; set; }
         public decimal Consumption { get; set; }
         public System.DateTime UpgradeTime { get; set; }
+        public string RealName { get; set; }
     }
 }
