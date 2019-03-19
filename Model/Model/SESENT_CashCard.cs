@@ -21,5 +21,6 @@ namespace Model
         public string LineNumber { get; set; }
         public string NetSite { get; set; }
         public string BankNumber { get; set; }
+        public System.DateTime EnterTime { get; set; }
     }
 }

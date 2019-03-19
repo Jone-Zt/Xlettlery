@@ -70,6 +70,9 @@
     <Compile Include="SESENT_AdminManger.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="SESENT_CashCard.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="SESENT_ChannelProtocol.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

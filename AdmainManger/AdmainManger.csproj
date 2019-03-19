@@ -160,6 +160,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\main.css" />
+    <Content Include="Content\table.css" />
     <Content Include="css\animate.css" />
     <Content Include="css\default.css" />
     <Content Include="favicon.ico" />
@@ -194,9 +195,11 @@
     <Content Include="img\wallpapers\main.jpg" />
     <Content Include="img\wallpapers\mobile.jpg" />
     <Content Include="img\windows.ico" />
+    <Content Include="js\jquery-1.9.1.min.js" />
     <Content Include="js\jquery-2.2.4.min.js" />
     <Content Include="js\win10.child.js" />
     <Content Include="js\win10.js" />
+    <Content Include="Scripts\back-endPage.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\NEOTERICc.ttf" />
@@ -212,6 +215,8 @@
     <Content Include="component\font-awesome-4.7.0\fonts\FontAwesome.otf" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\front-endPage.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
@@ -223,6 +228,10 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\layer.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\shujv2.js" />
+    <Content Include="Scripts\vue-router.js" />
+    <Content Include="Scripts\vue.js" />
+    <Content Include="Scripts\vue.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -266,6 +275,10 @@
     <ProjectReference Include="..\SecurityTools\SecurityTools.csproj">
       <Project>{440F362E-5B45-41F3-930A-302370C4795C}</Project>
       <Name>SecurityTools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tools\PublicDefined\PublicDefined.csproj">
+      <Project>{C54CE5BB-6B8F-472F-BE7F-0E94214CC904}</Project>
+      <Name>PublicDefined</Name>
     </ProjectReference>
     <ProjectReference Include="..\Tools\Tools\Tools.csproj">
       <Project>{C6F1BF87-A866-47B2-8BA7-DD5DD43820F4}</Project>

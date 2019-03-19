@@ -45,6 +45,11 @@ namespace PublicDefined
         /// </summary>
         [EnumMember]
         FindLoginPwd =3,
+        /// <summary>
+        /// 绑定银行卡
+        /// </summary>
+        [EnumMember]
+        BindBankCard=4,
     }
     [DataContract]
     public enum Status

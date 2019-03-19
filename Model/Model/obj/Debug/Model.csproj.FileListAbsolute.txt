@@ -31,8 +31,8 @@ C:\Users\Administrator\Desktop\Xlettlery\Model\Model\bin\Debug\EntityFramework.d
 C:\Users\Administrator\Desktop\Xlettlery\Model\Model\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Administrator\Desktop\Xlettlery\Model\Model\bin\Debug\EntityFramework.xml
 C:\Users\Administrator\Desktop\Xlettlery\Model\Model\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Administrator\Desktop\Xlettlery\Model\Model\obj\Debug\Model.csprojAssemblyReference.cache
 C:\Users\Administrator\Desktop\Xlettlery\Model\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
 C:\Users\Administrator\Desktop\Xlettlery\Model\Model\obj\Debug\Model.csproj.CopyComplete
 C:\Users\Administrator\Desktop\Xlettlery\Model\Model\obj\Debug\Model.dll
 C:\Users\Administrator\Desktop\Xlettlery\Model\Model\obj\Debug\Model.pdb
+C:\Users\Administrator\Desktop\Xlettlery\Model\Model\obj\Debug\Model.csprojAssemblyReference.cache

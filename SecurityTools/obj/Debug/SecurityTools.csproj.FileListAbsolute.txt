@@ -5,7 +5,6 @@ E:\Xlettlery\Xlettlery\SecurityTools\obj\Debug\SecurityTools.dll
 E:\Xlettlery\Xlettlery\SecurityTools\obj\Debug\SecurityTools.pdb
 C:\Users\Administrator\Desktop\Xlettlery\SecurityTools\bin\Debug\SecurityTools.dll
 C:\Users\Administrator\Desktop\Xlettlery\SecurityTools\bin\Debug\SecurityTools.pdb
-C:\Users\Administrator\Desktop\Xlettlery\SecurityTools\obj\Debug\SecurityTools.csprojAssemblyReference.cache
 C:\Users\Administrator\Desktop\Xlettlery\SecurityTools\obj\Debug\SecurityTools.csproj.CoreCompileInputs.cache
 C:\Users\Administrator\Desktop\Xlettlery\SecurityTools\obj\Debug\SecurityTools.dll
 C:\Users\Administrator\Desktop\Xlettlery\SecurityTools\obj\Debug\SecurityTools.pdb

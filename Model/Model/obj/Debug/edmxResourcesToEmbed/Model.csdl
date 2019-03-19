@@ -12,6 +12,7 @@
     <EntitySet Name="SESENT_AdminManger" EntityType="Model.SESENT_AdminManger" />
     <EntitySet Name="SESENT_ConsumptERecords" EntityType="Model.SESENT_ConsumptERecords" />
     <EntitySet Name="SESENT_RankingSystemSetting" EntityType="Model.SESENT_RankingSystemSetting" />
+    <EntitySet Name="SESENT_CashCard" EntityType="Model.SESENT_CashCard" />
   </EntityContainer>
   <EntityType Name="SESENT_USERS">
     <Documentation>
@@ -66,6 +67,7 @@
     <Property Name="Recharge" Type="Decimal" Nullable="false" />
     <Property Name="Consumption" Type="Decimal" Nullable="false" />
     <Property Name="UpgradeTime" Type="DateTime" Nullable="false" />
+    <Property Name="RealName" Type="String" MaxLength="20" Nullable="true" />
   </EntityType>
   <EntityType Name="SESENT_Order">
     <Documentation>
@@ -83,6 +85,7 @@
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" ConcurrencyMode="None" />
     <Property Name="OrderTime" Type="DateTime" Nullable="false" />
     <Property Name="ChannelID" Type="String" Nullable="false" MaxLength="50" />
+    <Property Name="BankID" Type="Int32" Nullable="true" />
   </EntityType>
   <EntityType Name="SESENT_PhoneXCodes">
     <Key>
@@ -195,5 +198,19 @@
         <LongDescription>升级奖励</LongDescription>
       </Documentation>
     </Property>
+    <Property Name="InsuredAmount" Type="Decimal" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SESENT_CashCard">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AccountID" Type="String" Nullable="false" />
+    <Property Name="BankName" Type="String" Nullable="false" />
+    <Property Name="BankCode" Type="String" Nullable="false" />
+    <Property Name="LineNumber" Type="String" Nullable="false" />
+    <Property Name="NetSite" Type="String" Nullable="false" />
+    <Property Name="BankNumber" Type="String" Nullable="false" />
+    <Property Name="EnterTime" Type="DateTime" Nullable="false" />
   </EntityType>
 </Schema>

@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 03/19/2019 10:45:24
+-- Date Created: 03/19/2019 12:11:38
 -- Generated from EDMX file: C:\Users\Administrator\Desktop\Xlettlery\Model\Model\Model.edmx
 -- --------------------------------------------------
 
@@ -90,7 +90,8 @@ CREATE TABLE [dbo].[SESENT_Order] (
     [Status] smallint  NOT NULL,
     [ID] int IDENTITY(1,1) NOT NULL,
     [OrderTime] datetime  NOT NULL,
-    [ChannelID] nvarchar(50)  NOT NULL
+    [ChannelID] nvarchar(50)  NOT NULL,
+    [BankID] int  NULL
 );
 GO
 
@@ -196,6 +197,19 @@ CREATE TABLE [dbo].[SESENT_RankingSystemSetting] (
 );
 GO
 
+-- Creating table 'SESENT_CashCard'
+CREATE TABLE [dbo].[SESENT_CashCard] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [AccountID] nvarchar(max)  NOT NULL,
+    [BankName] nvarchar(max)  NOT NULL,
+    [BankCode] nvarchar(max)  NOT NULL,
+    [LineNumber] nvarchar(max)  NOT NULL,
+    [NetSite] nvarchar(max)  NOT NULL,
+    [BankNumber] nvarchar(max)  NOT NULL,
+    [EnterTime] datetime  NOT NULL
+);
+GO
+
 -- --------------------------------------------------
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
@@ -263,6 +277,12 @@ GO
 -- Creating primary key on [Id] in table 'SESENT_RankingSystemSetting'
 ALTER TABLE [dbo].[SESENT_RankingSystemSetting]
 ADD CONSTRAINT [PK_SESENT_RankingSystemSetting]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'SESENT_CashCard'
+ALTER TABLE [dbo].[SESENT_CashCard]
+ADD CONSTRAINT [PK_SESENT_CashCard]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 

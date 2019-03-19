@@ -27,3 +27,17 @@ E:\Xlettlery\Xlettlery\XlettlerInterFace\ServicesInterface\obj\Debug\ServicesInt
 E:\Xlettlery\Xlettlery\XlettlerInterFace\ServicesInterface\obj\Debug\ServicesInterface.csproj.CopyComplete
 E:\Xlettlery\Xlettlery\XlettlerInterFace\ServicesInterface\obj\Debug\ServicesInterface.dll
 E:\Xlettlery\Xlettlery\XlettlerInterFace\ServicesInterface\obj\Debug\ServicesInterface.pdb
+C:\Users\Administrator\Desktop\Xlettlery\XlettlerInterFace\ServicesInterface\obj\Debug\ServicesInterface.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\Xlettlery\XlettlerInterFace\ServicesInterface\obj\Debug\ServicesInterface.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\Xlettlery\XlettlerInterFace\ServicesInterface\obj\Debug\ServicesInterface.dll
+C:\Users\Administrator\Desktop\Xlettlery\XlettlerInterFace\ServicesInterface\obj\Debug\ServicesInterface.pdb
+C:\Users\Administrator\Desktop\Xlettlery\XlettlerInterFace\ServicesInterface\bin\Debug\ServicesInterface.dll
+C:\Users\Administrator\Desktop\Xlettlery\XlettlerInterFace\ServicesInterface\bin\Debug\ServicesInterface.pdb
+C:\Users\Administrator\Desktop\Xlettlery\XlettlerInterFace\ServicesInterface\bin\Debug\Model.dll
+C:\Users\Administrator\Desktop\Xlettlery\XlettlerInterFace\ServicesInterface\bin\Debug\PublicDefined.dll
+C:\Users\Administrator\Desktop\Xlettlery\XlettlerInterFace\ServicesInterface\bin\Debug\EntityFramework.dll
+C:\Users\Administrator\Desktop\Xlettlery\XlettlerInterFace\ServicesInterface\bin\Debug\PublicDefined.pdb
+C:\Users\Administrator\Desktop\Xlettlery\XlettlerInterFace\ServicesInterface\bin\Debug\Model.pdb
+C:\Users\Administrator\Desktop\Xlettlery\XlettlerInterFace\ServicesInterface\bin\Debug\Model.dll.config
+C:\Users\Administrator\Desktop\Xlettlery\XlettlerInterFace\ServicesInterface\bin\Debug\EntityFramework.xml
+C:\Users\Administrator\Desktop\Xlettlery\XlettlerInterFace\ServicesInterface\obj\Debug\ServicesInterface.csproj.CopyComplete

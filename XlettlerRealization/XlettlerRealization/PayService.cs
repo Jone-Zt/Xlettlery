@@ -15,7 +15,27 @@ namespace XlettlerRealization
     {
         public bool BindCashBank(SESENT_CashCard cashCard, out string errMsg)
         {
-            throw new NotImplementedException();
+            errMsg =string.Empty;
+            try
+            {
+                using (ModelContainer db = new ModelContainer())
+                {
+                    SESENT_USERS uSERS=db.SESENT_USERS.Where(a => a.AccountID == cashCard.AccountID).FirstOrDefault();
+                    if (uSERS == null) { errMsg = "绑定用户不存在!";return false; }
+                    SESENT_CashCard bankCard=db.SESENT_CashCard.Where(a => a.BankNumber == cashCard.BankNumber && a.AccountID == cashCard.AccountID).FirstOrDefault();
+                    if (bankCard != null) { errMsg = "该用户已绑定该银行卡";return false;}
+                    db.SESENT_CashCard.Add(cashCard);
+                    bool ret=db.SaveChanges()>0;
+                    if (!ret)
+                        errMsg = "绑定失败!";
+                    return ret;
+                }
+            }
+            catch (Exception err)
+            {
+                LogTool.LogWriter.WriteError($"绑定银行卡失败:{cashCard}", err);
+                return false;
+            }
         }
 
         public bool CashWithdrawal(string accountID, decimal amount, int bankID, out Dictionary<string, object> result)
@@ -140,7 +160,7 @@ namespace XlettlerRealization
                 {
                     SESENT_USERS uSERS=db.SESENT_USERS.Where(a => a.AccountID == accountID).FirstOrDefault();
                     if (uSERS == null) { errMsg = "查询用户不存在!"; return null;}
-                    return db.SESENT_CashCard.Where(a => a.AccountID == accountID).ToList();
+                    return db.SESENT_CashCard.Where(a => a.AccountID == accountID).OrderBy(a=>a.EnterTime).ToList();
                 }
             }
             catch (Exception err)
