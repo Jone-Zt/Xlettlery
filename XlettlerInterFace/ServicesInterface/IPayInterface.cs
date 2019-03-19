@@ -15,6 +15,10 @@ namespace ServicesInterface
         [OperationContract]
         bool MakeOrder(decimal amount,string accountID,string channelID,out MakeOrderNewData result, out string errMsg);
         IList<SESENT_Order> QueryOrder(string accountID,DateTime OrderTime,int type,int pageIndex,int pageSize,out string errMsg);
+        bool CashWithdrawal(string accountID,decimal amount,int bankID,out Dictionary<string,object> result);
+        IList<SESENT_CashCard> QueryCashBank(string accountID,out string errMsg);
+        bool BindCashBank(SESENT_CashCard cashCard,out string errMsg);
+
     }
     [DataContract]
     public class MakeOrderNewData

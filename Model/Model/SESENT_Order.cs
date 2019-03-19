@@ -23,5 +23,6 @@ namespace Model
         public int ID { get; set; }
         public System.DateTime OrderTime { get; set; }
         public string ChannelID { get; set; }
+        public Nullable<int> BankID { get; set; }
     }
 }

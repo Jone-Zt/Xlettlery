@@ -17,6 +17,8 @@
           <ScalarProperty Name="Lv" ColumnName="Lv" />
           <ScalarProperty Name="Recharge" ColumnName="Recharge" />
           <ScalarProperty Name="Consumption" ColumnName="Consumption" />
+          <ScalarProperty Name="UpgradeTime" ColumnName="UpgradeTime" />
+          <ScalarProperty Name="RealName" ColumnName="RealName" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -32,6 +34,7 @@
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="OrderTime" ColumnName="OrderTime" />
           <ScalarProperty Name="ChannelID" ColumnName="ChannelID" />
+          <ScalarProperty Name="BankID" ColumnName="BankID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -117,6 +120,46 @@
           <ScalarProperty Name="userPwd" ColumnName="userPwd" />
           <ScalarProperty Name="LoginLastTime" ColumnName="LoginLastTime" />
           <ScalarProperty Name="IP" ColumnName="IP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SESENT_ConsumptERecords">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.SESENT_ConsumptERecords)">
+        <MappingFragment StoreEntitySet="SESENT_ConsumptERecords">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+          <ScalarProperty Name="Withdrawable" ColumnName="Withdrawable" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="EntryTime" ColumnName="EntryTime" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="OutMoney" ColumnName="OutMoney" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SESENT_RankingSystemSetting">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.SESENT_RankingSystemSetting)">
+        <MappingFragment StoreEntitySet="SESENT_RankingSystemSetting">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Lv" ColumnName="Lv" />
+          <ScalarProperty Name="Recharge" ColumnName="Recharge" />
+          <ScalarProperty Name="Consumption" ColumnName="Consumption" />
+          <ScalarProperty Name="Reward" ColumnName="Reward" />
+          <ScalarProperty Name="UpgradeAward" ColumnName="UpgradeAward" />
+          <ScalarProperty Name="InsuredAmount" ColumnName="InsuredAmount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SESENT_CashCard">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.SESENT_CashCard)">
+        <MappingFragment StoreEntitySet="SESENT_CashCard">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+          <ScalarProperty Name="BankName" ColumnName="BankName" />
+          <ScalarProperty Name="BankCode" ColumnName="BankCode" />
+          <ScalarProperty Name="LineNumber" ColumnName="LineNumber" />
+          <ScalarProperty Name="NetSite" ColumnName="NetSite" />
+          <ScalarProperty Name="BankNumber" ColumnName="BankNumber" />
+          <ScalarProperty Name="EnterTime" ColumnName="EnterTime" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

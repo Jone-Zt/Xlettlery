@@ -36,5 +36,6 @@ namespace Model
         public DbSet<SESENT_AdminManger> SESENT_AdminManger { get; set; }
         public DbSet<SESENT_ConsumptERecords> SESENT_ConsumptERecords { get; set; }
         public DbSet<SESENT_RankingSystemSetting> SESENT_RankingSystemSetting { get; set; }
+        public DbSet<SESENT_CashCard> SESENT_CashCard { get; set; }
     }
 }

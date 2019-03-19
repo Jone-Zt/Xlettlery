@@ -9,3 +9,9 @@ E:\Xlettlery\Xlettlery\Tools\RuleUtility\obj\Debug\RuleUtility.csproj.CoreCompil
 E:\Xlettlery\Xlettlery\Tools\RuleUtility\obj\Debug\RuleUtility.dll
 E:\Xlettlery\Xlettlery\Tools\RuleUtility\obj\Debug\RuleUtility.pdb
 E:\Xlettlery\Xlettlery\Tools\RuleUtility\obj\Debug\RuleUtility.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\Xlettlery\Tools\RuleUtility\bin\Debug\RuleUtility.dll
+C:\Users\Administrator\Desktop\Xlettlery\Tools\RuleUtility\bin\Debug\RuleUtility.pdb
+C:\Users\Administrator\Desktop\Xlettlery\Tools\RuleUtility\obj\Debug\RuleUtility.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\Xlettlery\Tools\RuleUtility\obj\Debug\RuleUtility.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\Xlettlery\Tools\RuleUtility\obj\Debug\RuleUtility.dll
+C:\Users\Administrator\Desktop\Xlettlery\Tools\RuleUtility\obj\Debug\RuleUtility.pdb

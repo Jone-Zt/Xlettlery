@@ -24,6 +24,7 @@ E:\Xlettlery\Xlettlery\Model\Model\obj\Debug\Model.pdb
 E:\Xlettlery\Xlettlery\Model\Model\bin\Debug\EntityFramework.SqlServer.dll
 E:\Xlettlery\Xlettlery\Model\Model\bin\Debug\EntityFramework.SqlServer.xml
 E:\Xlettlery\Xlettlery\Model\Model\obj\Debug\Model.csprojAssemblyReference.cache
+<<<<<<< HEAD
 C:\Users\张腾\Desktop\Xlettler\Model\Model\bin\Debug\Model.dll.config
 C:\Users\张腾\Desktop\Xlettler\Model\Model\bin\Debug\Model.dll
 C:\Users\张腾\Desktop\Xlettler\Model\Model\bin\Debug\Model.pdb
@@ -38,3 +39,17 @@ C:\Users\张腾\Desktop\Xlettler\Model\Model\obj\Debug\Model.csproj.CoreCompileI
 C:\Users\张腾\Desktop\Xlettler\Model\Model\obj\Debug\Model.csproj.CopyComplete
 C:\Users\张腾\Desktop\Xlettler\Model\Model\obj\Debug\Model.dll
 C:\Users\张腾\Desktop\Xlettler\Model\Model\obj\Debug\Model.pdb
+=======
+C:\Users\Administrator\Desktop\Xlettlery\Model\Model\bin\Debug\Model.dll.config
+C:\Users\Administrator\Desktop\Xlettlery\Model\Model\bin\Debug\Model.dll
+C:\Users\Administrator\Desktop\Xlettlery\Model\Model\bin\Debug\Model.pdb
+C:\Users\Administrator\Desktop\Xlettlery\Model\Model\bin\Debug\EntityFramework.dll
+C:\Users\Administrator\Desktop\Xlettlery\Model\Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Administrator\Desktop\Xlettlery\Model\Model\bin\Debug\EntityFramework.xml
+C:\Users\Administrator\Desktop\Xlettlery\Model\Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Administrator\Desktop\Xlettlery\Model\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\Xlettlery\Model\Model\obj\Debug\Model.csproj.CopyComplete
+C:\Users\Administrator\Desktop\Xlettlery\Model\Model\obj\Debug\Model.dll
+C:\Users\Administrator\Desktop\Xlettlery\Model\Model\obj\Debug\Model.pdb
+C:\Users\Administrator\Desktop\Xlettlery\Model\Model\obj\Debug\Model.csprojAssemblyReference.cache
+>>>>>>> de088fc9e5a13d704bd455d8f638318f2835b11d

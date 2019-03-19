@@ -26,3 +26,15 @@ E:\Xlettlery\Xlettlery\Model\Model\obj\Release\Model.csproj.CoreCompileInputs.ca
 E:\Xlettlery\Xlettlery\Model\Model\obj\Release\Model.csproj.CopyComplete
 E:\Xlettlery\Xlettlery\Model\Model\obj\Release\Model.dll
 E:\Xlettlery\Xlettlery\Model\Model\obj\Release\Model.pdb
+C:\Users\Administrator\Desktop\Xlettlery\Model\Model\bin\Release\Model.dll.config
+C:\Users\Administrator\Desktop\Xlettlery\Model\Model\bin\Release\Model.dll
+C:\Users\Administrator\Desktop\Xlettlery\Model\Model\bin\Release\Model.pdb
+C:\Users\Administrator\Desktop\Xlettlery\Model\Model\bin\Release\EntityFramework.dll
+C:\Users\Administrator\Desktop\Xlettlery\Model\Model\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Administrator\Desktop\Xlettlery\Model\Model\bin\Release\EntityFramework.xml
+C:\Users\Administrator\Desktop\Xlettlery\Model\Model\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Administrator\Desktop\Xlettlery\Model\Model\obj\Release\Model.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\Xlettlery\Model\Model\obj\Release\Model.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\Xlettlery\Model\Model\obj\Release\Model.csproj.CopyComplete
+C:\Users\Administrator\Desktop\Xlettlery\Model\Model\obj\Release\Model.dll
+C:\Users\Administrator\Desktop\Xlettlery\Model\Model\obj\Release\Model.pdb
