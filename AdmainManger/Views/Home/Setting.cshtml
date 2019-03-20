@@ -16,7 +16,6 @@
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
     <link rel="icon" href="/favicon.ico">
     <script>
-        var Files = null;
         function AjaxDelteImg(param, remask, type) {
             $.ajax({
                 "url": "./DeleteImg",
@@ -30,6 +29,30 @@
                 }
             })
         }
+        $(function () {
+            $("#sub").click(function () {
+                AjaxUpdateFile();
+            })
+        })
+        function AjaxUpdateFile() {
+            var formdata = new FormData();
+            var upload = $('input[type=file]#update');
+            formdata.append("UploadFile", upload.get(0).files[0]);
+            formdata.append("type", $("#selectType").val())
+            $.ajax({
+                url: './UpFiles',
+                type: 'POST',
+                cache: false,
+                data: formdata,
+                processData: false,
+                contentType: false
+            }).done(function (res) {
+                alert(res);
+                location.reload();
+                }).fail(function (res) {
+                    console.log(res);
+                }); 
+                }
     </script>
 </head>
 <body>
@@ -55,35 +78,37 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        @foreach (dynamic item in ViewBag.ImgList)
+                    @foreach (dynamic item in ViewBag.ImgList)
+                    {
+                        <tr>
+                        <td>@item.Id</td>
+                        @if (item.Type==ViewBag.Type){
+                        <th>轮播图</th> }
+                        else{
+                        <th>引导图</th>}
+                        <td><img width="30.0rem" src="data:image/jpeg;base64,@item.image" /></td>
+                        <td>@item.Width</td>
+                        <td>@item.Height</td>
+                        @if (item.Status == ViewBag.OpenStatus)
                         {
-                            <td>@item.Id</td>
-                            if (item.Type==ViewBag.Type){
-                                <th>轮播图</th> }
-                            else{
-                                <th>引导图</th>}
-                            <td><img width="50.0rem" src=@item.image /></td>
-                            <td>@item.Width</td>
-                            <td>@item.Height</td>
-                            if (item.Status == ViewBag.OpenStatus)
-                            { <td><label class="label label-info">使用中</label></td> }
+                        <td><label class="label label-info">使用中</label></td> }
+                        else
+                        {
+                        <td><label class="label label-danger">未使用</label></td>}
+                        <td>
+                            <button onclick="AjaxDelteImg(@item.Id,'delete','')" class="btn btn-danger btn-sm">删除</button>
+                            @if (item.Status == ViewBag.OpenStatus)
+                            {
+                                <button onclick="AjaxDelteImg(@item.Id,'remask',0)" class="btn btn-success btn-sm">标记为未使用</button>
+                            }
                             else
-                            {<td><label class="label label-danger">未使用</label></td>}
-                             <td>
-                                 <button onclick="AjaxDelteImg(@item.Id,'delete','')" class="btn btn-danger btn-sm">删除</button>
-                                 @if (item.Status == ViewBag.OpenStatus)
-                                 {
-                                     <button onclick="AjaxDelteImg(@item.Id,'remask',0)" class="btn btn-success btn-sm">标记为未使用</button>
-                                 }
-                                 else
-                                 {
-                                     <button onclick="AjaxDelteImg(@item.Id,'remask',1)" class="btn btn-success btn-sm">标记为使用中</button>
-                                 }
-                             </td>
-                        }
+                            {
+                                <button onclick="AjaxDelteImg(@item.Id,'remask',1)" class="btn btn-success btn-sm">标记为使用中</button>
+                            }
+                        </td>
                     </tr>
-                </tbody>
+                            }
+                    </tbody>
             </table>
             <p class="text-center"><button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#update"> 上传</button></p>
             <!-- 模态框（Modal） -->
@@ -94,7 +119,7 @@
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                             <h4 class="modal-title" id="myModalLabel">前端配置信息上传</h4>
                         </div>
-                        <form action="./UpFiles" method="post" enctype="multipart/form-data">
+                        <form id="uploadModel" action="./UpFiles" method="post" enctype="multipart/form-data">
                             <div class="modal-body form-group">
                                 <select id="selectType" name="type" class="form-control">
                                     @foreach (KeyValuePair<short, string> item in ViewBag.UpdateType)
@@ -103,11 +128,11 @@
                                     }
                                 </select>
                                 <hr />
-                                <input id="update" accept=".jpg,.jpeg,.png" onchange="upload(this.files)" name="UploadFile" class="form-group-sm" type="file" placeholder="请选择上传文件" />
+                                <input id="update" accept=".jpg,.jpeg,.png"  name="UploadFile" class="form-group-sm" type="file" placeholder="请选择上传文件" />
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                                <input type="submit" class="btn btn-primary" value="开始上传" />
+                                <input type="button" id="sub" class="btn btn-primary" value="开始上传" />
                             </div>
                             </form>
                     </div><!-- /.modal-content -->

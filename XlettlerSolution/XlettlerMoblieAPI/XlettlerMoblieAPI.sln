@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileAPI", "..\..\XlettlerMobileAPI\MobileAPI\MobileAPI.csproj", "{C970DB78-892B-47A4-8F0A-FAC648DDBC11}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogTool", "..\..\Tools\LogTool\LogTool.csproj", "{E837A985-CD29-4724-B907-97570DFC0EBA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServicesInterface", "..\..\XlettlerInterFace\ServicesInterface\ServicesInterface.csproj", "{523CBFAA-B538-4B34-AE25-8E256DFB2439}"
@@ -21,11 +19,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "..\..\Model\Model\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RuleUtility", "..\..\Tools\RuleUtility\RuleUtility.csproj", "{10702011-CC37-41CA-8C67-287B7D919D94}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdmainManger", "..\..\AdmainManger\AdmainManger.csproj", "{ADAC69B0-ABCB-4E66-A31C-CF5A1AF6E457}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecurityTools", "..\..\SecurityTools\SecurityTools.csproj", "{440F362E-5B45-41F3-930A-302370C4795C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DealManagement", "..\..\DealManagement\DealManagement.csproj", "{A01313C8-08F7-4075-9E01-9164FEEB241C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileAPI", "..\..\XlettlerMobileAPI\MobileAPI\MobileAPI.csproj", "{C970DB78-892B-47A4-8F0A-FAC648DDBC11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdmainManger", "..\..\AdmainManger\AdmainManger.csproj", "{ADAC69B0-ABCB-4E66-A31C-CF5A1AF6E457}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChannelManagement", "..\..\ChannelManagement\ChannelManagement.csproj", "{8C351DB7-B6CB-4B1A-AE3B-B6E13E97A1D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThridPayInterface", "..\..\ChannelInterface\ThridPayInterface.csproj", "{FF8B40C7-54D5-4D7E-BD52-6580DD14FD2C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,10 +37,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C970DB78-892B-47A4-8F0A-FAC648DDBC11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C970DB78-892B-47A4-8F0A-FAC648DDBC11}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C970DB78-892B-47A4-8F0A-FAC648DDBC11}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C970DB78-892B-47A4-8F0A-FAC648DDBC11}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E837A985-CD29-4724-B907-97570DFC0EBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E837A985-CD29-4724-B907-97570DFC0EBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E837A985-CD29-4724-B907-97570DFC0EBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -69,10 +69,6 @@ Global
 		{10702011-CC37-41CA-8C67-287B7D919D94}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10702011-CC37-41CA-8C67-287B7D919D94}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10702011-CC37-41CA-8C67-287B7D919D94}.Release|Any CPU.Build.0 = Release|Any CPU
-		{ADAC69B0-ABCB-4E66-A31C-CF5A1AF6E457}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ADAC69B0-ABCB-4E66-A31C-CF5A1AF6E457}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ADAC69B0-ABCB-4E66-A31C-CF5A1AF6E457}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ADAC69B0-ABCB-4E66-A31C-CF5A1AF6E457}.Release|Any CPU.Build.0 = Release|Any CPU
 		{440F362E-5B45-41F3-930A-302370C4795C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{440F362E-5B45-41F3-930A-302370C4795C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{440F362E-5B45-41F3-930A-302370C4795C}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -81,6 +77,22 @@ Global
 		{A01313C8-08F7-4075-9E01-9164FEEB241C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A01313C8-08F7-4075-9E01-9164FEEB241C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A01313C8-08F7-4075-9E01-9164FEEB241C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C970DB78-892B-47A4-8F0A-FAC648DDBC11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C970DB78-892B-47A4-8F0A-FAC648DDBC11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C970DB78-892B-47A4-8F0A-FAC648DDBC11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C970DB78-892B-47A4-8F0A-FAC648DDBC11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADAC69B0-ABCB-4E66-A31C-CF5A1AF6E457}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADAC69B0-ABCB-4E66-A31C-CF5A1AF6E457}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADAC69B0-ABCB-4E66-A31C-CF5A1AF6E457}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADAC69B0-ABCB-4E66-A31C-CF5A1AF6E457}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C351DB7-B6CB-4B1A-AE3B-B6E13E97A1D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C351DB7-B6CB-4B1A-AE3B-B6E13E97A1D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C351DB7-B6CB-4B1A-AE3B-B6E13E97A1D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C351DB7-B6CB-4B1A-AE3B-B6E13E97A1D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF8B40C7-54D5-4D7E-BD52-6580DD14FD2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF8B40C7-54D5-4D7E-BD52-6580DD14FD2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF8B40C7-54D5-4D7E-BD52-6580DD14FD2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF8B40C7-54D5-4D7E-BD52-6580DD14FD2C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

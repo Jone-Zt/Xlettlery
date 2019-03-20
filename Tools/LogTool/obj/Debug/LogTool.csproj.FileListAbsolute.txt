@@ -1,35 +1,3 @@
-C:\Users\Administrator\source\repos\Xlettler\Tools\LogTool\bin\Debug\LogTool.dll
-C:\Users\Administrator\source\repos\Xlettler\Tools\LogTool\bin\Debug\LogTool.pdb
-C:\Users\Administrator\source\repos\Xlettler\Tools\LogTool\bin\Debug\log4net.dll
-C:\Users\Administrator\source\repos\Xlettler\Tools\LogTool\bin\Debug\log4net.xml
-C:\Users\Administrator\source\repos\Xlettler\Tools\LogTool\obj\Debug\LogTool.csproj.CoreCompileInputs.cache
-C:\Users\Administrator\source\repos\Xlettler\Tools\LogTool\obj\Debug\LogTool.csproj.CopyComplete
-C:\Users\Administrator\source\repos\Xlettler\Tools\LogTool\obj\Debug\LogTool.dll
-C:\Users\Administrator\source\repos\Xlettler\Tools\LogTool\obj\Debug\LogTool.pdb
-C:\Users\Administrator\source\repos\Xlettler\Tools\LogTool\obj\Debug\LogTool.csprojAssemblyReference.cache
-E:\Xlettlery\Xlettlery\Tools\LogTool\bin\Debug\LogTool.dll
-E:\Xlettlery\Xlettlery\Tools\LogTool\bin\Debug\LogTool.pdb
-E:\Xlettlery\Xlettlery\Tools\LogTool\bin\Debug\log4net.dll
-E:\Xlettlery\Xlettlery\Tools\LogTool\bin\Debug\log4net.xml
-E:\Xlettlery\Xlettlery\Tools\LogTool\obj\Debug\LogTool.csproj.CoreCompileInputs.cache
-E:\Xlettlery\Xlettlery\Tools\LogTool\obj\Debug\LogTool.csproj.CopyComplete
-E:\Xlettlery\Xlettlery\Tools\LogTool\obj\Debug\LogTool.dll
-E:\Xlettlery\Xlettlery\Tools\LogTool\obj\Debug\LogTool.pdb
-<<<<<<< HEAD
-C:\Users\张腾\Desktop\Xlettler\Tools\LogTool\bin\Debug\LogTool.dll
-C:\Users\张腾\Desktop\Xlettler\Tools\LogTool\bin\Debug\LogTool.pdb
-C:\Users\张腾\Desktop\Xlettler\Tools\LogTool\bin\Debug\log4net.dll
-C:\Users\张腾\Desktop\Xlettler\Tools\LogTool\bin\Debug\log4net.xml
-C:\Users\张腾\Desktop\Xlettler\Tools\LogTool\obj\Debug\LogTool.csprojAssemblyReference.cache
-C:\Users\张腾\Desktop\Xlettler\Tools\LogTool\obj\Debug\LogTool.csproj.CoreCompileInputs.cache
-C:\Users\张腾\Desktop\Xlettler\Tools\LogTool\obj\Debug\LogTool.csproj.CopyComplete
-C:\Users\张腾\Desktop\Xlettler\Tools\LogTool\obj\Debug\LogTool.dll
-C:\Users\张腾\Desktop\Xlettler\Tools\LogTool\obj\Debug\LogTool.pdb
-=======
-E:\Xlettlery\Xlettlery\Tools\LogTool\obj\Debug\LogTool.csprojAssemblyReference.cache
-<<<<<<< HEAD
->>>>>>> 397429c58e584fc1133524b35a475053f35d0dc7
-=======
 C:\Users\Administrator\Desktop\Xlettlery\Tools\LogTool\bin\Debug\LogTool.dll
 C:\Users\Administrator\Desktop\Xlettlery\Tools\LogTool\bin\Debug\LogTool.pdb
 C:\Users\Administrator\Desktop\Xlettlery\Tools\LogTool\bin\Debug\log4net.dll
@@ -39,4 +7,3 @@ C:\Users\Administrator\Desktop\Xlettlery\Tools\LogTool\obj\Debug\LogTool.csproj.
 C:\Users\Administrator\Desktop\Xlettlery\Tools\LogTool\obj\Debug\LogTool.csproj.CopyComplete
 C:\Users\Administrator\Desktop\Xlettlery\Tools\LogTool\obj\Debug\LogTool.dll
 C:\Users\Administrator\Desktop\Xlettlery\Tools\LogTool\obj\Debug\LogTool.pdb
->>>>>>> de088fc9e5a13d704bd455d8f638318f2835b11d

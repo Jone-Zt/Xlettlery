@@ -1,8 +1,5 @@
 ﻿using Model;
-<<<<<<< HEAD
 using Models;
-=======
->>>>>>> de088fc9e5a13d704bd455d8f638318f2835b11d
 using PublicDefined;
 using System;
 using System.Collections.Generic;
@@ -103,7 +100,7 @@ namespace AdmainManger.Controllers
         {
             HttpPostedFileBase file=Request.Files["UploadFile"];
             if (file == null||file.ContentLength==0) 
-                return Content(MessageBox.Show("请选择上传文件!"));
+                return Content("请选择上传文件!");
             Image pic = Image.FromStream(file.InputStream);
             short type = -1;
             if (short.TryParse(Request["type"], out type))
@@ -126,12 +123,12 @@ namespace AdmainManger.Controllers
                             Status = (short)Status.Close,
                         });
                      bool ret=db.SaveChanges()>0;
-                    if (ret) return Content(MessageBox.Show("操作成功!"));
-                    else return Content(MessageBox.Show("操作失败!"));
+                    if (ret) return Content("操作成功!");
+                    else return Content("操作失败!");
                     }
             }
             else {
-                return Content(MessageBox.Show("请选择上传文件类型!"));
+                return Content("请选择上传文件类型!");
             }
         }
     }

@@ -42,3 +42,4 @@ C:\Users\Administrator\Desktop\Xlettlery\XlettlerInterFace\ServicesInterface\obj
 C:\Users\Administrator\Desktop\Xlettlery\XlettlerInterFace\ServicesInterface\obj\Release\ServicesInterface.csproj.CopyComplete
 C:\Users\Administrator\Desktop\Xlettlery\XlettlerInterFace\ServicesInterface\obj\Release\ServicesInterface.dll
 C:\Users\Administrator\Desktop\Xlettlery\XlettlerInterFace\ServicesInterface\obj\Release\ServicesInterface.pdb
+C:\Users\Administrator\Desktop\Xlettlery\XlettlerInterFace\ServicesInterface\bin\Release\zh-Hans\EntityFramework.resources.dll

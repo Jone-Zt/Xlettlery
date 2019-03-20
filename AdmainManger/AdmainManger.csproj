@@ -197,7 +197,6 @@
     <Content Include="img\wallpapers\main.jpg" />
     <Content Include="img\wallpapers\mobile.jpg" />
     <Content Include="img\windows.ico" />
-    <Content Include="js\jquery-1.9.1.min.js" />
     <Content Include="js\jquery-2.2.4.min.js" />
     <Content Include="js\win10.child.js" />
     <Content Include="js\win10.js" />
@@ -232,11 +231,6 @@
     <Content Include="Scripts\jq_from.js" />
     <Content Include="Scripts\layer.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-<<<<<<< HEAD
-=======
-    <Content Include="Scripts\shujv2.js" />
-    <Content Include="Scripts\vue-router.js" />
->>>>>>> de088fc9e5a13d704bd455d8f638318f2835b11d
     <Content Include="Scripts\vue.js" />
     <Content Include="Scripts\vue.min.js" />
     <Content Include="Web.config" />
