@@ -8,45 +8,93 @@
     <meta name="viewport" content="width=device-width" />
     <title>订单管理</title>
     <script src="~/Scripts/jquery-1.9.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/front-endPage.js"></script>
     <link href="~/Content/table.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <script src="~/Scripts/vue.min.js"></script>
+    <style>
+        th, td {
+            text-align: center !important;
+            padding: 4px 7px 5px 4px;
+        }
+    </style>
     <script>
         $(function () {
-            QueryOrder()
+            QueryOrder();
         })
         function QueryOrder() {
             var key = $("#OrderType").val();
-            console.log(key);
+            var userName = $("#userName").val();
+            var beginTime = $("#beginTime").val();
+            var endTime = $("#endTime").val();
             if (key != "") {
                 $.ajax({
                     type: "POST",
                     url: "./QueryOrder",
                     dataType: "json",
-                    data: { id: 1 },
+                    data: { id: key, userName: userName, beginTime: beginTime, endTime: endTime },
                     success: function (data) {
-                        //前台分页的样子
                         $.each(data.value, function (index, item) {
                             item.OrderTime = formatDate(getDate(item.OrderTime));
-                            if (item.Status == 0) item.Status = "成功";
-                            else if (item.Status == 1) item.Status = "失败";
-                            else item.Status = "待支付";
+                            if (item.Status == 0) item.Status = "<font style='color:blue'>成功<font/>";
+                            else if (item.Status == 1) item.Status = "<font style='color:red'>失败<font/>";
+                            else item.Status = "<font style='color:green'>待支付<font/>";
                         })
                         $('#histroyBox').CJJTable({
-                            'title': ["订单编号", "订单用户", "订单时间", "订单通道", "订单状态", "操作"],//thead中的标题 必填
-                            'body': ["OrderID", "AccountID", "OrderTime", "ChannelID", "Status", "Option"],//tbody td 取值的字段 必填
-                            'display': [1, 1, 1, 1, 1, 2],//隐藏域，1显示，2隐藏 必填
+                            'title': ["订单编号", "订单用户", "订单时间", "订单通道", "订单状态"],
+                            'body': ["OrderID", "AccountID", "OrderTime", "ChannelID", "Status"],
+                            'display': [1, 1, 1, 1, 1],//隐藏域，1显示，2隐藏 必填
                             'pageNUmber': 10,//每页显示的条数 选填
-                            'pageLength': data.value.length,//选填
-                            'url': data.value,//数据源 必填
-                            dbTrclick: function (e) {//双击tr事件
-                                alert(e.find('.OrderID').html())
+                            'pageLength': data.value.length,
+                            'url': data.value,
+                            dbTrclick: function (e) {
+                                QueryDetail(e.find('.OrderID').html());
                             }
                         });
                     }
                 })
             }
+        }
+        function QueryDetail(OrderID) {
+            $.ajax({
+                type: "POST",
+                url: "./QueryDetail",
+                dataType: "json",
+                data: { id: OrderID },
+                success: function (data) {
+                    if (data != null) {
+                        $("#OrderID").text(data.OrderID);
+                        $("#AccountID").text(data.AccountID);
+                        if (data.OrderType==1)
+                            $("#OrderTypes").text("账户消费");
+                        else if (data.OrderType == 0)
+                            $("#OrderTypes").text("账户充值");
+                        else if (data.OrderType == 3)
+                            $("#OrderTypes").text("账户提现");
+                        else if (data.OrderType == 2)
+                            $("#OrderTypes").text("等级奖励");
+                        else
+                            $("#OrderTypes").text("未知订单类型");
+                        $("#InputMoney").text(data.InputMoney);
+                        $("#OutMoney").text(data.OutMoney);
+                        $("#OrderTime").text(formatDate(getDate(data.OrderTime)));
+                        if (data.Status == 0) $("#Status").text("成功");
+                        else if (data.Status == 1) $("#Status").text("失败");
+                        else data.Status = $("#Status").text("待支付");
+                        $("#ChannelID").text(data.ChannelID);
+                        if (data.BankID != null) {
+                            $("#BankID").text(data.BankID);
+                            $("#cashBank").show();
+                        } else {
+                            $("#BankID").text("");
+                            $("#cashBank").hide();
+                        }
+                        $('#myModal').modal('show')
+                    }
+                }
+            })
         }
         function getDate(str_time) {
             var re = new RegExp('\\/Date\\(([-+])?(\\d+)(?:[+-]\\d{4})?\\)\\/');
@@ -68,19 +116,58 @@
 <body>
     <form class="form-inline container" role="form">
         <div class="form-group">
+            <label class="label label-info" for="name">订单类型:</label>
+            <select class="form-control" id="OrderType">
+                @foreach (KeyValuePair<int, string> item in ViewBag.OrderTypes)
+                {
+                    <option value="@item.Key">@item.Value</option>
+                }
+            </select>
             <label class="label label-info" for="name">用户名:</label>
-            <input type="text" class="form-control" id="name"
+            <input type="text" class="form-control" id="userName"
                    placeholder="用户名查询">
+            <label class="label label-info .hidden-xs .hidden-sm" for="name">开始时间:</label>
+            <input type="date" class="form-control .hidden-xs .hidden-sm" id="beginTime"
+                   placeholder="开始时间">
+            <label class="label label-info .hidden-xs .hidden-sm" for="name">结束时间:</label>
+            <input type="date" class="form-control .hidden-xs .hidden-sm" id="endTime"
+                   placeholder="结束时间">
+            <button id="fat-btn" onclick="QueryOrder()" class="btn btn-primary" data-loading-text="Loading..." type="button">
+                查询
+            </button>
         </div>
-        </form>
-        <div id="histroyBox">
+    </form>
+    <div id="histroyBox">
 
+    </div>
+    <div style="text-align:center;">
+
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myOrderModel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">订单详情</h4>
+                </div>
+                <div class="modal-body">
+                    <p class="alert alert-info">请仔细核对订单信息,谨慎使用冲正功能,避免造成损失。</p>
+                    订单编号:<b><span id="OrderID"></span></b><hr />
+                    订单通道:<b><span id="ChannelID"></span></b><hr />
+                    订单账号:<b><span id="AccountID"></span></b><hr />
+                    订单类型:<b><span id="OrderTypes"></span></b><hr />
+                    订单金额:<b><span id="InputMoney"></span></b><hr />
+                    订单实付金额:<b><span id="OutMoney"></span></b><hr />
+                    订单时间:<b><span id="OrderTime"></span></b><hr />
+                    订单状态:<b><span id="Status"></span></b><hr />
+                    <p id="cashBank" style="display:none">提现银行卡:<b><span id="BankID"></span></b></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">冲正</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
         </div>
-        <script type="text/javascript">
-
-        </script>
-        <div style="text-align:center;">
-
-        </div>
+    </div>
 </body>
 </html>

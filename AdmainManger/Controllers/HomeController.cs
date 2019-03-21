@@ -14,7 +14,6 @@ namespace AdmainManger.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: Home
         public ActionResult Index()
         {
             return View();
@@ -22,7 +21,7 @@ namespace AdmainManger.Controllers
         public ActionResult OrderManger()
         {
             Dictionary<int, string> OrderTypes = new Dictionary<int, string>();
-            OrderTypes.Add((int)OrderType.AccountConsumption,"账户消费");
+            OrderTypes.Add((int)OrderType.AccountConsumption, "账户消费");
             OrderTypes.Add((int)OrderType.AccountRecharge, "账户充值");
             OrderTypes.Add((int)OrderType.CashWithdrow, "账户提现");
             OrderTypes.Add((int)OrderType.GradeAward, "等级奖励");
@@ -37,12 +36,39 @@ namespace AdmainManger.Controllers
             using (ModelContainer db = new ModelContainer())
             {
                IQueryable<SESENT_Order> Orders=db.SESENT_Order.Where(a => a.OrderType == id);
+                string UserName = Request["userName"];
+                if (!string.IsNullOrEmpty(UserName))
+                    Orders=Orders.Where(a => a.AccountID == UserName);
+                string beginTime = Request["beginTime"];
+                string endTime = Request["endTime"];
+                if (!string.IsNullOrEmpty(beginTime)&&DateTime.TryParse(beginTime,out DateTime parseBeginTime))
+                    Orders = Orders.Where(a => a.OrderTime >= parseBeginTime);
+                if (!string.IsNullOrEmpty(endTime) && DateTime.TryParse(endTime, out DateTime parseEndTime))
+                    Orders = Orders.Where(a => a.OrderTime<= parseEndTime);
                 var item = Orders.GetEnumerator();
                 while (item.MoveNext())
                     item.Current.ChannelID= db.SESENT_Channels.Where(a => a.ChannelID == item.Current.ChannelID).FirstOrDefault()?.ChannelName?? item.Current.ChannelID;
                dic.Add("value",Orders.ToList());
             }
             return Json(dic);
+        }
+        public ActionResult QueryDetail(string id)
+        {
+            Dictionary<string, object> div = null;
+            if (!string.IsNullOrEmpty(id)) {
+                using (ModelContainer db = new ModelContainer())
+                {
+                    SESENT_Order Order = db.SESENT_Order.Where(a => a.OrderID == id).FirstOrDefault();
+                    div = UntilsObjToDic.ToMap(Order);
+                    if (Order != null) 
+                        div["ChannelID"] =db.SESENT_Channels.Where(a => a.ChannelID == Order.ChannelID).FirstOrDefault()?.ChannelName ?? Order.ChannelID;
+                    if (Order != null && Order.OrderType == (short)OrderType.CashWithdrow&&int.TryParse(Order?.BankID.ToString(),out int Bank)) {
+                        SESENT_CashCard cashCard=db.SESENT_CashCard.Where(a => a.Id == Bank).FirstOrDefault();
+                        div["BankID"] = cashCard.BankNumber;
+                    }
+                }
+            }
+            return Json(div);
         }
         public ActionResult Console()
         {

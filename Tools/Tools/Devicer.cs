@@ -37,7 +37,9 @@ namespace Tools
                 action="send",
             };
            string postData=GetPostData(dervier);
-           string result=DoPost("http://sms.any163.cn:8888/sms.aspx", postData,600000);
+            LogTool.LogWriter.WriteDebug($"短信通道请求:{postData}");
+            string result=DoPost("http://sms.any163.cn:8888/sms.aspx", postData,60000);
+            LogTool.LogWriter.WriteDebug($"短信通道响应:{result}");
             return result;
         }
         public static string GetPostData<K>(K k)

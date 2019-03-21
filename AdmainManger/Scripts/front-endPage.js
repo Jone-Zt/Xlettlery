@@ -38,7 +38,7 @@
                     if(_this.options.body.length>_this.options.title.length&&_this.options.display[x]!=undefined){
                         display = _this.options.display[x]*1==1?"table-cell":"none";
                     }
-                    bodyBox+="<td class='"+type+"' style='display:"+display+"'>"+json[i][type]+"</td>";
+                    bodyBox +="<td onselectstart='return false' class='"+type+"' style='display:"+display+"'>"+json[i][type]+"</td>";
                     bodyBigBox = bodyBox;
                 }
                 histroy_DD +="<tr class='new_productBox'>"+bodyBigBox+"</tr>";
@@ -187,7 +187,7 @@
                     if(e.options.body.length>e.options.title.length&&e.options.display[x]!=undefined){
                         display = e.options.display[x]*1==1?"table-cell":"none";
                     }
-                    bodyBox+="<td class='"+type+"'  style='display:"+display+"'>"+json[i][type]+"</td>";
+                    bodyBox +="<td onselectstart='return false' class='"+type+"'  style='display:"+display+"'>"+json[i][type]+"</td>";
                     bodyBigBox = bodyBox;
                 }
                 histroy_DD +="<tr class='new_productBox'>"+bodyBigBox+"</tr>";

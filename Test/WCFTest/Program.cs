@@ -18,8 +18,8 @@ namespace WCFTest
             //ActiveMQHelper.GetManger().SendMessage("15510555669", PublicDefined.IPhoneCodeType.Login);
             //Thread.Sleep(30000);
             //var result=RedisHelper.GetManger().Get(CacheKey.GenerateCachePhoneCode("15510555669", PublicDefined.IPhoneCodeType.Login));
-            AutomaticCalculation automaticCalculation = new AutomaticCalculation();
-            automaticCalculation.Execute(null);
+            //AutomaticCalculation automaticCalculation = new AutomaticCalculation();
+            //automaticCalculation.Execute(null);
             Console.ReadLine();
         }
     }

@@ -66,8 +66,7 @@ namespace Tools
             builder.Replace("{user}",obj.Phone);
             builder.Replace("{code}", obj.Code);
             builder.Replace("{life}",((Math.Round(((TimeSpan)obj.Life).TotalMinutes))).ToString());
-            LogTool.LogWriter.WriteDebug($"短信通道请求:{builder.ToString()}");
-            LogTool.LogWriter.WriteDebug("短信通道响应:"+Devicer.SendMsg(obj.Phone,builder.ToString()));
+            Devicer.SendMsg(obj.Phone,builder.ToString());
         }
         public bool SendMessage(string phone, IPhoneCodeType type)
         {

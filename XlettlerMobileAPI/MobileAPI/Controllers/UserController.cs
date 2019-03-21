@@ -30,8 +30,7 @@ namespace MobileAPI.Controllers
                 string Phone = RequestCheck.CheckStringValue(Request, "Phone", "手机号", false);
                 string Code = RequestCheck.CheckStringValue(Request, "Code", "手机验证码", false);
                 string agencyID = RequestCheck.CheckStringValue(Request, "agencyID", "代理编号", false);
-                int? type = RequestCheck.CheckIntValue(Request, "type", "账户类型", false);
-                UserType userType = (UserType)type;
+                UserType userType = UserType.member;
                 IUserInterface proxy = GetManger();
                 if (proxy == null)
                     throw new Exception("未挂载函数");
