@@ -103,7 +103,6 @@ namespace XlettlerService
             }
             catch (Exception err) {
                 LogTool.LogWriter.WriteError("服务开启失败:"+err.Message);
-                StopServer();
             }
         }
     }

@@ -25,7 +25,7 @@ namespace Tools
 
     public class Devicer
     {
-        public static string SendMsg(string Phone, string Content)
+        public static void SendMsg(string Phone, string Content)
         {
             DervierData dervier = new DervierData()
             {
@@ -38,9 +38,15 @@ namespace Tools
             };
            string postData=GetPostData(dervier);
             LogTool.LogWriter.WriteDebug($"短信通道请求:{postData}");
-            string result=DoPost("http://sms.any163.cn:8888/sms.aspx", postData,60000);
-            LogTool.LogWriter.WriteDebug($"短信通道响应:{result}");
-            return result;
+            try
+            {
+                string result = DoPost("http://sms.any163.cn:8888/sms.aspx", postData, 60000);
+                LogTool.LogWriter.WriteDebug($"短信通道响应:{result}");
+            }
+            catch (Exception err) {
+                LogTool.LogWriter.WriteError("短信通道响应错误",err);
+                throw err;
+            }
         }
         public static string GetPostData<K>(K k)
         {

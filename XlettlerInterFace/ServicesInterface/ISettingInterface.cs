@@ -1,4 +1,5 @@
-﻿using PublicDefined;
+﻿using Model;
+using PublicDefined;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,6 @@ namespace ServicesInterface
     public interface ISettingInterface
     {
         [OperationContract]
-        bool Settingpage(SettingType type, out IList<object> result,out string errMsg);
+        bool Settingpage(SettingType type, out List<SESENT_Settings> result,out string errMsg);
     }
 }

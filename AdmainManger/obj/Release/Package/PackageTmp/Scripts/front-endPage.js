@@ -57,7 +57,7 @@
                     if(i==0){
                        className = "pagenumberBoxLi";
                     }
-                    maxpagenumberBoxBig += '<li class="'+className+'">' + (i * 1 + 1) + '</li>';
+                    maxpagenumberBoxBig += '<li onclick="GetPageIndex(' + (i * 1 + 1) + ',' + _this.options.pageNUmber+')" class="'+className+'">' + (i * 1 + 1) + '</li>';
                     maxpagenumberBoxBigbox = maxpagenumberBoxBig;
                 }
             } else {
@@ -66,7 +66,7 @@
                     if(i==0){
                        className = "pagenumberBoxLi";
                     }
-                    maxpagenumberBoxBig += '<li class="'+className+'">' + (i * 1 + 1) + '</li>';
+                    maxpagenumberBoxBig += '<li onclick="GetPageIndex( ' + (i * 1 + 1) + ',' + _this.options.pageNUmber+')" class="'+className+'" > ' + (i * 1 + 1) + '</li > ';
                     maxpagenumberBoxBigbox = maxpagenumberBoxBig;
                 }
             }
@@ -85,7 +85,7 @@
                         "<span class='endPage' style='cursor: pointer;float:left;'>尾页</span>"+
                     "</div>"+
                     "<div style='float:right'>"+
-                          "<select><option value='5'>5</option><option value='10'>10</option><option value='20'>20</option><option value='50'>50</option><option value='100'>100</option><option value='200'>200</option><option value='500'>500</option></select>"
+                "<select><option value='5'>5</option><option value='10'>10</option><option value='20'>20</option><option value='50'>50</option><option value='100'>100</option><option value='200'>200</option><option value='500'>500</option></select>"
                     "</div>"+
                 "</div>"+
             "<td>"+
@@ -169,10 +169,11 @@
             }
         },
         select:function(e,maxpagenumberBox,json,that){
-           var select =  that.find("option:selected").val();
+            var select = that.find("option:selected").val();
            $(e.$element.selector+ " .typeNumber").val(1); 
            e.options.pageNUmber = select;
-           e.page($(e.$element.selector+ " .typeNumber").val(), e.options.pageNUmber, maxpagenumberBox,json,e.$element, e);
+            e.page($(e.$element.selector + " .typeNumber").val(), e.options.pageNUmber, maxpagenumberBox, json, e.$element, e);
+            return select;
         },
         page:function(Pagenumber, pageNUmber, maxpagenumberBox,json,that,e) {
             var histroy_DDBox = "";
@@ -202,7 +203,7 @@
                     if(i==0){
                        className = "pagenumberBoxLi";
                     }
-                    maxpagenumberBoxBig += '<li class="'+className+'">' + (i * 1 + 1) + '</li>';
+                    maxpagenumberBoxBig += '<li onclick="GetPageIndex(' + (i * 1 + 1) + ',' + pageNUmber+')" class="'+className+'">' + (i * 1 + 1) + '</li>';
                     maxpagenumberBoxBigbox = maxpagenumberBoxBig;
                 }
             } else {
@@ -211,7 +212,7 @@
                     if(i==0){
                        className = "pagenumberBoxLi";
                     }
-                    maxpagenumberBoxBig += '<li class="'+className+'">' + (i * 1 + 1) + '</li>';
+                    maxpagenumberBoxBig += '<li onclick="GetPageIndex(' + (i * 1 + 1) + ',' + pageNUmber+')" class="'+className+'">' + (i * 1 + 1) + '</li>';
                     maxpagenumberBoxBigbox = maxpagenumberBoxBig;
                 }
             }
@@ -231,7 +232,7 @@
                     maxpagenumberBoxBigbox = "";
                     maxpagenumberBoxBig = "";
                     for (var i = 0; i < maxpagenumberBox; i++) {
-                        maxpagenumberBoxBig += '<li>' + (i * 1 + 1) + '</li>';
+                        maxpagenumberBoxBig += '<li onclick="GetPageIndex(' + (i * 1 + 1) + ',' + pageNUmber + ')">' + (i * 1 + 1) + '</li>';
                         maxpagenumberBoxBigbox = maxpagenumberBoxBig;
                     }
                     $(that.selector+" .pagenumberBox").html(maxpagenumberBoxBigbox);
@@ -240,7 +241,7 @@
                     maxpagenumberBoxBigbox = "";
                     maxpagenumberBoxBig = "";
                     for (var i = Pagenumber - Math.ceil(maxpagenumberBox / 2) + 1; i < Pagenumber * 1 + Math.ceil(maxpagenumberBox / 2) * 1; i++) {
-                        maxpagenumberBoxBig += '<li>' + (i) + '</li>';
+                        maxpagenumberBoxBig += '<li onclick="GetPageIndex(' + (i) + ',' + pageNUmber + ')">' + (i) + '</li>';
                         maxpagenumberBoxBigbox = maxpagenumberBoxBig;
                     }
                     $(that.selector+" .pagenumberBox").html(maxpagenumberBoxBigbox);
@@ -249,7 +250,7 @@
                     maxpagenumberBoxBigbox = "";
                     maxpagenumberBoxBig = "";
                     for (var i = Math.ceil(e.options.pageLength / pageNUmber) - maxpagenumberBox; i < Math.ceil(e.options.pageLength / pageNUmber); i++) {
-                        maxpagenumberBoxBig += '<li>' + (i * 1 + 1) + '</li>';
+                        maxpagenumberBoxBig += '<li onclick="GetPageIndex(' + (i * 1 + 1) + ',' + pageNUmber + ')">' + (i * 1 + 1) + '</li>';
                         maxpagenumberBoxBigbox = maxpagenumberBoxBig;
                     }
                     $(that.selector+" .pagenumberBox").html(maxpagenumberBoxBigbox);
@@ -272,6 +273,6 @@
   }
   $.fn.CJJTable = function(options){
          var cjj = new cjjTable(this,options);
-         return cjj.start();
+         return cjj;
   }
 })(jQuery, window, document);

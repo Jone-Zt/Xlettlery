@@ -1,4 +1,5 @@
-﻿using Models;
+﻿using Model;
+using Models;
 using PublicDefined;
 using ServicesInterface;
 using System;
@@ -28,7 +29,7 @@ namespace MobileAPI.Controllers
         /// <returns></returns>
         public ActionResult GettingConfig()
         {
-            ResponsePicker<object> picker = new ResponsePicker<object>();
+            ResponsePicker<SESENT_Settings> picker = new ResponsePicker<SESENT_Settings>();
             try
             {
                 string flowid = RequestCheck.CheckStringValue(Request, "flowID", "流水号", false);
@@ -38,7 +39,7 @@ namespace MobileAPI.Controllers
                 ISettingInterface proxy = GetManger();
                 if (proxy == null) 
                     throw new Exception("未挂载函数!");
-                if (proxy.Settingpage(Settingtype, out IList<object> result, out string errMsg))
+                if (proxy.Settingpage(Settingtype, out List<SESENT_Settings> result, out string errMsg))
                     picker.List = result;
                 else
                     picker.FailInfo = errMsg;

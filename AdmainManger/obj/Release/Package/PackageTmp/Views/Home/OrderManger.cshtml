@@ -7,13 +7,11 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>订单管理</title>
-    <script src="~/Scripts/jquery-1.9.1.min.js"></script>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
-    <script src="~/Scripts/front-endPage.js"></script>
-    <link href="~/Content/table.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
-    <script src="~/Scripts/vue.min.js"></script>
+    <script src="~/Scripts/bootstrap-paginator.min.js"></script>
     <style>
         th, td {
             text-align: center !important;
@@ -22,40 +20,68 @@
     </style>
     <script>
         $(function () {
-            QueryOrder();
+            render()
+            $("tbody").on("mouseenter", "tr", function () {
+                $(this).addClass("info");
+            })
+            $("tbody").on("mouseleave", "tr", function () {
+                $(this).removeClass("info");
+            })
         })
-        function QueryOrder() {
+        var currentPage = 1;
+        function queryOrder() {
+            currentPage = 1;
+            render();
+        }
+        function render(pageSize = 10) {
             var key = $("#OrderType").val();
             var userName = $("#userName").val();
             var beginTime = $("#beginTime").val();
             var endTime = $("#endTime").val();
-            if (key != "") {
-                $.ajax({
-                    type: "POST",
-                    url: "./QueryOrder",
-                    dataType: "json",
-                    data: { id: key, userName: userName, beginTime: beginTime, endTime: endTime },
-                    success: function (data) {
-                        $.each(data.value, function (index, item) {
-                            item.OrderTime = formatDate(getDate(item.OrderTime));
-                            if (item.Status == 0) item.Status = "<font style='color:blue'>成功<font/>";
-                            else if (item.Status == 1) item.Status = "<font style='color:red'>失败<font/>";
-                            else item.Status = "<font style='color:green'>待支付<font/>";
-                        })
-                        $('#histroyBox').CJJTable({
-                            'title': ["订单编号", "订单用户", "订单时间", "订单通道", "订单状态"],
-                            'body': ["OrderID", "AccountID", "OrderTime", "ChannelID", "Status"],
-                            'display': [1, 1, 1, 1, 1],//隐藏域，1显示，2隐藏 必填
-                            'pageNUmber': 10,//每页显示的条数 选填
-                            'pageLength': data.value.length,
-                            'url': data.value,
-                            dbTrclick: function (e) {
-                                QueryDetail(e.find('.OrderID').html());
-                            }
-                        });
-                    }
-                })
-            }
+            $.ajax({
+                url: "./QueryOrder",
+                type:"POST",
+                data: { id: key, userName: userName, beginTime: beginTime, endTime: endTime, pageIndex: currentPage, pageSize: pageSize },
+                dataType: "json",
+                success: function (result) {
+                    // 将数据渲染到页面
+                    var Html = "";
+                    $.each(result.value, function (index, item) {
+                        Html += "<tr ondblclick='QueryDetail(" + item.OrderID + ")' key=" + item.OrderID + ">";
+                        Html += "<td>" + item.OrderID + "</td>";
+                        Html += "<td>" + item.AccountID + "</td>";
+                        Html += "<td>" + formatDate(getDate(item.OrderTime)) + "</td>";
+                        Html += "<td>" + item.ChannelID + "</td>";
+                        if (item.Status == 0) {
+                            Html += "<td style='color:blue'>成功</td>";
+                        } else if (item.Status == 1)
+                            Html += "<td style='color:red'>失败</td>";
+                        else if (item.Status == 2)
+                            Html += "<td style='color:green'>待处理</td>";
+                        else
+                            Html += "<td>未知</td>";
+                        Html += "<td><button>删除</button></td>";
+                        Html += "</tr>";
+                    })
+
+                    $("tbody").html(Html)
+                    setPage(currentPage, Math.ceil(result.size / pageSize), render)
+                }
+            })
+        }
+        function setPage(pageCurrent, pageSum, callback) {
+            $("#page").bootstrapPaginator({
+                bootstrapMajorVersion: 1,
+                currentPage: pageCurrent,
+                totalPages: pageSum,
+                onPageClicked: function (event, originalEvent, type, page) {
+                    currentPage = page
+                    callback && callback()
+                }
+            })
+        }
+        function GetPageIndex(index, pageSize) {
+            QueryOrder(index, pageSize);
         }
         function QueryDetail(OrderID) {
             $.ajax({
@@ -67,7 +93,7 @@
                     if (data != null) {
                         $("#OrderID").text(data.OrderID);
                         $("#AccountID").text(data.AccountID);
-                        if (data.OrderType==1)
+                        if (data.OrderType == 1)
                             $("#OrderTypes").text("账户消费");
                         else if (data.OrderType == 0)
                             $("#OrderTypes").text("账户充值");
@@ -132,16 +158,27 @@
             <label class="label label-info .hidden-xs .hidden-sm" for="name">结束时间:</label>
             <input type="date" class="form-control .hidden-xs .hidden-sm" id="endTime"
                    placeholder="结束时间">
-            <button id="fat-btn" onclick="QueryOrder()" class="btn btn-primary" data-loading-text="Loading..." type="button">
+            <button id="fat-btn" onclick="queryOrder()" class="btn btn-primary" data-loading-text="Loading..." type="button">
                 查询
             </button>
         </div>
     </form>
-    <div id="histroyBox">
-
-    </div>
-    <div style="text-align:center;">
-
+    <div class="container">
+        <table id="table" class="table .table-hover .table-condensed">
+            <thead>
+                <tr>
+                    <th>订单编号</th>
+                    <th>订单用户</th>
+                    <th>订单时间</th>
+                    <th>订单通道</th>
+                    <th>订单状态</th>
+                    <th>订单操作</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <div id="page">
+        </div>
     </div>
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myOrderModel" aria-hidden="true">
         <div class="modal-dialog">

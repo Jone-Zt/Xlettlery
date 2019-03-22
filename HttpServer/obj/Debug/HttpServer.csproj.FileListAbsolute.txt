@@ -5,7 +5,6 @@ E:\Xlettlery\Xlettlery\HttpServer\obj\Debug\HttpServer.dll
 E:\Xlettlery\Xlettlery\HttpServer\obj\Debug\HttpServer.pdb
 C:\Users\Administrator\Desktop\Xlettlery\HttpServer\bin\Debug\HttpServer.dll
 C:\Users\Administrator\Desktop\Xlettlery\HttpServer\bin\Debug\HttpServer.pdb
-C:\Users\Administrator\Desktop\Xlettlery\HttpServer\obj\Debug\HttpServer.csprojAssemblyReference.cache
 C:\Users\Administrator\Desktop\Xlettlery\HttpServer\obj\Debug\HttpServer.csproj.CoreCompileInputs.cache
 C:\Users\Administrator\Desktop\Xlettlery\HttpServer\obj\Debug\HttpServer.dll
 C:\Users\Administrator\Desktop\Xlettlery\HttpServer\obj\Debug\HttpServer.pdb
