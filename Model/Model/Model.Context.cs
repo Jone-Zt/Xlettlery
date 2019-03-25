@@ -37,5 +37,6 @@ namespace Model
         public DbSet<SESENT_ConsumptERecords> SESENT_ConsumptERecords { get; set; }
         public DbSet<SESENT_RankingSystemSetting> SESENT_RankingSystemSetting { get; set; }
         public DbSet<SESENT_CashCard> SESENT_CashCard { get; set; }
+        public DbSet<SESENT_ChannelQuoTa> SESENT_ChannelQuoTa { get; set; }
     }
 }

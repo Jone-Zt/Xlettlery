@@ -13,6 +13,7 @@
     <EntitySet Name="SESENT_ConsumptERecords" EntityType="Model.SESENT_ConsumptERecords" />
     <EntitySet Name="SESENT_RankingSystemSetting" EntityType="Model.SESENT_RankingSystemSetting" />
     <EntitySet Name="SESENT_CashCard" EntityType="Model.SESENT_CashCard" />
+    <EntitySet Name="SESENT_ChannelQuoTa" EntityType="Model.SESENT_ChannelQuoTa" />
   </EntityContainer>
   <EntityType Name="SESENT_USERS">
     <Documentation>
@@ -86,6 +87,7 @@
     <Property Name="OrderTime" Type="DateTime" Nullable="false" />
     <Property Name="ChannelID" Type="String" Nullable="false" MaxLength="50" />
     <Property Name="BankID" Type="Int32" Nullable="true" />
+    <Property Name="FailReason" Type="String" Nullable="true" />
   </EntityType>
   <EntityType Name="SESENT_PhoneXCodes">
     <Key>
@@ -104,10 +106,9 @@
     <Property Name="ChannelID" Type="String" Nullable="false" MaxLength="100" />
     <Property Name="ChannelName" Type="String" Nullable="false" MaxLength="50" />
     <Property Name="Status" Type="Int16" Nullable="false" DefaultValue="0" />
-    <Property Name="LimitMin" Type="Int32" Nullable="false" DefaultValue="0" />
-    <Property Name="LimitMax" Type="Int32" Nullable="false" DefaultValue="99999" />
     <Property Name="ChannelType" Type="Int16" Nullable="false" />
     <Property Name="ProtocolID" Type="String" Nullable="false" MaxLength="50" />
+    <Property Name="QuotaType" Type="Int16" Nullable="false" />
   </EntityType>
   <EntityType Name="SESENT_MessageText">
     <Key>
@@ -212,5 +213,13 @@
     <Property Name="NetSite" Type="String" Nullable="false" />
     <Property Name="BankNumber" Type="String" Nullable="false" />
     <Property Name="EnterTime" Type="DateTime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SESENT_ChannelQuoTa">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ChannelID" Type="String" Nullable="false" />
+    <Property Name="Fee" Type="String" Nullable="false" />
   </EntityType>
 </Schema>

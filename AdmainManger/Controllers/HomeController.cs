@@ -30,6 +30,24 @@ namespace AdmainManger.Controllers
             ViewBag.OrderTypes = OrderTypes;
             return View(); ;
         }
+        public ActionResult OptionChannel(string id)
+        {
+            using (ModelContainer db = new ModelContainer()) 
+            {
+                SESENT_Channels sESENT= db.SESENT_Channels.Where(a => a.ChannelID == id).FirstOrDefault();
+                if (sESENT == null) return Content("通道不存在!");
+                bool ret=sESENT.Status == (short)Status.Open;
+                if (ret)
+                    sESENT.Status = (short)Status.Close;
+                else
+                    sESENT.Status = (short)Status.Open;
+                db.SESENT_Channels.Add(sESENT);
+                db.Entry(sESENT).State = System.Data.Entity.EntityState.Modified;
+                ret=db.SaveChanges()>0;
+                if (ret) return Content("操作成功!");
+                else return Content("操作失败!");
+            }
+        }
         [HttpPost]
         public ActionResult QueryOrder(int id)
         {
@@ -87,6 +105,21 @@ namespace AdmainManger.Controllers
         public ActionResult ChannelManger()
         {
             return View();
+        }
+        public ActionResult QueryChannels()
+        {
+            using (ModelContainer db = new ModelContainer())
+            {
+                IQueryable<SESENT_Channels> channels=db.SESENT_Channels.Where(a => true);
+                var item=channels.GetEnumerator();
+                while (item.MoveNext())
+                {
+                   bool ret=db.SESENT_ChannelProtocol.Where(a => a.ProtocolID == item.Current.ProtocolID).Count()>0;
+                    if (!ret)
+                        item.Current.ProtocolID = "协议编号错误";
+                }
+                return Json(channels.ToList());
+            }
         }
         public ActionResult Setting()
         {

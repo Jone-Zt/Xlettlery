@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 03/19/2019 12:11:38
+-- Date Created: 03/25/2019 13:45:05
 -- Generated from EDMX file: C:\Users\Administrator\Desktop\Xlettlery\Model\Model\Model.edmx
 -- --------------------------------------------------
 
@@ -55,6 +55,9 @@ GO
 IF OBJECT_ID(N'[dbo].[SESENT_RankingSystemSetting]', 'U') IS NOT NULL
     DROP TABLE [dbo].[SESENT_RankingSystemSetting];
 GO
+IF OBJECT_ID(N'[dbo].[SESENT_CashCard]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[SESENT_CashCard];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -91,7 +94,8 @@ CREATE TABLE [dbo].[SESENT_Order] (
     [ID] int IDENTITY(1,1) NOT NULL,
     [OrderTime] datetime  NOT NULL,
     [ChannelID] nvarchar(50)  NOT NULL,
-    [BankID] int  NULL
+    [BankID] int  NULL,
+    [FailReason] nvarchar(max)  NULL
 );
 GO
 
@@ -110,10 +114,9 @@ CREATE TABLE [dbo].[SESENT_Channels] (
     [ChannelID] nvarchar(100)  NOT NULL,
     [ChannelName] nvarchar(50)  NOT NULL,
     [Status] smallint  NOT NULL,
-    [LimitMin] int  NOT NULL,
-    [LimitMax] int  NOT NULL,
     [ChannelType] smallint  NOT NULL,
-    [ProtocolID] nvarchar(50)  NOT NULL
+    [ProtocolID] nvarchar(50)  NOT NULL,
+    [QuotaType] smallint  NOT NULL
 );
 GO
 
@@ -210,6 +213,14 @@ CREATE TABLE [dbo].[SESENT_CashCard] (
 );
 GO
 
+-- Creating table 'SESENT_ChannelQuoTa'
+CREATE TABLE [dbo].[SESENT_ChannelQuoTa] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [ChannelID] nvarchar(max)  NOT NULL,
+    [Fee] nvarchar(max)  NOT NULL
+);
+GO
+
 -- --------------------------------------------------
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
@@ -283,6 +294,12 @@ GO
 -- Creating primary key on [Id] in table 'SESENT_CashCard'
 ALTER TABLE [dbo].[SESENT_CashCard]
 ADD CONSTRAINT [PK_SESENT_CashCard]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'SESENT_ChannelQuoTa'
+ALTER TABLE [dbo].[SESENT_ChannelQuoTa]
+ADD CONSTRAINT [PK_SESENT_ChannelQuoTa]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 

@@ -35,6 +35,7 @@
           <ScalarProperty Name="OrderTime" ColumnName="OrderTime" />
           <ScalarProperty Name="ChannelID" ColumnName="ChannelID" />
           <ScalarProperty Name="BankID" ColumnName="BankID" />
+          <ScalarProperty Name="FailReason" ColumnName="FailReason" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -55,10 +56,9 @@
           <ScalarProperty Name="ChannelID" ColumnName="ChannelID" />
           <ScalarProperty Name="ChannelName" ColumnName="ChannelName" />
           <ScalarProperty Name="Status" ColumnName="Status" />
-          <ScalarProperty Name="LimitMin" ColumnName="LimitMin" />
-          <ScalarProperty Name="LimitMax" ColumnName="LimitMax" />
           <ScalarProperty Name="ChannelType" ColumnName="ChannelType" />
           <ScalarProperty Name="ProtocolID" ColumnName="ProtocolID" />
+          <ScalarProperty Name="QuotaType" ColumnName="QuotaType" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -160,6 +160,15 @@
           <ScalarProperty Name="NetSite" ColumnName="NetSite" />
           <ScalarProperty Name="BankNumber" ColumnName="BankNumber" />
           <ScalarProperty Name="EnterTime" ColumnName="EnterTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SESENT_ChannelQuoTa">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.SESENT_ChannelQuoTa)">
+        <MappingFragment StoreEntitySet="SESENT_ChannelQuoTa">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ChannelID" ColumnName="ChannelID" />
+          <ScalarProperty Name="Fee" ColumnName="Fee" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

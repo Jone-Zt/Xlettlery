@@ -17,17 +17,14 @@ namespace Model
         public SESENT_Channels()
         {
             this.Status = 0;
-            this.LimitMin = 0;
-            this.LimitMax = 99999;
         }
     
         public int Id { get; set; }
         public string ChannelID { get; set; }
         public string ChannelName { get; set; }
         public short Status { get; set; }
-        public int LimitMin { get; set; }
-        public int LimitMax { get; set; }
         public short ChannelType { get; set; }
         public string ProtocolID { get; set; }
+        public short QuotaType { get; set; }
     }
 }

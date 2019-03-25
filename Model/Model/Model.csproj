@@ -76,6 +76,9 @@
     <Compile Include="SESENT_ChannelProtocol.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="SESENT_ChannelQuoTa.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="SESENT_Channels.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

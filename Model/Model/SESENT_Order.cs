@@ -24,5 +24,6 @@ namespace Model
         public System.DateTime OrderTime { get; set; }
         public string ChannelID { get; set; }
         public Nullable<int> BankID { get; set; }
+        public string FailReason { get; set; }
     }
 }

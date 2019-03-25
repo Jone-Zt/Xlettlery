@@ -60,7 +60,7 @@
                             Html += "<td style='color:green'>待处理</td>";
                         else
                             Html += "<td>未知</td>";
-                        Html += "<td><button>删除</button></td>";
+                        Html += "<td><button style='outline:none' class='btn btn-success' onclick='QueryDetail(" + item.OrderID + ")'>查看详情</button></td>";
                         Html += "</tr>";
                     })
 
@@ -93,30 +93,60 @@
                     if (data != null) {
                         $("#OrderID").text(data.OrderID);
                         $("#AccountID").text(data.AccountID);
+                        $("#InputMoney").text(data.InputMoney);
+                        $("#OutMoney").text(data.OutMoney);
+                        $("#OrderTime").text(formatDate(getDate(data.OrderTime)));
+                        if (data.Status == 0) {
+                            $("#Status").text("成功");
+                            $(".FailReason").hide();
+                            $("#Correct").hide();
+                        }
+                        else if (data.Status == 1) {
+                            $("#Correct").hide();
+                            $("#Status").text("失败");
+                            $(".FailReason").show();
+                            if (data.FailReason != null && data.FailReason != "")
+                                $("#Reason").text(data.FailReason)
+                            else
+                                $("#Reason").text("未知")
+                        }
+                        else if (data.Status == 2) {
+                            $("#Status").text("待支付");
+                            $(".FailReason").hide();
+                            $("#Correct").attr("key", data.OrderID);
+                            $("#Correct").show();
+                        } else {
+                            $("#Status").text("未知");
+                            $(".FailReason").hide();
+                        }
+                        $("#ChannelID").text(data.ChannelID);
+                        if (data.BankID != null) {
+                            $("#BankID").text(data.BankID);
+                            $(".cashBank").show();
+                        } else {
+                            $("#BankID").text("");
+                            $(".cashBank").hide();
+                        }
+                        $("#MakeMoney").hide();
                         if (data.OrderType == 1)
                             $("#OrderTypes").text("账户消费");
                         else if (data.OrderType == 0)
                             $("#OrderTypes").text("账户充值");
-                        else if (data.OrderType == 3)
+                        else if (data.OrderType == 3) {
+                            $("#Correct").hide();
                             $("#OrderTypes").text("账户提现");
+                            if (data.Status == 1) {
+                                $("#MakeMoney").text("重试");
+                                $("#MakeMoney").show();
+                            } else if (data.Status == 2) {
+                                $("#MakeMoney").text("审核");
+                                $("#MakeMoney").show();
+                            }
+                        }
                         else if (data.OrderType == 2)
                             $("#OrderTypes").text("等级奖励");
                         else
                             $("#OrderTypes").text("未知订单类型");
-                        $("#InputMoney").text(data.InputMoney);
-                        $("#OutMoney").text(data.OutMoney);
-                        $("#OrderTime").text(formatDate(getDate(data.OrderTime)));
-                        if (data.Status == 0) $("#Status").text("成功");
-                        else if (data.Status == 1) $("#Status").text("失败");
-                        else data.Status = $("#Status").text("待支付");
-                        $("#ChannelID").text(data.ChannelID);
-                        if (data.BankID != null) {
-                            $("#BankID").text(data.BankID);
-                            $("#cashBank").show();
-                        } else {
-                            $("#BankID").text("");
-                            $("#cashBank").hide();
-                        }
                         $('#myModal').modal('show')
                     }
                 }
@@ -188,7 +218,7 @@
                     <h4 class="modal-title" id="myModalLabel">订单详情</h4>
                 </div>
                 <div class="modal-body">
-                    <p class="alert alert-info">请仔细核对订单信息,谨慎使用冲正功能,避免造成损失。</p>
+                    <p class="alert alert-info">请仔细核对订单信息,谨慎使用功能,避免造成损失。</p>
                     订单编号:<b><span id="OrderID"></span></b><hr />
                     订单通道:<b><span id="ChannelID"></span></b><hr />
                     订单账号:<b><span id="AccountID"></span></b><hr />
@@ -196,11 +226,15 @@
                     订单金额:<b><span id="InputMoney"></span></b><hr />
                     订单实付金额:<b><span id="OutMoney"></span></b><hr />
                     订单时间:<b><span id="OrderTime"></span></b><hr />
-                    订单状态:<b><span id="Status"></span></b><hr />
-                    <p id="cashBank" style="display:none">提现银行卡:<b><span id="BankID"></span></b></p>
+                    订单状态:<b><span id="Status"></span></b>
+                    <hr class="cashBank" style="display:none" />
+                    <p class="cashBank" style="display:none">提现银行卡:<b><span id="BankID"></span></b></p>
+                    <hr class="FailReason" style="display:none"  />
+                    <p class="FailReason" style="color:red;display:none" >失败原因:<b><span id="Reason"></span></b></p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">冲正</button>
+                    <button id="MakeMoney" style="display:none" type="button" class="btn btn-primary">打款</button>
+                    <button id="Correct" style="display:none" type="button" class="btn btn-primary">冲正</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
                 </div>
             </div>
