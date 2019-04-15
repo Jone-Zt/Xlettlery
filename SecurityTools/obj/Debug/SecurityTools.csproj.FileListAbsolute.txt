@@ -3,3 +3,8 @@ C:\Users\Administrator\Desktop\Xlettlery\SecurityTools\bin\Debug\SecurityTools.p
 C:\Users\Administrator\Desktop\Xlettlery\SecurityTools\obj\Debug\SecurityTools.csproj.CoreCompileInputs.cache
 C:\Users\Administrator\Desktop\Xlettlery\SecurityTools\obj\Debug\SecurityTools.dll
 C:\Users\Administrator\Desktop\Xlettlery\SecurityTools\obj\Debug\SecurityTools.pdb
+C:\Users\ZhangTeng\Desktop\Xlettlery\SecurityTools\bin\Debug\SecurityTools.dll
+C:\Users\ZhangTeng\Desktop\Xlettlery\SecurityTools\bin\Debug\SecurityTools.pdb
+C:\Users\ZhangTeng\Desktop\Xlettlery\SecurityTools\obj\Debug\SecurityTools.csproj.CoreCompileInputs.cache
+C:\Users\ZhangTeng\Desktop\Xlettlery\SecurityTools\obj\Debug\SecurityTools.dll
+C:\Users\ZhangTeng\Desktop\Xlettlery\SecurityTools\obj\Debug\SecurityTools.pdb

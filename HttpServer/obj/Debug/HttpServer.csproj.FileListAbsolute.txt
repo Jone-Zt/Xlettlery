@@ -8,3 +8,9 @@ C:\Users\Administrator\Desktop\Xlettlery\HttpServer\bin\Debug\HttpServer.pdb
 C:\Users\Administrator\Desktop\Xlettlery\HttpServer\obj\Debug\HttpServer.csproj.CoreCompileInputs.cache
 C:\Users\Administrator\Desktop\Xlettlery\HttpServer\obj\Debug\HttpServer.dll
 C:\Users\Administrator\Desktop\Xlettlery\HttpServer\obj\Debug\HttpServer.pdb
+C:\Users\ZhangTeng\Desktop\Xlettlery\HttpServer\bin\Debug\HttpServer.dll
+C:\Users\ZhangTeng\Desktop\Xlettlery\HttpServer\bin\Debug\HttpServer.pdb
+C:\Users\ZhangTeng\Desktop\Xlettlery\HttpServer\obj\Debug\HttpServer.csprojAssemblyReference.cache
+C:\Users\ZhangTeng\Desktop\Xlettlery\HttpServer\obj\Debug\HttpServer.csproj.CoreCompileInputs.cache
+C:\Users\ZhangTeng\Desktop\Xlettlery\HttpServer\obj\Debug\HttpServer.dll
+C:\Users\ZhangTeng\Desktop\Xlettlery\HttpServer\obj\Debug\HttpServer.pdb

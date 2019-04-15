@@ -2,6 +2,7 @@
 using PublicDefined;
 using ServicesInterface;
 using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using Tools;
 
@@ -56,7 +57,7 @@ namespace MobileAPI.Controllers
                 IUserInterface user = GetManger();
                 if (user == null)
                     throw new Exception("未挂载函数!");
-                bool ret=user.QueryUserInfo(AccountID, out object result, out string errMsg);
+                bool ret=user.QueryUserInfo(AccountID, out Dictionary<string,object> result, out string errMsg);
                 if (ret)
                     picker.Data = result;
                 else

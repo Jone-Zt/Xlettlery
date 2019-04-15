@@ -7,3 +7,12 @@ C:\Users\Administrator\Desktop\Xlettlery\Tools\LogTool\obj\Release\LogTool.cspro
 C:\Users\Administrator\Desktop\Xlettlery\Tools\LogTool\obj\Release\LogTool.csproj.CopyComplete
 C:\Users\Administrator\Desktop\Xlettlery\Tools\LogTool\obj\Release\LogTool.dll
 C:\Users\Administrator\Desktop\Xlettlery\Tools\LogTool\obj\Release\LogTool.pdb
+C:\Users\ZhangTeng\Desktop\Xlettlery\Tools\LogTool\bin\Release\LogTool.dll
+C:\Users\ZhangTeng\Desktop\Xlettlery\Tools\LogTool\bin\Release\LogTool.pdb
+C:\Users\ZhangTeng\Desktop\Xlettlery\Tools\LogTool\bin\Release\log4net.dll
+C:\Users\ZhangTeng\Desktop\Xlettlery\Tools\LogTool\bin\Release\log4net.xml
+C:\Users\ZhangTeng\Desktop\Xlettlery\Tools\LogTool\obj\Release\LogTool.csprojAssemblyReference.cache
+C:\Users\ZhangTeng\Desktop\Xlettlery\Tools\LogTool\obj\Release\LogTool.csproj.CoreCompileInputs.cache
+C:\Users\ZhangTeng\Desktop\Xlettlery\Tools\LogTool\obj\Release\LogTool.csproj.CopyComplete
+C:\Users\ZhangTeng\Desktop\Xlettlery\Tools\LogTool\obj\Release\LogTool.dll
+C:\Users\ZhangTeng\Desktop\Xlettlery\Tools\LogTool\obj\Release\LogTool.pdb

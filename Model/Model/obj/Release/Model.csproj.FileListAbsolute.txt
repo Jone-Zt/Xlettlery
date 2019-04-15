@@ -10,3 +10,15 @@ C:\Users\Administrator\Desktop\Xlettlery\Model\Model\obj\Release\Model.csproj.Co
 C:\Users\Administrator\Desktop\Xlettlery\Model\Model\obj\Release\Model.csproj.CopyComplete
 C:\Users\Administrator\Desktop\Xlettlery\Model\Model\obj\Release\Model.dll
 C:\Users\Administrator\Desktop\Xlettlery\Model\Model\obj\Release\Model.pdb
+C:\Users\ZhangTeng\Desktop\Xlettlery\Model\Model\bin\Release\Model.dll.config
+C:\Users\ZhangTeng\Desktop\Xlettlery\Model\Model\bin\Release\Model.dll
+C:\Users\ZhangTeng\Desktop\Xlettlery\Model\Model\bin\Release\Model.pdb
+C:\Users\ZhangTeng\Desktop\Xlettlery\Model\Model\bin\Release\EntityFramework.dll
+C:\Users\ZhangTeng\Desktop\Xlettlery\Model\Model\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\ZhangTeng\Desktop\Xlettlery\Model\Model\bin\Release\EntityFramework.xml
+C:\Users\ZhangTeng\Desktop\Xlettlery\Model\Model\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\ZhangTeng\Desktop\Xlettlery\Model\Model\obj\Release\Model.csprojAssemblyReference.cache
+C:\Users\ZhangTeng\Desktop\Xlettlery\Model\Model\obj\Release\Model.csproj.CoreCompileInputs.cache
+C:\Users\ZhangTeng\Desktop\Xlettlery\Model\Model\obj\Release\Model.csproj.CopyComplete
+C:\Users\ZhangTeng\Desktop\Xlettlery\Model\Model\obj\Release\Model.dll
+C:\Users\ZhangTeng\Desktop\Xlettlery\Model\Model\obj\Release\Model.pdb

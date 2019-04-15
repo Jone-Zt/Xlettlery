@@ -41,3 +41,17 @@ C:\Users\Administrator\Desktop\Xlettlery\XlettlerInterFace\ServicesInterface\bin
 C:\Users\Administrator\Desktop\Xlettlery\XlettlerInterFace\ServicesInterface\bin\Debug\Model.dll.config
 C:\Users\Administrator\Desktop\Xlettlery\XlettlerInterFace\ServicesInterface\bin\Debug\EntityFramework.xml
 C:\Users\Administrator\Desktop\Xlettlery\XlettlerInterFace\ServicesInterface\obj\Debug\ServicesInterface.csproj.CopyComplete
+C:\Users\ZhangTeng\Desktop\Xlettlery\XlettlerInterFace\ServicesInterface\bin\Debug\ServicesInterface.dll
+C:\Users\ZhangTeng\Desktop\Xlettlery\XlettlerInterFace\ServicesInterface\bin\Debug\ServicesInterface.pdb
+C:\Users\ZhangTeng\Desktop\Xlettlery\XlettlerInterFace\ServicesInterface\bin\Debug\Model.dll
+C:\Users\ZhangTeng\Desktop\Xlettlery\XlettlerInterFace\ServicesInterface\bin\Debug\PublicDefined.dll
+C:\Users\ZhangTeng\Desktop\Xlettlery\XlettlerInterFace\ServicesInterface\bin\Debug\EntityFramework.dll
+C:\Users\ZhangTeng\Desktop\Xlettlery\XlettlerInterFace\ServicesInterface\bin\Debug\Model.pdb
+C:\Users\ZhangTeng\Desktop\Xlettlery\XlettlerInterFace\ServicesInterface\bin\Debug\Model.dll.config
+C:\Users\ZhangTeng\Desktop\Xlettlery\XlettlerInterFace\ServicesInterface\bin\Debug\PublicDefined.pdb
+C:\Users\ZhangTeng\Desktop\Xlettlery\XlettlerInterFace\ServicesInterface\bin\Debug\EntityFramework.xml
+C:\Users\ZhangTeng\Desktop\Xlettlery\XlettlerInterFace\ServicesInterface\obj\Debug\ServicesInterface.csprojAssemblyReference.cache
+C:\Users\ZhangTeng\Desktop\Xlettlery\XlettlerInterFace\ServicesInterface\obj\Debug\ServicesInterface.csproj.CoreCompileInputs.cache
+C:\Users\ZhangTeng\Desktop\Xlettlery\XlettlerInterFace\ServicesInterface\obj\Debug\ServicesInterface.csproj.CopyComplete
+C:\Users\ZhangTeng\Desktop\Xlettlery\XlettlerInterFace\ServicesInterface\obj\Debug\ServicesInterface.dll
+C:\Users\ZhangTeng\Desktop\Xlettlery\XlettlerInterFace\ServicesInterface\obj\Debug\ServicesInterface.pdb

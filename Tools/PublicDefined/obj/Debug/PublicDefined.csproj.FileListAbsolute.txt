@@ -3,3 +3,9 @@ C:\Users\Administrator\Desktop\Xlettlery\Tools\PublicDefined\bin\Debug\PublicDef
 C:\Users\Administrator\Desktop\Xlettlery\Tools\PublicDefined\obj\Debug\PublicDefined.csproj.CoreCompileInputs.cache
 C:\Users\Administrator\Desktop\Xlettlery\Tools\PublicDefined\obj\Debug\PublicDefined.dll
 C:\Users\Administrator\Desktop\Xlettlery\Tools\PublicDefined\obj\Debug\PublicDefined.pdb
+C:\Users\ZhangTeng\Desktop\Xlettlery\Tools\PublicDefined\bin\Debug\PublicDefined.dll
+C:\Users\ZhangTeng\Desktop\Xlettlery\Tools\PublicDefined\bin\Debug\PublicDefined.pdb
+C:\Users\ZhangTeng\Desktop\Xlettlery\Tools\PublicDefined\obj\Debug\PublicDefined.csproj.CoreCompileInputs.cache
+C:\Users\ZhangTeng\Desktop\Xlettlery\Tools\PublicDefined\obj\Debug\PublicDefined.dll
+C:\Users\ZhangTeng\Desktop\Xlettlery\Tools\PublicDefined\obj\Debug\PublicDefined.pdb
+C:\Users\ZhangTeng\Desktop\Xlettlery\Tools\PublicDefined\obj\Debug\PublicDefined.csprojAssemblyReference.cache

@@ -1,7 +1,9 @@
 ﻿using Model;
 using PublicDefined;
+using RuleUtility;
 using ServicesInterface;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Tools;
 
@@ -61,7 +63,7 @@ namespace XlettlerRealization
                 }
             }
         }
-        public bool QueryUserInfo(string AccountID,out object result,out string errMsg)
+        public bool QueryUserInfo(string AccountID,out Dictionary<string,object> result,out string errMsg)
         {
             result = null;
             errMsg = string.Empty;
@@ -71,7 +73,7 @@ namespace XlettlerRealization
                 {
                     SESENT_USERS uSERS=container.SESENT_USERS.Where(a => a.AccountID == AccountID || a.Phone == AccountID).FirstOrDefault();
                     if (uSERS == null) {  errMsg = "未查询到账户信息!";return false;}
-                    result = new
+                   object data = new
                     {
                         uSERS.Lv,
                         uSERS.UseAmount,
@@ -83,6 +85,7 @@ namespace XlettlerRealization
                         uSERS.Recharge,
                         uSERS.Phone
                     };
+                    result=MapUtils.ObjectToMap(data, true);
                     return true;
                 }
                 catch (Exception err)
