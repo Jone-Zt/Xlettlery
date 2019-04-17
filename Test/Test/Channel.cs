@@ -17,9 +17,13 @@ namespace Test
            
         }
 
-        public bool MakeOrder(decimal amount, DateTime CreatOrder, out MakeOrderNewData result, out string errMsg)
+        public bool MakeOrder(string ChannelID,string OrderID,decimal amount, DateTime CreatOrder, out MakeOrderNewData result, out string errMsg)
         {
-            throw new NotImplementedException();
+            errMsg = string.Empty;
+            result = new MakeOrderNewData();
+            result.IsHtml = false;
+            result.Result = GetNotifyUrl(ChannelID, OrderID);
+            return true;
         }
 
         public override void Stop()

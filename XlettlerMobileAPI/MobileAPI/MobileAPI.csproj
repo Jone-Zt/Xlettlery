@@ -169,7 +169,6 @@
     <Compile Include="Controllers\SettingController.cs" />
     <Compile Include="Controllers\ShortMessageController.cs" />
     <Compile Include="Controllers\UserController.cs" />
-    <Compile Include="Filter\LoggerAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

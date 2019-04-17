@@ -9,6 +9,6 @@ namespace ChannelInterface.ChannelInterface
 {
     public interface IThridRecharge
     {
-        bool MakeOrder(decimal amount,DateTime CreatOrder,out MakeOrderNewData result, out string errMsg);
+        bool MakeOrder(string ChannelID, string OrderID, decimal amount,DateTime CreatOrder,out MakeOrderNewData result, out string errMsg);
     }
 }

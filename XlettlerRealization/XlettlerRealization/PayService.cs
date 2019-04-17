@@ -133,12 +133,13 @@ namespace XlettlerRealization
                     if (payRecharge == null) { errMsg = "未找到通道文件"; return false; }
                     IThridRecharge thrid = payRecharge as IThridRecharge;
                     if (thrid == null) { errMsg = "通道未实现"; return false; }
-                    bool ret = thrid.MakeOrder(amount, order.OrderTime, out result, out errMsg);
+                    bool ret = thrid.MakeOrder(channelID,order.OrderID,amount, order.OrderTime, out result, out errMsg);
                     if (ret) { order.Status = (short)OrderStatus.wait; }
                     return true;
                 }
                 catch (Exception err)
                 {
+                    order.Status = (short)OrderStatus.fail;
                     errMsg = "下单失败!";
                     LogTool.LogWriter.WriteError($"{accountID}账户下单失败!", err);
                     return false;
