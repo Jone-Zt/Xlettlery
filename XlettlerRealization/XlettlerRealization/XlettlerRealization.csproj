@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthorizeServices.cs" />
     <Compile Include="ChannelNotifyService.cs" />
     <Compile Include="PayService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

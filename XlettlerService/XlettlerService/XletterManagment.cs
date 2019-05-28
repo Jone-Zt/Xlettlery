@@ -48,6 +48,8 @@ namespace XlettlerService
                 ServiceHost setting = new ServiceHost(typeof(SettingService));
                 ServiceHost shortMessage = new ServiceHost(typeof(ShortMessageService));
                 ServiceHost Notify = new ServiceHost(typeof(ChannelNotifyService));
+                ServiceHost Auth = new ServiceHost(typeof(AuthorizeServices));
+                CreateRemoting<IAuthorizeInterface>(Auth);
                 CreateRemoting<IUserInterface>(host);
                 CreateRemoting<IPayInterface>(pay);
                 CreateRemoting<IShortMessageInterface>(shortMessage);

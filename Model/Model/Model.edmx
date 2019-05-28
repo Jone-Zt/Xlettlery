@@ -30,14 +30,14 @@
     <Property Name="UseAmount" Type="decimal" Nullable="false" DefaultValue="0" />
     <Property Name="userType" Type="smallint" Nullable="false" DefaultValue="0" />
     <Property Name="userPayPwd" Type="nvarchar(max)" Nullable="false" DefaultValue="654321" />
-    <Property Name="SuperiorAgent" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SuperiorAgent" Type="nvarchar(max)" Nullable="true" DefaultValue="admin" />
     <Property Name="AgentMoney" Type="decimal" Nullable="false" DefaultValue="0" />
     <Property Name="AccountID" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Lv" Type="smallint" Nullable="false" />
     <Property Name="Recharge" Type="decimal" Nullable="false" />
     <Property Name="Consumption" Type="decimal" Nullable="false" />
-    <Property Name="UpgradeTime" Type="datetime" Nullable="false" />
+    <Property Name="UpgradeTime" Type="datetime" Nullable="true" />
     <Property Name="RealName" Type="nvarchar" Nullable="true" MaxLength="20" />
   </EntityType>
   <EntityType Name="SESENT_Order">
@@ -234,7 +234,7 @@
               <LongDescription>支付密码</LongDescription>
             </Documentation>
           </Property>
-          <Property Name="SuperiorAgent" Type="String" Nullable="false" >
+          <Property Name="SuperiorAgent" Type="String" DefaultValue="admin" Nullable="true" >
             <Documentation>
               <LongDescription>上级代理编号</LongDescription>
             </Documentation>
@@ -249,7 +249,7 @@
           <Property Name="Lv" Type="Int16" Nullable="false" />
           <Property Name="Recharge" Type="Decimal" Nullable="false" />
           <Property Name="Consumption" Type="Decimal" Nullable="false" />
-          <Property Name="UpgradeTime" Type="DateTime" Nullable="false" />
+          <Property Name="UpgradeTime" Type="DateTime" />
           <Property Name="RealName" Type="String" MaxLength="20" Nullable="true" />
         </EntityType>
         <EntityType Name="SESENT_Order">

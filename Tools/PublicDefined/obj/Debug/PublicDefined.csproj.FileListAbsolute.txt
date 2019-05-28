@@ -3,3 +3,13 @@ C:\Users\Administrator\Desktop\Xlettlery\Tools\PublicDefined\bin\Debug\PublicDef
 C:\Users\Administrator\Desktop\Xlettlery\Tools\PublicDefined\obj\Debug\PublicDefined.csproj.CoreCompileInputs.cache
 C:\Users\Administrator\Desktop\Xlettlery\Tools\PublicDefined\obj\Debug\PublicDefined.dll
 C:\Users\Administrator\Desktop\Xlettlery\Tools\PublicDefined\obj\Debug\PublicDefined.pdb
+C:\Users\张腾\Desktop\Xlettlery\Tools\PublicDefined\bin\Debug\PublicDefined.dll
+C:\Users\张腾\Desktop\Xlettlery\Tools\PublicDefined\bin\Debug\PublicDefined.pdb
+C:\Users\张腾\Desktop\Xlettlery\Tools\PublicDefined\obj\Debug\PublicDefined.csproj.CoreCompileInputs.cache
+C:\Users\张腾\Desktop\Xlettlery\Tools\PublicDefined\obj\Debug\PublicDefined.dll
+C:\Users\张腾\Desktop\Xlettlery\Tools\PublicDefined\obj\Debug\PublicDefined.pdb
+E:\Xlettlery\Tools\PublicDefined\bin\Debug\PublicDefined.dll
+E:\Xlettlery\Tools\PublicDefined\bin\Debug\PublicDefined.pdb
+E:\Xlettlery\Tools\PublicDefined\obj\Debug\PublicDefined.csproj.CoreCompileInputs.cache
+E:\Xlettlery\Tools\PublicDefined\obj\Debug\PublicDefined.dll
+E:\Xlettlery\Tools\PublicDefined\obj\Debug\PublicDefined.pdb

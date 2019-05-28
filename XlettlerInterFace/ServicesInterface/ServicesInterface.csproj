@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAuthorizeInterface.cs" />
     <Compile Include="IChannelNotify.cs" />
     <Compile Include="IPayInterface.cs" />
     <Compile Include="ISettingInterface.cs" />

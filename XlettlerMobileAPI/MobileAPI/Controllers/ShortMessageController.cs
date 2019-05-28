@@ -10,6 +10,7 @@ using Tools;
 
 namespace MobileAPI.Controllers
 {
+    [Authorize]
     public class ShortMessageController : Controller
     {
         private IShortMessageInterface proxy;

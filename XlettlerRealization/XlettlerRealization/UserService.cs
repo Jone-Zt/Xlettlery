@@ -2,6 +2,7 @@
 using PublicDefined;
 using ServicesInterface;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Tools;
 
@@ -9,6 +10,20 @@ namespace XlettlerRealization
 {
     public class UserService : IUserInterface
     {
+        public bool CheckReister(string AccountID)
+        {
+            try
+            {
+                ModelContainer container = new ModelContainer();
+                return container.SESENT_USERS.Where(a => a.AccountID == AccountID).FirstOrDefault()==null;
+            }
+            catch (Exception err)
+            {
+                LogTool.LogWriter.WriteError($"检验注册账号失败:{err.Message}");
+                return false;
+            }
+        }
+
         public bool FindLoginPwd(string Phone, string Code,string passWord,out string errMsg)
         {
             errMsg = string.Empty;
@@ -61,7 +76,7 @@ namespace XlettlerRealization
                 }
             }
         }
-        public bool QueryUserInfo(string AccountID,out object result,out string errMsg)
+        public bool QueryUserInfo(string AccountID,out IDictionary<string, object> result,out string errMsg)
         {
             result = null;
             errMsg = string.Empty;
@@ -71,18 +86,16 @@ namespace XlettlerRealization
                 {
                     SESENT_USERS uSERS=container.SESENT_USERS.Where(a => a.AccountID == AccountID || a.Phone == AccountID).FirstOrDefault();
                     if (uSERS == null) {  errMsg = "未查询到账户信息!";return false;}
-                    result = new
-                    {
-                        uSERS.Lv,
-                        uSERS.UseAmount,
-                        uSERS.userName,
-                        uSERS.AgentMoney,
-                        AccountID=string.IsNullOrEmpty(uSERS.AccountID)?uSERS.Phone:uSERS.AccountID,
-                        uSERS.userType,
-                        uSERS.Consumption,
-                        uSERS.Recharge,
-                        uSERS.Phone
-                    };
+                    result = new Dictionary<string, object>();
+                    result.Add("Lv", uSERS.Lv);
+                    result.Add("UseAmount", uSERS.UseAmount);
+                    result.Add("userName", uSERS.userName);
+                    result.Add("AgentMoney", uSERS.AgentMoney);
+                    result.Add("AccountID", string.IsNullOrEmpty(uSERS.AccountID) ? uSERS.Phone : uSERS.AccountID);
+                    result.Add("userType", uSERS.userType);
+                    result.Add("Consumption", uSERS.Consumption);
+                    result.Add("Recharge", uSERS.Recharge);
+                    result.Add("Phone", uSERS.Phone);
                     return true;
                 }
                 catch (Exception err)
@@ -105,8 +118,11 @@ namespace XlettlerRealization
                    if (string.IsNullOrEmpty(code) || code != Code) { errMsg = "验证码错误!";return false;}
                    SESENT_USERS uSERS=container.SESENT_USERS.Where(a => a.AccountID == AccountID).FirstOrDefault();
                    if (uSERS != null) {   errMsg = "该账户已被注册。";   return false;}
-                   SESENT_USERS angency=container.SESENT_USERS.Where(a => a.AccountID == agencyID && a.userType == (short)UserType.angency).FirstOrDefault();
-                   if (angency == null){  errMsg = "代理编号错误!";   return false;}
+                    if (!string.IsNullOrEmpty(agencyID))
+                    {
+                        SESENT_USERS angency = container.SESENT_USERS.Where(a => a.AccountID == agencyID && a.userType == (short)UserType.angency).FirstOrDefault();
+                        if (angency == null) { errMsg = "代理编号错误!"; return false; }
+                    }
                      uSERS = new SESENT_USERS()
                     {
                         AccountID = AccountID,
@@ -117,9 +133,10 @@ namespace XlettlerRealization
                         userType=(short)type,
                         UseAmount=0,
                         AgentMoney=0,
+
                     };
                     container.SESENT_USERS.Add(uSERS);
-                    bool ret=container.SaveChanges() > 0 ? true : false;
+                    bool ret=container.SaveChanges() > 0;
                     if (!ret) errMsg = "注册失败!";
                     return ret;
                 }

@@ -4,3 +4,9 @@ C:\Users\Administrator\Desktop\Xlettlery\SecurityTools\obj\Release\SecurityTools
 C:\Users\Administrator\Desktop\Xlettlery\SecurityTools\obj\Release\SecurityTools.csproj.CoreCompileInputs.cache
 C:\Users\Administrator\Desktop\Xlettlery\SecurityTools\obj\Release\SecurityTools.dll
 C:\Users\Administrator\Desktop\Xlettlery\SecurityTools\obj\Release\SecurityTools.pdb
+C:\Users\张腾\Desktop\Xlettlery\SecurityTools\bin\Release\SecurityTools.dll
+C:\Users\张腾\Desktop\Xlettlery\SecurityTools\bin\Release\SecurityTools.pdb
+C:\Users\张腾\Desktop\Xlettlery\SecurityTools\obj\Release\SecurityTools.csprojAssemblyReference.cache
+C:\Users\张腾\Desktop\Xlettlery\SecurityTools\obj\Release\SecurityTools.csproj.CoreCompileInputs.cache
+C:\Users\张腾\Desktop\Xlettlery\SecurityTools\obj\Release\SecurityTools.dll
+C:\Users\张腾\Desktop\Xlettlery\SecurityTools\obj\Release\SecurityTools.pdb

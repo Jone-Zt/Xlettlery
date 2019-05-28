@@ -11,6 +11,7 @@ using Tools;
 
 namespace MobileAPI.Controllers
 {
+    [Authorize]
     public class SettingController : Controller
     {
         private ISettingInterface GetManger()

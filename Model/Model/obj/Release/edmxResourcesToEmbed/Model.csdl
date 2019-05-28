@@ -52,7 +52,7 @@
         <LongDescription>支付密码</LongDescription>
       </Documentation>
     </Property>
-    <Property Name="SuperiorAgent" Type="String" Nullable="false">
+    <Property Name="SuperiorAgent" Type="String" DefaultValue="admin" Nullable="true">
       <Documentation>
         <LongDescription>上级代理编号</LongDescription>
       </Documentation>
@@ -67,7 +67,7 @@
     <Property Name="Lv" Type="Int16" Nullable="false" />
     <Property Name="Recharge" Type="Decimal" Nullable="false" />
     <Property Name="Consumption" Type="Decimal" Nullable="false" />
-    <Property Name="UpgradeTime" Type="DateTime" Nullable="false" />
+    <Property Name="UpgradeTime" Type="DateTime" />
     <Property Name="RealName" Type="String" MaxLength="20" Nullable="true" />
   </EntityType>
   <EntityType Name="SESENT_Order">

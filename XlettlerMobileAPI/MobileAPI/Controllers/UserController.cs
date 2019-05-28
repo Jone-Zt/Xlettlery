@@ -2,6 +2,7 @@
 using PublicDefined;
 using ServicesInterface;
 using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using Tools;
 
@@ -18,6 +19,25 @@ namespace MobileAPI.Controllers
             }
             return proxy;
         }
+        public ActionResult CheckReister()
+        {
+            ResponsePicker<object> picker = new ResponsePicker<object>();
+            try {
+                string flowid = RequestCheck.CheckStringValue(Request, "flowID", "流水号", false);
+                picker.FlowID = flowid;
+                string AccountID = RequestCheck.CheckStringValue(Request, "AccountID", "账号", false);
+                IUserInterface proxy = GetManger();
+                if (proxy == null)
+                    throw new Exception("未挂载函数");
+                if (!proxy.CheckReister(AccountID))
+                    picker.FailInfo = "该账号已被注册!";
+                else
+                    picker.Data = "恭喜您,该账号未注册!";
+            } catch (Exception err) {
+                picker.FailInfo = err.Message;
+            }
+            return Content(picker.ToString());
+        }
         public ActionResult Register()
         {
             ResponsePicker<object> picker = new ResponsePicker<object>();
@@ -29,7 +49,7 @@ namespace MobileAPI.Controllers
                 string passWord = RequestCheck.CheckStringValue(Request, "passWord", "密码", false);
                 string Phone = RequestCheck.CheckStringValue(Request, "Phone", "手机号", false);
                 string Code = RequestCheck.CheckStringValue(Request, "Code", "手机验证码", false);
-                string agencyID = RequestCheck.CheckStringValue(Request, "agencyID", "代理编号", false);
+                string agencyID = RequestCheck.CheckStringValue(Request, "agencyID", "代理编号", true);
                 UserType userType = UserType.member;
                 IUserInterface proxy = GetManger();
                 if (proxy == null)
@@ -45,6 +65,7 @@ namespace MobileAPI.Controllers
             }
             return Content(picker.ToString());
         }
+        [Authorize]
         public ActionResult QueryUserInfo()
         {
             ResponsePicker<object> picker = new ResponsePicker<object>();
@@ -56,7 +77,7 @@ namespace MobileAPI.Controllers
                 IUserInterface user = GetManger();
                 if (user == null)
                     throw new Exception("未挂载函数!");
-                bool ret=user.QueryUserInfo(AccountID, out object result, out string errMsg);
+                bool ret=user.QueryUserInfo(AccountID, out IDictionary<string, object> result, out string errMsg);
                 if (ret)
                     picker.Data = result;
                 else
@@ -68,6 +89,7 @@ namespace MobileAPI.Controllers
             }
             return Content(picker.ToString());
         }
+        [Authorize]
         public ActionResult Login()
         {
             ResponsePicker<object> picker = new ResponsePicker<object>();

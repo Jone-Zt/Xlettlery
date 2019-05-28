@@ -200,6 +200,7 @@
     <Content Include="js\jquery-2.2.4.min.js" />
     <Content Include="js\win10.child.js" />
     <Content Include="js\win10.js" />
+    <Content Include="Log4netConfigFile.xml" />
     <Content Include="Scripts\bootstrap-paginator.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -276,6 +277,10 @@
     <ProjectReference Include="..\SecurityTools\SecurityTools.csproj">
       <Project>{440F362E-5B45-41F3-930A-302370C4795C}</Project>
       <Name>SecurityTools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tools\LogTool\LogTool.csproj">
+      <Project>{e837a985-cd29-4724-b907-97570dfc0eba}</Project>
+      <Name>LogTool</Name>
     </ProjectReference>
     <ProjectReference Include="..\Tools\PublicDefined\PublicDefined.csproj">
       <Project>{C54CE5BB-6B8F-472F-BE7F-0E94214CC904}</Project>

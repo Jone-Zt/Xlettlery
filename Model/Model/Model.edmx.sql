@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 03/25/2019 13:45:05
--- Generated from EDMX file: C:\Users\Administrator\Desktop\Xlettlery\Model\Model\Model.edmx
+-- Date Created: 05/28/2019 12:50:26
+-- Generated from EDMX file: E:\Xlettlery\Model\Model\Model.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -58,6 +58,9 @@ GO
 IF OBJECT_ID(N'[dbo].[SESENT_CashCard]', 'U') IS NOT NULL
     DROP TABLE [dbo].[SESENT_CashCard];
 GO
+IF OBJECT_ID(N'[dbo].[SESENT_ChannelQuoTa]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[SESENT_ChannelQuoTa];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -71,14 +74,14 @@ CREATE TABLE [dbo].[SESENT_USERS] (
     [UseAmount] decimal(18,0)  NOT NULL,
     [userType] smallint  NOT NULL,
     [userPayPwd] nvarchar(max)  NOT NULL,
-    [SuperiorAgent] nvarchar(max)  NOT NULL,
+    [SuperiorAgent] nvarchar(max)  NULL,
     [AgentMoney] decimal(18,0)  NOT NULL,
     [AccountID] nvarchar(max)  NOT NULL,
     [ID] int IDENTITY(1,1) NOT NULL,
     [Lv] smallint  NOT NULL,
     [Recharge] decimal(18,0)  NOT NULL,
     [Consumption] decimal(18,0)  NOT NULL,
-    [UpgradeTime] datetime  NOT NULL,
+    [UpgradeTime] datetime  NULL,
     [RealName] nvarchar(20)  NULL
 );
 GO

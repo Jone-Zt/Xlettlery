@@ -21,6 +21,7 @@ namespace Model
             this.UseAmount = 0m;
             this.userType = 0;
             this.userPayPwd = "654321";
+            this.SuperiorAgent = "admin";
             this.AgentMoney = 0m;
         }
     
@@ -37,7 +38,7 @@ namespace Model
         public short Lv { get; set; }
         public decimal Recharge { get; set; }
         public decimal Consumption { get; set; }
-        public System.DateTime UpgradeTime { get; set; }
+        public Nullable<System.DateTime> UpgradeTime { get; set; }
         public string RealName { get; set; }
     }
 }

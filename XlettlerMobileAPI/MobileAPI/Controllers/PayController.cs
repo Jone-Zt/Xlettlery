@@ -9,6 +9,7 @@ using Tools;
 
 namespace MobileAPI.Controllers
 {
+    [Authorize]
     public class PayController : Controller
     {
         private IPayInterface proxy;

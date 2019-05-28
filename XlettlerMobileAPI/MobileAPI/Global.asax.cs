@@ -21,5 +21,20 @@ namespace MobileAPI
             GlobalConfiguration.Configuration.Formatters.XmlFormatter.SupportedMediaTypes.Clear();
             LogTool.LogWriter.InitConfigFile(AppDomain.CurrentDomain.BaseDirectory + "\\Log4netConfigFile.xml");
         }
+        protected void Application_Error(object sender, EventArgs e)
+        {
+           
+        }
+        protected void Application_PostRequestHandlerExecute(object sender, EventArgs e)
+        {
+            if (Response.StatusCode == 401)
+                Response.Redirect("/ErrorCode/Unauthorized");
+        }
+        protected void Application_EndRequest(object sender, EventArgs e)
+        {
+            if (Response.StatusCode == 404)
+                Response.Redirect("/ErrorCode/NoFind");
+        }
+
     }
 }

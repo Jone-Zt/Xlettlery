@@ -33,8 +33,11 @@ namespace Models
         public T Data { get; set; }
         public override string ToString()
         {
-            if (this.Data != null || this.List != null) this.MsgCode = (int)ResType.Success;
-            if (!string.IsNullOrEmpty(this.FailInfo)) this.MsgCode = (int)ResType.Fail;
+            if (this.MsgCode == null)
+            {
+                if (this.Data != null || this.List != null) this.MsgCode = (int)ResType.Success;
+                if (!string.IsNullOrEmpty(this.FailInfo)) this.MsgCode = (int)ResType.Fail;
+            }
             JsonSerializerSettings jsetting = new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore };
             return JsonConvert.SerializeObject(this, Formatting.None, jsetting);
         }
@@ -84,7 +87,9 @@ namespace Models
     }
     public enum ResType
     {
-        Success = 1000,
-        Fail = 1001,
+        Success = 200,
+        Fail = 500,
+        Unauthorized=401,
+        NoFind=404,
     }
 }

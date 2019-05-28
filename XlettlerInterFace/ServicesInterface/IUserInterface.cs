@@ -1,4 +1,5 @@
 ﻿using PublicDefined;
+using System.Collections.Generic;
 using System.ServiceModel;
 
 namespace ServicesInterface
@@ -13,8 +14,10 @@ namespace ServicesInterface
         [OperationContract]
         bool SendUserCode(string Phone, IPhoneCodeType type);
         [OperationContract]
-        bool QueryUserInfo(string userName,out object result,out string errMsg);
+        bool QueryUserInfo(string userName,out IDictionary<string, object> result,out string errMsg);
         [OperationContract]
         bool FindLoginPwd(string Phone,string Code,string passWord,out string errMsg);
+        [OperationContract]
+        bool CheckReister(string AccountID);
     }
 }
