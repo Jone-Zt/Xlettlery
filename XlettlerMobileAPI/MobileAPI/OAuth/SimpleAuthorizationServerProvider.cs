@@ -21,6 +21,7 @@ namespace MobileAPI.OAuth
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
         {
             context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
+            
             IAuthorizeInterface proxy = RemotingAngency.GetRemoting().GetProxy<IAuthorizeInterface>();
             if (proxy == null) {
                     context.SetError("invalid_grant", "privilege grant failed!");

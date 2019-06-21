@@ -9,7 +9,6 @@ using Tools;
 
 namespace MobileAPI.Controllers
 {
-    [Authorize]
     public class PayController : Controller
     {
         private IPayInterface proxy;
@@ -65,9 +64,11 @@ namespace MobileAPI.Controllers
             }
             return Content(picker.ToString());
         }
+
         /// <summary>
         /// 通道查询
         /// </summary>
+        [Authorize]
         public ActionResult QueryChannels()
         {
             ResponsePicker<object> picker = new ResponsePicker<object>();
@@ -89,9 +90,10 @@ namespace MobileAPI.Controllers
             }
             return Content(picker.ToString());
         }
+        [Authorize]
         public ActionResult QueryOrder()
         {
-            ResponsePicker<SESENT_Order> picker = new ResponsePicker<SESENT_Order>();
+            ResponsePicker<Dictionary<string, object>> picker = new ResponsePicker<Dictionary<string, object>>();
             try
             {
                 string flowid = RequestCheck.CheckStringValue(Request, "flowID", "流水号", false);
@@ -103,11 +105,11 @@ namespace MobileAPI.Controllers
                 int? PageSize = RequestCheck.CheckIntValue(Request, "pageSize","每页总量",false);
                 IPayInterface pay = GetManger();
                 if (pay == null) throw new Exception("未挂载对应函数!");
-                IList<SESENT_Order> list = pay.QueryOrder(accountID, OrderTime, Convert.ToInt32(Type), Convert.ToInt32(PageIndex), Convert.ToInt32(PageSize), out string errMsg);
+                Dictionary<string,object> list = pay.QueryOrder(accountID, OrderTime, Convert.ToInt32(Type), Convert.ToInt32(PageIndex), Convert.ToInt32(PageSize), out string errMsg);
                 if (list == null)
                     picker.FailInfo = errMsg;
                 else
-                    picker.List = list;
+                    picker.Data = list;
             }
             catch (Exception err)
             {

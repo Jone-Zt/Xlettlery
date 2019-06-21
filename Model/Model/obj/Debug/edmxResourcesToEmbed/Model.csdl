@@ -14,6 +14,12 @@
     <EntitySet Name="SESENT_RankingSystemSetting" EntityType="Model.SESENT_RankingSystemSetting" />
     <EntitySet Name="SESENT_CashCard" EntityType="Model.SESENT_CashCard" />
     <EntitySet Name="SESENT_ChannelQuoTa" EntityType="Model.SESENT_ChannelQuoTa" />
+    <EntitySet Name="SESENT_BankLineNumber" EntityType="Model.SESENT_BankLineNumber" />
+    <EntitySet Name="SESENT_BankCity" EntityType="Model.SESENT_BankCity" />
+    <AssociationSet Name="SESENT_BankLineNumberSESENT_BankCity" Association="Model.SESENT_BankLineNumberSESENT_BankCity">
+      <End Role="SESENT_BankLineNumber" EntitySet="SESENT_BankLineNumber" />
+      <End Role="SESENT_BankCity" EntitySet="SESENT_BankCity" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="SESENT_USERS">
     <Documentation>
@@ -222,4 +228,29 @@
     <Property Name="ChannelID" Type="String" Nullable="false" />
     <Property Name="Fee" Type="String" Nullable="false" />
   </EntityType>
+  <EntityType Name="SESENT_BankLineNumber">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Provinceid" Type="String" Nullable="false" />
+    <Property Name="BankCode" Type="String" Nullable="false" />
+    <Property Name="BankName" Type="String" Nullable="false" />
+    <Property Name="NetSite" Type="String" Nullable="false" />
+    <Property Name="LineNumber" Type="String" Nullable="false" />
+    <NavigationProperty Name="SESENT_BankCity" Relationship="Model.SESENT_BankLineNumberSESENT_BankCity" FromRole="SESENT_BankLineNumber" ToRole="SESENT_BankCity" />
+  </EntityType>
+  <EntityType Name="SESENT_BankCity">
+    <Key>
+      <PropertyRef Name="Provinceid" />
+    </Key>
+    <Property Name="Provinceid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Province" Type="String" Nullable="false" />
+    <Property Name="Property1" Type="String" Nullable="false" />
+    <NavigationProperty Name="SESENT_BankLineNumber" Relationship="Model.SESENT_BankLineNumberSESENT_BankCity" FromRole="SESENT_BankCity" ToRole="SESENT_BankLineNumber" />
+  </EntityType>
+  <Association Name="SESENT_BankLineNumberSESENT_BankCity">
+    <End Type="Model.SESENT_BankLineNumber" Role="SESENT_BankLineNumber" Multiplicity="*" />
+    <End Type="Model.SESENT_BankCity" Role="SESENT_BankCity" Multiplicity="1" />
+  </Association>
 </Schema>

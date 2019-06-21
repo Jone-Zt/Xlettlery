@@ -1,5 +1,0 @@
-C:\Users\Administrator\source\repos\Xlettler\Tools\RuleUtility\bin\Release\RuleUtility.dll
-C:\Users\Administrator\source\repos\Xlettler\Tools\RuleUtility\bin\Release\RuleUtility.pdb
-C:\Users\Administrator\source\repos\Xlettler\Tools\RuleUtility\obj\Release\RuleUtility.csproj.CoreCompileInputs.cache
-C:\Users\Administrator\source\repos\Xlettler\Tools\RuleUtility\obj\Release\RuleUtility.dll
-C:\Users\Administrator\source\repos\Xlettler\Tools\RuleUtility\obj\Release\RuleUtility.pdb

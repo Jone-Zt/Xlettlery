@@ -46,6 +46,10 @@ namespace Tools
             _redisClient.SetValue(key, value, timeOut);
             return true;
         }
+        public TimeSpan? GetTimeOut(string key)
+        {
+           return _redisClient.GetTimeToLive(key);
+        }
         public string Get(string key)
         {
             byte[] bts=_redisClient.Get(key);

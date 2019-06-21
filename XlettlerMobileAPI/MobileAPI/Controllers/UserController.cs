@@ -22,22 +22,27 @@ namespace MobileAPI.Controllers
         public ActionResult CheckReister()
         {
             ResponsePicker<object> picker = new ResponsePicker<object>();
-            try {
+            try
+            {
                 string flowid = RequestCheck.CheckStringValue(Request, "flowID", "流水号", false);
                 picker.FlowID = flowid;
-                string AccountID = RequestCheck.CheckStringValue(Request, "AccountID", "账号", false);
+                string AccountID = RequestCheck.CheckStringValue(Request, "AccountID", "账号", true);
+                string Phone = RequestCheck.CheckStringValue(Request,"Phone","手机号",true);
                 IUserInterface proxy = GetManger();
                 if (proxy == null)
                     throw new Exception("未挂载函数");
-                if (!proxy.CheckReister(AccountID))
-                    picker.FailInfo = "该账号已被注册!";
+                if (!proxy.CheckReister(Phone, AccountID,out string Msg))
+                    picker.FailInfo = Msg;
                 else
-                    picker.Data = "恭喜您,该账号未注册!";
-            } catch (Exception err) {
+                    picker.Data = Msg;
+            }
+            catch (Exception err)
+            {
                 picker.FailInfo = err.Message;
             }
             return Content(picker.ToString());
         }
+
         public ActionResult Register()
         {
             ResponsePicker<object> picker = new ResponsePicker<object>();
@@ -116,6 +121,15 @@ namespace MobileAPI.Controllers
             }
             return Content(picker.ToString());
         }
+        [Authorize]
+        public ActionResult SearchLineNumber(string Province,string City,string BankName)
+        {
+            ResponsePicker<object> picker = new ResponsePicker<object>();
+
+
+
+            return null;
+        }
         public ActionResult FindLoginPwd()
         {
             ResponsePicker<object> picker = new ResponsePicker<object>();
@@ -154,11 +168,11 @@ namespace MobileAPI.Controllers
                 IUserInterface user = GetManger();
                 if (user == null)
                     throw new Exception("未挂载函数!");
-                bool ret = user.SendUserCode(Phone, phoneCode);
+                bool ret = user.SendUserCode(Phone, phoneCode,out string errMsg);
                 if (ret)
                     picker.Data = "发送成功!";
                 else
-                    picker.FailInfo = "发送失败!";
+                    picker.FailInfo = errMsg;
             }
             catch (Exception err)
             {

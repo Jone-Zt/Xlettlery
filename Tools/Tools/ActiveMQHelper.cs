@@ -68,8 +68,9 @@ namespace Tools
             builder.Replace("{life}",((Math.Round(((TimeSpan)obj.Life).TotalMinutes))).ToString());
             Devicer.SendMsg(obj.Phone,builder.ToString());
         }
-        public bool SendMessage(string phone, IPhoneCodeType type)
+        public bool SendMessage(string phone, IPhoneCodeType type,out string errMsg)
         {
+            errMsg = "发送失败!";
             try
             {
                 using (IConnection connection = _factory.CreateConnection())
@@ -87,6 +88,11 @@ namespace Tools
                             MQData mQData = new MQData() { Phone = phone, Content = xCodes.Content, Code = CacheKey.GenerateRandomStr(8), Type = type, Life = timeOut };
                             IObjectMessage message = prod.CreateObjectMessage(mQData);
                             message.Properties.SetString("filter", "demo");
+                            TimeSpan? timeSpan = RedisHelper.GetManger().GetTimeOut(CacheKey.GenerateCachePhoneCode(phone, type));
+                            if (timeSpan != null&& ((TimeSpan)(timeOut - timeSpan)).TotalMinutes<=1) {
+                                errMsg = "发送短信过于频繁，请稍后再试!";
+                                return false;
+                            }
                             RedisHelper.GetManger().Set(CacheKey.GenerateCachePhoneCode(phone, type), mQData.Code, mQData.Life);
                             prod.Send(message, MsgDeliveryMode.NonPersistent, MsgPriority.Normal, TimeSpan.MinValue);
                             return true;

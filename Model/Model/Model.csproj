@@ -70,6 +70,12 @@
     <Compile Include="SESENT_AdminManger.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="SESENT_BankCity.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SESENT_BankLineNumber.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="SESENT_CashCard.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

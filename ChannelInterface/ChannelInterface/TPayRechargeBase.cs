@@ -29,5 +29,10 @@ namespace ChannelInterFace
                 notifyUrl = notifyUrl + "/" + string.Join("/", customerArges);
             return notifyUrl;
         }
+        public virtual bool Notify(string OrderID,string[] pathArges, Dictionary<string, string> UrlArges, byte[] postBuffer,out string BackStr)
+        {
+            BackStr = "";
+            return true;
+        }
     }
 }

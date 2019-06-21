@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServicesInterface", "..\..\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XlettlerRealization", "..\..\XlettlerRealization\XlettlerRealization\XlettlerRealization.csproj", "{8A2DFD9D-7533-4259-A7DF-2D18CD2ED7F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFTest", "..\..\Test\WCFTest\WCFTest.csproj", "{12431E99-A342-414C-B36E-E624E7CC3ABD}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tools", "..\..\Tools\Tools\Tools.csproj", "{C6F1BF87-A866-47B2-8BA7-DD5DD43820F4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PublicDefined", "..\..\Tools\PublicDefined\PublicDefined.csproj", "{C54CE5BB-6B8F-472F-BE7F-0E94214CC904}"
@@ -49,10 +47,6 @@ Global
 		{8A2DFD9D-7533-4259-A7DF-2D18CD2ED7F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A2DFD9D-7533-4259-A7DF-2D18CD2ED7F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A2DFD9D-7533-4259-A7DF-2D18CD2ED7F7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{12431E99-A342-414C-B36E-E624E7CC3ABD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{12431E99-A342-414C-B36E-E624E7CC3ABD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{12431E99-A342-414C-B36E-E624E7CC3ABD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{12431E99-A342-414C-B36E-E624E7CC3ABD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C6F1BF87-A866-47B2-8BA7-DD5DD43820F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C6F1BF87-A866-47B2-8BA7-DD5DD43820F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6F1BF87-A866-47B2-8BA7-DD5DD43820F4}.Release|Any CPU.ActiveCfg = Release|Any CPU

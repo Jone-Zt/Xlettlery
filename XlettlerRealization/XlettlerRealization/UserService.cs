@@ -1,5 +1,6 @@
 ﻿using Model;
 using PublicDefined;
+using RuleUtility;
 using ServicesInterface;
 using System;
 using System.Collections.Generic;
@@ -10,16 +11,36 @@ namespace XlettlerRealization
 {
     public class UserService : IUserInterface
     {
-        public bool CheckReister(string AccountID)
+        public bool CheckReister(string Phone,string AccountID,out string Msg)
         {
             try
             {
-                ModelContainer container = new ModelContainer();
-                return container.SESENT_USERS.Where(a => a.AccountID == AccountID).FirstOrDefault()==null;
+                if (string.IsNullOrEmpty(Phone) && string.IsNullOrEmpty(AccountID)) { Msg = "参数错误!";return false;}
+                else
+                {
+                    bool exit = false;
+                    ModelContainer container = new ModelContainer();
+                    if (!string.IsNullOrEmpty(Phone) && !string.IsNullOrEmpty(AccountID)) { Msg = "未指明检测项!"; return exit; }
+                    else if (!string.IsNullOrEmpty(Phone))
+                    {
+                        exit = container.SESENT_USERS.Where(a => a.Phone == Phone).FirstOrDefault() == null;
+                        if (exit) Msg = "该手机号未注册!";
+                        else Msg = "该手机号已注册!";
+                        return exit;
+                    }
+                    else
+                    {
+                        exit = container.SESENT_USERS.Where(a => a.AccountID == AccountID).FirstOrDefault() == null;
+                        if (exit) Msg = "该账号未注册!";
+                        else Msg = "该账号已注册!";
+                        return exit;
+                    }
+                }
             }
             catch (Exception err)
             {
                 LogTool.LogWriter.WriteError($"检验注册账号失败:{err.Message}");
+                Msg = "未知错误!";
                 return false;
             }
         }
@@ -149,9 +170,9 @@ namespace XlettlerRealization
             }
         }
 
-        public bool SendUserCode(string Phone, IPhoneCodeType type)
+        public bool SendUserCode(string Phone, IPhoneCodeType type,out string errMsg)
         {
-            return ActiveMQHelper.GetManger().SendMessage(Phone, type);
+            return ActiveMQHelper.GetManger().SendMessage(Phone, type,out errMsg);
         }
     }
 }

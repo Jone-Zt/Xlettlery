@@ -24,7 +24,6 @@ namespace Models
         public ResponsePicker()
         {
             this.FlowID = DateTime.Now.ToString("yyyyMMddmmss");
-            this.MsgCode = (int)ResType.Fail;
         }
         public string FlowID { get; set; }
         public string FailInfo { get; set; }

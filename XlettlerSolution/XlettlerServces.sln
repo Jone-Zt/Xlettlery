@@ -17,8 +17,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "..\Model\Model\Mod
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PublicDefined", "..\Tools\PublicDefined\PublicDefined.csproj", "{C54CE5BB-6B8F-472F-BE7F-0E94214CC904}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFTest", "..\Test\WCFTest\WCFTest.csproj", "{12431E99-A342-414C-B36E-E624E7CC3ABD}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RuleUtility", "..\Tools\RuleUtility\RuleUtility.csproj", "{10702011-CC37-41CA-8C67-287B7D919D94}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XlettlerCallBackService", "..\XlettlerCallBackService\XlettlerCallBackService.csproj", "{242DC4CD-71FD-4222-B6DE-0BBA1A92C9C7}"
@@ -75,10 +73,6 @@ Global
 		{C54CE5BB-6B8F-472F-BE7F-0E94214CC904}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C54CE5BB-6B8F-472F-BE7F-0E94214CC904}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C54CE5BB-6B8F-472F-BE7F-0E94214CC904}.Release|Any CPU.Build.0 = Release|Any CPU
-		{12431E99-A342-414C-B36E-E624E7CC3ABD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{12431E99-A342-414C-B36E-E624E7CC3ABD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{12431E99-A342-414C-B36E-E624E7CC3ABD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{12431E99-A342-414C-B36E-E624E7CC3ABD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{10702011-CC37-41CA-8C67-287B7D919D94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{10702011-CC37-41CA-8C67-287B7D919D94}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10702011-CC37-41CA-8C67-287B7D919D94}.Release|Any CPU.ActiveCfg = Release|Any CPU

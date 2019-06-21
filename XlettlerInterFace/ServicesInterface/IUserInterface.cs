@@ -12,12 +12,12 @@ namespace ServicesInterface
         [OperationContract]
         bool Login(string AccountID, string passWord,string Phone,string Code, LoginType type,out string errMsg);
         [OperationContract]
-        bool SendUserCode(string Phone, IPhoneCodeType type);
+        bool SendUserCode(string Phone, IPhoneCodeType type,out string errMsg);
         [OperationContract]
         bool QueryUserInfo(string userName,out IDictionary<string, object> result,out string errMsg);
         [OperationContract]
         bool FindLoginPwd(string Phone,string Code,string passWord,out string errMsg);
         [OperationContract]
-        bool CheckReister(string AccountID);
+        bool CheckReister(string Phone,string AccountID,out string Msg);
     }
 }

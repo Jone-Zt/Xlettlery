@@ -133,12 +133,13 @@ namespace XlettlerRealization
                     if (payRecharge == null) { errMsg = "未找到通道文件"; return false; }
                     IThridRecharge thrid = payRecharge as IThridRecharge;
                     if (thrid == null) { errMsg = "通道未实现"; return false; }
-                    bool ret = thrid.MakeOrder(amount, order.OrderTime, out result, out errMsg);
+                    bool ret = thrid.MakeOrder(channelID,order.OrderID,amount, order.OrderTime, out result, out errMsg);
                     if (ret) { order.Status = (short)OrderStatus.wait; }
                     return true;
                 }
                 catch (Exception err)
                 {
+                    order.Status = (short)OrderStatus.fail;
                     errMsg = "下单失败!";
                     LogTool.LogWriter.WriteError($"{accountID}账户下单失败!", err);
                     return false;
@@ -187,16 +188,22 @@ namespace XlettlerRealization
             }
         }
 
-        public IList<SESENT_Order> QueryOrder(string accountID, DateTime OrderTime, int type, int pageIndex, int pageSize, out string errMsg)
+        public Dictionary<string,object> QueryOrder(string accountID, DateTime OrderTime, int type, int pageIndex, int pageSize, out string errMsg)
         {
             errMsg = string.Empty;
+            Dictionary<string, object> result = new Dictionary<string, object>();
             using (ModelContainer container = new ModelContainer())
             {
                 SESENT_USERS uSERS = container.SESENT_USERS.Where(a => a.AccountID == accountID || a.Phone == accountID).FirstOrDefault();
                 try
                 {
                     if (uSERS == null) { errMsg = "查询账户不存在!"; return null; }
-                    return container.SESENT_Order.Where(a => a.AccountID == accountID && a.OrderTime == OrderTime && a.OrderType == type).Skip(pageIndex * pageSize).Take(pageSize).ToList();
+                    result.Add("Data",container.SESENT_Order.Where(a => a.AccountID == accountID && a.OrderTime == OrderTime && a.OrderType == type).Skip(pageIndex * pageSize).Take(pageSize).ToList());
+                    int count = container.SESENT_Order.Where(a => a.AccountID == accountID && a.OrderTime == OrderTime && a.OrderType == type).Count();
+                    int totalPage = (count + pageSize - 1) / pageSize;
+                    result.Add("totlePages", totalPage);
+                    result.Add("totleCount",count);
+                    return result;
                 }
                 catch (Exception err)
                 {

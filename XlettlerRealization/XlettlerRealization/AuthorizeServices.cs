@@ -17,7 +17,9 @@ namespace XlettlerRealization
                 SESENT_USERS uSERS= db.SESENT_USERS.Where(a => a.AccountID == UserName || a.Phone == UserName).FirstOrDefault();
                 if (uSERS == null)
                     return false;
-                return uSERS.userPwd == UserPwd;
+                if (!string.IsNullOrEmpty(UserPwd))
+                   return uSERS.userPwd == UserPwd;
+                return true;
             }
         }
     }
