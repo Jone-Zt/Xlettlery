@@ -40,3 +40,6 @@ E:\Xlettlery\XlettleryScrapy\bin\Debug\log4net.xml
 E:\Xlettlery\XlettleryScrapy\bin\Debug\NPinyin.dll
 E:\Xlettlery\XlettleryScrapy\bin\Debug\ServiceStack.Interfaces.xml
 E:\Xlettlery\XlettleryScrapy\bin\Debug\Log4netConfigFile.xml
+E:\Xlettlery\XlettleryScrapy\bin\Debug\Newtonsoft.Json.dll
+E:\Xlettlery\XlettleryScrapy\bin\Debug\Newtonsoft.Json.pdb
+E:\Xlettlery\XlettleryScrapy\bin\Debug\Newtonsoft.Json.xml

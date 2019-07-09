@@ -65,6 +65,10 @@
       <Project>{8C351DB7-B6CB-4B1A-AE3B-B6E13E97A1D5}</Project>
       <Name>ChannelManagement</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\DealManagement\DealManagement.csproj">
+      <Project>{A01313C8-08F7-4075-9E01-9164FEEB241C}</Project>
+      <Name>DealManagement</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\ModelComparer\ModelComparer.csproj">
       <Project>{56581817-44ce-4477-b220-04acdafac0f2}</Project>
       <Name>ModelComparer</Name>

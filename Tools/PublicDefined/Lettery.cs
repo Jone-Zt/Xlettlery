@@ -29,4 +29,15 @@ namespace PublicDefined
         VictoryOrFailDiff_Main=3,//胜负差(客胜)
         VictoryOrFailDiff_Visable= 4////胜负差(主胜)
     }
+    public enum GameType
+    {
+        Singler=1,//单关
+        Two=2,//2串1
+        Three=3,//3串1
+        Fore=4,//4串1
+        Five=5,//5串1
+        Six=6,//6串1
+        Seven=7,//7串1
+        Eight=8,//8串1
+    }
 }

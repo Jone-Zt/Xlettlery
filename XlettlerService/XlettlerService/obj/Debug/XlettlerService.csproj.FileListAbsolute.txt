@@ -58,3 +58,6 @@ E:\Xlettlery\XlettlerService\XlettlerService\bin\Debug\Test.pdb
 E:\Xlettlery\XlettlerService\XlettlerService\bin\Debug\Test.dll.config
 E:\Xlettlery\XlettlerService\XlettlerService\bin\Debug\NPinyin.dll
 E:\Xlettlery\XlettlerService\XlettlerService\bin\Debug\ServiceStack.Interfaces.xml
+E:\Xlettlery\XlettlerService\XlettlerService\bin\Debug\Newtonsoft.Json.dll
+E:\Xlettlery\XlettlerService\XlettlerService\bin\Debug\Newtonsoft.Json.pdb
+E:\Xlettlery\XlettlerService\XlettlerService\bin\Debug\Newtonsoft.Json.xml

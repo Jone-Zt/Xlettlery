@@ -50,3 +50,6 @@ E:\Xlettlery\XlettlerRealization\XlettlerRealization\bin\Debug\ModelComparer.dll
 E:\Xlettlery\XlettlerRealization\XlettlerRealization\bin\Debug\ModelComparer.pdb
 E:\Xlettlery\XlettlerRealization\XlettlerRealization\bin\Debug\NPinyin.dll
 E:\Xlettlery\XlettlerRealization\XlettlerRealization\bin\Debug\ServiceStack.Interfaces.xml
+E:\Xlettlery\XlettlerRealization\XlettlerRealization\bin\Debug\Newtonsoft.Json.dll
+E:\Xlettlery\XlettlerRealization\XlettlerRealization\bin\Debug\Newtonsoft.Json.pdb
+E:\Xlettlery\XlettlerRealization\XlettlerRealization\bin\Debug\Newtonsoft.Json.xml

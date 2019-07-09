@@ -32,3 +32,6 @@ E:\Xlettlery\Tools\RuleUtility\bin\Debug\ServiceStack.Text.xml
 E:\Xlettlery\Tools\RuleUtility\bin\Debug\log4net.xml
 E:\Xlettlery\Tools\RuleUtility\obj\Debug\RuleUtility.csproj.CopyComplete
 E:\Xlettlery\Tools\RuleUtility\bin\Debug\ServiceStack.Interfaces.xml
+E:\Xlettlery\Tools\RuleUtility\bin\Debug\Newtonsoft.Json.dll
+E:\Xlettlery\Tools\RuleUtility\bin\Debug\Newtonsoft.Json.pdb
+E:\Xlettlery\Tools\RuleUtility\bin\Debug\Newtonsoft.Json.xml

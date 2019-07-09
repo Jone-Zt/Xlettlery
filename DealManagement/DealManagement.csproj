@@ -48,9 +48,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DealGameManger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UpgradeAwardManger.cs" />
+    <Compile Include="WorkOutUntiles.cs" />
+    <Compile Include="XLetteryAlgorithm.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model\Model\Model.csproj">

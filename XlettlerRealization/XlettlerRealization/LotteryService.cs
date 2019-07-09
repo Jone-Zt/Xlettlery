@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using DealManagement;
+using Model;
 using RuleUtility;
 using ServicesInterface;
 using System;
@@ -6,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Tools;
 
 namespace XlettlerRealization
 {
@@ -207,43 +209,48 @@ namespace XlettlerRealization
             }
         }
 
-        public bool MakeOrderWithFootBallGame(string AccountID,int lotteryId, string MainID, Dictionary<string,string> Fids, int type, int Multiple, out object result, out string errMsg)
+        public bool MakeOrderWithFootBallGame(string AccountID,int lotteryId, string Fids, int type, int Multiple, out object result, out string errMsg)
         {
             result = null;
             errMsg = "投注失败!";
             try
             {
+                Dictionary<string,string> ParseFids=UntilsObjToDic.ProductDetailList(Fids);
+                if (ParseFids.Count < type) { errMsg = "选择的游戏场次大于玩法类型"; return false; }
+                if (type == 1 && ParseFids.Count != 1) { errMsg = "单关类型和数据不匹配!";return false;}
                 using (ModelContainer container = new ModelContainer())
                 {
-
-
-
+                    SESENT_USERS _USERS=container.SESENT_USERS.Where(a => a.AccountID == AccountID).FirstOrDefault();
+                    if (_USERS == null) { errMsg = "下注账号不存在!";return false; }
                     SESENT_Lottery sESENT_Lottery = container.SESENT_Lottery.Where(a => a.lotteryId == lotteryId && a.Status == (int)PublicDefined.Status.Open).FirstOrDefault();
                     if (sESENT_Lottery == null) { errMsg = "未开放该游戏,敬请期待。"; return false; }
-                    if (Fids.Count == 1 && type == 1)//单关查询
+                    var item = ParseFids.GetEnumerator();
+                    int count = ParseFids.Count;
+                    List<string[]> list = new List<string[]>();
+                    PublicDefined.GameType Gametype = (PublicDefined.GameType)type;
+                    while (item.MoveNext())
                     {
-                        //long Fid = long.Parse(Fids.Keys.);
-                        SESENT_FootBallGame sESENT = null;/* container.SESENT_FootBallGame.Where(a => a.FId == Fid && (a.Type == (int)PublicDefined.ZqGameType.NotLatBallWithSigler || a.Type == (int)PublicDefined.ZqGameType.LetBallWithSigler)).FirstOrDefault()*/;
-                        if (sESENT == null) { errMsg = "该场游戏未支持单关"; return false; }
-                        SESENT_FootBallMatch match = container.SESENT_FootBallMatch.Where(a => a.FootballID == sESENT.FootballID).FirstOrDefault();
-                        if (match == null) { errMsg = "未查询到该场比赛!"; return false; }
-                        if (DateTime.Now > match.MatchDate) { errMsg = "该场比赛投注时间已截至。"; return false; }
-                        SESENT_FootBallOrder order = new SESENT_FootBallOrder()
+                        long FootballID = long.Parse(item.Current.Key);
+                        SESENT_FootBallGame sESENT = null;
+                        SESENT_FootBallMatch match = null;
+                        string[] splitFid = item.Current.Value.Split(',');
+                        if (count == 1)
                         {
-                            OrderID = long.Parse(RuleGenerateOrder.GetOrderID()),
-                            //FIds = Fids[0],
-                            FootballID = match.FootballID,
-                            Status = (int)PublicDefined.OrderStatus.wait,
-                            EnterTime = DateTime.Now
-                        };
-                        container.SESENT_FootBallOrder.Add(order);
-                        container.Entry(order).State = System.Data.Entity.EntityState.Added;
-                        bool isSuccess=container.SaveChanges()>0;
-                        if (isSuccess)
-                            result = "投注成功!";
-
+                            sESENT = container.SESENT_FootBallGame.Where(a =>(a.FootballID== FootballID &&(a.Type == (int)PublicDefined.ZqGameType.LetBallWithSigler || a.Type == (int)PublicDefined.ZqGameType.NotLatBallWithSigler))).FirstOrDefault();
+                            if (sESENT == null) { errMsg = "该场游戏未支持单关"; return false; }
+                            match = container.SESENT_FootBallMatch.Where(a => a.FootballID == sESENT.FootballID).FirstOrDefault();
+                            if (match == null) { errMsg = "未查询到该场比赛!"; return false; }
+                        }
+                        if (match == null)
+                            match = container.SESENT_FootBallMatch.Where(a => a.FootballID == FootballID).FirstOrDefault();
+                        if (DateTime.Now > match.MatchDate) { errMsg = "该场比赛投注时间已截至。"; return false; }
+                        list.Add(splitFid);
                     }
-
+                    XLetteryAlgorithm xLettery = new XLetteryAlgorithm(list);
+                    List<string> WorkOutCount=xLettery.GetModelsWithType(Gametype).ToList();
+                    long amount = WorkOutCount.Count * 2 * Multiple;
+                    if (_USERS.UseAmount < amount) { errMsg = "账户余额不足!";return false;}
+                    result = "投注成功!尽请期待,祝君中奖。";
                     return true;
                 }
             }

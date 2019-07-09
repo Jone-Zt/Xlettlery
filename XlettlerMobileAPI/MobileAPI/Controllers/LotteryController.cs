@@ -84,6 +84,33 @@ namespace MobileAPI.Controllers
             }
             return Content(picker.ToString());
         }
+
+        public ActionResult MakeOrderWithFootBallGame()
+        {
+            ResponsePicker<object> picker = new ResponsePicker<object>();
+            try
+            {
+                string flowid = RequestCheck.CheckStringValue(Request, "flowID", "流水号", false);
+                picker.FlowID = flowid;
+                int? lotteryId = RequestCheck.CheckIntValue(Request, "lotteryId", "足球支持编号", false);
+                string AccountID= RequestCheck.CheckStringValue(Request, "AccountID", "用户编号", false);
+                string Fids= RequestCheck.CheckStringValue(Request, "Fids", "游戏编号", false);
+                int? type = RequestCheck.CheckIntValue(Request, "type", "游戏类型", false);
+                int? Multiple = RequestCheck.CheckIntValue(Request, "Multiple", "倍数", false);
+                IlotteryInterface ilottery = GetManger();
+                if (ilottery == null) throw new Exception("未挂载对应函数!");
+                if (!ilottery.MakeOrderWithFootBallGame(AccountID, (int)lotteryId, Fids, (int)type, (int)Multiple, out object result, out string err))
+                    picker.FailInfo = err;
+                else
+                    picker.Data = result;
+            }
+            catch (Exception err)
+            {
+                picker.FailInfo = err.Message;
+            }
+            return Content(picker.ToString());
+        }
+
         public ActionResult QueryBasketBallLotteryWithType()
         {
             ResponsePicker<Model.MySlefGeneratePicker<Model.SESENT_BasketBallGame, Model.SESENT_BasketBallMatch>> picker = new ResponsePicker<Model.MySlefGeneratePicker<Model.SESENT_BasketBallGame, Model.SESENT_BasketBallMatch>>();

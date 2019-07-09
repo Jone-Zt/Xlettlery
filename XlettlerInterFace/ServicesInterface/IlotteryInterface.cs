@@ -30,6 +30,7 @@ namespace ServicesInterface
         /// <param name="type">2串1:2 </param>
         /// <param name="Multiple">倍数</param>
         /// <returns></returns>
-        bool MakeOrderWithFootBallGame(string AccountID,int lotteryId, string MainID, Dictionary<string,string> Fids, int type, int Multiple,out object result,out string errMsg);
+        [OperationContract]
+        bool MakeOrderWithFootBallGame(string AccountID,int lotteryId, string Fids, int type, int Multiple,out object result,out string errMsg);
     }
 }
