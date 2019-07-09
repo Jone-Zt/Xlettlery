@@ -16,10 +16,14 @@
     <EntitySet Name="SESENT_ChannelQuoTa" EntityType="Model.SESENT_ChannelQuoTa" />
     <EntitySet Name="SESENT_BankLineNumber" EntityType="Model.SESENT_BankLineNumber" />
     <EntitySet Name="SESENT_BankCity" EntityType="Model.SESENT_BankCity" />
-    <AssociationSet Name="SESENT_BankLineNumberSESENT_BankCity" Association="Model.SESENT_BankLineNumberSESENT_BankCity">
-      <End Role="SESENT_BankLineNumber" EntitySet="SESENT_BankLineNumber" />
-      <End Role="SESENT_BankCity" EntitySet="SESENT_BankCity" />
-    </AssociationSet>
+    <EntitySet Name="SESENT_Lottery" EntityType="Model.SESENT_Lottery" />
+    <EntitySet Name="SESENT_FootBallMatch" EntityType="Model.SESENT_FootBallMatch" />
+    <EntitySet Name="SESENT_FootBallGame" EntityType="Model.SESENT_FootBallGame" />
+    <EntitySet Name="SESENT_BasketBallMatch" EntityType="Model.SESENT_BasketBallMatch" />
+    <EntitySet Name="SESENT_BasketBallGame" EntityType="Model.SESENT_BasketBallGame" />
+    <EntitySet Name="SESENT_KJLottery" EntityType="Model.SESENT_KJLottery" />
+    <EntitySet Name="SESENT_InfoMation" EntityType="Model.SESENT_InfoMation" />
+    <EntitySet Name="SESENT_FootBallOrder" EntityType="Model.SESENT_FootBallOrder" />
   </EntityContainer>
   <EntityType Name="SESENT_USERS">
     <Documentation>
@@ -75,6 +79,7 @@
     <Property Name="Consumption" Type="Decimal" Nullable="false" />
     <Property Name="UpgradeTime" Type="DateTime" />
     <Property Name="RealName" Type="String" MaxLength="20" Nullable="true" />
+    <Property Name="IDCardNum" Type="String" Nullable="false" MaxLength="20" />
   </EntityType>
   <EntityType Name="SESENT_Order">
     <Documentation>
@@ -233,24 +238,117 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Provinceid" Type="String" Nullable="false" />
     <Property Name="BankCode" Type="String" Nullable="false" />
     <Property Name="BankName" Type="String" Nullable="false" />
     <Property Name="NetSite" Type="String" Nullable="false" />
     <Property Name="LineNumber" Type="String" Nullable="false" />
-    <NavigationProperty Name="SESENT_BankCity" Relationship="Model.SESENT_BankLineNumberSESENT_BankCity" FromRole="SESENT_BankLineNumber" ToRole="SESENT_BankCity" />
+    <Property Name="Provinceid" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="SESENT_BankCity">
     <Key>
-      <PropertyRef Name="Provinceid" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="Provinceid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Province" Type="String" Nullable="false" />
-    <Property Name="Property1" Type="String" Nullable="false" />
-    <NavigationProperty Name="SESENT_BankLineNumber" Relationship="Model.SESENT_BankLineNumberSESENT_BankCity" FromRole="SESENT_BankCity" ToRole="SESENT_BankLineNumber" />
+    <Property Name="City" Type="String" Nullable="false" />
   </EntityType>
-  <Association Name="SESENT_BankLineNumberSESENT_BankCity">
-    <End Type="Model.SESENT_BankLineNumber" Role="SESENT_BankLineNumber" Multiplicity="*" />
-    <End Type="Model.SESENT_BankCity" Role="SESENT_BankCity" Multiplicity="1" />
-  </Association>
+  <EntityType Name="SESENT_Lottery">
+    <Key>
+      <PropertyRef Name="lotteryId" />
+    </Key>
+    <Property Name="lotteryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="lottery_name" Type="String" Nullable="false" MaxLength="20" />
+    <Property Name="remarks" Type="String" Nullable="false" MaxLength="50" />
+    <Property Name="Status" Type="Int16" Nullable="false" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SESENT_FootBallMatch">
+    <Key>
+      <PropertyRef Name="FootballID" />
+    </Key>
+    <Property Name="FootballID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="None" />
+    <Property Name="No" Type="String" Nullable="false" MaxLength="20" />
+    <Property Name="Match" Type="String" Nullable="false" MaxLength="10" />
+    <Property Name="EndTime" Type="String" Nullable="false" MaxLength="50" />
+    <Property Name="MainteamRanking" Type="String" Nullable="false" MaxLength="20" />
+    <Property Name="Mainteam" Type="String" Nullable="false" MaxLength="50" />
+    <Property Name="Visitingteam" Type="String" Nullable="false" MaxLength="50" />
+    <Property Name="VisitingteamRanking" Type="String" Nullable="false" MaxLength="10" />
+    <Property Name="MatchDate" Type="DateTime" Nullable="false" />
+    <Property Name="MatchWeek" Type="String" Nullable="false" MaxLength="10" />
+    <Property Name="Fk_FnID" Type="String" Nullable="false" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="SESENT_FootBallGame">
+    <Key>
+      <PropertyRef Name="FId" />
+    </Key>
+    <Property Name="FId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FootballID" Type="Int64" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" />
+    <Property Name="Source" Type="String" Nullable="false" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+    <Property Name="Code" Type="String" Nullable="false" MaxLength="200" />
+    <Property Name="Lable" Type="String" />
+  </EntityType>
+  <EntityType Name="SESENT_BasketBallMatch">
+    <Key>
+      <PropertyRef Name="BasketballID" />
+    </Key>
+    <Property Name="BasketballID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="None" />
+    <Property Name="No" Type="String" Nullable="false" MaxLength="20" />
+    <Property Name="Match" Type="String" Nullable="false" MaxLength="10" />
+    <Property Name="EndTime" Type="String" Nullable="false" MaxLength="50" />
+    <Property Name="MainteamRanking" Type="String" Nullable="false" MaxLength="20" />
+    <Property Name="Mainteam" Type="String" Nullable="false" MaxLength="50" />
+    <Property Name="Visitingteam" Type="String" Nullable="false" MaxLength="50" />
+    <Property Name="VisitingteamRanking" Type="String" Nullable="false" MaxLength="10" />
+    <Property Name="MatchDate" Type="DateTime" Nullable="false" />
+    <Property Name="MatchWeek" Type="String" Nullable="false" MaxLength="10" />
+    <Property Name="Fk_FnID" Type="String" Nullable="false" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="SESENT_BasketBallGame">
+    <Key>
+      <PropertyRef Name="Fid" />
+    </Key>
+    <Property Name="Fid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BasketballID" Type="Int64" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="true" />
+    <Property Name="Source" Type="String" Nullable="false" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+    <Property Name="Code" Type="String" Nullable="false" MaxLength="200" />
+    <Property Name="Lable" Type="String" Nullable="true" />
+  </EntityType>
+  <EntityType Name="SESENT_KJLottery">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LotteryMoney" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="No" Type="String" Nullable="false" MaxLength="50" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+    <Property Name="Source" Type="String" Nullable="false" MaxLength="100" />
+    <Property Name="LotteryTime" Type="DateTime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SESENT_InfoMation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EnterTime" Type="DateTime" Nullable="false" />
+    <Property Name="Information" Type="String" Nullable="false" />
+    <Property Name="Keyword" Type="String" Nullable="false" MaxLength="10" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="200" />
+    <Property Name="ReaderCount" Type="Int32" Nullable="false" />
+    <Property Name="Conver" Type="String" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SESENT_FootBallOrder">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FIds" Type="String" Nullable="false" />
+    <Property Name="Status" Type="Int16" Nullable="false" />
+    <Property Name="FootballID" Type="Int64" Nullable="false" />
+    <Property Name="EnterTime" Type="DateTime" Nullable="false" />
+  </EntityType>
 </Schema>

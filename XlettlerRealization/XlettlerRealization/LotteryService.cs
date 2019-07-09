@@ -1,0 +1,258 @@
+﻿using Model;
+using RuleUtility;
+using ServicesInterface;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace XlettlerRealization
+{
+    public class LotteryService : IlotteryInterface
+    {
+        public bool QueryBasketBallLottery(int lotteryId, out List<MySlefGeneratePicker<SESENT_BasketBallGame, SESENT_BasketBallMatch>> result, out string errMsg)
+        {
+            result = null;
+            errMsg = string.Empty;
+            try
+            {
+                using (ModelContainer container = new ModelContainer())
+                {
+                    result = new List<MySlefGeneratePicker<SESENT_BasketBallGame, SESENT_BasketBallMatch>>();
+                    SESENT_Lottery sESENT_Lottery = container.SESENT_Lottery.Where(a => a.lotteryId == lotteryId && a.Status == (int)PublicDefined.Status.Open && a.Type == (int)PublicDefined.LetteryType.BasketBall).FirstOrDefault();
+                    if (sESENT_Lottery == null) { errMsg = "未开放该游戏,敬请期待。"; return false; }
+                    DateTime dataNow = DateTime.Now;
+                    for (int i = 0; i < 3; i++)
+                    {
+                        dataNow = DateTime.Parse(dataNow.ToString("yyyy-MM-dd 0:0:0"));
+                        List<Model.SESENT_BasketBallMatch> list = Tools.RedisHelper.GetManger().GetWithList<Model.SESENT_BasketBallMatch>();
+                        IEnumerable<SESENT_BasketBallMatch> matches = list.Where(a => a.MatchDate == dataNow);
+                        var item = matches.GetEnumerator();
+                        while (item.MoveNext())
+                        {
+                            MySlefGeneratePicker<Model.SESENT_BasketBallGame, Model.SESENT_BasketBallMatch> picker = new MySlefGeneratePicker<Model.SESENT_BasketBallGame, Model.SESENT_BasketBallMatch>();
+                            picker.Match = item.Current;
+                            List<Model.SESENT_BasketBallGame> games = Tools.RedisHelper.GetManger().GetWithList<Model.SESENT_BasketBallGame>();
+                            var letBall = games.Where(a => a.BasketballID == item.Current.BasketballID && a.Type == (int)PublicDefined.LqGageType.Letball);
+                            picker.BallGames.Add((int)PublicDefined.LqGageType.Letball, letBall.ToList());
+                            var doubleResult = games.Where(a => a.BasketballID == item.Current.BasketballID && a.Type == (int)PublicDefined.LqGageType.SizeSoure);
+                            picker.BallGames.Add((int)PublicDefined.LqGageType.SizeSoure, doubleResult.ToList());
+                            var NumberofGoalsScored = games.Where(a => a.BasketballID == item.Current.BasketballID && a.Type == (int)PublicDefined.LqGageType.VictoryOrFail);
+                            picker.BallGames.Add((int)PublicDefined.LqGageType.VictoryOrFail, NumberofGoalsScored.ToList());
+                            var Score = games.Where(a => a.BasketballID == item.Current.BasketballID && a.Type == (int)PublicDefined.LqGageType.VictoryOrFailDiff_Main);
+                            picker.BallGames.Add((int)PublicDefined.LqGageType.VictoryOrFailDiff_Main, Score.ToList());
+                            var VictoryOrFailDiff_Visable = games.Where(a => a.BasketballID == item.Current.BasketballID && a.Type == (int)PublicDefined.LqGageType.VictoryOrFailDiff_Visable);
+                            picker.BallGames.Add((int)PublicDefined.LqGageType.VictoryOrFailDiff_Visable, VictoryOrFailDiff_Visable.ToList());
+                            result.Add(picker);
+                        }
+                        dataNow.AddDays(1);
+                    }
+                    return true;
+                }
+            }
+            catch (Exception err)
+            {
+                errMsg = "未知错误!";
+                LogTool.LogWriter.WriteError("CP查询支持接口:", err);
+                return false;
+            }
+        }
+        public bool QueryFootBallLotteryWithType(int lotteryId, long FootBallID, int? type, out MySlefGeneratePicker<Model.SESENT_FootBallGame, Model.SESENT_FootBallMatch> result, out string errMsg)
+        {
+            result = null;
+            errMsg = string.Empty;
+            try
+            {
+                using (ModelContainer container = new ModelContainer())
+                {
+                    result = new MySlefGeneratePicker<SESENT_FootBallGame, SESENT_FootBallMatch>();
+                    SESENT_Lottery sESENT_Lottery = container.SESENT_Lottery.Where(a => a.lotteryId == lotteryId && a.Status == (int)PublicDefined.Status.Open && a.Type == (int)PublicDefined.LetteryType.FootBall).FirstOrDefault();
+                    if (sESENT_Lottery == null) { errMsg = "未开放该游戏,敬请期待。"; return false; }
+                    SESENT_FootBallMatch footBallMatch = container.SESENT_FootBallMatch.Where(a => a.FootballID == FootBallID).FirstOrDefault();
+                    if (footBallMatch == null) { errMsg = "未查询到该场次!"; return false; }
+                    double timeSpan = Tools.RedisHelper.GetManger().GetTimeOut(Tools.CacheKey.GenerateCacheGameBall<SESENT_FootBallMatch>(footBallMatch.Fk_FnID.ToString())).Value.TotalMinutes;
+                    if (timeSpan <= 10)
+                    { errMsg = "赛事开奖前10分钟内停止投注"; return false; }
+                    else
+                    {
+                        if (type != null)
+                        {
+                            PublicDefined.ZqGameType lqGametype = (PublicDefined.ZqGameType)type;
+                            Dictionary<int, List<SESENT_FootBallGame>> keyValuePairs = new Dictionary<int, List<SESENT_FootBallGame>>();
+                            keyValuePairs.Add((int)lqGametype, Tools.RedisHelper.GetManger().GetWithList<SESENT_FootBallGame>().Where(Z => Z.FootballID == FootBallID && Z.Type == type).ToList());
+                            result.BallGames = keyValuePairs;
+                            result.Match = footBallMatch;
+                        }
+                        else
+                        {
+                           IEnumerable<SESENT_FootBallGame> ballGames=Tools.RedisHelper.GetManger().GetWithList<SESENT_FootBallGame>().Where(Z => Z.FootballID == FootBallID);
+                            Dictionary<int, List<SESENT_FootBallGame>> keyValuePairs = new Dictionary<int, List<SESENT_FootBallGame>>();
+                            keyValuePairs.Add((int)PublicDefined.ZqGameType.Letball, ballGames.Where(Z => Z.Type ==(int)PublicDefined.ZqGameType.Letball).ToList());
+                            keyValuePairs.Add((int)PublicDefined.ZqGameType.DoubleResult, ballGames.Where(Z => Z.Type == (int)PublicDefined.ZqGameType.DoubleResult).ToList());
+                            keyValuePairs.Add((int)PublicDefined.ZqGameType.LetBallWithSigler, ballGames.Where(Z => Z.Type == (int)PublicDefined.ZqGameType.LetBallWithSigler).ToList());
+                            keyValuePairs.Add((int)PublicDefined.ZqGameType.NotLatball, ballGames.Where(Z => Z.Type == (int)PublicDefined.ZqGameType.NotLatball).ToList());
+                            keyValuePairs.Add((int)PublicDefined.ZqGameType.NotLatBallWithSigler, ballGames.Where(Z => Z.Type == (int)PublicDefined.ZqGameType.NotLatBallWithSigler).ToList());
+                            keyValuePairs.Add((int)PublicDefined.ZqGameType.NumberofGoalsScored, ballGames.Where(Z => Z.Type == (int)PublicDefined.ZqGameType.NumberofGoalsScored).ToList());
+                            keyValuePairs.Add((int)PublicDefined.ZqGameType.Score, ballGames.Where(Z =>  Z.Type == (int)PublicDefined.ZqGameType.Score).ToList());
+                            result.BallGames = keyValuePairs;
+                            result.Match = footBallMatch;
+                        }
+                        return true;
+                    }
+                }
+            }
+            catch (Exception err)
+            {
+                errMsg = "未知错误!";
+                LogTool.LogWriter.WriteError("CP查询支持接口:", err);
+                return false;
+            }
+        }
+
+        public bool QueryFootBallLottery(int lotteryId, out List<MySlefGeneratePicker<Model.SESENT_FootBallGame, Model.SESENT_FootBallMatch>> result, out string errMsg)
+        {
+            result = null;
+            errMsg = string.Empty;
+            try
+            {
+                using (ModelContainer container = new ModelContainer())
+                {
+                    result = new List<MySlefGeneratePicker<Model.SESENT_FootBallGame, Model.SESENT_FootBallMatch>>();
+                    SESENT_Lottery sESENT_Lottery = container.SESENT_Lottery.Where(a => a.lotteryId == lotteryId && a.Status == (int)PublicDefined.Status.Open && a.Type == (int)PublicDefined.LetteryType.FootBall).FirstOrDefault();
+                    if (sESENT_Lottery == null) { errMsg = "未开放该游戏,敬请期待。"; return false; }
+                    DateTime dataNow = DateTime.Now;
+                    for (int i = 0; i < 3; i++)
+                    {
+                        //查询当前的赛事
+                        List<Model.SESENT_FootBallMatch> list = Tools.RedisHelper.GetManger().GetWithList<Model.SESENT_FootBallMatch>();
+                        IEnumerable<SESENT_FootBallMatch> matches = list.Where(a => a.MatchDate.ToString("yyyy-MM-dd") == dataNow.ToString("yyyy-MM-dd"));
+                        var item = matches.GetEnumerator();
+                        while (item.MoveNext())
+                        {
+                            MySlefGeneratePicker<Model.SESENT_FootBallGame, Model.SESENT_FootBallMatch> picker = new MySlefGeneratePicker<Model.SESENT_FootBallGame, Model.SESENT_FootBallMatch>();
+                            picker.Match = item.Current;
+                            List<Model.SESENT_FootBallGame> games = Tools.RedisHelper.GetManger().GetWithList<Model.SESENT_FootBallGame>();
+                            //默认的两种玩法
+                            var letBall = games.Where(a => a.FootballID == item.Current.FootballID && a.Type == (int)PublicDefined.ZqGameType.Letball);
+                            picker.BallGames.Add((int)PublicDefined.ZqGameType.Letball, letBall.ToList());
+                            var NotletBall = games.Where(a => a.FootballID == item.Current.FootballID && a.Type == (int)PublicDefined.ZqGameType.NotLatball);
+                            picker.BallGames.Add((int)PublicDefined.ZqGameType.NotLatball, NotletBall.ToList());
+                            result.Add(picker);
+                        }
+                        dataNow = dataNow.AddDays(1);
+                    }
+                    return true;
+                }
+            }
+            catch (Exception err)
+            {
+                errMsg = "未知错误!";
+                LogTool.LogWriter.WriteError("CP查询支持接口:", err);
+                return false;
+            }
+        }
+
+        public bool QuerySuportLottery(out IList<SESENT_Lottery> result, out string errMsg)
+        {
+            result = null;
+            errMsg = string.Empty;
+            try
+            {
+                using (ModelContainer container = new ModelContainer())
+                {
+                    result = container.SESENT_Lottery.Where(a => true).ToList();
+                    return true;
+                }
+            }
+            catch (Exception err)
+            {
+                LogTool.LogWriter.WriteError("CP查询支持接口:", err);
+                return false;
+            }
+        }
+
+        public bool QueryBasketBallLotteryWithType(int lotteryId, long BaskBallID, int type, out MySlefGeneratePicker<SESENT_BasketBallGame, SESENT_BasketBallMatch> result, out string errMsg)
+        {
+            result = null;
+            errMsg = string.Empty;
+            try
+            {
+                using (ModelContainer container = new ModelContainer())
+                {
+                    result = new MySlefGeneratePicker<SESENT_BasketBallGame, SESENT_BasketBallMatch>();
+                    SESENT_Lottery sESENT_Lottery = container.SESENT_Lottery.Where(a => a.lotteryId == lotteryId && a.Status == (int)PublicDefined.Status.Open && a.Type == (int)PublicDefined.LetteryType.BasketBall).FirstOrDefault();
+                    if (sESENT_Lottery == null) { errMsg = "未开放该游戏,敬请期待。"; return false; }
+                    SESENT_BasketBallMatch basketBallMatch = container.SESENT_BasketBallMatch.Where(a => a.BasketballID == BaskBallID).FirstOrDefault();
+                    if (basketBallMatch == null) { errMsg = "未查询到该场次!"; return false; }
+                    double timeSpan = Tools.RedisHelper.GetManger().GetTimeOut(Tools.CacheKey.GenerateCacheGameBall<SESENT_BasketBallMatch>(basketBallMatch.Fk_FnID.ToString())).Value.TotalMinutes;
+                    if (timeSpan <= 10)
+                    { errMsg = "赛事开奖前10分钟内停止投注"; return false; }
+                    else
+                    {
+                        Dictionary<int, List<SESENT_BasketBallGame>> keyValuePairs = new Dictionary<int, List<SESENT_BasketBallGame>>();
+                        keyValuePairs.Add(type, Tools.RedisHelper.GetManger().GetWithList<SESENT_BasketBallGame>().Where(Z => Z.BasketballID == BaskBallID && Z.Type == type).ToList());
+                        result.BallGames = keyValuePairs;
+                        result.Match = basketBallMatch;
+                        return true;
+                    }
+
+                }
+            }
+            catch (Exception err)
+            {
+                errMsg = "未知错误!";
+                LogTool.LogWriter.WriteError("CP查询支持接口:", err);
+                return false;
+            }
+        }
+
+        public bool MakeOrderWithFootBallGame(string AccountID,int lotteryId, string MainID, Dictionary<string,string> Fids, int type, int Multiple, out object result, out string errMsg)
+        {
+            result = null;
+            errMsg = "投注失败!";
+            try
+            {
+                using (ModelContainer container = new ModelContainer())
+                {
+
+
+
+                    SESENT_Lottery sESENT_Lottery = container.SESENT_Lottery.Where(a => a.lotteryId == lotteryId && a.Status == (int)PublicDefined.Status.Open).FirstOrDefault();
+                    if (sESENT_Lottery == null) { errMsg = "未开放该游戏,敬请期待。"; return false; }
+                    if (Fids.Count == 1 && type == 1)//单关查询
+                    {
+                        //long Fid = long.Parse(Fids.Keys.);
+                        SESENT_FootBallGame sESENT = null;/* container.SESENT_FootBallGame.Where(a => a.FId == Fid && (a.Type == (int)PublicDefined.ZqGameType.NotLatBallWithSigler || a.Type == (int)PublicDefined.ZqGameType.LetBallWithSigler)).FirstOrDefault()*/;
+                        if (sESENT == null) { errMsg = "该场游戏未支持单关"; return false; }
+                        SESENT_FootBallMatch match = container.SESENT_FootBallMatch.Where(a => a.FootballID == sESENT.FootballID).FirstOrDefault();
+                        if (match == null) { errMsg = "未查询到该场比赛!"; return false; }
+                        if (DateTime.Now > match.MatchDate) { errMsg = "该场比赛投注时间已截至。"; return false; }
+                        SESENT_FootBallOrder order = new SESENT_FootBallOrder()
+                        {
+                            OrderID = long.Parse(RuleGenerateOrder.GetOrderID()),
+                            //FIds = Fids[0],
+                            FootballID = match.FootballID,
+                            Status = (int)PublicDefined.OrderStatus.wait,
+                            EnterTime = DateTime.Now
+                        };
+                        container.SESENT_FootBallOrder.Add(order);
+                        container.Entry(order).State = System.Data.Entity.EntityState.Added;
+                        bool isSuccess=container.SaveChanges()>0;
+                        if (isSuccess)
+                            result = "投注成功!";
+
+                    }
+
+                    return true;
+                }
+            }
+            catch (Exception err)
+            {
+                errMsg = "未知错误!";
+                LogTool.LogWriter.WriteError("CP查询支持接口:", err);
+                return false;
+            }
+        }
+    }
+}

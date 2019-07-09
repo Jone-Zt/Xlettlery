@@ -1,0 +1,21 @@
+
+异常时间：2019-06-30 15:32:16,083 [4] 
+异常级别：ERROR 
+异 常 类：logerror [(null)] 
+爬虫抓取错误:could not connect to redis Instance at 154.211.151.13:6379 
+ 
+异常时间：2019-06-30 15:34:33,641 [4] 
+异常级别：ERROR 
+异 常 类：logerror [(null)] 
+爬虫抓取错误:invalid expire time in setex, sPort: 63335, LastCommand:  
+ 
+异常时间：2019-06-30 21:09:53,337 [4] 
+异常级别：ERROR 
+异 常 类：logerror [(null)] 
+爬虫抓取错误:Protocol error: expected '$', got ' ', sPort: 60624, LastCommand:  
+ 
+异常时间：2019-06-30 21:09:53,365 [5] 
+异常级别：ERROR 
+异 常 类：logerror [(null)] 
+爬虫抓取错误:无法从传输连接中读取数据: 远程主机强迫关闭了一个现有的连接。。 
+ 

@@ -16,7 +16,6 @@ E:\Xlettlery\CallBackManage\bin\Debug\Apache.NMS.ActiveMQ.dll
 E:\Xlettlery\CallBackManage\bin\Debug\EntityFramework.dll
 E:\Xlettlery\CallBackManage\bin\Debug\ServiceStack.Interfaces.dll
 E:\Xlettlery\CallBackManage\bin\Debug\ServiceStack.Text.dll
-E:\Xlettlery\CallBackManage\bin\Debug\ServiceStack.Common.dll
 E:\Xlettlery\CallBackManage\bin\Debug\HttpServer.pdb
 E:\Xlettlery\CallBackManage\bin\Debug\LogTool.pdb
 E:\Xlettlery\CallBackManage\bin\Debug\Tools.pdb
@@ -33,7 +32,8 @@ E:\Xlettlery\CallBackManage\bin\Debug\Apache.NMS.ActiveMQ.pdb
 E:\Xlettlery\CallBackManage\bin\Debug\Apache.NMS.ActiveMQ.xml
 E:\Xlettlery\CallBackManage\bin\Debug\EntityFramework.xml
 E:\Xlettlery\CallBackManage\bin\Debug\ServiceStack.Text.xml
-E:\Xlettlery\CallBackManage\bin\Debug\ServiceStack.Common.xml
 E:\Xlettlery\CallBackManage\obj\Debug\CallBackManage.csproj.CopyComplete
 E:\Xlettlery\CallBackManage\obj\Debug\CallBackManage.dll
 E:\Xlettlery\CallBackManage\obj\Debug\CallBackManage.pdb
+E:\Xlettlery\CallBackManage\bin\Debug\NPinyin.dll
+E:\Xlettlery\CallBackManage\bin\Debug\ServiceStack.Interfaces.xml

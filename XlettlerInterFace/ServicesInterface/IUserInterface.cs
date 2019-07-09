@@ -19,5 +19,7 @@ namespace ServicesInterface
         bool FindLoginPwd(string Phone,string Code,string passWord,out string errMsg);
         [OperationContract]
         bool CheckReister(string Phone,string AccountID,out string Msg);
+        [OperationContract]
+        bool BindRealName(string AccountID,string RealName,string IdCardNum,out string result,out string errMsg);
     }
 }

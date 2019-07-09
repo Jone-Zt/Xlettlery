@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 
 namespace XlettlerRealization
 {
@@ -20,16 +21,31 @@ namespace XlettlerRealization
             {
                 using (ModelContainer dbm = new ModelContainer())
                 {
-                    SESENT_Order order = dbm.SESENT_Order.Where(a => a.OrderID == OrderID).FirstOrDefault();
-                    if (order == null) { LogTool.LogWriter.WriteError($"订单不存在!【订单号:{OrderID}】"); return false; }
-                    SESENT_Channels channel = dbm.SESENT_Channels.Where(a => a.ChannelID == ChannelID).FirstOrDefault();
-                    if (channel == null) { LogTool.LogWriter.WriteError($"通道编号不存在:通道编号:{ChannelID}订单编号:{OrderID}"); return false; }
-                    TPayRechargeBase payRecharge = ChannelProtocolManage.GetManagment().GetChannelProtocol(channel.ProtocolID);
-                    if (payRecharge == null) { LogTool.LogWriter.WriteError($"通道协议错误!"); return false; }
-                    bool ret = payRecharge.Notify(OrderID, pathArges, UrlArges, postBuffer, out BackStr);
-                    if (ret) order.Status = (short)OrderStatus.success;
-                    dbm.Entry(order).State = System.Data.Entity.EntityState.Modified;
-                    return dbm.SaveChanges() > 0;
+                    using (TransactionScope transaction = new TransactionScope())
+                    {
+                        SESENT_Order order = dbm.SESENT_Order.Where(a => a.OrderID == OrderID).FirstOrDefault();
+                        if (order == null) { LogTool.LogWriter.WriteError($"订单不存在!【订单号:{OrderID}】");  return false; }
+                        SESENT_Channels channel = dbm.SESENT_Channels.Where(a => a.ChannelID == ChannelID).FirstOrDefault();
+                        if (channel == null) { LogTool.LogWriter.WriteError($"通道编号不存在:通道编号:{ChannelID}订单编号:{OrderID}"); return false; }
+                        SESENT_USERS _USERS=dbm.SESENT_USERS.Where(a => a.AccountID == order.AccountID || a.Phone == order.AccountID).FirstOrDefault();
+                        if (_USERS == null) { LogTool.LogWriter.WriteError($"【订单回调失败】账号:{order.AccountID}订单号:{order.OrderID}"); return false; }
+                        TPayRechargeBase payRecharge = ChannelProtocolManage.GetManagment().GetChannelProtocol(channel.ProtocolID);
+                        if (payRecharge == null) { LogTool.LogWriter.WriteError($"通道协议错误!"); return false; }
+                        bool ret = payRecharge.Notify(OrderID, pathArges, UrlArges, postBuffer, out BackStr,out decimal realPay);
+                        if (ret)
+                        {
+                            order.Status = (short)OrderStatus.success;
+                            //上分
+                            order.OutMoney = realPay == 0 ? order.InputMoney : realPay;
+                            _USERS.UseAmount += order.OutMoney;
+                            _USERS.Recharge += order.OutMoney;
+                        }
+                        dbm.Entry(order).State = System.Data.Entity.EntityState.Modified;
+                        dbm.Entry(_USERS).State = System.Data.Entity.EntityState.Modified;
+                        bool isSuccess = dbm.SaveChanges() > 0;
+                        transaction.Complete();
+                        return isSuccess;
+                    }
                 }
             }
             catch (Exception err)

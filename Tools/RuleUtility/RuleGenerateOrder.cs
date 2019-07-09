@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RuleUtility
 {
-   public class RuleGenerateOrder
+    public class RuleGenerateOrder
     {
         public static object _lock = new object();
         public static int count = 1;
@@ -22,5 +22,5 @@ namespace RuleUtility
                 return builder.ToString();
             }
         }
-}
+    }
 }

@@ -66,6 +66,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
+    <Compile Include="MySlefGeneratePicker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SESENT_AdminManger.cs">
       <DependentUpon>Model.tt</DependentUpon>
@@ -74,6 +75,12 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="SESENT_BankLineNumber.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SESENT_BasketBallGame.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SESENT_BasketBallMatch.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="SESENT_CashCard.cs">
@@ -89,6 +96,24 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="SESENT_ConsumptERecords.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SESENT_FootBallGame.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SESENT_FootBallMatch.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SESENT_FootBallOrder.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SESENT_InfoMation.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SESENT_KJLottery.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SESENT_Lottery.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="SESENT_MessageObj.cs">

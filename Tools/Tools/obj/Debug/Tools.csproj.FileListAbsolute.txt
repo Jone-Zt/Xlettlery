@@ -35,3 +35,5 @@ E:\Xlettlery\Tools\Tools\obj\Debug\Tools.csproj.CoreCompileInputs.cache
 E:\Xlettlery\Tools\Tools\obj\Debug\Tools.csproj.CopyComplete
 E:\Xlettlery\Tools\Tools\obj\Debug\Tools.dll
 E:\Xlettlery\Tools\Tools\obj\Debug\Tools.pdb
+E:\Xlettlery\Tools\Tools\bin\Debug\NPinyin.dll
+E:\Xlettlery\Tools\Tools\bin\Debug\ServiceStack.Interfaces.xml

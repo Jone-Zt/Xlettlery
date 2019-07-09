@@ -19,7 +19,6 @@ E:\Xlettlery\XlettlerCallBackService\bin\Debug\Apache.NMS.ActiveMQ.dll
 E:\Xlettlery\XlettlerCallBackService\bin\Debug\EntityFramework.dll
 E:\Xlettlery\XlettlerCallBackService\bin\Debug\ServiceStack.Interfaces.dll
 E:\Xlettlery\XlettlerCallBackService\bin\Debug\ServiceStack.Text.dll
-E:\Xlettlery\XlettlerCallBackService\bin\Debug\ServiceStack.Common.dll
 E:\Xlettlery\XlettlerCallBackService\bin\Debug\CallBackManage.pdb
 E:\Xlettlery\XlettlerCallBackService\bin\Debug\CallBackManage.dll.config
 E:\Xlettlery\XlettlerCallBackService\bin\Debug\LogTool.pdb
@@ -38,7 +37,8 @@ E:\Xlettlery\XlettlerCallBackService\bin\Debug\Apache.NMS.ActiveMQ.pdb
 E:\Xlettlery\XlettlerCallBackService\bin\Debug\Apache.NMS.ActiveMQ.xml
 E:\Xlettlery\XlettlerCallBackService\bin\Debug\EntityFramework.xml
 E:\Xlettlery\XlettlerCallBackService\bin\Debug\ServiceStack.Text.xml
-E:\Xlettlery\XlettlerCallBackService\bin\Debug\ServiceStack.Common.xml
 E:\Xlettlery\XlettlerCallBackService\obj\Debug\XlettlerCallBackService.csproj.CopyComplete
 E:\Xlettlery\XlettlerCallBackService\obj\Debug\XlettlerCallBackService.exe
 E:\Xlettlery\XlettlerCallBackService\obj\Debug\XlettlerCallBackService.pdb
+E:\Xlettlery\XlettlerCallBackService\bin\Debug\NPinyin.dll
+E:\Xlettlery\XlettlerCallBackService\bin\Debug\ServiceStack.Interfaces.xml

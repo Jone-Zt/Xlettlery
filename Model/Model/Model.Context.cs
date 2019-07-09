@@ -40,5 +40,13 @@ namespace Model
         public DbSet<SESENT_ChannelQuoTa> SESENT_ChannelQuoTa { get; set; }
         public DbSet<SESENT_BankLineNumber> SESENT_BankLineNumber { get; set; }
         public DbSet<SESENT_BankCity> SESENT_BankCity { get; set; }
+        public DbSet<SESENT_Lottery> SESENT_Lottery { get; set; }
+        public DbSet<SESENT_FootBallMatch> SESENT_FootBallMatch { get; set; }
+        public DbSet<SESENT_FootBallGame> SESENT_FootBallGame { get; set; }
+        public DbSet<SESENT_BasketBallMatch> SESENT_BasketBallMatch { get; set; }
+        public DbSet<SESENT_BasketBallGame> SESENT_BasketBallGame { get; set; }
+        public DbSet<SESENT_KJLottery> SESENT_KJLottery { get; set; }
+        public DbSet<SESENT_InfoMation> SESENT_InfoMation { get; set; }
+        public DbSet<SESENT_FootBallOrder> SESENT_FootBallOrder { get; set; }
     }
 }

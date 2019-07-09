@@ -49,12 +49,16 @@ namespace XlettlerService
                 ServiceHost shortMessage = new ServiceHost(typeof(ShortMessageService));
                 ServiceHost Notify = new ServiceHost(typeof(ChannelNotifyService));
                 ServiceHost Auth = new ServiceHost(typeof(AuthorizeServices));
+                ServiceHost Lottery = new ServiceHost(typeof(LotteryService));
+                ServiceHost Message = new ServiceHost(typeof(MessageServices));
                 CreateRemoting<IAuthorizeInterface>(Auth);
                 CreateRemoting<IUserInterface>(host);
                 CreateRemoting<IPayInterface>(pay);
                 CreateRemoting<IShortMessageInterface>(shortMessage);
                 CreateRemoting<ISettingInterface>(setting);
                 CreateRemoting<IChannelNotify>(Notify);
+                CreateRemoting<IlotteryInterface>(Lottery);
+                CreateRemoting<IMessageInterface>(Message);
                 StartServer();
             }
             catch (Exception err)
@@ -73,6 +77,10 @@ namespace XlettlerService
         private void CreateRemoting<T>(ServiceHost host)
         {
             NetTcpBinding binding = new NetTcpBinding();
+            NetTcpSecurity security= new NetTcpSecurity();
+            security.Mode = SecurityMode.None;
+            binding.Security = security;
+            security.Message.ClientCredentialType = MessageCredentialType.None;
             ServiceEndpoint userEndpoint = host.AddServiceEndpoint(typeof(T), binding, GetRemotingUri.GetUri<T>(Uri.ToString()));
             ServiceHosts.Add(host);
         }

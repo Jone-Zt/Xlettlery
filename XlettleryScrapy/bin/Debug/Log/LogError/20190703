@@ -1,0 +1,6 @@
+
+异常时间：2019-07-03 20:34:51,436 [1] 
+异常级别：ERROR 
+异 常 类：logerror [(null)] 
+爬虫抓取错误:Cannot start the driver service on http://localhost:57983/ 
+ 

@@ -46,6 +46,8 @@
   <ItemGroup>
     <Compile Include="IAuthorizeInterface.cs" />
     <Compile Include="IChannelNotify.cs" />
+    <Compile Include="IlotteryInterface.cs" />
+    <Compile Include="IMessageInterface.cs" />
     <Compile Include="IPayInterface.cs" />
     <Compile Include="ISettingInterface.cs" />
     <Compile Include="IShortMessageInterface.cs" />

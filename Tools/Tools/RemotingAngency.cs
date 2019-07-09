@@ -34,6 +34,12 @@ namespace Tools
         {
             string ipendport=GetRemotingUri.GetUri<T>(Uri.ToString());
             NetTcpBinding tcpBinding = new NetTcpBinding();
+            tcpBinding.MaxReceivedMessageSize = 2147483647;
+            tcpBinding.MaxBufferSize = 2147483647;
+            NetTcpSecurity security = new NetTcpSecurity();
+            security.Mode = SecurityMode.None;
+            security.Message.ClientCredentialType = MessageCredentialType.None;
+            tcpBinding.Security = security;
             var channelFactory = new ChannelFactory<T>(tcpBinding, ipendport);
             var proxy = channelFactory.CreateChannel();
             return proxy;

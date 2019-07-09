@@ -15,12 +15,10 @@ namespace Model
     public partial class SESENT_BankLineNumber
     {
         public int Id { get; set; }
-        public string Provinceid { get; set; }
         public string BankCode { get; set; }
         public string BankName { get; set; }
         public string NetSite { get; set; }
         public string LineNumber { get; set; }
-    
-        public virtual SESENT_BankCity SESENT_BankCity { get; set; }
+        public int Provinceid { get; set; }
     }
 }

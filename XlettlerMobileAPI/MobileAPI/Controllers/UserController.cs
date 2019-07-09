@@ -70,7 +70,7 @@ namespace MobileAPI.Controllers
             }
             return Content(picker.ToString());
         }
-        [Authorize]
+        //[Authorize]
         public ActionResult QueryUserInfo()
         {
             ResponsePicker<object> picker = new ResponsePicker<object>();
@@ -94,7 +94,7 @@ namespace MobileAPI.Controllers
             }
             return Content(picker.ToString());
         }
-        [Authorize]
+        //[Authorize]
         public ActionResult Login()
         {
             ResponsePicker<object> picker = new ResponsePicker<object>();
@@ -120,15 +120,6 @@ namespace MobileAPI.Controllers
                 picker.FailInfo = err.Message;
             }
             return Content(picker.ToString());
-        }
-        [Authorize]
-        public ActionResult SearchLineNumber(string Province,string City,string BankName)
-        {
-            ResponsePicker<object> picker = new ResponsePicker<object>();
-
-
-
-            return null;
         }
         public ActionResult FindLoginPwd()
         {
@@ -171,6 +162,30 @@ namespace MobileAPI.Controllers
                 bool ret = user.SendUserCode(Phone, phoneCode,out string errMsg);
                 if (ret)
                     picker.Data = "发送成功!";
+                else
+                    picker.FailInfo = errMsg;
+            }
+            catch (Exception err)
+            {
+                picker.FailInfo = err.Message;
+            }
+            return Content(picker.ToString());
+        }
+        public ActionResult BindRealName()
+        {
+            ResponsePicker<object> picker = new ResponsePicker<object>();
+            try
+            {
+                string flowid = RequestCheck.CheckStringValue(Request, "flowID", "流水号", false);
+                picker.FlowID = flowid;
+                string AccountID = RequestCheck.CheckStringValue(Request, "AccountID", "账号", false);
+                string RealName = RequestCheck.CheckStringValue(Request, "RealName", "真实姓名", false);
+                string IdCardNum= RequestCheck.CheckStringValue(Request, "IdCardNum", "省份证号", false);
+                IUserInterface user = GetManger();
+                if (user == null)
+                    throw new Exception("未挂载函数!");
+                if (user.BindRealName(AccountID, RealName, IdCardNum, out string result, out string errMsg))
+                    picker.Data = result;
                 else
                     picker.FailInfo = errMsg;
             }

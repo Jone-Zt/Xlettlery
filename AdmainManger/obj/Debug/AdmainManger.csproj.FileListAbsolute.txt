@@ -54,7 +54,6 @@ E:\Xlettlery\AdmainManger\bin\ServiceStack.Redis.dll
 E:\Xlettlery\AdmainManger\bin\Apache.NMS.ActiveMQ.dll
 E:\Xlettlery\AdmainManger\bin\ServiceStack.Interfaces.dll
 E:\Xlettlery\AdmainManger\bin\ServiceStack.Text.dll
-E:\Xlettlery\AdmainManger\bin\ServiceStack.Common.dll
 E:\Xlettlery\AdmainManger\bin\Model.pdb
 E:\Xlettlery\AdmainManger\bin\Model.dll.config
 E:\Xlettlery\AdmainManger\bin\SecurityTools.pdb
@@ -83,7 +82,6 @@ E:\Xlettlery\AdmainManger\bin\ServiceStack.Redis.xml
 E:\Xlettlery\AdmainManger\bin\Apache.NMS.ActiveMQ.pdb
 E:\Xlettlery\AdmainManger\bin\Apache.NMS.ActiveMQ.xml
 E:\Xlettlery\AdmainManger\bin\ServiceStack.Text.xml
-E:\Xlettlery\AdmainManger\bin\ServiceStack.Common.xml
 E:\Xlettlery\AdmainManger\bin\zh-Hans\System.Web.Helpers.resources.dll
 E:\Xlettlery\AdmainManger\bin\zh-Hans\System.Web.Mvc.resources.dll
 E:\Xlettlery\AdmainManger\bin\zh-Hans\System.Web.Optimization.resources.dll
@@ -96,3 +94,5 @@ E:\Xlettlery\AdmainManger\obj\Debug\AdmainManger.csproj.CoreCompileInputs.cache
 E:\Xlettlery\AdmainManger\obj\Debug\AdmainManger.csproj.CopyComplete
 E:\Xlettlery\AdmainManger\obj\Debug\AdmainManger.dll
 E:\Xlettlery\AdmainManger\obj\Debug\AdmainManger.pdb
+E:\Xlettlery\AdmainManger\bin\NPinyin.dll
+E:\Xlettlery\AdmainManger\bin\ServiceStack.Interfaces.xml

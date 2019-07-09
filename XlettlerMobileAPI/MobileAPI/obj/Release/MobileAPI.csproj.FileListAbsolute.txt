@@ -89,7 +89,6 @@ E:\Xlettlery\XlettlerMobileAPI\MobileAPI\bin\ServiceStack.Redis.dll
 E:\Xlettlery\XlettlerMobileAPI\MobileAPI\bin\Apache.NMS.ActiveMQ.dll
 E:\Xlettlery\XlettlerMobileAPI\MobileAPI\bin\ServiceStack.Interfaces.dll
 E:\Xlettlery\XlettlerMobileAPI\MobileAPI\bin\ServiceStack.Text.dll
-E:\Xlettlery\XlettlerMobileAPI\MobileAPI\bin\ServiceStack.Common.dll
 E:\Xlettlery\XlettlerMobileAPI\MobileAPI\bin\Model.pdb
 E:\Xlettlery\XlettlerMobileAPI\MobileAPI\bin\Model.dll.config
 E:\Xlettlery\XlettlerMobileAPI\MobileAPI\bin\LogTool.pdb
@@ -129,7 +128,6 @@ E:\Xlettlery\XlettlerMobileAPI\MobileAPI\bin\ServiceStack.Redis.xml
 E:\Xlettlery\XlettlerMobileAPI\MobileAPI\bin\Apache.NMS.ActiveMQ.pdb
 E:\Xlettlery\XlettlerMobileAPI\MobileAPI\bin\Apache.NMS.ActiveMQ.xml
 E:\Xlettlery\XlettlerMobileAPI\MobileAPI\bin\ServiceStack.Text.xml
-E:\Xlettlery\XlettlerMobileAPI\MobileAPI\bin\ServiceStack.Common.xml
 E:\Xlettlery\XlettlerMobileAPI\MobileAPI\bin\zh-Hans\System.Net.Http.Formatting.resources.dll
 E:\Xlettlery\XlettlerMobileAPI\MobileAPI\bin\zh-Hans\System.Web.Http.resources.dll
 E:\Xlettlery\XlettlerMobileAPI\MobileAPI\bin\zh-Hans\System.Web.Helpers.resources.dll
@@ -143,3 +141,5 @@ E:\Xlettlery\XlettlerMobileAPI\MobileAPI\bin\zh-Hans\System.Web.WebPages.Razor.r
 E:\Xlettlery\XlettlerMobileAPI\MobileAPI\obj\Release\MobileAPI.csproj.CopyComplete
 E:\Xlettlery\XlettlerMobileAPI\MobileAPI\obj\Release\MobileAPI.dll
 E:\Xlettlery\XlettlerMobileAPI\MobileAPI\obj\Release\MobileAPI.pdb
+E:\Xlettlery\XlettlerMobileAPI\MobileAPI\bin\NPinyin.dll
+E:\Xlettlery\XlettlerMobileAPI\MobileAPI\bin\ServiceStack.Interfaces.xml

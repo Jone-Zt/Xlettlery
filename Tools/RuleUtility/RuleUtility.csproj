@@ -43,7 +43,15 @@
   <ItemGroup>
     <Compile Include="MapUtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RuleGenerateGame.cs" />
+    <Compile Include="RuleGenerateGameWithGameID.cs" />
     <Compile Include="RuleGenerateOrder.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Tools\Tools.csproj">
+      <Project>{c6f1bf87-a866-47b2-8ba7-dd5dd43820f4}</Project>
+      <Name>Tools</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

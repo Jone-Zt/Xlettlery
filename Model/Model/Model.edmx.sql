@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/28/2019 12:50:26
+-- Date Created: 07/08/2019 19:49:13
 -- Generated from EDMX file: E:\Xlettlery\Model\Model\Model.edmx
 -- --------------------------------------------------
 
@@ -61,6 +61,36 @@ GO
 IF OBJECT_ID(N'[dbo].[SESENT_ChannelQuoTa]', 'U') IS NOT NULL
     DROP TABLE [dbo].[SESENT_ChannelQuoTa];
 GO
+IF OBJECT_ID(N'[dbo].[SESENT_BankLineNumber]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[SESENT_BankLineNumber];
+GO
+IF OBJECT_ID(N'[dbo].[SESENT_BankCity]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[SESENT_BankCity];
+GO
+IF OBJECT_ID(N'[dbo].[SESENT_Lottery]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[SESENT_Lottery];
+GO
+IF OBJECT_ID(N'[dbo].[SESENT_FootBallMatch]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[SESENT_FootBallMatch];
+GO
+IF OBJECT_ID(N'[dbo].[SESENT_FootBallGame]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[SESENT_FootBallGame];
+GO
+IF OBJECT_ID(N'[dbo].[SESENT_BasketBallMatch]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[SESENT_BasketBallMatch];
+GO
+IF OBJECT_ID(N'[dbo].[SESENT_BasketBallGame]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[SESENT_BasketBallGame];
+GO
+IF OBJECT_ID(N'[dbo].[SESENT_KJLottery]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[SESENT_KJLottery];
+GO
+IF OBJECT_ID(N'[dbo].[SESENT_InfoMation]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[SESENT_InfoMation];
+GO
+IF OBJECT_ID(N'[dbo].[SESENT_FootBallOrder]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[SESENT_FootBallOrder];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -82,7 +112,8 @@ CREATE TABLE [dbo].[SESENT_USERS] (
     [Recharge] decimal(18,0)  NOT NULL,
     [Consumption] decimal(18,0)  NOT NULL,
     [UpgradeTime] datetime  NULL,
-    [RealName] nvarchar(20)  NULL
+    [RealName] nvarchar(20)  NULL,
+    [IDCardNum] nvarchar(20)  NOT NULL
 );
 GO
 
@@ -224,6 +255,124 @@ CREATE TABLE [dbo].[SESENT_ChannelQuoTa] (
 );
 GO
 
+-- Creating table 'SESENT_BankLineNumber'
+CREATE TABLE [dbo].[SESENT_BankLineNumber] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [BankCode] nvarchar(max)  NOT NULL,
+    [BankName] nvarchar(max)  NOT NULL,
+    [NetSite] nvarchar(max)  NOT NULL,
+    [LineNumber] nvarchar(max)  NOT NULL,
+    [Provinceid] int  NOT NULL
+);
+GO
+
+-- Creating table 'SESENT_BankCity'
+CREATE TABLE [dbo].[SESENT_BankCity] (
+    [ID] int IDENTITY(1,1) NOT NULL,
+    [Province] nvarchar(max)  NOT NULL,
+    [City] nvarchar(max)  NOT NULL
+);
+GO
+
+-- Creating table 'SESENT_Lottery'
+CREATE TABLE [dbo].[SESENT_Lottery] (
+    [lotteryId] int IDENTITY(1,1) NOT NULL,
+    [lottery_name] nvarchar(20)  NOT NULL,
+    [remarks] nvarchar(50)  NOT NULL,
+    [Status] smallint  NOT NULL,
+    [Type] int  NOT NULL
+);
+GO
+
+-- Creating table 'SESENT_FootBallMatch'
+CREATE TABLE [dbo].[SESENT_FootBallMatch] (
+    [FootballID] bigint  NOT NULL,
+    [No] nvarchar(20)  NOT NULL,
+    [Match] nvarchar(10)  NOT NULL,
+    [EndTime] nvarchar(50)  NOT NULL,
+    [MainteamRanking] nvarchar(20)  NOT NULL,
+    [Mainteam] nvarchar(50)  NOT NULL,
+    [Visitingteam] nvarchar(50)  NOT NULL,
+    [VisitingteamRanking] nvarchar(10)  NOT NULL,
+    [MatchDate] datetime  NOT NULL,
+    [MatchWeek] nvarchar(10)  NOT NULL,
+    [Fk_FnID] nvarchar(200)  NOT NULL
+);
+GO
+
+-- Creating table 'SESENT_FootBallGame'
+CREATE TABLE [dbo].[SESENT_FootBallGame] (
+    [FId] bigint IDENTITY(1,1) NOT NULL,
+    [FootballID] bigint  NOT NULL,
+    [Name] nvarchar(max)  NOT NULL,
+    [Source] nvarchar(max)  NOT NULL,
+    [Type] int  NOT NULL,
+    [Code] nvarchar(200)  NOT NULL,
+    [Lable] nvarchar(max)  NULL
+);
+GO
+
+-- Creating table 'SESENT_BasketBallMatch'
+CREATE TABLE [dbo].[SESENT_BasketBallMatch] (
+    [BasketballID] bigint  NOT NULL,
+    [No] nvarchar(20)  NOT NULL,
+    [Match] nvarchar(10)  NOT NULL,
+    [EndTime] nvarchar(50)  NOT NULL,
+    [MainteamRanking] nvarchar(20)  NOT NULL,
+    [Mainteam] nvarchar(50)  NOT NULL,
+    [Visitingteam] nvarchar(50)  NOT NULL,
+    [VisitingteamRanking] nvarchar(10)  NOT NULL,
+    [MatchDate] datetime  NOT NULL,
+    [MatchWeek] nvarchar(10)  NOT NULL,
+    [Fk_FnID] nvarchar(200)  NOT NULL
+);
+GO
+
+-- Creating table 'SESENT_BasketBallGame'
+CREATE TABLE [dbo].[SESENT_BasketBallGame] (
+    [Fid] bigint IDENTITY(1,1) NOT NULL,
+    [BasketballID] bigint  NOT NULL,
+    [Name] nvarchar(max)  NULL,
+    [Source] nvarchar(max)  NOT NULL,
+    [Type] int  NOT NULL,
+    [Code] nvarchar(200)  NOT NULL,
+    [Lable] nvarchar(max)  NULL
+);
+GO
+
+-- Creating table 'SESENT_KJLottery'
+CREATE TABLE [dbo].[SESENT_KJLottery] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [LotteryMoney] decimal(18,2)  NOT NULL,
+    [No] nvarchar(50)  NOT NULL,
+    [Type] int  NOT NULL,
+    [Source] nvarchar(100)  NOT NULL,
+    [LotteryTime] datetime  NOT NULL
+);
+GO
+
+-- Creating table 'SESENT_InfoMation'
+CREATE TABLE [dbo].[SESENT_InfoMation] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [EnterTime] datetime  NOT NULL,
+    [Information] nvarchar(max)  NOT NULL,
+    [Keyword] nvarchar(10)  NOT NULL,
+    [Title] nvarchar(200)  NOT NULL,
+    [ReaderCount] int  NOT NULL,
+    [Conver] nvarchar(max)  NOT NULL
+);
+GO
+
+-- Creating table 'SESENT_FootBallOrder'
+CREATE TABLE [dbo].[SESENT_FootBallOrder] (
+    [OrderID] bigint IDENTITY(1,1) NOT NULL,
+    [FIds] nvarchar(max)  NOT NULL,
+    [Status] smallint  NOT NULL,
+    [FootballID] bigint  NOT NULL,
+    [EnterTime] datetime  NOT NULL
+);
+GO
+
 -- --------------------------------------------------
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
@@ -304,6 +453,66 @@ GO
 ALTER TABLE [dbo].[SESENT_ChannelQuoTa]
 ADD CONSTRAINT [PK_SESENT_ChannelQuoTa]
     PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'SESENT_BankLineNumber'
+ALTER TABLE [dbo].[SESENT_BankLineNumber]
+ADD CONSTRAINT [PK_SESENT_BankLineNumber]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [ID] in table 'SESENT_BankCity'
+ALTER TABLE [dbo].[SESENT_BankCity]
+ADD CONSTRAINT [PK_SESENT_BankCity]
+    PRIMARY KEY CLUSTERED ([ID] ASC);
+GO
+
+-- Creating primary key on [lotteryId] in table 'SESENT_Lottery'
+ALTER TABLE [dbo].[SESENT_Lottery]
+ADD CONSTRAINT [PK_SESENT_Lottery]
+    PRIMARY KEY CLUSTERED ([lotteryId] ASC);
+GO
+
+-- Creating primary key on [FootballID] in table 'SESENT_FootBallMatch'
+ALTER TABLE [dbo].[SESENT_FootBallMatch]
+ADD CONSTRAINT [PK_SESENT_FootBallMatch]
+    PRIMARY KEY CLUSTERED ([FootballID] ASC);
+GO
+
+-- Creating primary key on [FId] in table 'SESENT_FootBallGame'
+ALTER TABLE [dbo].[SESENT_FootBallGame]
+ADD CONSTRAINT [PK_SESENT_FootBallGame]
+    PRIMARY KEY CLUSTERED ([FId] ASC);
+GO
+
+-- Creating primary key on [BasketballID] in table 'SESENT_BasketBallMatch'
+ALTER TABLE [dbo].[SESENT_BasketBallMatch]
+ADD CONSTRAINT [PK_SESENT_BasketBallMatch]
+    PRIMARY KEY CLUSTERED ([BasketballID] ASC);
+GO
+
+-- Creating primary key on [Fid] in table 'SESENT_BasketBallGame'
+ALTER TABLE [dbo].[SESENT_BasketBallGame]
+ADD CONSTRAINT [PK_SESENT_BasketBallGame]
+    PRIMARY KEY CLUSTERED ([Fid] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'SESENT_KJLottery'
+ALTER TABLE [dbo].[SESENT_KJLottery]
+ADD CONSTRAINT [PK_SESENT_KJLottery]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'SESENT_InfoMation'
+ALTER TABLE [dbo].[SESENT_InfoMation]
+ADD CONSTRAINT [PK_SESENT_InfoMation]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [OrderID] in table 'SESENT_FootBallOrder'
+ALTER TABLE [dbo].[SESENT_FootBallOrder]
+ADD CONSTRAINT [PK_SESENT_FootBallOrder]
+    PRIMARY KEY CLUSTERED ([OrderID] ASC);
 GO
 
 -- --------------------------------------------------

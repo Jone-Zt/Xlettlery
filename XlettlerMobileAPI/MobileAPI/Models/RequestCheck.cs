@@ -35,5 +35,11 @@ namespace Models
                 throw new Exception($"【{paraName}:{title}】不可为空");
             return val;
         }
+        public static long CheckLongValue(HttpRequestBase reqesut, string paraName, string title, bool isNull)
+        {
+            if (!long.TryParse(reqesut[paraName], out long val) && !isNull)
+                throw new Exception($"【{paraName}:{title}】不可为空");
+            return val;
+        }
     }
 }

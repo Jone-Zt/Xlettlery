@@ -18,6 +18,10 @@ namespace Tools
         {
             return $"{PhoneCodeKey}{phone}{type}";
         }
+        public static string GenerateCacheGameBall<T>(string foolballID)
+        {
+            return $"{typeof(T)}:{foolballID}";
+        }
         public static string GenerateRandomStr(int length)
         {
             StringBuilder RandomStr = new StringBuilder();

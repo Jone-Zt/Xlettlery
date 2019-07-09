@@ -14,15 +14,8 @@ namespace Model
     
     public partial class SESENT_BankCity
     {
-        public SESENT_BankCity()
-        {
-            this.SESENT_BankLineNumber = new HashSet<SESENT_BankLineNumber>();
-        }
-    
-        public int Provinceid { get; set; }
+        public int ID { get; set; }
         public string Province { get; set; }
-        public string Property1 { get; set; }
-    
-        public virtual ICollection<SESENT_BankLineNumber> SESENT_BankLineNumber { get; set; }
+        public string City { get; set; }
     }
 }

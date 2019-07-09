@@ -20,7 +20,6 @@ E:\Xlettlery\XlettlerRealization\XlettlerRealization\bin\Debug\Common.Logging.Co
 E:\Xlettlery\XlettlerRealization\XlettlerRealization\bin\Debug\Common.Logging.dll
 E:\Xlettlery\XlettlerRealization\XlettlerRealization\bin\Debug\ServiceStack.Interfaces.dll
 E:\Xlettlery\XlettlerRealization\XlettlerRealization\bin\Debug\ServiceStack.Text.dll
-E:\Xlettlery\XlettlerRealization\XlettlerRealization\bin\Debug\ServiceStack.Common.dll
 E:\Xlettlery\XlettlerRealization\XlettlerRealization\bin\Debug\ChannelInterface.pdb
 E:\Xlettlery\XlettlerRealization\XlettlerRealization\bin\Debug\ChannelInterface.dll.config
 E:\Xlettlery\XlettlerRealization\XlettlerRealization\bin\Debug\ChannelManagement.pdb
@@ -42,9 +41,12 @@ E:\Xlettlery\XlettlerRealization\XlettlerRealization\bin\Debug\ServiceStack.Redi
 E:\Xlettlery\XlettlerRealization\XlettlerRealization\bin\Debug\Apache.NMS.ActiveMQ.pdb
 E:\Xlettlery\XlettlerRealization\XlettlerRealization\bin\Debug\Apache.NMS.ActiveMQ.xml
 E:\Xlettlery\XlettlerRealization\XlettlerRealization\bin\Debug\ServiceStack.Text.xml
-E:\Xlettlery\XlettlerRealization\XlettlerRealization\bin\Debug\ServiceStack.Common.xml
 E:\Xlettlery\XlettlerRealization\XlettlerRealization\obj\Debug\XlettlerRealization.csprojAssemblyReference.cache
 E:\Xlettlery\XlettlerRealization\XlettlerRealization\obj\Debug\XlettlerRealization.csproj.CoreCompileInputs.cache
 E:\Xlettlery\XlettlerRealization\XlettlerRealization\obj\Debug\XlettlerRealization.csproj.CopyComplete
 E:\Xlettlery\XlettlerRealization\XlettlerRealization\obj\Debug\XlettlerRealization.dll
 E:\Xlettlery\XlettlerRealization\XlettlerRealization\obj\Debug\XlettlerRealization.pdb
+E:\Xlettlery\XlettlerRealization\XlettlerRealization\bin\Debug\ModelComparer.dll
+E:\Xlettlery\XlettlerRealization\XlettlerRealization\bin\Debug\ModelComparer.pdb
+E:\Xlettlery\XlettlerRealization\XlettlerRealization\bin\Debug\NPinyin.dll
+E:\Xlettlery\XlettlerRealization\XlettlerRealization\bin\Debug\ServiceStack.Interfaces.xml

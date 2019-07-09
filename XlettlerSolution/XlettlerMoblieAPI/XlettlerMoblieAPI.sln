@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChannelManagement", "..\..\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThridPayInterface", "..\..\ChannelInterface\ThridPayInterface.csproj", "{FF8B40C7-54D5-4D7E-BD52-6580DD14FD2C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelComparer", "..\..\ModelComparer\ModelComparer.csproj", "{56581817-44CE-4477-B220-04ACDAFAC0F2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{FF8B40C7-54D5-4D7E-BD52-6580DD14FD2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF8B40C7-54D5-4D7E-BD52-6580DD14FD2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF8B40C7-54D5-4D7E-BD52-6580DD14FD2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56581817-44CE-4477-B220-04ACDAFAC0F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56581817-44CE-4477-B220-04ACDAFAC0F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56581817-44CE-4477-B220-04ACDAFAC0F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56581817-44CE-4477-B220-04ACDAFAC0F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

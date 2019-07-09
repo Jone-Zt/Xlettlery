@@ -22,7 +22,6 @@ E:\Xlettlery\XlettlerService\XlettlerService\bin\Debug\Common.Logging.Core.dll
 E:\Xlettlery\XlettlerService\XlettlerService\bin\Debug\Common.Logging.dll
 E:\Xlettlery\XlettlerService\XlettlerService\bin\Debug\ServiceStack.Interfaces.dll
 E:\Xlettlery\XlettlerService\XlettlerService\bin\Debug\ServiceStack.Text.dll
-E:\Xlettlery\XlettlerService\XlettlerService\bin\Debug\ServiceStack.Common.dll
 E:\Xlettlery\XlettlerService\XlettlerService\bin\Debug\ChannelManagement.pdb
 E:\Xlettlery\XlettlerService\XlettlerService\bin\Debug\ChannelManagement.dll.config
 E:\Xlettlery\XlettlerService\XlettlerService\bin\Debug\LogTool.pdb
@@ -47,7 +46,6 @@ E:\Xlettlery\XlettlerService\XlettlerService\bin\Debug\Apache.NMS.ActiveMQ.pdb
 E:\Xlettlery\XlettlerService\XlettlerService\bin\Debug\Apache.NMS.ActiveMQ.xml
 E:\Xlettlery\XlettlerService\XlettlerService\bin\Debug\RuleUtility.pdb
 E:\Xlettlery\XlettlerService\XlettlerService\bin\Debug\ServiceStack.Text.xml
-E:\Xlettlery\XlettlerService\XlettlerService\bin\Debug\ServiceStack.Common.xml
 E:\Xlettlery\XlettlerService\XlettlerService\obj\Debug\XlettlerService.csprojAssemblyReference.cache
 E:\Xlettlery\XlettlerService\XlettlerService\obj\Debug\XlettlerService.ProjectInstaller.resources
 E:\Xlettlery\XlettlerService\XlettlerService\obj\Debug\XlettlerService.csproj.GenerateResource.cache
@@ -55,3 +53,8 @@ E:\Xlettlery\XlettlerService\XlettlerService\obj\Debug\XlettlerService.csproj.Co
 E:\Xlettlery\XlettlerService\XlettlerService\obj\Debug\XlettlerService.csproj.CopyComplete
 E:\Xlettlery\XlettlerService\XlettlerService\obj\Debug\XlettlerService.exe
 E:\Xlettlery\XlettlerService\XlettlerService\obj\Debug\XlettlerService.pdb
+E:\Xlettlery\XlettlerService\XlettlerService\bin\Debug\Test.dll
+E:\Xlettlery\XlettlerService\XlettlerService\bin\Debug\Test.pdb
+E:\Xlettlery\XlettlerService\XlettlerService\bin\Debug\Test.dll.config
+E:\Xlettlery\XlettlerService\XlettlerService\bin\Debug\NPinyin.dll
+E:\Xlettlery\XlettlerService\XlettlerService\bin\Debug\ServiceStack.Interfaces.xml

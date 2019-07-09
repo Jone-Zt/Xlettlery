@@ -19,6 +19,7 @@
           <ScalarProperty Name="Consumption" ColumnName="Consumption" />
           <ScalarProperty Name="UpgradeTime" ColumnName="UpgradeTime" />
           <ScalarProperty Name="RealName" ColumnName="RealName" />
+          <ScalarProperty Name="IDCardNum" ColumnName="IDCardNum" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -169,6 +170,134 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="ChannelID" ColumnName="ChannelID" />
           <ScalarProperty Name="Fee" ColumnName="Fee" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SESENT_BankLineNumber">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.SESENT_BankLineNumber)">
+        <MappingFragment StoreEntitySet="SESENT_BankLineNumber">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BankCode" ColumnName="BankCode" />
+          <ScalarProperty Name="BankName" ColumnName="BankName" />
+          <ScalarProperty Name="NetSite" ColumnName="NetSite" />
+          <ScalarProperty Name="LineNumber" ColumnName="LineNumber" />
+          <ScalarProperty Name="Provinceid" ColumnName="Provinceid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SESENT_BankCity">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.SESENT_BankCity)">
+        <MappingFragment StoreEntitySet="SESENT_BankCity">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Province" ColumnName="Province" />
+          <ScalarProperty Name="City" ColumnName="City" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SESENT_Lottery">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.SESENT_Lottery)">
+        <MappingFragment StoreEntitySet="SESENT_Lottery">
+          <ScalarProperty Name="lotteryId" ColumnName="lotteryId" />
+          <ScalarProperty Name="lottery_name" ColumnName="lottery_name" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SESENT_FootBallMatch">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.SESENT_FootBallMatch)">
+        <MappingFragment StoreEntitySet="SESENT_FootBallMatch">
+          <ScalarProperty Name="FootballID" ColumnName="FootballID" />
+          <ScalarProperty Name="No" ColumnName="No" />
+          <ScalarProperty Name="Match" ColumnName="Match" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="MainteamRanking" ColumnName="MainteamRanking" />
+          <ScalarProperty Name="Mainteam" ColumnName="Mainteam" />
+          <ScalarProperty Name="Visitingteam" ColumnName="Visitingteam" />
+          <ScalarProperty Name="VisitingteamRanking" ColumnName="VisitingteamRanking" />
+          <ScalarProperty Name="MatchDate" ColumnName="MatchDate" />
+          <ScalarProperty Name="MatchWeek" ColumnName="MatchWeek" />
+          <ScalarProperty Name="Fk_FnID" ColumnName="Fk_FnID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SESENT_FootBallGame">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.SESENT_FootBallGame)">
+        <MappingFragment StoreEntitySet="SESENT_FootBallGame">
+          <ScalarProperty Name="FId" ColumnName="FId" />
+          <ScalarProperty Name="FootballID" ColumnName="FootballID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Lable" ColumnName="Lable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SESENT_BasketBallMatch">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.SESENT_BasketBallMatch)">
+        <MappingFragment StoreEntitySet="SESENT_BasketBallMatch">
+          <ScalarProperty Name="BasketballID" ColumnName="BasketballID" />
+          <ScalarProperty Name="No" ColumnName="No" />
+          <ScalarProperty Name="Match" ColumnName="Match" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="MainteamRanking" ColumnName="MainteamRanking" />
+          <ScalarProperty Name="Mainteam" ColumnName="Mainteam" />
+          <ScalarProperty Name="Visitingteam" ColumnName="Visitingteam" />
+          <ScalarProperty Name="VisitingteamRanking" ColumnName="VisitingteamRanking" />
+          <ScalarProperty Name="MatchDate" ColumnName="MatchDate" />
+          <ScalarProperty Name="MatchWeek" ColumnName="MatchWeek" />
+          <ScalarProperty Name="Fk_FnID" ColumnName="Fk_FnID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SESENT_BasketBallGame">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.SESENT_BasketBallGame)">
+        <MappingFragment StoreEntitySet="SESENT_BasketBallGame">
+          <ScalarProperty Name="Fid" ColumnName="Fid" />
+          <ScalarProperty Name="BasketballID" ColumnName="BasketballID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Lable" ColumnName="Lable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SESENT_KJLottery">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.SESENT_KJLottery)">
+        <MappingFragment StoreEntitySet="SESENT_KJLottery">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="LotteryMoney" ColumnName="LotteryMoney" />
+          <ScalarProperty Name="No" ColumnName="No" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="LotteryTime" ColumnName="LotteryTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SESENT_InfoMation">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.SESENT_InfoMation)">
+        <MappingFragment StoreEntitySet="SESENT_InfoMation">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EnterTime" ColumnName="EnterTime" />
+          <ScalarProperty Name="Information" ColumnName="Information" />
+          <ScalarProperty Name="Keyword" ColumnName="Keyword" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ReaderCount" ColumnName="ReaderCount" />
+          <ScalarProperty Name="Conver" ColumnName="Conver" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SESENT_FootBallOrder">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.SESENT_FootBallOrder)">
+        <MappingFragment StoreEntitySet="SESENT_FootBallOrder">
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="FIds" ColumnName="FIds" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="FootballID" ColumnName="FootballID" />
+          <ScalarProperty Name="EnterTime" ColumnName="EnterTime" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
