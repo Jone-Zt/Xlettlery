@@ -284,6 +284,7 @@
     <Folder Include="Views\Message\" />
     <Folder Include="Views\ShortMessage\" />
     <Folder Include="Views\User\" />
+    <Folder Include="Views\WxChat\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

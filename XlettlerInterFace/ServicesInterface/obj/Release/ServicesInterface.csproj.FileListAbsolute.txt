@@ -12,3 +12,17 @@ E:\Xlettlery\XlettlerInterFace\ServicesInterface\obj\Release\ServicesInterface.c
 E:\Xlettlery\XlettlerInterFace\ServicesInterface\obj\Release\ServicesInterface.csproj.CopyComplete
 E:\Xlettlery\XlettlerInterFace\ServicesInterface\obj\Release\ServicesInterface.dll
 E:\Xlettlery\XlettlerInterFace\ServicesInterface\obj\Release\ServicesInterface.pdb
+D:\Xlettlery\XlettlerInterFace\ServicesInterface\bin\Release\ServicesInterface.dll
+D:\Xlettlery\XlettlerInterFace\ServicesInterface\bin\Release\ServicesInterface.pdb
+D:\Xlettlery\XlettlerInterFace\ServicesInterface\bin\Release\Model.dll
+D:\Xlettlery\XlettlerInterFace\ServicesInterface\bin\Release\PublicDefined.dll
+D:\Xlettlery\XlettlerInterFace\ServicesInterface\bin\Release\EntityFramework.dll
+D:\Xlettlery\XlettlerInterFace\ServicesInterface\bin\Release\Model.pdb
+D:\Xlettlery\XlettlerInterFace\ServicesInterface\bin\Release\Model.dll.config
+D:\Xlettlery\XlettlerInterFace\ServicesInterface\bin\Release\PublicDefined.pdb
+D:\Xlettlery\XlettlerInterFace\ServicesInterface\bin\Release\EntityFramework.xml
+D:\Xlettlery\XlettlerInterFace\ServicesInterface\obj\Release\ServicesInterface.csprojAssemblyReference.cache
+D:\Xlettlery\XlettlerInterFace\ServicesInterface\obj\Release\ServicesInterface.csproj.CoreCompileInputs.cache
+D:\Xlettlery\XlettlerInterFace\ServicesInterface\obj\Release\ServicesInterface.csproj.CopyComplete
+D:\Xlettlery\XlettlerInterFace\ServicesInterface\obj\Release\ServicesInterface.dll
+D:\Xlettlery\XlettlerInterFace\ServicesInterface\obj\Release\ServicesInterface.pdb

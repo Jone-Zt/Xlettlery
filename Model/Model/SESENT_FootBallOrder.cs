@@ -17,7 +17,7 @@ namespace Model
         public long OrderID { get; set; }
         public string FIds { get; set; }
         public short Status { get; set; }
-        public long FootballID { get; set; }
         public System.DateTime EnterTime { get; set; }
+        public int Type { get; set; }
     }
 }

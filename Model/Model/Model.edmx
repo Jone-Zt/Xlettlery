@@ -304,8 +304,8 @@
     <Property Name="OrderID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="FIds" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Status" Type="smallint" Nullable="false" />
-    <Property Name="FootballID" Type="bigint" Nullable="false" />
     <Property Name="EnterTime" Type="datetime" Nullable="false" />
+    <Property Name="Type" Type="int" Nullable="false" />
   </EntityType>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -659,8 +659,8 @@
           <Property Name="OrderID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FIds" Type="String" Nullable="false" />
           <Property Name="Status" Type="Int16" Nullable="false" />
-          <Property Name="FootballID" Type="Int64" Nullable="false" />
           <Property Name="EnterTime" Type="DateTime" Nullable="false" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -963,8 +963,8 @@
           <ScalarProperty Name="OrderID" ColumnName="OrderID" />
           <ScalarProperty Name="FIds" ColumnName="FIds" />
           <ScalarProperty Name="Status" ColumnName="Status" />
-          <ScalarProperty Name="FootballID" ColumnName="FootballID" />
           <ScalarProperty Name="EnterTime" ColumnName="EnterTime" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

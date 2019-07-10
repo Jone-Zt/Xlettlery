@@ -228,11 +228,13 @@ namespace XlettlerRealization
                     int count = ParseFids.Count;
                     List<string[]> list = new List<string[]>();
                     PublicDefined.GameType Gametype = (PublicDefined.GameType)type;
+                    StringBuilder builder = new StringBuilder();
                     while (item.MoveNext())
                     {
                         long FootballID = long.Parse(item.Current.Key);
                         SESENT_FootBallGame sESENT = null;
                         SESENT_FootBallMatch match = null;
+                        builder.Append(item.Current.Key).Append("|").Append(item.Current.Key).Append("&");
                         string[] splitFid = item.Current.Value.Split(',');
                         //过滤重复的
                         if (Verification.IsRepeatHashSet(splitFid)) { errMsg = "不可重复选择同一项";return false;}
@@ -248,12 +250,26 @@ namespace XlettlerRealization
                         if (DateTime.Now > match.MatchDate) { errMsg = "该场比赛投注时间已截至。"; return false; }
                         list.Add(splitFid);
                     }
+                    builder.Remove(builder.Length - 1, 1);
                     XLetteryAlgorithm xLettery = new XLetteryAlgorithm(list);
                     List<string> WorkOutCount=xLettery.GetModelsWithType(Gametype).ToList();
                     long amount = WorkOutCount.Count * 2 * Multiple;
                     if (_USERS.UseAmount < amount) { errMsg = "账户余额不足!";return false;}
-                    result = "投注成功!尽请期待,祝君中奖。";
-                    return true;
+                    SESENT_FootBallOrder order = new SESENT_FootBallOrder()
+                    {
+                        EnterTime = DateTime.Now,
+                        FIds = builder.ToString(),
+                        OrderID = long.Parse(RuleUtility.RuleGenerateOrder.GetOrderID()),
+                        Status = (int)PublicDefined.OrderStatus.wait,
+                        Type = type
+                    };
+                    _USERS.UseAmount -= amount;
+                    container.Entry(order).State = System.Data.Entity.EntityState.Added;
+                    container.Entry(_USERS).State = System.Data.Entity.EntityState.Modified;
+                    bool isSuccess=container.SaveChanges() > 0;
+                    if (isSuccess)
+                        result = "投注成功!尽请期待,祝君中奖。";
+                    return isSuccess;
                 }
             }
             catch (Exception err)

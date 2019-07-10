@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 07/08/2019 19:49:13
--- Generated from EDMX file: E:\Xlettlery\Model\Model\Model.edmx
+-- Date Created: 07/10/2019 14:06:11
+-- Generated from EDMX file: D:\Xlettlery\Model\Model\Model.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -368,8 +368,8 @@ CREATE TABLE [dbo].[SESENT_FootBallOrder] (
     [OrderID] bigint IDENTITY(1,1) NOT NULL,
     [FIds] nvarchar(max)  NOT NULL,
     [Status] smallint  NOT NULL,
-    [FootballID] bigint  NOT NULL,
-    [EnterTime] datetime  NOT NULL
+    [EnterTime] datetime  NOT NULL,
+    [Type] int  NOT NULL
 );
 GO
 

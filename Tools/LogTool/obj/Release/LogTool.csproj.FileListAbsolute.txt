@@ -7,3 +7,12 @@ E:\Xlettlery\Tools\LogTool\obj\Release\LogTool.csproj.CoreCompileInputs.cache
 E:\Xlettlery\Tools\LogTool\obj\Release\LogTool.csproj.CopyComplete
 E:\Xlettlery\Tools\LogTool\obj\Release\LogTool.dll
 E:\Xlettlery\Tools\LogTool\obj\Release\LogTool.pdb
+D:\Xlettlery\Tools\LogTool\bin\Release\LogTool.dll
+D:\Xlettlery\Tools\LogTool\bin\Release\LogTool.pdb
+D:\Xlettlery\Tools\LogTool\bin\Release\log4net.dll
+D:\Xlettlery\Tools\LogTool\bin\Release\log4net.xml
+D:\Xlettlery\Tools\LogTool\obj\Release\LogTool.csprojAssemblyReference.cache
+D:\Xlettlery\Tools\LogTool\obj\Release\LogTool.csproj.CoreCompileInputs.cache
+D:\Xlettlery\Tools\LogTool\obj\Release\LogTool.csproj.CopyComplete
+D:\Xlettlery\Tools\LogTool\obj\Release\LogTool.dll
+D:\Xlettlery\Tools\LogTool\obj\Release\LogTool.pdb
