@@ -15,5 +15,21 @@ namespace Tools
             if (Regex.IsMatch(AccountID, regexstr)) return true; 
             else return false;
         }
+        public static bool IsRepeatHashSet(string[] array)
+        {
+            HashSet<string> hs = new HashSet<string>();
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (hs.Contains(array[i]))
+                {
+                    return true;
+                }
+                else
+                {
+                    hs.Add(array[i]);
+                }
+            }
+            return false;
+        }
     }
 }

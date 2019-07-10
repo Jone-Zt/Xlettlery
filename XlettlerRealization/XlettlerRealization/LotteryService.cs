@@ -235,6 +235,7 @@ namespace XlettlerRealization
                         SESENT_FootBallMatch match = null;
                         string[] splitFid = item.Current.Value.Split(',');
                         //过滤重复的
+                        if (Verification.IsRepeatHashSet(splitFid)) { errMsg = "不可重复选择同一项";return false;}
                         if (count == 1)
                         {
                             sESENT = container.SESENT_FootBallGame.Where(a =>(a.FootballID== FootballID &&(a.Type == (int)PublicDefined.ZqGameType.LetBallWithSigler || a.Type == (int)PublicDefined.ZqGameType.NotLatBallWithSigler))).FirstOrDefault();
