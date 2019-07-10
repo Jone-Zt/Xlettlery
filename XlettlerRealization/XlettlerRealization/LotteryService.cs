@@ -234,6 +234,7 @@ namespace XlettlerRealization
                         SESENT_FootBallGame sESENT = null;
                         SESENT_FootBallMatch match = null;
                         string[] splitFid = item.Current.Value.Split(',');
+                        //过滤重复的
                         if (count == 1)
                         {
                             sESENT = container.SESENT_FootBallGame.Where(a =>(a.FootballID== FootballID &&(a.Type == (int)PublicDefined.ZqGameType.LetBallWithSigler || a.Type == (int)PublicDefined.ZqGameType.NotLatBallWithSigler))).FirstOrDefault();
