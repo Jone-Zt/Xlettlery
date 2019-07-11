@@ -3,3 +3,4 @@ E:\Xlettlery\Tools\PublicDefined\bin\Debug\PublicDefined.pdb
 E:\Xlettlery\Tools\PublicDefined\obj\Debug\PublicDefined.csproj.CoreCompileInputs.cache
 E:\Xlettlery\Tools\PublicDefined\obj\Debug\PublicDefined.dll
 E:\Xlettlery\Tools\PublicDefined\obj\Debug\PublicDefined.pdb
+E:\Xlettlery\Tools\PublicDefined\obj\Debug\PublicDefined.csprojAssemblyReference.cache

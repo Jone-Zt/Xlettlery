@@ -209,15 +209,14 @@ namespace XlettlerRealization
             }
         }
 
-        public bool MakeOrderWithFootBallGame(string AccountID,int lotteryId, string Fids, int type, int Multiple, out object result, out string errMsg)
+        public bool MakeOrderWithFootBallGame(string AccountID,int lotteryId, string Fids, int[] type, int Multiple, out object result, out string errMsg)
         {
             result = null;
             errMsg = "投注失败!";
             try
             {
                 Dictionary<string,string> ParseFids=UntilsObjToDic.ProductDetailList(Fids);
-                if (ParseFids.Count < type) { errMsg = "选择的游戏场次大于玩法类型"; return false; }
-                if (type == 1 && ParseFids.Count != 1) { errMsg = "单关类型和数据不匹配!";return false;}
+                if (type.Where(a => a > ParseFids.Count).Count() > 0) { errMsg = "选择的游戏场次大于玩法类型"; return false; }
                 using (ModelContainer container = new ModelContainer())
                 {
                     SESENT_USERS _USERS=container.SESENT_USERS.Where(a => a.AccountID == AccountID).FirstOrDefault();
@@ -227,7 +226,6 @@ namespace XlettlerRealization
                     var item = ParseFids.GetEnumerator();
                     int count = ParseFids.Count;
                     List<string[]> list = new List<string[]>();
-                    PublicDefined.GameType Gametype = (PublicDefined.GameType)type;
                     StringBuilder builder = new StringBuilder();
                     while (item.MoveNext())
                     {
@@ -251,17 +249,23 @@ namespace XlettlerRealization
                         list.Add(splitFid);
                     }
                     builder.Remove(builder.Length - 1, 1);
+                    long workcount = 0;
                     XLetteryAlgorithm xLettery = new XLetteryAlgorithm(list);
-                    List<string> WorkOutCount=xLettery.GetModelsWithType(Gametype).ToList();
-                    long amount = WorkOutCount.Count * 2 * Multiple;
+                    for (int i = 0; i < type.Length; i++)
+                    {
+                        PublicDefined.GameType Gametype = (PublicDefined.GameType)type[i];
+                        workcount+=xLettery.GetModelsWithType(Gametype).Count;
+                    }
+                    long amount = workcount * 2 * Multiple;
                     if (_USERS.UseAmount < amount) { errMsg = "账户余额不足!";return false;}
+                    string parseType = string.Join(",", type.Select(i => i.ToString()).ToArray());
                     SESENT_FootBallOrder order = new SESENT_FootBallOrder()
                     {
                         EnterTime = DateTime.Now,
                         FIds = builder.ToString(),
                         OrderID = long.Parse(RuleUtility.RuleGenerateOrder.GetOrderID()),
                         Status = (int)PublicDefined.OrderStatus.wait,
-                        Type = type
+                        Type = parseType
                     };
                     _USERS.UseAmount -= amount;
                     container.Entry(order).State = System.Data.Entity.EntityState.Added;

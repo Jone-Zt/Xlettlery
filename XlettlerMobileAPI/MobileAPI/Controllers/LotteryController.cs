@@ -95,11 +95,13 @@ namespace MobileAPI.Controllers
                 int? lotteryId = RequestCheck.CheckIntValue(Request, "lotteryId", "足球支持编号", false);
                 string AccountID= RequestCheck.CheckStringValue(Request, "AccountID", "用户编号", false);
                 string Fids= RequestCheck.CheckStringValue(Request, "Fids", "游戏编号", false);
-                int? type = RequestCheck.CheckIntValue(Request, "type", "游戏类型", false);
+                string type = RequestCheck.CheckStringValue(Request, "type", "游戏类型", false);
                 int? Multiple = RequestCheck.CheckIntValue(Request, "Multiple", "倍数", false);
+                string[] parse=type.Split(',');
+                int[] intArr = parse.Select(o => Convert.ToInt32(o)).ToArray<int>();
                 IlotteryInterface ilottery = GetManger();
                 if (ilottery == null) throw new Exception("未挂载对应函数!");
-                if (!ilottery.MakeOrderWithFootBallGame(AccountID, (int)lotteryId, Fids, (int)type, (int)Multiple, out object result, out string err))
+                if (!ilottery.MakeOrderWithFootBallGame(AccountID, (int)lotteryId, Fids, intArr, (int)Multiple, out object result, out string err))
                     picker.FailInfo = err;
                 else
                     picker.Data = result;

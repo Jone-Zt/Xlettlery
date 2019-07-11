@@ -348,7 +348,7 @@
     <Property Name="OrderID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="FIds" Type="String" Nullable="false" />
     <Property Name="Status" Type="Int16" Nullable="false" />
-    <Property Name="FootballID" Type="Int64" Nullable="false" />
     <Property Name="EnterTime" Type="DateTime" Nullable="false" />
+    <Property Name="Type" Type="String" Nullable="false" />
   </EntityType>
 </Schema>

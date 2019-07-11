@@ -660,7 +660,7 @@
           <Property Name="FIds" Type="String" Nullable="false" />
           <Property Name="Status" Type="Int16" Nullable="false" />
           <Property Name="EnterTime" Type="DateTime" Nullable="false" />
-          <Property Name="Type" Type="Int32" Nullable="false" />
+          <Property Name="Type" Type="String" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>

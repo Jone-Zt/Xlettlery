@@ -6,7 +6,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>D:\Xlettlery\XlettlerMobileAPI\MobileAPI\bin\Release\Publish</_PublishTargetUrl>
+    <_PublishTargetUrl>E:\Xlettlery\XlettlerMobileAPI\MobileAPI\bin\Release\Publish</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Areas/HelpPage/HelpPage.css">
@@ -97,10 +97,10 @@
       <publishTime>07/10/2019 08:35:38</publishTime>
     </File>
     <File Include="bin/LogTool.dll">
-      <publishTime>07/10/2019 10:25:46</publishTime>
+      <publishTime>07/11/2019 13:33:31</publishTime>
     </File>
     <File Include="bin/LogTool.pdb">
-      <publishTime>07/10/2019 10:25:46</publishTime>
+      <publishTime>07/11/2019 13:33:31</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.TelemetryCorrelation.dll">
       <publishTime>07/10/2019 08:35:42</publishTime>
@@ -136,19 +136,19 @@
       <publishTime>07/10/2019 08:35:42</publishTime>
     </File>
     <File Include="bin/MobileAPI.dll">
-      <publishTime>07/10/2019 10:46:10</publishTime>
+      <publishTime>07/11/2019 13:34:02</publishTime>
     </File>
     <File Include="bin/MobileAPI.pdb">
-      <publishTime>07/10/2019 10:46:10</publishTime>
+      <publishTime>07/11/2019 13:34:02</publishTime>
     </File>
     <File Include="bin/Model.dll">
-      <publishTime>07/10/2019 10:25:46</publishTime>
+      <publishTime>07/11/2019 13:33:31</publishTime>
     </File>
     <File Include="bin/Model.dll.config">
       <publishTime>07/10/2019 08:35:38</publishTime>
     </File>
     <File Include="bin/Model.pdb">
-      <publishTime>07/10/2019 10:25:46</publishTime>
+      <publishTime>07/11/2019 13:33:31</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>07/10/2019 08:35:42</publishTime>
@@ -160,10 +160,10 @@
       <publishTime>07/10/2019 08:35:43</publishTime>
     </File>
     <File Include="bin/PublicDefined.dll">
-      <publishTime>07/10/2019 10:25:46</publishTime>
+      <publishTime>07/11/2019 13:33:31</publishTime>
     </File>
     <File Include="bin/PublicDefined.pdb">
-      <publishTime>07/10/2019 10:25:46</publishTime>
+      <publishTime>07/11/2019 13:33:31</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
       <publishTime>07/10/2019 08:35:42</publishTime>
@@ -304,10 +304,10 @@
       <publishTime>07/10/2019 08:35:42</publishTime>
     </File>
     <File Include="bin/ServicesInterface.dll">
-      <publishTime>07/10/2019 10:25:47</publishTime>
+      <publishTime>07/11/2019 13:33:32</publishTime>
     </File>
     <File Include="bin/ServicesInterface.pdb">
-      <publishTime>07/10/2019 10:25:47</publishTime>
+      <publishTime>07/11/2019 13:33:32</publishTime>
     </File>
     <File Include="bin/ServiceStack.Common.dll">
       <publishTime>03/28/2019 20:22:10</publishTime>
@@ -361,13 +361,13 @@
       <publishTime>07/10/2019 08:35:42</publishTime>
     </File>
     <File Include="bin/Tools.dll">
-      <publishTime>07/10/2019 10:25:47</publishTime>
+      <publishTime>07/11/2019 13:33:32</publishTime>
     </File>
     <File Include="bin/Tools.dll.config">
       <publishTime>07/10/2019 08:35:38</publishTime>
     </File>
     <File Include="bin/Tools.pdb">
-      <publishTime>07/10/2019 10:25:47</publishTime>
+      <publishTime>07/11/2019 13:33:32</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>07/10/2019 08:35:43</publishTime>
@@ -520,7 +520,7 @@
       <publishTime>07/10/2019 08:35:39</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>07/10/2019 10:25:51</publishTime>
+      <publishTime>07/11/2019 13:33:35</publishTime>
     </File>
   </ItemGroup>
 </Project>

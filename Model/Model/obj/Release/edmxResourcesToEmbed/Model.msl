@@ -296,8 +296,8 @@
           <ScalarProperty Name="OrderID" ColumnName="OrderID" />
           <ScalarProperty Name="FIds" ColumnName="FIds" />
           <ScalarProperty Name="Status" ColumnName="Status" />
-          <ScalarProperty Name="FootballID" ColumnName="FootballID" />
           <ScalarProperty Name="EnterTime" ColumnName="EnterTime" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

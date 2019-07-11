@@ -299,7 +299,7 @@
     <Property Name="OrderID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="FIds" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Status" Type="smallint" Nullable="false" />
-    <Property Name="FootballID" Type="bigint" Nullable="false" />
     <Property Name="EnterTime" Type="datetime" Nullable="false" />
+    <Property Name="Type" Type="int" Nullable="false" />
   </EntityType>
 </Schema>

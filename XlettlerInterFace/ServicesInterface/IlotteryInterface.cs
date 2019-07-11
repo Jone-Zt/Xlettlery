@@ -31,6 +31,6 @@ namespace ServicesInterface
         /// <param name="Multiple">倍数</param>
         /// <returns></returns>
         [OperationContract]
-        bool MakeOrderWithFootBallGame(string AccountID,int lotteryId, string Fids, int type, int Multiple,out object result,out string errMsg);
+        bool MakeOrderWithFootBallGame(string AccountID,int lotteryId, string Fids, int[] type, int Multiple,out object result,out string errMsg);
     }
 }

@@ -18,6 +18,6 @@ namespace Model
         public string FIds { get; set; }
         public short Status { get; set; }
         public System.DateTime EnterTime { get; set; }
-        public int Type { get; set; }
+        public string Type { get; set; }
     }
 }
