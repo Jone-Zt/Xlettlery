@@ -32,5 +32,6 @@ namespace ServicesInterface
         /// <returns></returns>
         [OperationContract]
         bool MakeOrderWithFootBallGame(string AccountID,int lotteryId, string Fids, int[] type, int Multiple,out object result,out string errMsg);
+        bool QueryFootBallWithType(int lotteryId,int type,out List<MySlefGeneratePicker<Model.SESENT_FootBallGame, Model.SESENT_FootBallMatch>> result, out string errMsg);
     }
 }

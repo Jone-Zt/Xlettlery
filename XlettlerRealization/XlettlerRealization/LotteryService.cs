@@ -88,15 +88,15 @@ namespace XlettlerRealization
                         }
                         else
                         {
-                           IEnumerable<SESENT_FootBallGame> ballGames=Tools.RedisHelper.GetManger().GetWithList<SESENT_FootBallGame>().Where(Z => Z.FootballID == FootBallID);
+                            IEnumerable<SESENT_FootBallGame> ballGames = Tools.RedisHelper.GetManger().GetWithList<SESENT_FootBallGame>().Where(Z => Z.FootballID == FootBallID);
                             Dictionary<int, List<SESENT_FootBallGame>> keyValuePairs = new Dictionary<int, List<SESENT_FootBallGame>>();
-                            keyValuePairs.Add((int)PublicDefined.ZqGameType.Letball, ballGames.Where(Z => Z.Type ==(int)PublicDefined.ZqGameType.Letball).ToList());
+                            keyValuePairs.Add((int)PublicDefined.ZqGameType.Letball, ballGames.Where(Z => Z.Type == (int)PublicDefined.ZqGameType.Letball).ToList());
                             keyValuePairs.Add((int)PublicDefined.ZqGameType.DoubleResult, ballGames.Where(Z => Z.Type == (int)PublicDefined.ZqGameType.DoubleResult).ToList());
                             keyValuePairs.Add((int)PublicDefined.ZqGameType.LetBallWithSigler, ballGames.Where(Z => Z.Type == (int)PublicDefined.ZqGameType.LetBallWithSigler).ToList());
                             keyValuePairs.Add((int)PublicDefined.ZqGameType.NotLatball, ballGames.Where(Z => Z.Type == (int)PublicDefined.ZqGameType.NotLatball).ToList());
                             keyValuePairs.Add((int)PublicDefined.ZqGameType.NotLatBallWithSigler, ballGames.Where(Z => Z.Type == (int)PublicDefined.ZqGameType.NotLatBallWithSigler).ToList());
                             keyValuePairs.Add((int)PublicDefined.ZqGameType.NumberofGoalsScored, ballGames.Where(Z => Z.Type == (int)PublicDefined.ZqGameType.NumberofGoalsScored).ToList());
-                            keyValuePairs.Add((int)PublicDefined.ZqGameType.Score, ballGames.Where(Z =>  Z.Type == (int)PublicDefined.ZqGameType.Score).ToList());
+                            keyValuePairs.Add((int)PublicDefined.ZqGameType.Score, ballGames.Where(Z => Z.Type == (int)PublicDefined.ZqGameType.Score).ToList());
                             result.BallGames = keyValuePairs;
                             result.Match = footBallMatch;
                         }
@@ -154,7 +154,46 @@ namespace XlettlerRealization
                 return false;
             }
         }
-
+        public bool QueryFootBallWithType(int lotteryId,int type,out List<MySlefGeneratePicker<SESENT_FootBallGame, SESENT_FootBallMatch>> result, out string errMsg)
+        {
+            result = null;
+            errMsg = string.Empty;
+            try
+            {
+                using (ModelContainer container = new ModelContainer())
+                {
+                    result = new List<MySlefGeneratePicker<Model.SESENT_FootBallGame, Model.SESENT_FootBallMatch>>();
+                    SESENT_Lottery sESENT_Lottery = container.SESENT_Lottery.Where(a => a.lotteryId == lotteryId && a.Status == (int)PublicDefined.Status.Open && a.Type == (int)PublicDefined.LetteryType.FootBall).FirstOrDefault();
+                    if (sESENT_Lottery == null) { errMsg = "未开放该游戏,敬请期待。"; return false; }
+                    DateTime dataNow = DateTime.Now;
+                    for (int i = 0; i < 3; i++)
+                    {
+                        //查询当前的赛事
+                        List<Model.SESENT_FootBallMatch> list = Tools.RedisHelper.GetManger().GetWithList<Model.SESENT_FootBallMatch>();
+                        IEnumerable<SESENT_FootBallMatch> matches = list.Where(a => a.MatchDate.ToString("yyyy-MM-dd") == dataNow.ToString("yyyy-MM-dd"));
+                        var item = matches.GetEnumerator();
+                        while (item.MoveNext())
+                        {
+                            MySlefGeneratePicker<Model.SESENT_FootBallGame, Model.SESENT_FootBallMatch> picker = new MySlefGeneratePicker<Model.SESENT_FootBallGame, Model.SESENT_FootBallMatch>();
+                            picker.Match = item.Current;
+                            List<Model.SESENT_FootBallGame> games = Tools.RedisHelper.GetManger().GetWithList<Model.SESENT_FootBallGame>();
+                            PublicDefined.ZqGameType zqtype = (PublicDefined.ZqGameType)type;
+                            var letBall = games.Where(a => a.FootballID == item.Current.FootballID && a.Type == (int)zqtype);
+                            picker.BallGames.Add((int)zqtype, letBall.ToList());
+                            result.Add(picker);
+                        }
+                        dataNow = dataNow.AddDays(1);
+                    }
+                    return true;
+                }
+            }
+            catch (Exception err)
+            {
+                errMsg = "未知错误!";
+                LogTool.LogWriter.WriteError("CP查询支持接口:", err);
+                return false;
+            }
+        }
         public bool QuerySuportLottery(out IList<SESENT_Lottery> result, out string errMsg)
         {
             result = null;
@@ -208,19 +247,18 @@ namespace XlettlerRealization
                 return false;
             }
         }
-
-        public bool MakeOrderWithFootBallGame(string AccountID,int lotteryId, string Fids, int[] type, int Multiple, out object result, out string errMsg)
+        public bool MakeOrderWithFootBallGame(string AccountID, int lotteryId, string Fids, int[] type, int Multiple, out object result, out string errMsg)
         {
             result = null;
             errMsg = "投注失败!";
             try
             {
-                Dictionary<string,string> ParseFids=UntilsObjToDic.ProductDetailList(Fids);
+                Dictionary<string, string> ParseFids = UntilsObjToDic.ProductDetailList(Fids);
                 if (type.Where(a => a > ParseFids.Count).Count() > 0) { errMsg = "选择的游戏场次大于玩法类型"; return false; }
                 using (ModelContainer container = new ModelContainer())
                 {
-                    SESENT_USERS _USERS=container.SESENT_USERS.Where(a => a.AccountID == AccountID).FirstOrDefault();
-                    if (_USERS == null) { errMsg = "下注账号不存在!";return false; }
+                    SESENT_USERS _USERS = container.SESENT_USERS.Where(a => a.AccountID == AccountID).FirstOrDefault();
+                    if (_USERS == null) { errMsg = "下注账号不存在!"; return false; }
                     SESENT_Lottery sESENT_Lottery = container.SESENT_Lottery.Where(a => a.lotteryId == lotteryId && a.Status == (int)PublicDefined.Status.Open).FirstOrDefault();
                     if (sESENT_Lottery == null) { errMsg = "未开放该游戏,敬请期待。"; return false; }
                     var item = ParseFids.GetEnumerator();
@@ -235,10 +273,10 @@ namespace XlettlerRealization
                         builder.Append(item.Current.Key).Append("|").Append(item.Current.Key).Append("&");
                         string[] splitFid = item.Current.Value.Split(',');
                         //过滤重复的
-                        if (Verification.IsRepeatHashSet(splitFid)) { errMsg = "不可重复选择同一项";return false;}
+                        if (Verification.IsRepeatHashSet(splitFid)) { errMsg = "不可重复选择同一项"; return false; }
                         if (count == 1)
                         {
-                            sESENT = container.SESENT_FootBallGame.Where(a =>(a.FootballID== FootballID &&(a.Type == (int)PublicDefined.ZqGameType.LetBallWithSigler || a.Type == (int)PublicDefined.ZqGameType.NotLatBallWithSigler))).FirstOrDefault();
+                            sESENT = container.SESENT_FootBallGame.Where(a => (a.FootballID == FootballID && (a.Type == (int)PublicDefined.ZqGameType.LetBallWithSigler || a.Type == (int)PublicDefined.ZqGameType.NotLatBallWithSigler))).FirstOrDefault();
                             if (sESENT == null) { errMsg = "该场游戏未支持单关"; return false; }
                             match = container.SESENT_FootBallMatch.Where(a => a.FootballID == sESENT.FootballID).FirstOrDefault();
                             if (match == null) { errMsg = "未查询到该场比赛!"; return false; }
@@ -254,10 +292,10 @@ namespace XlettlerRealization
                     for (int i = 0; i < type.Length; i++)
                     {
                         PublicDefined.GameType Gametype = (PublicDefined.GameType)type[i];
-                        workcount+=xLettery.GetModelsWithType(Gametype).Count;
+                        workcount += xLettery.GetModelsWithType(Gametype).Count;
                     }
                     long amount = workcount * 2 * Multiple;
-                    if (_USERS.UseAmount < amount) { errMsg = "账户余额不足!";return false;}
+                    if (_USERS.UseAmount < amount) { errMsg = "账户余额不足!"; return false; }
                     string parseType = string.Join(",", type.Select(i => i.ToString()).ToArray());
                     SESENT_FootBallOrder order = new SESENT_FootBallOrder()
                     {
@@ -270,7 +308,7 @@ namespace XlettlerRealization
                     _USERS.UseAmount -= amount;
                     container.Entry(order).State = System.Data.Entity.EntityState.Added;
                     container.Entry(_USERS).State = System.Data.Entity.EntityState.Modified;
-                    bool isSuccess=container.SaveChanges() > 0;
+                    bool isSuccess = container.SaveChanges() > 0;
                     if (isSuccess)
                         result = "投注成功!尽请期待,祝君中奖。";
                     return isSuccess;

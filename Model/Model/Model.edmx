@@ -305,7 +305,7 @@
     <Property Name="FIds" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Status" Type="smallint" Nullable="false" />
     <Property Name="EnterTime" Type="datetime" Nullable="false" />
-    <Property Name="Type" Type="int" Nullable="false" />
+    <Property Name="Type" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->

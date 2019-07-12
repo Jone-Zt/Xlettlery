@@ -42,3 +42,6 @@ E:\Xlettlery\XlettlerCallBackService\obj\Debug\XlettlerCallBackService.exe
 E:\Xlettlery\XlettlerCallBackService\obj\Debug\XlettlerCallBackService.pdb
 E:\Xlettlery\XlettlerCallBackService\bin\Debug\NPinyin.dll
 E:\Xlettlery\XlettlerCallBackService\bin\Debug\ServiceStack.Interfaces.xml
+E:\Xlettlery\XlettlerCallBackService\bin\Debug\Newtonsoft.Json.dll
+E:\Xlettlery\XlettlerCallBackService\bin\Debug\Newtonsoft.Json.pdb
+E:\Xlettlery\XlettlerCallBackService\bin\Debug\Newtonsoft.Json.xml
