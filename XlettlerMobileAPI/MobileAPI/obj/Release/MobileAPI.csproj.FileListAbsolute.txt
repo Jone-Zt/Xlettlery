@@ -288,3 +288,4 @@ D:\Xlettlery\XlettlerMobileAPI\MobileAPI\obj\Release\MobileAPI.csproj.CoreCompil
 D:\Xlettlery\XlettlerMobileAPI\MobileAPI\obj\Release\MobileAPI.csproj.CopyComplete
 D:\Xlettlery\XlettlerMobileAPI\MobileAPI\obj\Release\MobileAPI.dll
 D:\Xlettlery\XlettlerMobileAPI\MobileAPI\obj\Release\MobileAPI.pdb
+E:\Xlettlery\XlettlerMobileAPI\MobileAPI\bin\Log4netConfigFile.xml

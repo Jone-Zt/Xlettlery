@@ -14,13 +14,15 @@ namespace ServicesInterface
         [OperationContract]
         bool QuerySuportLottery(out IList<Model.SESENT_Lottery> result,out string errMsg);
         [OperationContract]
-        bool QueryFootBallLottery(int lotteryId, out List<MySlefGeneratePicker<Model.SESENT_FootBallGame, Model.SESENT_FootBallMatch>> result, out string errMsg);
+        bool QueryFootBallLotteryWithMeach(int lotteryId,int type, out List<MySlefGeneratePicker<object, Dictionary<string, object>>> result, out string errMsg);
         [OperationContract]
-        bool QueryFootBallLotteryWithType(int lotteryId, long FootBallID, int? type, out MySlefGeneratePicker<Model.SESENT_FootBallGame, Model.SESENT_FootBallMatch> result, out string errMsg);
+        bool QueryFootBallLottery(int lotteryId, out List<MySlefGeneratePicker<object, Dictionary<string,object>>> result, out string errMsg);
         [OperationContract]
-        bool QueryBasketBallLottery(int lotteryId, out List<MySlefGeneratePicker<Model.SESENT_BasketBallGame, Model.SESENT_BasketBallMatch>> result, out string errMsg);
+        bool QueryFootBallLotteryWithType(int lotteryId, long FootBallID, int? type, out MySlefGeneratePicker<object, Dictionary<string, object>> result, out string errMsg);
         [OperationContract]
-        bool QueryBasketBallLotteryWithType(int lotteryId, long BaskBallID, int type, out MySlefGeneratePicker<Model.SESENT_BasketBallGame, Model.SESENT_BasketBallMatch> result, out string errMsg);
+        bool QueryBasketBallLottery(int lotteryId, out List<MySlefGeneratePicker<object, Dictionary<string, object>>> result, out string errMsg);
+        [OperationContract]
+        bool QueryBasketBallLotteryWithType(int lotteryId, long BaskBallID, int type, out MySlefGeneratePicker<object, Dictionary<string, object>> result, out string errMsg);
         /// <summary>
         /// 下单接口
         /// </summary>

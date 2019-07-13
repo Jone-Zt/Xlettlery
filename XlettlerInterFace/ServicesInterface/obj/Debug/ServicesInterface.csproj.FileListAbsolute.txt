@@ -1,4 +1,3 @@
-E:\Xlettlery\XlettlerInterFace\ServicesInterface\obj\Debug\ServicesInterface.csprojAssemblyReference.cache
 E:\Xlettlery\XlettlerInterFace\ServicesInterface\obj\Debug\ServicesInterface.csproj.CoreCompileInputs.cache
 E:\Xlettlery\XlettlerInterFace\ServicesInterface\bin\Debug\ServicesInterface.dll
 E:\Xlettlery\XlettlerInterFace\ServicesInterface\bin\Debug\ServicesInterface.pdb
@@ -12,3 +11,4 @@ E:\Xlettlery\XlettlerInterFace\ServicesInterface\bin\Debug\EntityFramework.xml
 E:\Xlettlery\XlettlerInterFace\ServicesInterface\obj\Debug\ServicesInterface.csproj.CopyComplete
 E:\Xlettlery\XlettlerInterFace\ServicesInterface\obj\Debug\ServicesInterface.dll
 E:\Xlettlery\XlettlerInterFace\ServicesInterface\obj\Debug\ServicesInterface.pdb
+E:\Xlettlery\XlettlerInterFace\ServicesInterface\obj\Debug\ServicesInterface.csprojAssemblyReference.cache

@@ -37,3 +37,6 @@ E:\Xlettlery\CallBackManage\obj\Debug\CallBackManage.dll
 E:\Xlettlery\CallBackManage\obj\Debug\CallBackManage.pdb
 E:\Xlettlery\CallBackManage\bin\Debug\NPinyin.dll
 E:\Xlettlery\CallBackManage\bin\Debug\ServiceStack.Interfaces.xml
+E:\Xlettlery\CallBackManage\bin\Debug\Newtonsoft.Json.dll
+E:\Xlettlery\CallBackManage\bin\Debug\Newtonsoft.Json.pdb
+E:\Xlettlery\CallBackManage\bin\Debug\Newtonsoft.Json.xml

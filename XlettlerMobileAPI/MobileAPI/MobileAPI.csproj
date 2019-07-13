@@ -229,6 +229,9 @@
     <Content Include="Global.asax" />
     <Content Include="images\8bcLQqF.png" />
     <Content Include="images\cloud.jpg" />
+    <Content Include="Log4netConfigFile.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
@@ -272,19 +275,12 @@
     <Content Include="Content\Site.css" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Default\" />
-    <Folder Include="Views\ErrorCode\" />
-    <Folder Include="Views\Lottery\" />
-    <Folder Include="Views\Message\" />
-    <Folder Include="Views\ShortMessage\" />
-    <Folder Include="Views\User\" />
-    <Folder Include="Views\WxChat\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

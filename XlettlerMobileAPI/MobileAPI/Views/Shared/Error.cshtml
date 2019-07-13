@@ -9,6 +9,16 @@
     <hgroup>
         <h1>错误。</h1>
         <h2>处理你的请求时出错。</h2>
+        @Model.Exception.GetType().Name
+        <br />
+        @Model.Exception.Message
+        <br />
+        @Model.ControllerName
+        <br />
+        @Model.ActionName
+        <br />
+        @Model.Exception.StackTrace
+        <br />
     </hgroup>
 </body>
 </html>

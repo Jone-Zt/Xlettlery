@@ -143,3 +143,4 @@ E:\Xlettlery\XlettlerMobileAPI\MobileAPI\obj\Debug\MobileAPI.dll
 E:\Xlettlery\XlettlerMobileAPI\MobileAPI\obj\Debug\MobileAPI.pdb
 E:\Xlettlery\XlettlerMobileAPI\MobileAPI\bin\NPinyin.dll
 E:\Xlettlery\XlettlerMobileAPI\MobileAPI\bin\ServiceStack.Interfaces.xml
+E:\Xlettlery\XlettlerMobileAPI\MobileAPI\bin\Log4netConfigFile.xml
