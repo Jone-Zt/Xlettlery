@@ -3,4 +3,3 @@ E:\Xlettlery\HttpServer\bin\Debug\HttpServer.pdb
 E:\Xlettlery\HttpServer\obj\Debug\HttpServer.csproj.CoreCompileInputs.cache
 E:\Xlettlery\HttpServer\obj\Debug\HttpServer.dll
 E:\Xlettlery\HttpServer\obj\Debug\HttpServer.pdb
-E:\Xlettlery\HttpServer\obj\Debug\HttpServer.csprojAssemblyReference.cache

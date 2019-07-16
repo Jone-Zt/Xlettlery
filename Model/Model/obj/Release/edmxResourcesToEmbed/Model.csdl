@@ -350,5 +350,7 @@
     <Property Name="Status" Type="Int16" Nullable="false" />
     <Property Name="EnterTime" Type="DateTime" Nullable="false" />
     <Property Name="Type" Type="String" Nullable="false" />
+    <Property Name="AccountID" Type="String" Nullable="false" MaxLength="100" />
+    <Property Name="GameType" Type="Int32" Nullable="false" />
   </EntityType>
 </Schema>

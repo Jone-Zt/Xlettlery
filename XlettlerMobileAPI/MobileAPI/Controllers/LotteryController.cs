@@ -2,6 +2,7 @@
 using ServicesInterface;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -20,8 +21,6 @@ namespace MobileAPI.Controllers
             }
             return proxy;
         }
-
-
         public ActionResult QuerySupportLottery()
         {
             ResponsePicker<Model.SESENT_Lottery> picker = new ResponsePicker<Model.SESENT_Lottery>();
@@ -42,6 +41,28 @@ namespace MobileAPI.Controllers
             }
             return Content(picker.ToString());
         }
+        public ActionResult QueryOrderWithFootBall()
+        {
+            ResponsePicker<DataTable> picker = new ResponsePicker<DataTable>();
+            try
+            {
+                string flowid = RequestCheck.CheckStringValue(Request, "flowID", "流水号", false);
+                picker.FlowID = flowid;
+                string AccountID = RequestCheck.CheckStringValue(Request, "AccountID", "用户编号", false);
+                IlotteryInterface ilottery = GetManger();
+                if (ilottery == null) throw new Exception("未挂载对应函数!");
+                if (ilottery.QueryOrderWithFootBall(AccountID, out DataTable result, out string errMsg))
+                    picker.Data = result;
+                else
+                    picker.FailInfo = errMsg;
+            }
+            catch (Exception err)
+            {
+                picker.FailInfo = err.Message;
+            }
+            return Content(picker.ToString());
+        }
+
         public ActionResult QueryFootBallLottery()
         {
             ResponsePicker<Model.MySlefGeneratePicker<object, Dictionary<string, object>>> picker = new ResponsePicker<Model.MySlefGeneratePicker<object, Dictionary<string, object>>>();

@@ -306,6 +306,8 @@
     <Property Name="Status" Type="smallint" Nullable="false" />
     <Property Name="EnterTime" Type="datetime" Nullable="false" />
     <Property Name="Type" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AccountID" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="GameType" Type="int" Nullable="false" />
   </EntityType>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -967,10 +969,12 @@
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="EnterTime" ColumnName="EnterTime" />
           <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+          <ScalarProperty Name="GameType" ColumnName="GameType" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-          </EntityContainerMapping>
+  </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->

@@ -2,11 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
-<<<<<<< HEAD
--- Date Created: 07/11/2019 22:54:34
-=======
--- Date Created: 07/11/2019 13:46:33
->>>>>>> 0bab78d4474a8608918fd13c05dd539568d738f5
+-- Date Created: 07/16/2019 22:28:57
 -- Generated from EDMX file: E:\Xlettlery\Model\Model\Model.edmx
 -- --------------------------------------------------
 
@@ -373,7 +369,9 @@ CREATE TABLE [dbo].[SESENT_FootBallOrder] (
     [FIds] nvarchar(max)  NOT NULL,
     [Status] smallint  NOT NULL,
     [EnterTime] datetime  NOT NULL,
-    [Type] nvarchar(max)  NOT NULL
+    [Type] nvarchar(max)  NOT NULL,
+    [AccountID] nvarchar(100)  NOT NULL,
+    [GameType] int  NOT NULL
 );
 GO
 

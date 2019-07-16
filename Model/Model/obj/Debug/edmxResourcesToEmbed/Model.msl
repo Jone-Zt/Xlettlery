@@ -298,6 +298,8 @@
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="EnterTime" ColumnName="EnterTime" />
           <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+          <ScalarProperty Name="GameType" ColumnName="GameType" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
