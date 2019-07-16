@@ -6,3 +6,4 @@ E:\Xlettlery\Tools\LogTool\obj\Debug\LogTool.csproj.CoreCompileInputs.cache
 E:\Xlettlery\Tools\LogTool\obj\Debug\LogTool.csproj.CopyComplete
 E:\Xlettlery\Tools\LogTool\obj\Debug\LogTool.dll
 E:\Xlettlery\Tools\LogTool\obj\Debug\LogTool.pdb
+E:\Xlettlery\Tools\LogTool\obj\Debug\LogTool.csprojAssemblyReference.cache

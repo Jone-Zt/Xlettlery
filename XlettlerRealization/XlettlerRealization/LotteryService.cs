@@ -154,7 +154,6 @@ namespace XlettlerRealization
                         }
                         else
                         {
-<<<<<<< HEAD
                             Dictionary<int, DataTable> keyValuePairs = new Dictionary<int, DataTable>();
                             dynamic Letball = ballGames.Where(Z => Z.Type == (int)PublicDefined.ZqGameType.Letball).Select(b =>
        new
@@ -235,19 +234,6 @@ namespace XlettlerRealization
                b.Source,
                b.Type
            }).ToList();
-
-                            keyValuePairs.Add((int)PublicDefined.ZqGameType.Score, UntilsObjToDic.ListToDataTable(Score));
-=======
-                            IEnumerable<SESENT_FootBallGame> ballGames = Tools.RedisHelper.GetManger().GetWithList<SESENT_FootBallGame>().Where(Z => Z.FootballID == FootBallID);
-                            Dictionary<int, List<SESENT_FootBallGame>> keyValuePairs = new Dictionary<int, List<SESENT_FootBallGame>>();
-                            keyValuePairs.Add((int)PublicDefined.ZqGameType.Letball, ballGames.Where(Z => Z.Type == (int)PublicDefined.ZqGameType.Letball).ToList());
-                            keyValuePairs.Add((int)PublicDefined.ZqGameType.DoubleResult, ballGames.Where(Z => Z.Type == (int)PublicDefined.ZqGameType.DoubleResult).ToList());
-                            keyValuePairs.Add((int)PublicDefined.ZqGameType.LetBallWithSigler, ballGames.Where(Z => Z.Type == (int)PublicDefined.ZqGameType.LetBallWithSigler).ToList());
-                            keyValuePairs.Add((int)PublicDefined.ZqGameType.NotLatball, ballGames.Where(Z => Z.Type == (int)PublicDefined.ZqGameType.NotLatball).ToList());
-                            keyValuePairs.Add((int)PublicDefined.ZqGameType.NotLatBallWithSigler, ballGames.Where(Z => Z.Type == (int)PublicDefined.ZqGameType.NotLatBallWithSigler).ToList());
-                            keyValuePairs.Add((int)PublicDefined.ZqGameType.NumberofGoalsScored, ballGames.Where(Z => Z.Type == (int)PublicDefined.ZqGameType.NumberofGoalsScored).ToList());
-                            keyValuePairs.Add((int)PublicDefined.ZqGameType.Score, ballGames.Where(Z => Z.Type == (int)PublicDefined.ZqGameType.Score).ToList());
->>>>>>> 0bab78d4474a8608918fd13c05dd539568d738f5
                             result.BallGames = keyValuePairs;
                             result.Match = Match;
                         }
@@ -414,46 +400,61 @@ namespace XlettlerRealization
                 return false;
             }
         }
-        public bool QueryFootBallWithType(int lotteryId,int type,out List<MySlefGeneratePicker<SESENT_FootBallGame, SESENT_FootBallMatch>> result, out string errMsg)
-        {
-            result = null;
-            errMsg = string.Empty;
-            try
-            {
-                using (ModelContainer container = new ModelContainer())
-                {
-                    result = new List<MySlefGeneratePicker<Model.SESENT_FootBallGame, Model.SESENT_FootBallMatch>>();
-                    SESENT_Lottery sESENT_Lottery = container.SESENT_Lottery.Where(a => a.lotteryId == lotteryId && a.Status == (int)PublicDefined.Status.Open && a.Type == (int)PublicDefined.LetteryType.FootBall).FirstOrDefault();
-                    if (sESENT_Lottery == null) { errMsg = "未开放该游戏,敬请期待。"; return false; }
-                    DateTime dataNow = DateTime.Now;
-                    for (int i = 0; i < 3; i++)
-                    {
-                        //查询当前的赛事
-                        List<Model.SESENT_FootBallMatch> list = Tools.RedisHelper.GetManger().GetWithList<Model.SESENT_FootBallMatch>();
-                        IEnumerable<SESENT_FootBallMatch> matches = list.Where(a => a.MatchDate.ToString("yyyy-MM-dd") == dataNow.ToString("yyyy-MM-dd"));
-                        var item = matches.GetEnumerator();
-                        while (item.MoveNext())
-                        {
-                            MySlefGeneratePicker<Model.SESENT_FootBallGame, Model.SESENT_FootBallMatch> picker = new MySlefGeneratePicker<Model.SESENT_FootBallGame, Model.SESENT_FootBallMatch>();
-                            picker.Match = item.Current;
-                            List<Model.SESENT_FootBallGame> games = Tools.RedisHelper.GetManger().GetWithList<Model.SESENT_FootBallGame>();
-                            PublicDefined.ZqGameType zqtype = (PublicDefined.ZqGameType)type;
-                            var letBall = games.Where(a => a.FootballID == item.Current.FootballID && a.Type == (int)zqtype);
-                            picker.BallGames.Add((int)zqtype, letBall.ToList());
-                            result.Add(picker);
-                        }
-                        dataNow = dataNow.AddDays(1);
-                    }
-                    return true;
-                }
-            }
-            catch (Exception err)
-            {
-                errMsg = "未知错误!";
-                LogTool.LogWriter.WriteError("CP查询支持接口:", err);
-                return false;
-            }
-        }
+        //public bool QueryFootBallWithType(int lotteryId,int type,out List<MySlefGeneratePicker<object, Dictionary<string, object>>> result, out string errMsg)
+        //{
+        //    result = null;
+        //    errMsg = string.Empty;
+        //    try
+        //    {
+        //        using (ModelContainer container = new ModelContainer())
+        //        {
+        //            result = new List<MySlefGeneratePicker<object, Dictionary<string, object>>>();
+        //            SESENT_Lottery sESENT_Lottery = container.SESENT_Lottery.Where(a => a.lotteryId == lotteryId && a.Status == (int)PublicDefined.Status.Open && a.Type == (int)PublicDefined.LetteryType.FootBall).FirstOrDefault();
+        //            if (sESENT_Lottery == null) { errMsg = "未开放该游戏,敬请期待。"; return false; }
+        //            DateTime dataNow = DateTime.Now;
+        //            for (int i = 0; i < 3; i++)
+        //            {
+        //                //查询当前的赛事
+        //                List<Model.SESENT_FootBallMatch> list = Tools.RedisHelper.GetManger().GetWithList<Model.SESENT_FootBallMatch>();
+        //                IEnumerable<SESENT_FootBallMatch> matches = list.Where(a => a.MatchDate.ToString("yyyy-MM-dd") == dataNow.ToString("yyyy-MM-dd"));
+        //                var item = matches.GetEnumerator();
+        //                while (item.MoveNext())
+        //                {
+        //                    MySlefGeneratePicker<object, Dictionary<string, object>> picker = new MySlefGeneratePicker<object, Dictionary<string, object>>();
+        //                    Dictionary<string, object> Match = UntilsObjToDic.ToMap(item.Current);
+        //                    if (Match != null)
+        //                    {
+        //                        Match["FootballID"] = item.Current.FootballID.ToString();
+        //                        Match["MatchDate"] = item.Current.MatchDate.ToString("yyyy-MM-dd");
+        //                        Match.Remove("Fk_FnID");
+        //                    }
+        //                    picker.Match = Match;
+        //                    List<Model.SESENT_FootBallGame> games = Tools.RedisHelper.GetManger().GetWithList<Model.SESENT_FootBallGame>();
+        //                    PublicDefined.ZqGameType zqtype = (PublicDefined.ZqGameType)type;
+        //                    var letBall = games.Where(a => a.FootballID == item.Current.FootballID && a.Type == (int)zqtype).Select(b => new
+        //                    {
+        //                        b.FootballID,
+        //                        b.FId,
+        //                        b.Lable,
+        //                        b.Name,
+        //                        b.Source,
+        //                        b.Type
+        //                    }).ToList();
+        //                    picker.BallGames.Add((int)zqtype, UntilsObjToDic.ListToDataTable(letBall));
+        //                    result.Add(picker);
+        //                }
+        //                dataNow = dataNow.AddDays(1);
+        //            }
+        //            return true;
+        //        }
+        //    }
+        //    catch (Exception err)
+        //    {
+        //        errMsg = "未知错误!";
+        //        LogTool.LogWriter.WriteError("CP查询支持接口:", err);
+        //        return false;
+        //    }
+        //}
         public bool QuerySuportLottery(out IList<SESENT_Lottery> result, out string errMsg)
         {
             result = null;
@@ -523,10 +524,6 @@ namespace XlettlerRealization
                 return false;
             }
         }
-<<<<<<< HEAD
-
-=======
->>>>>>> 0bab78d4474a8608918fd13c05dd539568d738f5
         public bool MakeOrderWithFootBallGame(string AccountID, int lotteryId, string Fids, int[] type, int Multiple, out object result, out string errMsg)
         {
             result = null;
