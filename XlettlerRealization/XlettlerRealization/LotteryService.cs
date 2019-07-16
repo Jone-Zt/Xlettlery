@@ -598,5 +598,36 @@ namespace XlettlerRealization
                 return false;
             }
         }
+
+        public bool QueryOrderWithFootBall(string AccountID, out DataTable result, out string errMsg)
+        {
+            result = null;
+            errMsg = string.Empty;
+            try
+            {
+                using (ModelContainer container = new ModelContainer())
+                {
+                  SESENT_USERS uSERS=container.SESENT_USERS.Where(a => a.AccountID == AccountID).FirstOrDefault();
+                    if (uSERS == null){errMsg = "未查询到该账号";return false;}
+                   var list=container.SESENT_FootBallOrder.Where(a => a.AccountID == AccountID).Select(b=>new {
+                         b.AccountID,
+                         EnterTime= b.EnterTime.ToString("yyyy-MM-dd HH:mm:ss"),
+                         b.FIds,
+                         b.GameType,
+                         b.OrderID,
+                         b.Status,
+                         b.Type,
+                   });
+                    result = UntilsObjToDic.ListToDataTable(list.ToList());
+                    return true;
+                }
+            }
+            catch (Exception err)
+            {
+                errMsg = "未知错误!";
+                LogTool.LogWriter.WriteError("CP查询足球投注订单接口错误:", err);
+                return false;
+            }
+        }
     }
 }

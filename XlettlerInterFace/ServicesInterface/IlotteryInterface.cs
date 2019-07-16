@@ -1,6 +1,7 @@
 ﻿using Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.ServiceModel;
 using System.Text;
@@ -34,6 +35,8 @@ namespace ServicesInterface
         /// <returns></returns>
         [OperationContract]
         bool MakeOrderWithFootBallGame(string AccountID,int lotteryId, string Fids, int[] type, int Multiple,out object result,out string errMsg);
+        [OperationContract]
+        bool QueryOrderWithFootBall(string AccountID,out DataTable result,out string errMsg);
         //bool QueryFootBallWithType(int lotteryId,int type,out List<MySlefGeneratePicker<object, Dictionary<string, object>>> result, out string errMsg);
     }
 }

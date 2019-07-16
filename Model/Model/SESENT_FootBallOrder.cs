@@ -19,5 +19,7 @@ namespace Model
         public short Status { get; set; }
         public System.DateTime EnterTime { get; set; }
         public string Type { get; set; }
+        public string AccountID { get; set; }
+        public int GameType { get; set; }
     }
 }

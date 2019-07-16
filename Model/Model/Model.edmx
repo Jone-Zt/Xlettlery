@@ -335,7 +335,7 @@
           <EntitySet Name="SESENT_KJLottery" EntityType="Model.SESENT_KJLottery" />
           <EntitySet Name="SESENT_InfoMation" EntityType="Model.SESENT_InfoMation" />
           <EntitySet Name="SESENT_FootBallOrder" EntityType="Model.SESENT_FootBallOrder" />
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="SESENT_USERS">
           <Documentation>
             <LongDescription>用户表</LongDescription>
@@ -661,6 +661,8 @@
           <Property Name="Status" Type="Int16" Nullable="false" />
           <Property Name="EnterTime" Type="DateTime" Nullable="false" />
           <Property Name="Type" Type="String" Nullable="false" />
+          <Property Name="AccountID" Type="String" Nullable="false" MaxLength="100" />
+          <Property Name="GameType" Type="Int32" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -968,7 +970,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-  </EntityContainerMapping>
+          </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->

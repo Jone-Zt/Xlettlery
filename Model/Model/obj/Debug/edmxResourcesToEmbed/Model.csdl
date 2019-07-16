@@ -350,5 +350,8 @@
     <Property Name="Status" Type="Int16" Nullable="false" />
     <Property Name="EnterTime" Type="DateTime" Nullable="false" />
     <Property Name="Type" Type="String" Nullable="false" />
+    <Property Name="AccountID" Type="String" Nullable="false" MaxLength="100" />
+    <Property Name="GameID" Type="String" Nullable="false" />
   </EntityType>
+  <EntityType Name="SESENT_DocumentOrder" BaseType="Model.SESENT_FootBallOrder" />
 </Schema>

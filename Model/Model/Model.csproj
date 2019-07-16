@@ -98,6 +98,9 @@
     <Compile Include="SESENT_ConsumptERecords.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="SESENT_DocumentOrder.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="SESENT_FootBallGame.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
