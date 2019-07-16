@@ -9,3 +9,15 @@ E:\Xlettlery\Model\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
 E:\Xlettlery\Model\Model\obj\Debug\Model.csproj.CopyComplete
 E:\Xlettlery\Model\Model\obj\Debug\Model.dll
 E:\Xlettlery\Model\Model\obj\Debug\Model.pdb
+E:\WorkProject\Xlettlery\Model\Model\bin\Debug\Model.dll.config
+E:\WorkProject\Xlettlery\Model\Model\bin\Debug\Model.dll
+E:\WorkProject\Xlettlery\Model\Model\bin\Debug\Model.pdb
+E:\WorkProject\Xlettlery\Model\Model\bin\Debug\EntityFramework.dll
+E:\WorkProject\Xlettlery\Model\Model\bin\Debug\EntityFramework.SqlServer.dll
+E:\WorkProject\Xlettlery\Model\Model\bin\Debug\EntityFramework.xml
+E:\WorkProject\Xlettlery\Model\Model\bin\Debug\EntityFramework.SqlServer.xml
+E:\WorkProject\Xlettlery\Model\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+E:\WorkProject\Xlettlery\Model\Model\obj\Debug\Model.csproj.CopyComplete
+E:\WorkProject\Xlettlery\Model\Model\obj\Debug\Model.dll
+E:\WorkProject\Xlettlery\Model\Model\obj\Debug\Model.pdb
+E:\WorkProject\Xlettlery\Model\Model\obj\Debug\Model.csprojAssemblyReference.cache

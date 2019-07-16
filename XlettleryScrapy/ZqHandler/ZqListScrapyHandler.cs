@@ -52,6 +52,19 @@ namespace XlettleryScrapy.ZqHandler
         public void ParseHtml()
         {
             ReadOnlyCollection<IWebElement> btnWarps = driver.FindElementsByClassName("bet-date-wrap");
+            var DateNode = driver.FindElement(By.XPath("//*[@id='stopTimeToggle']/div[1]/span[1]"));
+            if (DateNode.Text != "截止时间")
+            {
+                DateNode.Click();
+                Thread.Sleep(1000);
+                ReadOnlyCollection<IWebElement> webs=driver.FindElementsByXPath("//*[@id='stopTimeToggle']/div[2]/div/ul/li");
+                var itemtor=webs.GetEnumerator();
+                while (itemtor.MoveNext())
+                {
+                    if (itemtor.Current.FindElement(By.TagName("a")).Text == "截止时间")
+                    { itemtor.Current.Click(); break; }
+                }
+            }
             var items = btnWarps.GetEnumerator();
             while (items.MoveNext())
             {

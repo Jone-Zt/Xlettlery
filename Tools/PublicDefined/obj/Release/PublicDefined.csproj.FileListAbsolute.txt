@@ -10,3 +10,9 @@ D:\Xlettlery\Tools\PublicDefined\obj\Release\PublicDefined.csprojAssemblyReferen
 D:\Xlettlery\Tools\PublicDefined\obj\Release\PublicDefined.csproj.CoreCompileInputs.cache
 D:\Xlettlery\Tools\PublicDefined\obj\Release\PublicDefined.dll
 D:\Xlettlery\Tools\PublicDefined\obj\Release\PublicDefined.pdb
+E:\WorkProject\Xlettlery\Tools\PublicDefined\bin\Release\PublicDefined.dll
+E:\WorkProject\Xlettlery\Tools\PublicDefined\bin\Release\PublicDefined.pdb
+E:\WorkProject\Xlettlery\Tools\PublicDefined\obj\Release\PublicDefined.csprojAssemblyReference.cache
+E:\WorkProject\Xlettlery\Tools\PublicDefined\obj\Release\PublicDefined.csproj.CoreCompileInputs.cache
+E:\WorkProject\Xlettlery\Tools\PublicDefined\obj\Release\PublicDefined.dll
+E:\WorkProject\Xlettlery\Tools\PublicDefined\obj\Release\PublicDefined.pdb

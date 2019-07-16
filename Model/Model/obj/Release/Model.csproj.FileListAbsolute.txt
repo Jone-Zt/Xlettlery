@@ -22,3 +22,15 @@ D:\Xlettlery\Model\Model\obj\Release\Model.csproj.CoreCompileInputs.cache
 D:\Xlettlery\Model\Model\obj\Release\Model.csproj.CopyComplete
 D:\Xlettlery\Model\Model\obj\Release\Model.dll
 D:\Xlettlery\Model\Model\obj\Release\Model.pdb
+E:\WorkProject\Xlettlery\Model\Model\bin\Release\Model.dll.config
+E:\WorkProject\Xlettlery\Model\Model\bin\Release\Model.dll
+E:\WorkProject\Xlettlery\Model\Model\bin\Release\Model.pdb
+E:\WorkProject\Xlettlery\Model\Model\bin\Release\EntityFramework.dll
+E:\WorkProject\Xlettlery\Model\Model\bin\Release\EntityFramework.SqlServer.dll
+E:\WorkProject\Xlettlery\Model\Model\bin\Release\EntityFramework.xml
+E:\WorkProject\Xlettlery\Model\Model\bin\Release\EntityFramework.SqlServer.xml
+E:\WorkProject\Xlettlery\Model\Model\obj\Release\Model.csprojAssemblyReference.cache
+E:\WorkProject\Xlettlery\Model\Model\obj\Release\Model.csproj.CoreCompileInputs.cache
+E:\WorkProject\Xlettlery\Model\Model\obj\Release\Model.csproj.CopyComplete
+E:\WorkProject\Xlettlery\Model\Model\obj\Release\Model.dll
+E:\WorkProject\Xlettlery\Model\Model\obj\Release\Model.pdb
