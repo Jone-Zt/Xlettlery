@@ -6,10 +6,12 @@ using ServicesInterface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Transactions;
 
 namespace XlettlerRealization
 {
+    [CallbackBehavior(UseSynchronizationContext =false)]
     public class ChannelNotifyService : IChannelNotify
     {
         public bool Notify(string OrderID, string ChannelID, string[] pathArges, Dictionary<string, string> UrlArges, byte[] postBuffer, out string BackStr)

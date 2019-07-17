@@ -80,6 +80,9 @@
   <ItemGroup>
     <Compile Include="ActiveMQHelper.cs" />
     <Compile Include="CacheKey.cs" />
+    <Compile Include="HttpHelper.cs" />
+    <Compile Include="MapUtils.cs" />
+    <Compile Include="MD5Helper.cs" />
     <Compile Include="MessageBox.cs" />
     <Compile Include="GetRemotingUri.cs" />
     <Compile Include="Devicer.cs" />

@@ -5,10 +5,12 @@ using ServicesInterface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using Tools;
 
 namespace XlettlerRealization
 {
+    [CallbackBehavior(UseSynchronizationContext = false)]
     public class UserService : IUserInterface
     {
         public bool BindRealName(string AccountID, string RealName, string IdCardNum, out string result, out string errMsg)

@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -42,12 +46,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Channel.cs" />
+    <Compile Include="Models\MakeOrderPicker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\ChannelInterface\ThridPayInterface.csproj">
       <Project>{ff8b40c7-54d5-4d7e-bd52-6580dd14fd2c}</Project>
       <Name>ThridPayInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Tools\LogTool\LogTool.csproj">
+      <Project>{e837a985-cd29-4724-b907-97570dfc0eba}</Project>
+      <Name>LogTool</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Tools\Tools\Tools.csproj">
+      <Project>{C6F1BF87-A866-47B2-8BA7-DD5DD43820F4}</Project>
+      <Name>Tools</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\XlettlerInterFace\ServicesInterface\ServicesInterface.csproj">
       <Project>{523CBFAA-B538-4B34-AE25-8E256DFB2439}</Project>

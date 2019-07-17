@@ -3,11 +3,13 @@ using ServicesInterface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace XlettlerRealization
 {
+    [CallbackBehavior(UseSynchronizationContext = false)]
     public class MessageServices : IMessageInterface
     {
         public bool QueryInformation(int ID,out SESENT_InfoMation result, out string errMsg)

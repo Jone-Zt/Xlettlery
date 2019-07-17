@@ -4,9 +4,11 @@ using ServicesInterface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 
 namespace XlettlerRealization
 {
+    [CallbackBehavior(UseSynchronizationContext = false)]
     public class ShortMessageService : IShortMessageInterface
     {
         public bool InboxOperation(string AccountID, string MessageID, MessageStatus OperationType, out string errMsg)

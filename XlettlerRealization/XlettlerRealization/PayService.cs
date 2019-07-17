@@ -9,9 +9,11 @@ using ServicesInterface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 
 namespace XlettlerRealization
 {
+    [CallbackBehavior(UseSynchronizationContext = false)]
     public class PayService : IPayInterface
     {
         public bool BindCashBank(SESENT_CashCard cashCard,out string result,out string errMsg)

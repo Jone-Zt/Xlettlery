@@ -21,3 +21,4 @@ E:\WorkProject\Xlettlery\Model\Model\obj\Debug\Model.csproj.CopyComplete
 E:\WorkProject\Xlettlery\Model\Model\obj\Debug\Model.dll
 E:\WorkProject\Xlettlery\Model\Model\obj\Debug\Model.pdb
 E:\Xlettlery\Model\Model\obj\Debug\Model.csprojAssemblyReference.cache
+E:\WorkProject\Xlettlery\Model\Model\obj\Debug\Model.csprojAssemblyReference.cache
