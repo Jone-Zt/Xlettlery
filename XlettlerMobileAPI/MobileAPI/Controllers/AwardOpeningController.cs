@@ -22,7 +22,7 @@ namespace MobileAPI.Controllers
         }
         public ActionResult QueryFootBallAward()
         {
-            ResponsePicker<object> picker = new ResponsePicker<object>();
+            ResponsePicker<dynamic> picker = new ResponsePicker<dynamic>();
             try
             {
                 string flowid = RequestCheck.CheckStringValue(Request, "flowID", "流水号", false);
@@ -30,8 +30,8 @@ namespace MobileAPI.Controllers
                 DateTime dateTime = RequestCheck.CheckDeteTimeValue(Request,"queryTime","查询时间",false);
                 IAwardOpeningService pay = GetManger();
                 if (pay == null) throw new Exception("未挂载对应函数!");
-                if (pay.GetFootBallAward(dateTime,out dynamic result, out string errMsg))
-                    picker.Data = result;
+                if (pay.GetFootBallAward(dateTime,out List<dynamic> result, out string errMsg))
+                    picker.List = result;
                 else
                     picker.FailInfo = errMsg;
             }
