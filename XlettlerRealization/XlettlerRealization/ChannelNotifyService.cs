@@ -6,8 +6,6 @@ using ServicesInterface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Transactions;
 
 namespace XlettlerRealization
@@ -35,7 +33,6 @@ namespace XlettlerRealization
                         if (ret)
                         {
                             order.Status = (short)OrderStatus.success;
-                            //上分
                             order.OutMoney = realPay == 0 ? order.InputMoney : realPay;
                             _USERS.UseAmount += order.OutMoney;
                             _USERS.Recharge += order.OutMoney;
