@@ -407,61 +407,6 @@ namespace XlettlerRealization
                 return false;
             }
         }
-        //public bool QueryFootBallWithType(int lotteryId,int type,out List<MySlefGeneratePicker<object, Dictionary<string, object>>> result, out string errMsg)
-        //{
-        //    result = null;
-        //    errMsg = string.Empty;
-        //    try
-        //    {
-        //        using (ModelContainer container = new ModelContainer())
-        //        {
-        //            result = new List<MySlefGeneratePicker<object, Dictionary<string, object>>>();
-        //            SESENT_Lottery sESENT_Lottery = container.SESENT_Lottery.Where(a => a.lotteryId == lotteryId && a.Status == (int)PublicDefined.Status.Open && a.Type == (int)PublicDefined.LetteryType.FootBall).FirstOrDefault();
-        //            if (sESENT_Lottery == null) { errMsg = "未开放该游戏,敬请期待。"; return false; }
-        //            DateTime dataNow = DateTime.Now;
-        //            for (int i = 0; i < 3; i++)
-        //            {
-        //                //查询当前的赛事
-        //                List<Model.SESENT_FootBallMatch> list = Tools.RedisHelper.GetManger().GetWithList<Model.SESENT_FootBallMatch>();
-        //                IEnumerable<SESENT_FootBallMatch> matches = list.Where(a => a.MatchDate.ToString("yyyy-MM-dd") == dataNow.ToString("yyyy-MM-dd"));
-        //                var item = matches.GetEnumerator();
-        //                while (item.MoveNext())
-        //                {
-        //                    MySlefGeneratePicker<object, Dictionary<string, object>> picker = new MySlefGeneratePicker<object, Dictionary<string, object>>();
-        //                    Dictionary<string, object> Match = UntilsObjToDic.ToMap(item.Current);
-        //                    if (Match != null)
-        //                    {
-        //                        Match["FootballID"] = item.Current.FootballID.ToString();
-        //                        Match["MatchDate"] = item.Current.MatchDate.ToString("yyyy-MM-dd");
-        //                        Match.Remove("Fk_FnID");
-        //                    }
-        //                    picker.Match = Match;
-        //                    List<Model.SESENT_FootBallGame> games = Tools.RedisHelper.GetManger().GetWithList<Model.SESENT_FootBallGame>();
-        //                    PublicDefined.ZqGameType zqtype = (PublicDefined.ZqGameType)type;
-        //                    var letBall = games.Where(a => a.FootballID == item.Current.FootballID && a.Type == (int)zqtype).Select(b => new
-        //                    {
-        //                        b.FootballID,
-        //                        b.FId,
-        //                        b.Lable,
-        //                        b.Name,
-        //                        b.Source,
-        //                        b.Type
-        //                    }).ToList();
-        //                    picker.BallGames.Add((int)zqtype, UntilsObjToDic.ListToDataTable(letBall));
-        //                    result.Add(picker);
-        //                }
-        //                dataNow = dataNow.AddDays(1);
-        //            }
-        //            return true;
-        //        }
-        //    }
-        //    catch (Exception err)
-        //    {
-        //        errMsg = "未知错误!";
-        //        LogTool.LogWriter.WriteError("CP查询支持接口:", err);
-        //        return false;
-        //    }
-        //}
         public bool QuerySuportLottery(out IList<SESENT_Lottery> result, out string errMsg)
         {
             result = null;

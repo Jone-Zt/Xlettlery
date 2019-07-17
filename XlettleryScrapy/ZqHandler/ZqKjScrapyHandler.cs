@@ -103,6 +103,7 @@ namespace XlettleryScrapy.ZqHandler
                     List<SESENT_KJLottery> lotteries = new List<SESENT_KJLottery>();
                     SESENT_KJLottery LetBalllottery = new SESENT_KJLottery()
                     {
+                        GameType = (int)PublicDefined.LetteryType.FootBall,
                         No = No,
                         LotteryMoney = decimal.Parse(letballMoney),
                         LotteryTime = date,
@@ -111,6 +112,7 @@ namespace XlettleryScrapy.ZqHandler
                     };
                     SESENT_KJLottery NotBalllottery = new SESENT_KJLottery()
                     {
+                        GameType=(int)PublicDefined.LetteryType.FootBall,
                         No = No,
                         LotteryMoney = decimal.Parse(NotLetBallMoney),
                         LotteryTime = date,
@@ -119,6 +121,7 @@ namespace XlettleryScrapy.ZqHandler
                     };
                     SESENT_KJLottery AllInBalllottery = new SESENT_KJLottery()
                     {
+                        GameType = (int)PublicDefined.LetteryType.FootBall,
                         No = No,
                         LotteryMoney = decimal.Parse(allInBallMoney),
                         LotteryTime = date,
@@ -127,6 +130,7 @@ namespace XlettleryScrapy.ZqHandler
                     };
                     SESENT_KJLottery DoubleResultlottery = new SESENT_KJLottery()
                     {
+                        GameType = (int)PublicDefined.LetteryType.FootBall,
                         No = No,
                         LotteryMoney = decimal.Parse(doubleResultMoney),
                         LotteryTime = date,
@@ -150,6 +154,7 @@ namespace XlettleryScrapy.ZqHandler
                 string money = tds[9].Text;
                 SESENT_KJLottery LetBalllottery = new SESENT_KJLottery()
                 {
+                    GameType = (int)PublicDefined.LetteryType.FootBall,
                     No = No,
                     LotteryMoney = decimal.Parse(money),
                     LotteryTime = date,

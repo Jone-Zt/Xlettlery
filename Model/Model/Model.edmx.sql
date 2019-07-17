@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 07/16/2019 22:28:57
+-- Date Created: 07/17/2019 22:01:19
 -- Generated from EDMX file: E:\Xlettlery\Model\Model\Model.edmx
 -- --------------------------------------------------
 
@@ -347,7 +347,8 @@ CREATE TABLE [dbo].[SESENT_KJLottery] (
     [No] nvarchar(50)  NOT NULL,
     [Type] int  NOT NULL,
     [Source] nvarchar(100)  NOT NULL,
-    [LotteryTime] datetime  NOT NULL
+    [LotteryTime] datetime  NOT NULL,
+    [GameType] int  NOT NULL
 );
 GO
 

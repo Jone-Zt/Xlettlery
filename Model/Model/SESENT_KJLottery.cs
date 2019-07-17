@@ -20,5 +20,6 @@ namespace Model
         public int Type { get; set; }
         public string Source { get; set; }
         public System.DateTime LotteryTime { get; set; }
+        public int GameType { get; set; }
     }
 }

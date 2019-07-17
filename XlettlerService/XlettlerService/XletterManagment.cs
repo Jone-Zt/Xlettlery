@@ -51,6 +51,7 @@ namespace XlettlerService
                 ServiceHost Auth = new ServiceHost(typeof(AuthorizeServices));
                 ServiceHost Lottery = new ServiceHost(typeof(LotteryService));
                 ServiceHost Message = new ServiceHost(typeof(MessageServices));
+                ServiceHost AwardOpenin = new ServiceHost(typeof(AwardOpeningService));
                 CreateRemoting<IAuthorizeInterface>(Auth);
                 CreateRemoting<IUserInterface>(host);
                 CreateRemoting<IPayInterface>(pay);
@@ -59,6 +60,7 @@ namespace XlettlerService
                 CreateRemoting<IChannelNotify>(Notify);
                 CreateRemoting<IlotteryInterface>(Lottery);
                 CreateRemoting<IMessageInterface>(Message);
+                CreateRemoting<IAwardOpeningService>(AwardOpenin);
                 StartServer();
             }
             catch (Exception err)

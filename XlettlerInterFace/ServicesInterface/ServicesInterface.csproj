@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IAuthorizeInterface.cs" />
+    <Compile Include="IAwardOpeningService.cs" />
     <Compile Include="IChannelNotify.cs" />
     <Compile Include="IlotteryInterface.cs" />
     <Compile Include="IMessageInterface.cs" />

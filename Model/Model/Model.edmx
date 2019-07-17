@@ -284,6 +284,7 @@
     <Property Name="Type" Type="int" Nullable="false" />
     <Property Name="Source" Type="nvarchar" Nullable="false" MaxLength="100" />
     <Property Name="LotteryTime" Type="datetime" Nullable="false" />
+    <Property Name="GameType" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="SESENT_InfoMation">
     <Key>
@@ -641,6 +642,7 @@
           <Property Name="Type" Type="Int32" Nullable="false" />
           <Property Name="Source" Type="String" Nullable="false" MaxLength="100" />
           <Property Name="LotteryTime" Type="DateTime" Nullable="false" />
+          <Property Name="GameType" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="SESENT_InfoMation">
           <Key>
@@ -945,6 +947,7 @@
           <ScalarProperty Name="Type" ColumnName="Type" />
           <ScalarProperty Name="Source" ColumnName="Source" />
           <ScalarProperty Name="LotteryTime" ColumnName="LotteryTime" />
+          <ScalarProperty Name="GameType" ColumnName="GameType" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

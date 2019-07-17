@@ -30,8 +30,10 @@ namespace XlettleryScrapy
                         ZqListScrapyHandler.GetHandler("https://trade.500.com/jczq/?playid=312&g=2");
                         break;
                     case "zqkj":
-                        DateTime time=DateTime.Now.AddDays(-1);
-                        ZqKjScrapyHandler.GetHandler("http://zx.500.com/jczq/kaijiang.php?playid=0&d=",time);
+                        Console.WriteLine("请输入抓取时间!");
+                        string time = Console.ReadLine();
+                        DateTime Parsetime = DateTime.Parse(time);
+                        ZqKjScrapyHandler.GetHandler("http://zx.500.com/jczq/kaijiang.php?playid=0&d=", Parsetime);
                         break;
                 }
             }

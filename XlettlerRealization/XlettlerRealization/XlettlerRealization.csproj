@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AuthorizeServices.cs" />
+    <Compile Include="AwardOpeningService.cs" />
     <Compile Include="ChannelNotifyService.cs" />
     <Compile Include="LotteryService.cs" />
     <Compile Include="MessageServices.cs" />
