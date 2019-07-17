@@ -12,3 +12,17 @@ E:\Xlettlery\XlettlerInterFace\ServicesInterface\obj\Debug\ServicesInterface.csp
 E:\Xlettlery\XlettlerInterFace\ServicesInterface\obj\Debug\ServicesInterface.dll
 E:\Xlettlery\XlettlerInterFace\ServicesInterface\obj\Debug\ServicesInterface.pdb
 E:\Xlettlery\XlettlerInterFace\ServicesInterface\obj\Debug\ServicesInterface.csprojAssemblyReference.cache
+E:\WorkProject\Xlettlery\XlettlerInterFace\ServicesInterface\bin\Debug\ServicesInterface.dll
+E:\WorkProject\Xlettlery\XlettlerInterFace\ServicesInterface\bin\Debug\ServicesInterface.pdb
+E:\WorkProject\Xlettlery\XlettlerInterFace\ServicesInterface\bin\Debug\Model.dll
+E:\WorkProject\Xlettlery\XlettlerInterFace\ServicesInterface\bin\Debug\PublicDefined.dll
+E:\WorkProject\Xlettlery\XlettlerInterFace\ServicesInterface\bin\Debug\EntityFramework.dll
+E:\WorkProject\Xlettlery\XlettlerInterFace\ServicesInterface\bin\Debug\Model.pdb
+E:\WorkProject\Xlettlery\XlettlerInterFace\ServicesInterface\bin\Debug\Model.dll.config
+E:\WorkProject\Xlettlery\XlettlerInterFace\ServicesInterface\bin\Debug\PublicDefined.pdb
+E:\WorkProject\Xlettlery\XlettlerInterFace\ServicesInterface\bin\Debug\EntityFramework.xml
+E:\WorkProject\Xlettlery\XlettlerInterFace\ServicesInterface\obj\Debug\ServicesInterface.csprojAssemblyReference.cache
+E:\WorkProject\Xlettlery\XlettlerInterFace\ServicesInterface\obj\Debug\ServicesInterface.csproj.CoreCompileInputs.cache
+E:\WorkProject\Xlettlery\XlettlerInterFace\ServicesInterface\obj\Debug\ServicesInterface.csproj.CopyComplete
+E:\WorkProject\Xlettlery\XlettlerInterFace\ServicesInterface\obj\Debug\ServicesInterface.dll
+E:\WorkProject\Xlettlery\XlettlerInterFace\ServicesInterface\obj\Debug\ServicesInterface.pdb

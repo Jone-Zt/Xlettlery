@@ -139,19 +139,19 @@
       <publishTime>07/16/2019 13:51:12</publishTime>
     </File>
     <File Include="bin/MobileAPI.dll">
-      <publishTime>07/16/2019 15:21:38</publishTime>
+      <publishTime>07/17/2019 12:50:12</publishTime>
     </File>
     <File Include="bin/MobileAPI.pdb">
-      <publishTime>07/16/2019 15:21:38</publishTime>
+      <publishTime>07/17/2019 12:50:12</publishTime>
     </File>
     <File Include="bin/Model.dll">
-      <publishTime>07/16/2019 15:21:34</publishTime>
+      <publishTime>07/17/2019 11:32:22</publishTime>
     </File>
     <File Include="bin/Model.dll.config">
       <publishTime>07/16/2019 13:51:00</publishTime>
     </File>
     <File Include="bin/Model.pdb">
-      <publishTime>07/16/2019 15:21:34</publishTime>
+      <publishTime>07/17/2019 11:32:22</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>07/16/2019 13:51:12</publishTime>
@@ -307,10 +307,10 @@
       <publishTime>07/16/2019 13:51:11</publishTime>
     </File>
     <File Include="bin/ServicesInterface.dll">
-      <publishTime>07/16/2019 15:21:34</publishTime>
+      <publishTime>07/17/2019 12:50:08</publishTime>
     </File>
     <File Include="bin/ServicesInterface.pdb">
-      <publishTime>07/16/2019 15:21:34</publishTime>
+      <publishTime>07/17/2019 12:50:08</publishTime>
     </File>
     <File Include="bin/ServiceStack.Interfaces.dll">
       <publishTime>07/16/2019 13:51:14</publishTime>
@@ -361,13 +361,13 @@
       <publishTime>07/16/2019 13:51:10</publishTime>
     </File>
     <File Include="bin/Tools.dll">
-      <publishTime>07/16/2019 15:21:36</publishTime>
+      <publishTime>07/17/2019 11:32:26</publishTime>
     </File>
     <File Include="bin/Tools.dll.config">
       <publishTime>07/16/2019 13:51:02</publishTime>
     </File>
     <File Include="bin/Tools.pdb">
-      <publishTime>07/16/2019 15:21:36</publishTime>
+      <publishTime>07/17/2019 11:32:26</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>07/16/2019 13:51:12</publishTime>

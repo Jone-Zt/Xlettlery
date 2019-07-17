@@ -1,0 +1,12 @@
+
+异常时间：2019-07-17 11:48:50,563 [6] 
+异常级别：ERROR 
+异 常 类：logerror [(null)] 
+global_asax 
+ System.Exception: 发生时间:2019/7/17 11:48:42##发生异常页: http://localhost:54473/http:/lottery/QueryFootBallLottery?flowID=1&lotteryId=1##用户IP:::1##发生错误的类名System.Web.HttpRequest##发生错误的方法名：ValidateInputIfRequiredByConfig##异常信息: 从客户端(:)中检测到有潜在危险的 Request.Path 值。##错误源:System.Web##堆栈信息:   在 System.Web.HttpRequest.ValidateInputIfRequiredByConfig()<br>   在 System.Web.HttpApplication.PipelineStepManager.ValidateHelper(HttpContext context)
+
+异常时间：2019-07-17 12:48:33,296 [6] 
+异常级别：ERROR 
+异 常 类：logerror [(null)] 
+global_asax 
+ System.Exception: 发生时间:2019/7/17 12:48:33##发生异常页: http://localhost:54473/http:/lottery/QueryFootBallLottery?flowID=1&lotteryId=1##用户IP:::1##发生错误的类名System.Web.HttpRequest##发生错误的方法名：ValidateInputIfRequiredByConfig##异常信息: 从客户端(:)中检测到有潜在危险的 Request.Path 值。##错误源:System.Web##堆栈信息:   在 System.Web.HttpRequest.ValidateInputIfRequiredByConfig()<br>   在 System.Web.HttpApplication.PipelineStepManager.ValidateHelper(HttpContext context)

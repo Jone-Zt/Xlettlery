@@ -4,3 +4,8 @@ E:\Xlettlery\SecurityTools\obj\Debug\SecurityTools.csproj.CoreCompileInputs.cach
 E:\Xlettlery\SecurityTools\obj\Debug\SecurityTools.dll
 E:\Xlettlery\SecurityTools\obj\Debug\SecurityTools.pdb
 E:\Xlettlery\SecurityTools\obj\Debug\SecurityTools.csprojAssemblyReference.cache
+E:\WorkProject\Xlettlery\SecurityTools\bin\Debug\SecurityTools.dll
+E:\WorkProject\Xlettlery\SecurityTools\bin\Debug\SecurityTools.pdb
+E:\WorkProject\Xlettlery\SecurityTools\obj\Debug\SecurityTools.csproj.CoreCompileInputs.cache
+E:\WorkProject\Xlettlery\SecurityTools\obj\Debug\SecurityTools.dll
+E:\WorkProject\Xlettlery\SecurityTools\obj\Debug\SecurityTools.pdb

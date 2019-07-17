@@ -15,13 +15,13 @@ namespace ServicesInterface
         [OperationContract]
         bool QuerySuportLottery(out IList<Model.SESENT_Lottery> result,out string errMsg);
         [OperationContract]
-        bool QueryFootBallLotteryWithMeach(int lotteryId,int type, out List<MySlefGeneratePicker<object, Dictionary<string, object>>> result, out string errMsg);
+        bool QueryFootBallLotteryWithMeach(int lotteryId,int type, out Dictionary<string,List<MySlefGeneratePicker<object, Dictionary<string, object>>>> result, out string errMsg);
         [OperationContract]
-        bool QueryFootBallLottery(int lotteryId, out List<MySlefGeneratePicker<object, Dictionary<string,object>>> result, out string errMsg);
+        bool QueryFootBallLottery(int lotteryId, out Dictionary<string,List<MySlefGeneratePicker<object, Dictionary<string,object>>>> result, out string errMsg);
         [OperationContract]
         bool QueryFootBallLotteryWithType(int lotteryId, long FootBallID, int? type, out MySlefGeneratePicker<object, Dictionary<string, object>> result, out string errMsg);
         [OperationContract]
-        bool QueryBasketBallLottery(int lotteryId, out List<MySlefGeneratePicker<object, Dictionary<string, object>>> result, out string errMsg);
+        bool QueryBasketBallLottery(int lotteryId, out Dictionary<string,List<MySlefGeneratePicker<object, Dictionary<string, object>>>> result, out string errMsg);
         [OperationContract]
         bool QueryBasketBallLotteryWithType(int lotteryId, long BaskBallID, int type, out MySlefGeneratePicker<object, Dictionary<string, object>> result, out string errMsg);
         /// <summary>
