@@ -37,7 +37,7 @@ namespace MobileAPI.Controllers
             }
             catch (Exception err)
             {
-                picker.FailInfo = err.Message;
+                picker.FailInfo = (err as MyException)?.outErrMsg?? err.Message;
             }
             return Content(picker.ToString());
         }
@@ -58,7 +58,7 @@ namespace MobileAPI.Controllers
             }
             catch (Exception err)
             {
-                picker.FailInfo = err.Message;
+                picker.FailInfo = (err as MyException)?.outErrMsg ?? err.Message;
             }
             return Content(picker.ToString());
         }
@@ -80,7 +80,7 @@ namespace MobileAPI.Controllers
             }
             catch (Exception err)
             {
-                picker.FailInfo = err.Message;
+                picker.FailInfo = (err as MyException)?.outErrMsg ?? err.Message;
             }
             return Content(picker.ToString());
         }
@@ -102,7 +102,7 @@ namespace MobileAPI.Controllers
             }
             catch (Exception err)
             {
-                picker.FailInfo = err.Message;
+                picker.FailInfo = (err as MyException)?.outErrMsg ?? err.Message;
             }
             return Content(picker.ToString());
         }
@@ -125,7 +125,7 @@ namespace MobileAPI.Controllers
             }
             catch (Exception err)
             {
-                picker.FailInfo = err.Message;
+                picker.FailInfo = (err as MyException)?.outErrMsg ?? err.Message;
             }
             return Content(picker.ToString());
         }
@@ -153,7 +153,7 @@ namespace MobileAPI.Controllers
             }
             catch (Exception err)
             {
-                picker.FailInfo = err.Message;
+                picker.FailInfo = (err as MyException)?.outErrMsg ?? err.Message;
             }
             return Content(picker.ToString());
         }
@@ -178,7 +178,7 @@ namespace MobileAPI.Controllers
             }
             catch (Exception err)
             {
-                picker.FailInfo = err.Message;
+                picker.FailInfo = (err as MyException)?.outErrMsg ?? err.Message;
             }
             return Content(picker.ToString());
         }
@@ -202,7 +202,7 @@ namespace MobileAPI.Controllers
             }
             catch (Exception err)
             {
-                picker.FailInfo = err.Message;
+                picker.FailInfo = (err as MyException)?.outErrMsg ?? err.Message;
             }
             return Content(picker.ToString());
         }

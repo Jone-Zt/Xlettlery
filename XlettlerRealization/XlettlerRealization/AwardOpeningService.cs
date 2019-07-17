@@ -27,6 +27,7 @@ namespace XlettlerRealization
                     {
                         //根据当前时间查询到他的主场编号
                         SESENT_FootBallMatch match =container.SESENT_FootBallMatch.Where(a => a.MatchDate>=QueryTime&&a.MatchDate<= endTime&& a.No == item.Key).FirstOrDefault();
+                        if (match == null)  { errMsg = "未查询到该场赛次编号!";return false; }
                         if (match != null)
                         {
                             picker.Add(new
@@ -41,6 +42,7 @@ namespace XlettlerRealization
             }
             catch(Exception err)
             {
+                errMsg = "未知错误!";
                 LogTool.LogWriter.WriteError("查询足球开奖接口:"+err);
                 return false;
             }
