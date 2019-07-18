@@ -53,18 +53,18 @@ namespace XlettleryScrapy.ZqHandler
         {
             ReadOnlyCollection<IWebElement> btnWarps = driver.FindElementsByClassName("bet-date-wrap");
             var DateNode = driver.FindElement(By.XPath("//*[@id='stopTimeToggle']/div[1]/span[1]"));
-            if (DateNode.Text != "截止时间")
-            {
-                DateNode.Click();
-                Thread.Sleep(1000);
-                ReadOnlyCollection<IWebElement> webs=driver.FindElementsByXPath("//*[@id='stopTimeToggle']/div[2]/div/ul/li");
-                var itemtor=webs.GetEnumerator();
-                while (itemtor.MoveNext())
-                {
-                    if (itemtor.Current.FindElement(By.TagName("a")).Text == "截止时间")
-                    { itemtor.Current.Click(); break; }
-                }
-            }
+            //if (DateNode.Text != "截止时间")
+            //{
+            //    DateNode.Click();
+            //    Thread.Sleep(1000);
+            //    ReadOnlyCollection<IWebElement> webs=driver.FindElementsByXPath("//*[@id='stopTimeToggle']/div[2]/div/ul/li");
+            //    var itemtor=webs.GetEnumerator();
+            //    while (itemtor.MoveNext())
+            //    {
+            //        if (itemtor.Current.FindElement(By.TagName("a")).Text == "截止时间")
+            //        { itemtor.Current.Click(); break; }
+            //    }
+            //}
             var items = btnWarps.GetEnumerator();
             while (items.MoveNext())
             {
@@ -289,7 +289,7 @@ namespace XlettleryScrapy.ZqHandler
         {
             Model.ModelContainer container = new Model.ModelContainer();
             container.SESENT_FootBallMatch.Add(match);
-            SESENT_FootBallMatch oldGame = container.SESENT_FootBallMatch.Where(k => k.Fk_FnID == match.Fk_FnID).FirstOrDefault();
+            SESENT_FootBallMatch oldGame = container.SESENT_FootBallMatch.Where(k => k.No == match.No).FirstOrDefault();
             if (oldGame == null)
             {
                 container.SESENT_FootBallMatch.Add(match);

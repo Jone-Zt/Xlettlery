@@ -279,6 +279,7 @@
     <Property Name="Type" Type="int" Nullable="false" />
     <Property Name="Source" Type="nvarchar" Nullable="false" MaxLength="100" />
     <Property Name="LotteryTime" Type="datetime" Nullable="false" />
+    <Property Name="GameType" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="SESENT_InfoMation">
     <Key>

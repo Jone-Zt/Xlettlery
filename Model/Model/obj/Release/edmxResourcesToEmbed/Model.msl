@@ -274,6 +274,7 @@
           <ScalarProperty Name="Type" ColumnName="Type" />
           <ScalarProperty Name="Source" ColumnName="Source" />
           <ScalarProperty Name="LotteryTime" ColumnName="LotteryTime" />
+          <ScalarProperty Name="GameType" ColumnName="GameType" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

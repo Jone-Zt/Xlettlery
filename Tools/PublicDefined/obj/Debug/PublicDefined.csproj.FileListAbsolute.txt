@@ -9,3 +9,4 @@ E:\WorkProject\Xlettlery\Tools\PublicDefined\obj\Debug\PublicDefined.csproj.Core
 E:\WorkProject\Xlettlery\Tools\PublicDefined\obj\Debug\PublicDefined.dll
 E:\WorkProject\Xlettlery\Tools\PublicDefined\obj\Debug\PublicDefined.pdb
 E:\Xlettlery\Tools\PublicDefined\obj\Debug\PublicDefined.csprojAssemblyReference.cache
+E:\WorkProject\Xlettlery\Tools\PublicDefined\obj\Debug\PublicDefined.csprojAssemblyReference.cache
