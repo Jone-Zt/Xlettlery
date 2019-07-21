@@ -3,6 +3,8 @@ using PublicDefined;
 using ServicesInterface;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Web;
 using System.Web.Mvc;
 using Tools;
 
@@ -146,6 +148,26 @@ namespace MobileAPI.Controllers
             }
             return Content(picker.ToString());
         }
+        public ActionResult QueryUserBindRealName()
+        {
+            ResponsePicker<object> picker = new ResponsePicker<object>();
+            try
+            {
+                string flowid = RequestCheck.CheckStringValue(Request, "flowID", "流水号", false);
+                picker.FlowID = flowid;
+                string AccountID = RequestCheck.CheckStringValue(Request, "AccountID", "账号", true);
+                IUserInterface user = GetManger();
+                if (user.QueryUserBindRealName(AccountID, out IDictionary<string, object> result, out string errMsg))
+                    picker.Data = result;
+                else
+                    picker.FailInfo = errMsg;
+            }
+            catch (Exception err)
+            {
+                picker.FailInfo = (err as MyException)?.outErrMsg ?? err.Message;
+            }
+            return Content(picker.ToString());
+        }
         public ActionResult SendUserCode()
         {
             ResponsePicker<object> picker = new ResponsePicker<object>();
@@ -188,6 +210,40 @@ namespace MobileAPI.Controllers
                     picker.Data = result;
                 else
                     picker.FailInfo = errMsg;
+            }
+            catch (Exception err)
+            {
+                picker.FailInfo = (err as MyException)?.outErrMsg ?? err.Message;
+            }
+            return Content(picker.ToString());
+        }
+        public ActionResult UserUploadHeadImg(HttpPostedFileBase file)
+        {
+            ResponsePicker<object> picker = new ResponsePicker<object>();
+            try
+            {
+                string flowid = RequestCheck.CheckStringValue(Request, "flowID", "流水号", false);
+                picker.FlowID = flowid;
+                string AccountID = RequestCheck.CheckStringValue(Request, "AccountID", "账号", false);
+                int fileLength=file.ContentLength;
+                if (fileLength == 0) throw new MyException("当前头像大小不符合!", "用户头像上传失败:当前文件字节为空!");
+                string ext = Path.GetExtension(file.FileName);
+                if (!Verification.isImgFile(ext)) throw new MyException("请上传正确的图片格式!",$"用户头像上传失败:当前图片上传格式:{ext}");
+                using (Stream stm = file.InputStream)
+                {
+                    if (stm.CanRead)
+                    {
+                        byte[] img = new byte[fileLength];
+                        int Count=stm.Read(img,0,img.Length);
+                        IUserInterface user = GetManger();
+                        if (user.UserUploadHeadImg(AccountID, img, out string result, out string errMsg))
+                            picker.Data = result;
+                        else
+                            picker.FailInfo = errMsg;
+                    }
+                    else
+                        throw new MyException("当前不可读取数据!", "用户头像上传失败:文件当前不可读取!");
+                }
             }
             catch (Exception err)
             {

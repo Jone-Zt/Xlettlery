@@ -1,5 +1,6 @@
 ﻿using DealManagement;
 using Model;
+using PublicDefined;
 using ServicesInterface;
 using System;
 using System.Collections.Generic;
@@ -576,6 +577,93 @@ namespace XlettlerRealization
             {
                 errMsg = "未知错误!";
                 LogTool.LogWriter.WriteError("CP查询足球投注订单接口错误:", err);
+                return false;
+            }
+        }
+
+        public bool MakeUserFollow(string AccountID, string FollowID,int type,out string result, out string errMsg)
+        {
+            result = string.Empty;
+            errMsg = string.Empty;
+            try
+            {
+                FollowType followType = (FollowType)type;
+                using (Model.ModelContainer container = new ModelContainer())
+                {
+                    SESENT_USERS uSERS=container.SESENT_USERS.Where(a => a.AccountID == AccountID).FirstOrDefault();
+                    if (uSERS == null) { errMsg = "用户不存在!";return false; }
+                    SENENT_GuanZhu sENENT=container.SENENT_GuanZhu.Where(a => a.AccountID == AccountID && a.followAccountID == FollowID).FirstOrDefault();
+                    if (sENENT == null && followType == FollowType.UnFollow) { errMsg = "您未关注该用户";return false; }
+                    if (sENENT == null) { sENENT.AccountID = AccountID;sENENT.followAccountID = FollowID;}
+                    sENENT.Status = (short)followType;
+                    container.SaveChanges();
+                    result = "操作成功!";
+                    return true;
+                }
+            }
+            catch (Exception err)
+            {
+                LogTool.LogWriter.WriteError($"操作用户关注接口失败:{err}");
+                return false;
+            }
+        }
+
+        public bool QueryUserFollow(string AccountID, out DataTable result, out string errMsg)
+        {
+            result = null;
+            errMsg = string.Empty;
+            try
+            {
+                using (Model.ModelContainer container = new ModelContainer()) 
+                {
+                    SESENT_USERS sESENT=container.SESENT_USERS.Where(a => a.AccountID == AccountID).FirstOrDefault();
+                    if (sESENT == null) { errMsg = "未查询到该账户！";return false; }
+                    IQueryable<SENENT_GuanZhu> guanZhus=container.SENENT_GuanZhu.Where(a => a.AccountID == AccountID&&a.Status==(short)PublicDefined.FollowType.Follow);
+                    var itemtor = guanZhus.GetEnumerator();
+                    List<object> list = new List<object>();
+                    while (itemtor.MoveNext())
+                    {
+                        //TODO 查询当前关注的是否正在有发单的订单(未开始)测试默认写的3
+                        string nikeName = string.Empty;
+                        string HeadImg = string.Empty;
+                        SESENT_USERS uSERS=container.SESENT_USERS.Where(a => a.AccountID == itemtor.Current.followAccountID).FirstOrDefault();
+                        if (uSERS != null) { nikeName = uSERS.userName;HeadImg = uSERS.HeadImg == null ? null : Convert.ToBase64String(uSERS.HeadImg); }
+                        list.Add(new { nikeName,HeadImg, GenDanIngCount=3 });
+                    }
+                    result = UntilsObjToDic.ListToDataTable(list.ToList());
+                    return true;
+                }
+            }
+            catch (Exception err)
+            {
+                LogTool.LogWriter.WriteError($"查询用户关注接口错误:【账号:{AccountID}】错误:{err}");
+                errMsg = "未知错误!";
+                return false;
+            }
+        }
+
+        public bool MakeGenDan(string AccountID, int lotteryId, int GameType, string Fids, int[] Games, int Multiple, out object result, out string errMsg)
+        {
+            result = null;
+            errMsg = string.Empty;
+            try
+            {
+                Dictionary<string, string> ParseFids = UntilsObjToDic.ProductDetailList(Fids);
+                if (Games.Where(a => a > ParseFids.Count).Count() > 0) { errMsg = "选择的游戏场次大于玩法类型"; return false; }
+                using (Model.ModelContainer container = new ModelContainer()) 
+                {
+                    GameType type = (GameType)GameType;
+                    SESENT_Lottery lottery=container.SESENT_Lottery.Where(a => a.lotteryId == lotteryId && a.Type == GameType&&a.Status==(int)PublicDefined.Status.Open).FirstOrDefault();
+                    if (lottery == null) { errMsg = "当前游戏暂未开放!";return false; }
+                    SESENT_USERS uSERS=container.SESENT_USERS.Where(a => a.AccountID == AccountID).FirstOrDefault();
+                    if (uSERS == null) { errMsg = "当前账户不存在!";return false; }
+                    return true;
+                }
+            }
+            catch (Exception err)
+            {
+                errMsg = "未知错误!";
+                LogTool.LogWriter.WriteError($"发起跟单接口失败:【账号:{AccountID}】{err.Message}");
                 return false;
             }
         }

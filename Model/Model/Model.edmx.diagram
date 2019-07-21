@@ -5,29 +5,31 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="814e0ed20bd54dc3bc97f2b88f33217f" Name="Diagram1" >
-        <EntityTypeShape EntityType="Model.SESENT_USERS" Width="1.5" PointX="2.75" PointY="1" />
+        <EntityTypeShape EntityType="Model.SESENT_USERS" Width="1.5" PointX="3.25" PointY="0.75" />
         <EntityTypeShape EntityType="Model.SESENT_Order" Width="1.5" PointX="10.375" PointY="0.875" />
         <EntityTypeShape EntityType="Model.SESENT_PhoneXCodes" Width="1.5" PointX="6.625" PointY="1.875" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.SESENT_Channels" Width="1.5" PointX="1.25" PointY="4.75" />
         <EntityTypeShape EntityType="Model.SESENT_MessageText" Width="2" PointX="4.625" PointY="4.875" />
-        <EntityTypeShape EntityType="Model.SESENT_MessageObj" Width="2.375" PointX="7.625" PointY="5" />
+        <EntityTypeShape EntityType="Model.SESENT_MessageObj" Width="2.375" PointX="8.375" PointY="4.75" />
         <EntityTypeShape EntityType="Model.SESENT_Settings" Width="2" PointX="11.75" PointY="4.75" />
-        <EntityTypeShape EntityType="Model.SESENT_ChannelProtocol" Width="2.625" PointX="6.5" PointY="8" />
-        <EntityTypeShape EntityType="Model.SESENT_AdminManger" Width="1.5" PointX="4.125" PointY="8.75" />
+        <EntityTypeShape EntityType="Model.SESENT_ChannelProtocol" Width="2.625" PointX="12.625" PointY="8.25" />
+        <EntityTypeShape EntityType="Model.SESENT_AdminManger" Width="1.5" PointX="2.75" PointY="9.5" />
         <EntityTypeShape EntityType="Model.SESENT_ConsumptERecords" Width="2.875" PointX="1.75" PointY="11.75" />
-        <EntityTypeShape EntityType="Model.SESENT_RankingSystemSetting" Width="2.125" PointX="11.5" PointY="8" />
+        <EntityTypeShape EntityType="Model.SESENT_RankingSystemSetting" Width="2.125" PointX="14.375" PointY="5.375" />
         <EntityTypeShape EntityType="Model.SESENT_CashCard" Width="2.25" PointX="7.25" PointY="11.25" />
-        <EntityTypeShape EntityType="Model.SESENT_ChannelQuoTa" Width="1.5" PointX="1.25" PointY="8" />
+        <EntityTypeShape EntityType="Model.SESENT_ChannelQuoTa" Width="1.5" PointX="0.875" PointY="7.375" />
         <EntityTypeShape EntityType="Model.SESENT_BankLineNumber" Width="1.5" PointX="13.125" PointY="11.375" />
         <EntityTypeShape EntityType="Model.SESENT_BankCity" PointX="10.125" PointY="11.125" Width="1.5" />
         <EntityTypeShape EntityType="Model.SESENT_Lottery" Width="1.875" PointX="8.875" PointY="15.375" />
-        <EntityTypeShape EntityType="Model.SESENT_FootBallMatch" Width="1.5" PointX="1.75" PointY="16.875" />
+        <EntityTypeShape EntityType="Model.SESENT_FootBallMatch" Width="2.875" PointX="2" PointY="16.875" />
         <EntityTypeShape EntityType="Model.SESENT_FootBallGame" Width="2.625" PointX="5.75" PointY="17.25" />
         <EntityTypeShape EntityType="Model.SESENT_BasketBallMatch" Width="2.5" PointX="5.75" PointY="19.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.SESENT_BasketBallGame" Width="3.375" PointX="9.625" PointY="19.875" />
         <EntityTypeShape EntityType="Model.SESENT_KJLottery" Width="2" PointX="2.25" PointY="20.625" />
         <EntityTypeShape EntityType="Model.SESENT_InfoMation" Width="1.5" PointX="12.25" PointY="16" />
         <EntityTypeShape EntityType="Model.SESENT_FootBallOrder" Width="2.5" PointX="6.625" PointY="23.625" />
+        <EntityTypeShape EntityType="Model.SESENT_GenDan" Width="2.125" PointX="5.375" PointY="8.375" />
+        <EntityTypeShape EntityType="Model.SENENT_GuanZhu" Width="2.5" PointX="8.875" PointY="8.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

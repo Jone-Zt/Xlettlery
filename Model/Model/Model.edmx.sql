@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 07/17/2019 22:01:19
+-- Date Created: 07/21/2019 23:44:23
 -- Generated from EDMX file: E:\Xlettlery\Model\Model\Model.edmx
 -- --------------------------------------------------
 
@@ -91,6 +91,12 @@ GO
 IF OBJECT_ID(N'[dbo].[SESENT_FootBallOrder]', 'U') IS NOT NULL
     DROP TABLE [dbo].[SESENT_FootBallOrder];
 GO
+IF OBJECT_ID(N'[dbo].[SESENT_GenDan]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[SESENT_GenDan];
+GO
+IF OBJECT_ID(N'[dbo].[SENENT_GuanZhu]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[SENENT_GuanZhu];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -113,7 +119,8 @@ CREATE TABLE [dbo].[SESENT_USERS] (
     [Consumption] decimal(18,0)  NOT NULL,
     [UpgradeTime] datetime  NULL,
     [RealName] nvarchar(20)  NULL,
-    [IDCardNum] nvarchar(20)  NOT NULL
+    [IDCardNum] nvarchar(20)  NOT NULL,
+    [HeadImg] varbinary(max)  NULL
 );
 GO
 
@@ -296,7 +303,8 @@ CREATE TABLE [dbo].[SESENT_FootBallMatch] (
     [VisitingteamRanking] nvarchar(10)  NOT NULL,
     [MatchDate] datetime  NOT NULL,
     [MatchWeek] nvarchar(10)  NOT NULL,
-    [Fk_FnID] nvarchar(200)  NOT NULL
+    [Fk_FnID] nvarchar(200)  NOT NULL,
+    [BeginTime] nvarchar(max)  NOT NULL
 );
 GO
 
@@ -324,7 +332,8 @@ CREATE TABLE [dbo].[SESENT_BasketBallMatch] (
     [VisitingteamRanking] nvarchar(10)  NOT NULL,
     [MatchDate] datetime  NOT NULL,
     [MatchWeek] nvarchar(10)  NOT NULL,
-    [Fk_FnID] nvarchar(200)  NOT NULL
+    [Fk_FnID] nvarchar(200)  NOT NULL,
+    [BeginTime] nvarchar(max)  NOT NULL
 );
 GO
 
@@ -373,6 +382,28 @@ CREATE TABLE [dbo].[SESENT_FootBallOrder] (
     [Type] nvarchar(max)  NOT NULL,
     [AccountID] nvarchar(100)  NOT NULL,
     [GameType] int  NOT NULL
+);
+GO
+
+-- Creating table 'SESENT_GenDan'
+CREATE TABLE [dbo].[SESENT_GenDan] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [AccountID] nvarchar(max)  NOT NULL,
+    [CreateDateTime] nvarchar(max)  NOT NULL,
+    [GameType] nvarchar(max)  NOT NULL,
+    [GameID] nvarchar(max)  NOT NULL,
+    [EndTime] nvarchar(max)  NOT NULL,
+    [Status] smallint  NULL,
+    [BeginMoney] decimal(18,0)  NOT NULL
+);
+GO
+
+-- Creating table 'SENENT_GuanZhu'
+CREATE TABLE [dbo].[SENENT_GuanZhu] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [followAccountID] nvarchar(max)  NOT NULL,
+    [AccountID] nvarchar(max)  NOT NULL,
+    [Status] smallint  NULL
 );
 GO
 
@@ -516,6 +547,18 @@ GO
 ALTER TABLE [dbo].[SESENT_FootBallOrder]
 ADD CONSTRAINT [PK_SESENT_FootBallOrder]
     PRIMARY KEY CLUSTERED ([OrderID] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'SESENT_GenDan'
+ALTER TABLE [dbo].[SESENT_GenDan]
+ADD CONSTRAINT [PK_SESENT_GenDan]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'SENENT_GuanZhu'
+ALTER TABLE [dbo].[SENENT_GuanZhu]
+ADD CONSTRAINT [PK_SENENT_GuanZhu]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
 -- --------------------------------------------------

@@ -20,6 +20,7 @@
           <ScalarProperty Name="UpgradeTime" ColumnName="UpgradeTime" />
           <ScalarProperty Name="RealName" ColumnName="RealName" />
           <ScalarProperty Name="IDCardNum" ColumnName="IDCardNum" />
+          <ScalarProperty Name="HeadImg" ColumnName="HeadImg" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -219,6 +220,7 @@
           <ScalarProperty Name="MatchDate" ColumnName="MatchDate" />
           <ScalarProperty Name="MatchWeek" ColumnName="MatchWeek" />
           <ScalarProperty Name="Fk_FnID" ColumnName="Fk_FnID" />
+          <ScalarProperty Name="BeginTime" ColumnName="BeginTime" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -249,6 +251,7 @@
           <ScalarProperty Name="MatchDate" ColumnName="MatchDate" />
           <ScalarProperty Name="MatchWeek" ColumnName="MatchWeek" />
           <ScalarProperty Name="Fk_FnID" ColumnName="Fk_FnID" />
+          <ScalarProperty Name="BeginTime" ColumnName="BeginTime" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -301,6 +304,30 @@
           <ScalarProperty Name="Type" ColumnName="Type" />
           <ScalarProperty Name="AccountID" ColumnName="AccountID" />
           <ScalarProperty Name="GameType" ColumnName="GameType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SESENT_GenDan">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.SESENT_GenDan)">
+        <MappingFragment StoreEntitySet="SESENT_GenDan">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+          <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+          <ScalarProperty Name="GameType" ColumnName="GameType" />
+          <ScalarProperty Name="GameID" ColumnName="GameID" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="BeginMoney" ColumnName="BeginMoney" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SENENT_GuanZhu">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.SENENT_GuanZhu)">
+        <MappingFragment StoreEntitySet="SENENT_GuanZhu">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="followAccountID" ColumnName="followAccountID" />
+          <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

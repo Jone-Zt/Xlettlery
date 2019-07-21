@@ -76,7 +76,7 @@ namespace Tools
                 }
                 return result;
             }
-            catch (Exception x)
+            catch (Exception)
             {
                 return "";
             }

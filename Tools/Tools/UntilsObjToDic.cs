@@ -32,9 +32,7 @@ namespace Tools
         {
             if (list == null || list.Count == 0)
                 return null;
-            //创建一个名为"tableName"的空表
             DataTable dt = new DataTable("tableName");
-
             //创建传入对象名称的列
             foreach (var item in list.FirstOrDefault().GetType().GetProperties())
             {

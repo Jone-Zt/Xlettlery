@@ -107,6 +107,10 @@
       <Project>{8C351DB7-B6CB-4B1A-AE3B-B6E13E97A1D5}</Project>
       <Name>ChannelManagement</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Model\Model\Model.csproj">
+      <Project>{b088d9a8-712e-437b-a8a8-426081bcaada}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Test\Test\Test.csproj">
       <Project>{63d1b0c4-f9bd-42ee-b06c-04163287149d}</Project>
       <Name>Test</Name>

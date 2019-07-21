@@ -49,22 +49,41 @@ namespace XlettleryScrapy.ZqHandler
                 LogTool.LogWriter.WriteError("爬虫抓取错误:"+err.Message);
             }
         }
-        public void ParseHtml()
+        private void GetEndDateTime()
         {
-            ReadOnlyCollection<IWebElement> btnWarps = driver.FindElementsByClassName("bet-date-wrap");
             var DateNode = driver.FindElement(By.XPath("//*[@id='stopTimeToggle']/div[1]/span[1]"));
             if (DateNode.Text != "截止时间")
             {
                 DateNode.Click();
                 Thread.Sleep(1000);
-                ReadOnlyCollection<IWebElement> webs=driver.FindElementsByXPath("//*[@id='stopTimeToggle']/div[2]/div/ul/li");
-                var itemtor=webs.GetEnumerator();
+                ReadOnlyCollection<IWebElement> webs = driver.FindElementsByXPath("//*[@id='stopTimeToggle']/div[2]/div/ul/li");
+                var itemtor = webs.GetEnumerator();
                 while (itemtor.MoveNext())
                 {
                     if (itemtor.Current.FindElement(By.TagName("a")).Text == "截止时间")
                     { itemtor.Current.Click(); break; }
                 }
             }
+        }
+        private void GetBeginTime()
+        {
+            var DateNode = driver.FindElement(By.XPath("//*[@id='stopTimeToggle']/div[1]/span[1]"));
+            if (DateNode.Text != "开赛时间")
+            {
+                DateNode.Click();
+                Thread.Sleep(1000);
+                ReadOnlyCollection<IWebElement> webs = driver.FindElementsByXPath("//*[@id='stopTimeToggle']/div[2]/div/ul/li");
+                var itemtor = webs.GetEnumerator();
+                while (itemtor.MoveNext())
+                {
+                    if (itemtor.Current.FindElement(By.TagName("a")).Text == "开赛时间")
+                    { itemtor.Current.Click(); break; }
+                }
+            }
+        }
+        public void ParseHtml()
+        {
+            ReadOnlyCollection<IWebElement> btnWarps = driver.FindElementsByClassName("bet-date-wrap");
             var items = btnWarps.GetEnumerator();
             while (items.MoveNext())
             {
@@ -82,7 +101,8 @@ namespace XlettleryScrapy.ZqHandler
                     long FootBallID = RuleGenerateGame.GetGameID();
                     string No = string.Empty;//编号
                     string Evt = string.Empty;//赛事
-                    string Endtime = string.Empty;//开赛时间
+                    string Begintime = string.Empty;//开赛时间
+                    string Endtime = string.Empty;//结束时间
                     string Mainteam = string.Empty;//主队
                     string MainteamRanking = string.Empty;//主队排名
                     string Visitingteam = string.Empty;//客队
@@ -105,9 +125,14 @@ namespace XlettleryScrapy.ZqHandler
                             Evt = citem.FindElement(By.TagName("a")).Text;
                         else if (IsExitsWithClass(citem, "td td-endtime"))
                         {
+                            Begintime = citem.Text;
+                            //获取截至时间
+                            GetEndDateTime();
                             Endtime = citem.Text;
                             string timeOut = DateTime.Now.ToString("yyyy") + "-" + Endtime;
                             time = DateTime.Parse(timeOut);
+                            //还原时间
+                            GetBeginTime();
                         }
                         else if (IsExitsWithClass(citem, "td td-team"))
                         {
@@ -280,6 +305,7 @@ namespace XlettleryScrapy.ZqHandler
                             Visitingteam = Visitingteam,
                             VisitingteamRanking = VisitingteamRanking,
                             Match = Evt,
+                            BeginTime=Begintime,
                         },time-DateTime.Now);
                     }
                 }

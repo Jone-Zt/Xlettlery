@@ -24,6 +24,8 @@
     <EntitySet Name="SESENT_KJLottery" EntityType="Model.SESENT_KJLottery" />
     <EntitySet Name="SESENT_InfoMation" EntityType="Model.SESENT_InfoMation" />
     <EntitySet Name="SESENT_FootBallOrder" EntityType="Model.SESENT_FootBallOrder" />
+    <EntitySet Name="SESENT_GenDan" EntityType="Model.SESENT_GenDan" />
+    <EntitySet Name="SENENT_GuanZhu" EntityType="Model.SENENT_GuanZhu" />
   </EntityContainer>
   <EntityType Name="SESENT_USERS">
     <Documentation>
@@ -80,6 +82,7 @@
     <Property Name="UpgradeTime" Type="DateTime" />
     <Property Name="RealName" Type="String" MaxLength="20" Nullable="true" />
     <Property Name="IDCardNum" Type="String" Nullable="false" MaxLength="20" />
+    <Property Name="HeadImg" Type="Binary" />
   </EntityType>
   <EntityType Name="SESENT_Order">
     <Documentation>
@@ -328,6 +331,7 @@
     <Property Name="Type" Type="Int32" Nullable="false" />
     <Property Name="Source" Type="String" Nullable="false" MaxLength="100" />
     <Property Name="LotteryTime" Type="DateTime" Nullable="false" />
+    <Property Name="GameType" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="SESENT_InfoMation">
     <Key>
@@ -352,5 +356,26 @@
     <Property Name="Type" Type="String" Nullable="false" />
     <Property Name="AccountID" Type="String" Nullable="false" MaxLength="100" />
     <Property Name="GameType" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SESENT_GenDan">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AccountID" Type="String" Nullable="false" />
+    <Property Name="CreateDateTime" Type="String" Nullable="false" />
+    <Property Name="GameType" Type="String" Nullable="false" />
+    <Property Name="GameID" Type="String" Nullable="false" />
+    <Property Name="EndTime" Type="String" Nullable="false" />
+    <Property Name="Status" Type="Int16" Nullable="true" />
+  </EntityType>
+  <EntityType Name="SENENT_GuanZhu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="followAccountID" Type="String" Nullable="false" />
+    <Property Name="AccountID" Type="String" Nullable="false" />
+    <Property Name="Status" Type="Int16" Nullable="true" />
   </EntityType>
 </Schema>
