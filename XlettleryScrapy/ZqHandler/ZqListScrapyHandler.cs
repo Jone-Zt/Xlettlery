@@ -315,7 +315,7 @@ namespace XlettleryScrapy.ZqHandler
         {
             Model.ModelContainer container = new Model.ModelContainer();
             container.SESENT_FootBallMatch.Add(match);
-            SESENT_FootBallMatch oldGame = container.SESENT_FootBallMatch.Where(k => k.Fk_FnID == match.Fk_FnID).FirstOrDefault();
+            SESENT_FootBallMatch oldGame = container.SESENT_FootBallMatch.Where(k => k.No == match.No).FirstOrDefault();
             if (oldGame == null)
             {
                 container.SESENT_FootBallMatch.Add(match);
