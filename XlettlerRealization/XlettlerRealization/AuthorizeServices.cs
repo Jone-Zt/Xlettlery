@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using AOPHandlerManager.MethordHandler;
+using Model;
 using ServicesInterface;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ namespace XlettlerRealization
 {
     public class AuthorizeServices : IAuthorizeInterface
     {
+        [MethordTimingHandler]
         public bool CheckAuthorzeServices(string UserName, string UserPwd)
         {
             using (ModelContainer db = new ModelContainer()) 

@@ -43,6 +43,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelComparer", "..\ModelCo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XlettleryScrapy", "..\XlettleryScrapy\XlettleryScrapy.csproj", "{B33C686A-68A9-47FA-91B6-5C11FC3E712D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AOPHandlerManager", "..\AOPHandlerManager\AOPHandlerManager.csproj", "{FE6E162F-B7C8-4D4B-B769-AC02F6421A26}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -125,6 +127,10 @@ Global
 		{B33C686A-68A9-47FA-91B6-5C11FC3E712D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B33C686A-68A9-47FA-91B6-5C11FC3E712D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B33C686A-68A9-47FA-91B6-5C11FC3E712D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE6E162F-B7C8-4D4B-B769-AC02F6421A26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE6E162F-B7C8-4D4B-B769-AC02F6421A26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE6E162F-B7C8-4D4B-B769-AC02F6421A26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE6E162F-B7C8-4D4B-B769-AC02F6421A26}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

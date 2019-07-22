@@ -1,4 +1,5 @@
-﻿using DealManagement;
+﻿using AOPHandlerManager.MethordHandler;
+using DealManagement;
 using Model;
 using ServicesInterface;
 using System;
@@ -14,6 +15,7 @@ namespace XlettlerRealization
     [CallbackBehavior(UseSynchronizationContext = false)]
     public class LotteryService : IlotteryInterface
     {
+        [MethordTimingHandler]
         public bool QueryBasketBallLottery(int lotteryId, out Dictionary<string,List<MySlefGeneratePicker<dynamic, Dictionary<string, object>>>> result, out string errMsg)
         {
             result = null;
@@ -110,6 +112,7 @@ namespace XlettlerRealization
                 return false;
             }
         }
+        [MethordTimingHandler]
         public bool QueryFootBallLotteryWithType(int lotteryId, long FootBallID, int? type, out MySlefGeneratePicker<dynamic, Dictionary<string, object>> result, out string errMsg)
         {
             result = null;
@@ -249,6 +252,7 @@ namespace XlettlerRealization
                 return false;
             }
         }
+        [MethordTimingHandler]
         public bool QueryFootBallLotteryWithMeach(int lotteryId, int type, out Dictionary<string,List<MySlefGeneratePicker<object, Dictionary<string, object>>>> result, out string errMsg)
         {
             result = null;
@@ -307,6 +311,7 @@ namespace XlettlerRealization
                 return false;
             }
         }
+        [MethordTimingHandler]
         public bool QueryFootBallLottery(int lotteryId, out Dictionary<string,List<MySlefGeneratePicker<object, Dictionary<string, object>>>> result, out string errMsg)
         {
             result = null;
@@ -407,6 +412,7 @@ namespace XlettlerRealization
                 return false;
             }
         }
+        [MethordTimingHandler]
         public bool QuerySuportLottery(out IList<SESENT_Lottery> result, out string errMsg)
         {
             result = null;
@@ -425,6 +431,7 @@ namespace XlettlerRealization
                 return false;
             }
         }
+        [MethordTimingHandler]
         public bool QueryBasketBallLotteryWithType(int lotteryId, long BaskBallID, int type, out MySlefGeneratePicker<dynamic, Dictionary<string, object>> result, out string errMsg)
         {
             result = null;
@@ -475,6 +482,7 @@ namespace XlettlerRealization
                 return false;
             }
         }
+        [MethordTimingHandler]
         public bool MakeOrderWithFootBallGame(string AccountID, int lotteryId, string Fids, int[] type, int Multiple, out object result, out string errMsg)
         {
             result = null;
@@ -549,6 +557,7 @@ namespace XlettlerRealization
                 return false;
             }
         }
+        [MethordTimingHandler]
         public bool QueryOrderWithFootBall(string AccountID, out DataTable result, out string errMsg)
         {
             result = null;

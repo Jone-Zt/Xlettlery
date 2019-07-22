@@ -35,6 +35,9 @@
     <Reference Include="EntityFramework">
       <HintPath>..\..\Lib\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="PostSharp">
+      <HintPath>..\..\XlettlerSolution\packages\PostSharp.Redist.6.2.9\lib\net45\PostSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.ServiceModel" />
@@ -59,6 +62,10 @@
     <Compile Include="UserService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\AOPHandlerManager\AOPHandlerManager.csproj">
+      <Project>{fe6e162f-b7c8-4d4b-b769-ac02f6421a26}</Project>
+      <Name>AOPHandlerManager</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\ChannelInterface\ThridPayInterface.csproj">
       <Project>{FF8B40C7-54D5-4D7E-BD52-6580DD14FD2C}</Project>
       <Name>ThridPayInterface</Name>
