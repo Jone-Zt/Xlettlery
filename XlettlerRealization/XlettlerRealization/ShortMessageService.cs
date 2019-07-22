@@ -3,8 +3,10 @@ using PublicDefined;
 using ServicesInterface;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.ServiceModel;
+using Tools;
 
 namespace XlettlerRealization
 {
@@ -94,7 +96,7 @@ namespace XlettlerRealization
             }
         }
 
-        public bool QueryInbox(string AccountID, out IList<Dictionary<string, string>> result, out string errMsg)
+        public bool QueryInbox(string AccountID, out IList<Dictionary<string, DataTable>> result, out string errMsg)
         {
             result = null;
             errMsg = string.Empty;
@@ -102,13 +104,15 @@ namespace XlettlerRealization
             {
                 using (ModelContainer container = new ModelContainer())
                 {
-                    result = new List<Dictionary<string, string>>();
+                    result = new List<Dictionary<string, DataTable>>();
                     IQueryable<SESENT_MessageText> texts = container.SESENT_MessageText.Where(a => a.Type == (short)MessageObjType.All || (a.Type == (short)MessageObjType.Singler && a.Recld == AccountID));
                     var item = texts.GetEnumerator();
+                    List<object> NoGift = new List<object>();
+                    List<object> HasGift = new List<object>();
                     while (item.MoveNext())
                     {
-                        Dictionary<string, string> dic = new Dictionary<string, string>();
                         SESENT_MessageObj obj = container.SESENT_MessageObj.Where(a => a.MessageID == item.Current.Id && a.RecId == AccountID).FirstOrDefault();
+                        Dictionary<string, string> dic = new Dictionary<string, string>();
                         dic.Add("ID", item.Current.Id.ToString());
                         if (obj != null)
                             dic.Add("Status", obj.Status.ToString());
@@ -116,13 +120,40 @@ namespace XlettlerRealization
                             dic.Add("Status", ((int)MessageStatus.Unreaded).ToString());
                         dic.Add("Title", item.Current.Title);
                         dic.Add("Content", item.Current.Content);
-                        dic.Add("HasGift", (item.Current.HasGift ? 1 : 0).ToString());
-                        if (item.Current.HasGift)
-                            dic.Add("Gift", item.Current.Gift.ToString("0"));
                         dic.Add("CreateTime", item.Current.CreateDateTime.ToString("yyyy-MM-dd"));
                         dic.Add("SendID", item.Current.SendID);
-                        result.Add(dic);
+                        if (item.Current.HasGift)
+                        {
+                            dic.Add("HasGift", (item.Current.HasGift ? 1 : 0).ToString());
+                            if (item.Current.HasGift)
+                                dic.Add("Gift", item.Current.Gift.ToString("0"));
+                            HasGift.Add(new {
+                                ID=dic["ID"],
+                                Status=dic["Status"],
+                                Title=dic["Title"],
+                                Content=dic["Content"],
+                                CreateTime=dic["CreateTime"],
+                                SendID=dic["SendID"],
+                                HasGift=dic["HasGift"],
+                                Gift=dic["Gift"]
+                            });
+                        }
+                        else
+                            NoGift.Add(new {
+                                ID = dic["ID"],
+                                Status = dic["Status"],
+                                Title = dic["Title"],
+                                Content = dic["Content"],
+                                CreateTime = dic["CreateTime"],
+                                SendID = dic["SendID"],
+                            });
                     }
+                    Dictionary<string, DataTable> keyValues= new Dictionary<string, DataTable>();
+                    keyValues.Add("1", UntilsObjToDic.ListToDataTable(HasGift));
+                    result.Add(keyValues);
+                    Dictionary<string, DataTable> NokeyValues = new Dictionary<string, DataTable>();
+                    keyValues.Add("0", UntilsObjToDic.ListToDataTable(NoGift));
+                    result.Add(NokeyValues);
                 }
                 return true;
             }

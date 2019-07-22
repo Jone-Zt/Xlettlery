@@ -1,6 +1,7 @@
 ﻿using AOPHandlerManager.MethordHandler;
 using DealManagement;
 using Model;
+using Newtonsoft.Json;
 using PublicDefined;
 using ServicesInterface;
 using System;
@@ -491,6 +492,7 @@ namespace XlettlerRealization
             try
             {
                 Dictionary<string, string> ParseFids = UntilsObjToDic.ProductDetailList(Fids);
+                string makeOrders=JsonConvert.SerializeObject(ParseFids);
                 if (type.Where(a => a > ParseFids.Count).Count() > 0) { errMsg = "选择的游戏场次大于玩法类型"; return false; }
                 using (ModelContainer container = new ModelContainer())
                 {
@@ -501,13 +503,11 @@ namespace XlettlerRealization
                     var item = ParseFids.GetEnumerator();
                     int count = ParseFids.Count;
                     List<string[]> list = new List<string[]>();
-                    StringBuilder builder = new StringBuilder();
                     while (item.MoveNext())
                     {
                         long FootballID = long.Parse(item.Current.Key);
                         SESENT_FootBallGame sESENT = null;
                         SESENT_FootBallMatch match = null;
-                        builder.Append(item.Current.Key).Append("|").Append(item.Current.Key).Append("&");
                         string[] splitFid = item.Current.Value.Split(',');
                         //过滤重复的
                         if (Verification.IsRepeatHashSet(splitFid)) { errMsg = "不可重复选择同一项"; return false; }
@@ -523,7 +523,6 @@ namespace XlettlerRealization
                         if (DateTime.Now > match.MatchDate) { errMsg = "该场比赛投注时间已截至。"; return false; }
                         list.Add(splitFid);
                     }
-                    builder.Remove(builder.Length - 1, 1);
                     long workcount = 0;
                     XLetteryAlgorithm xLettery = new XLetteryAlgorithm(list);
                     for (int i = 0; i < type.Length; i++)
@@ -536,8 +535,10 @@ namespace XlettlerRealization
                     string parseType = string.Join(",", type.Select(i => i.ToString()).ToArray());
                     SESENT_FootBallOrder order = new SESENT_FootBallOrder()
                     {
+                        AccountID=AccountID,
+                        GameType=(int)PublicDefined.LetteryType.FootBall,
                         EnterTime = DateTime.Now,
-                        FIds = builder.ToString(),
+                        FIds = makeOrders,
                         OrderID = long.Parse(RuleUtility.RuleGenerateOrder.GetOrderID()),
                         Status = (int)PublicDefined.OrderStatus.wait,
                         Type = parseType

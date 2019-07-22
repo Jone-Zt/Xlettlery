@@ -3,6 +3,7 @@ using PublicDefined;
 using ServicesInterface;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Web.Mvc;
 using Tools;
 
@@ -22,7 +23,7 @@ namespace MobileAPI.Controllers
         }
         public ActionResult QueryInbox()
         {
-            ResponsePicker<Dictionary<string, string>> picker = new ResponsePicker<Dictionary<string, string>>();
+            ResponsePicker<Dictionary<string, DataTable>> picker = new ResponsePicker<Dictionary<string, DataTable>>();
             try
             {
                 string flowid = RequestCheck.CheckStringValue(Request, "flowID", "流水号", false);
@@ -31,7 +32,7 @@ namespace MobileAPI.Controllers
                 IShortMessageInterface user = GetManger();
                 if (user == null)
                     throw new Exception("未挂载函数!");
-                if (user.QueryInbox(accountID, out IList<Dictionary<string, string>> result, out string errMsg))
+                if (user.QueryInbox(accountID, out IList<Dictionary<string, DataTable>> result, out string errMsg))
                     picker.List = result;
                 else
                     picker.FailInfo = errMsg;
