@@ -39,7 +39,30 @@ namespace XlettlerRealization
                 return false;
             }
         }
-
+        public bool QueryUserBindRealName(string AccountID, out IDictionary<string, object> result, out string errMsg)
+        {
+            result = null;
+            errMsg = string.Empty;
+            try
+            {
+                using (ModelContainer container = new ModelContainer())
+                {
+                    SESENT_USERS _USERS = container.SESENT_USERS.Where(a => a.AccountID == AccountID).FirstOrDefault();
+                    if (_USERS == null) { errMsg = "未查询到该用户信息!"; return false; }
+                    if (!string.IsNullOrEmpty(_USERS.RealName) && !string.IsNullOrEmpty(_USERS.IDCardNum))
+                        result.Add("Status", 1);
+                    else
+                        result.Add("Status",0);
+                    return true;
+                }
+            }
+            catch (Exception err)
+            {
+                LogTool.LogWriter.WriteError($"查询绑定实名账号失败:账号{AccountID}错误:{err.Message}");
+                errMsg = "未知错误!";
+                return false;
+            }
+        }
         public bool CheckReister(string Phone, string AccountID, out string Msg)
         {
             try
@@ -129,6 +152,7 @@ namespace XlettlerRealization
                 }
             }
         }
+
         public bool QueryUserInfo(string AccountID, out IDictionary<string, object> result, out string errMsg)
         {
             result = null;
@@ -149,6 +173,7 @@ namespace XlettlerRealization
                     result.Add("Consumption", uSERS.Consumption);
                     result.Add("Recharge", uSERS.Recharge);
                     result.Add("Phone", uSERS.Phone);
+                    result.Add("HeadImg", uSERS.HeadImg==null?null:Convert.ToBase64String(uSERS.HeadImg));
                     if (uSERS.userType ==(short)PublicDefined.UserType.angency)
                     {
                         result.Add("IsAngency", true);
@@ -209,6 +234,33 @@ namespace XlettlerRealization
         public bool SendUserCode(string Phone, IPhoneCodeType type, out string errMsg)
         {
             return ActiveMQHelper.GetManger().SendMessage(Phone, type, out errMsg);
+        }
+
+        public bool UserUploadHeadImg(string AccountID, byte[] img, out string result, out string errMsg)
+        {
+            result = string.Empty;
+            errMsg = string.Empty;
+            try
+            {
+                using (Model.ModelContainer container=new ModelContainer())
+                {
+                    SESENT_USERS _USERS=container.SESENT_USERS.Where(a => a.AccountID == AccountID).FirstOrDefault();
+                    if (_USERS == null) { errMsg = "未查询到该账户信息!"; return false; }
+                    _USERS.HeadImg = img;
+                    if (_USERS.HeadImg != null) container.Entry(_USERS).State = System.Data.Entity.EntityState.Modified;
+                    else container.Entry(_USERS).State = System.Data.Entity.EntityState.Added;
+                    bool ret=container.SaveChanges() > 0;
+                    if (ret) result = "上传成功!";
+                    else errMsg = "上传失败!";
+                    return ret;
+                }
+            }
+            catch (Exception err)
+            {
+                LogTool.LogWriter.WriteError($"用户图片上传错误:{err}");
+                errMsg = "未知错误!";
+                return false;
+            }
         }
     }
 }

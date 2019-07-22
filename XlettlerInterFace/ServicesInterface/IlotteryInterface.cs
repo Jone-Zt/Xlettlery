@@ -37,6 +37,11 @@ namespace ServicesInterface
         bool MakeOrderWithFootBallGame(string AccountID,int lotteryId, string Fids, int[] type, int Multiple,out object result,out string errMsg);
         [OperationContract]
         bool QueryOrderWithFootBall(string AccountID,out DataTable result,out string errMsg);
-        //bool QueryFootBallWithType(int lotteryId,int type,out List<MySlefGeneratePicker<object, Dictionary<string, object>>> result, out string errMsg);
+        [OperationContract]
+        bool MakeUserFollow(string AccountID,string FollowID,int type,out string result,out string errMsg);
+        [OperationContract]
+        bool QueryUserFollow(string AccountID,out DataTable result,out string errMsg);
+        [OperationContract]
+        bool MakeGenDan(string AccountID, int lotteryId, int GameType, string Fids, int[] Games, int Multiple, out object result,out string errMsg);
     }
 }

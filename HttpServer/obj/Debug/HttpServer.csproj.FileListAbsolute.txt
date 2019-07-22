@@ -8,3 +8,4 @@ E:\WorkProject\Xlettlery\HttpServer\bin\Debug\HttpServer.pdb
 E:\WorkProject\Xlettlery\HttpServer\obj\Debug\HttpServer.csproj.CoreCompileInputs.cache
 E:\WorkProject\Xlettlery\HttpServer\obj\Debug\HttpServer.dll
 E:\WorkProject\Xlettlery\HttpServer\obj\Debug\HttpServer.pdb
+E:\Xlettlery\HttpServer\obj\Debug\HttpServer.csprojAssemblyReference.cache

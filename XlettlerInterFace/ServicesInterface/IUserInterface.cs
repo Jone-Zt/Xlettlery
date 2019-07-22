@@ -21,5 +21,9 @@ namespace ServicesInterface
         bool CheckReister(string Phone,string AccountID,out string Msg);
         [OperationContract]
         bool BindRealName(string AccountID,string RealName,string IdCardNum,out string result,out string errMsg);
+        [OperationContract]
+        bool UserUploadHeadImg(string AccountID,byte[] img,out string result,out string errMsg);
+        [OperationContract]
+        bool QueryUserBindRealName(string AccountID,out IDictionary<string,object>result,out string errMsg);
     }
 }

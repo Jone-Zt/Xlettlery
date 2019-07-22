@@ -31,5 +31,20 @@ namespace Tools
             }
             return false;
         }
+        public static bool isImgFile(string ext)
+        {
+            ext=ext.ToUpper();
+            switch (ext)
+            {
+                case "BMP":
+                case "JPG":
+                case "JPEG":
+                case "PNG":
+                case "GIF":
+                    return true;
+                default:
+                    return false;
+            }
+        }
     }
 }

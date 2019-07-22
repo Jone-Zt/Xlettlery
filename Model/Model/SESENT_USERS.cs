@@ -41,5 +41,6 @@ namespace Model
         public Nullable<System.DateTime> UpgradeTime { get; set; }
         public string RealName { get; set; }
         public string IDCardNum { get; set; }
+        public byte[] HeadImg { get; set; }
     }
 }

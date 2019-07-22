@@ -68,6 +68,9 @@
     </Compile>
     <Compile Include="MySlefGeneratePicker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SENENT_GuanZhu.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="SESENT_AdminManger.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -105,6 +108,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="SESENT_FootBallOrder.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SESENT_GenDan.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="SESENT_InfoMation.cs">

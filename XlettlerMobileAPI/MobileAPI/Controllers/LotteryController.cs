@@ -37,7 +37,7 @@ namespace MobileAPI.Controllers
             }
             catch (Exception err)
             {
-                picker.FailInfo = (err as MyException)?.outErrMsg?? err.Message;
+                picker.FailInfo = (err as MyException)?.outErrMsg ?? err.Message;
             }
             return Content(picker.ToString());
         }
@@ -65,7 +65,7 @@ namespace MobileAPI.Controllers
 
         public ActionResult QueryFootBallLottery()
         {
-            ResponsePicker<Dictionary<string,List<Model.MySlefGeneratePicker<object, Dictionary<string, object>>>>> picker = new ResponsePicker<Dictionary<string,List<Model.MySlefGeneratePicker<object, Dictionary<string, object>>>>>();
+            ResponsePicker<Dictionary<string, List<Model.MySlefGeneratePicker<object, Dictionary<string, object>>>>> picker = new ResponsePicker<Dictionary<string, List<Model.MySlefGeneratePicker<object, Dictionary<string, object>>>>>();
             try
             {
                 string flowid = RequestCheck.CheckStringValue(Request, "flowID", "流水号", false);
@@ -73,7 +73,7 @@ namespace MobileAPI.Controllers
                 int? lotteryId = RequestCheck.CheckIntValue(Request, "lotteryId", "足球支持编号", false);
                 IlotteryInterface ilottery = GetManger();
                 if (ilottery == null) throw new Exception("未挂载对应函数!");
-                if (ilottery.QueryFootBallLottery((int)lotteryId, out Dictionary<string,List<Model.MySlefGeneratePicker<object, Dictionary<string, object>>>> result, out string errMsg))
+                if (ilottery.QueryFootBallLottery((int)lotteryId, out Dictionary<string, List<Model.MySlefGeneratePicker<object, Dictionary<string, object>>>> result, out string errMsg))
                     picker.Data = result;
                 else
                     picker.FailInfo = errMsg;
@@ -86,7 +86,7 @@ namespace MobileAPI.Controllers
         }
         public ActionResult QueryFootBallLotteryWithMeach()
         {
-            ResponsePicker<Dictionary<string, List<Model.MySlefGeneratePicker<object,Dictionary<string, object>>>>> picker = new ResponsePicker<Dictionary<string,List<Model.MySlefGeneratePicker<object, Dictionary<string, object>>>>>();
+            ResponsePicker<Dictionary<string, List<Model.MySlefGeneratePicker<object, Dictionary<string, object>>>>> picker = new ResponsePicker<Dictionary<string, List<Model.MySlefGeneratePicker<object, Dictionary<string, object>>>>>();
             try
             {
                 string flowid = RequestCheck.CheckStringValue(Request, "flowID", "流水号", false);
@@ -95,7 +95,7 @@ namespace MobileAPI.Controllers
                 int? type = RequestCheck.CheckIntValue(Request, "type", "足球玩法编号", false);
                 IlotteryInterface ilottery = GetManger();
                 if (ilottery == null) throw new Exception("未挂载对应函数!");
-                if (ilottery.QueryFootBallLotteryWithMeach((int)lotteryId, (int)type, out Dictionary<string,List<Model.MySlefGeneratePicker<object, Dictionary<string, object>>>> result, out string errMsg))
+                if (ilottery.QueryFootBallLotteryWithMeach((int)lotteryId, (int)type, out Dictionary<string, List<Model.MySlefGeneratePicker<object, Dictionary<string, object>>>> result, out string errMsg))
                     picker.Data = result;
                 else
                     picker.FailInfo = errMsg;
@@ -110,7 +110,7 @@ namespace MobileAPI.Controllers
 
         public ActionResult QueryBasketBallLottery()
         {
-            ResponsePicker<Dictionary<string,List<Model.MySlefGeneratePicker<object, Dictionary<string, object>>>>> picker = new ResponsePicker<Dictionary<string,List<Model.MySlefGeneratePicker<object, Dictionary<string, object>>>>>();
+            ResponsePicker<Dictionary<string, List<Model.MySlefGeneratePicker<object, Dictionary<string, object>>>>> picker = new ResponsePicker<Dictionary<string, List<Model.MySlefGeneratePicker<object, Dictionary<string, object>>>>>();
             try
             {
                 string flowid = RequestCheck.CheckStringValue(Request, "flowID", "流水号", false);
@@ -118,7 +118,7 @@ namespace MobileAPI.Controllers
                 int? lotteryId = RequestCheck.CheckIntValue(Request, "lotteryId", "篮球支持编号", false);
                 IlotteryInterface ilottery = GetManger();
                 if (ilottery == null) throw new Exception("未挂载对应函数!");
-                if (ilottery.QueryBasketBallLottery((int)lotteryId, out Dictionary<string,List<Model.MySlefGeneratePicker<object, Dictionary<string, object>>>> result, out string errMsg))
+                if (ilottery.QueryBasketBallLottery((int)lotteryId, out Dictionary<string, List<Model.MySlefGeneratePicker<object, Dictionary<string, object>>>> result, out string errMsg))
                     picker.Data = result;
                 else
                     picker.FailInfo = errMsg;
@@ -197,6 +197,48 @@ namespace MobileAPI.Controllers
                 IlotteryInterface ilottery = GetManger();
                 if (ilottery.QueryFootBallLotteryWithType((int)lotteryId, footballID, Type, out Model.MySlefGeneratePicker<dynamic, Dictionary<string, object>> result, out string errMsg))
                     picker.Data = result;
+                else
+                    picker.FailInfo = errMsg;
+            }
+            catch (Exception err)
+            {
+                picker.FailInfo = (err as MyException)?.outErrMsg ?? err.Message;
+            }
+            return Content(picker.ToString());
+        }
+        public ActionResult MakeUserFollow()
+        {
+            ResponsePicker<object> picker = new ResponsePicker<object>();
+            try
+            {
+                string flowid = RequestCheck.CheckStringValue(Request, "flowID", "流水号", false);
+                picker.FlowID = flowid;
+                string AccountID = RequestCheck.CheckStringValue(Request, "AccountID", "账户编号", false);
+                string FollowID = RequestCheck.CheckStringValue(Request, "FollowID", "关注编号", false);
+                int? type = RequestCheck.CheckIntValue(Request,"Type","操作类型",false);
+                IlotteryInterface ilottery = GetManger();
+                if (ilottery.MakeUserFollow(AccountID, FollowID, (int)type, out string result, out string errMsg))
+                    picker.Data = result;
+                else
+                    picker.FailInfo = errMsg;
+            }
+            catch (Exception err)
+            {
+                picker.FailInfo = (err as MyException)?.outErrMsg ?? err.Message;
+            }
+            return Content(picker.ToString());
+        }
+        public ActionResult QueryUserFollow()
+        {
+            ResponsePicker<object> picker = new ResponsePicker<object>();
+            try
+            {
+                string flowid = RequestCheck.CheckStringValue(Request, "flowID", "流水号", false);
+                picker.FlowID = flowid;
+                string AccountID = RequestCheck.CheckStringValue(Request, "AccountID", "账户编号", false);
+                IlotteryInterface ilottery = GetManger();
+                if (ilottery.QueryUserFollow(AccountID,out DataTable result,out string errMsg))
+                    picker.Data = result??new DataTable();
                 else
                     picker.FailInfo = errMsg;
             }

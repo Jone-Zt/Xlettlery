@@ -25,5 +25,6 @@ namespace Model
         public System.DateTime MatchDate { get; set; }
         public string MatchWeek { get; set; }
         public string Fk_FnID { get; set; }
+        public string BeginTime { get; set; }
     }
 }

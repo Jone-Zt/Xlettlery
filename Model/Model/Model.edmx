@@ -29,6 +29,8 @@
     <EntitySet Name="SESENT_KJLottery" EntityType="Model.Store.SESENT_KJLottery" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="SESENT_InfoMation" EntityType="Model.Store.SESENT_InfoMation" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="SESENT_FootBallOrder" EntityType="Model.Store.SESENT_FootBallOrder" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SESENT_GenDan" EntityType="Model.Store.SESENT_GenDan" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SENENT_GuanZhu" EntityType="Model.Store.SENENT_GuanZhu" store:Type="Tables" Schema="dbo" />
   </EntityContainer>
   <EntityType Name="SESENT_USERS">
     <Key>
@@ -50,6 +52,7 @@
     <Property Name="UpgradeTime" Type="datetime" Nullable="true" />
     <Property Name="RealName" Type="nvarchar" Nullable="true" MaxLength="20" />
     <Property Name="IDCardNum" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="HeadImg" Type="varbinary(max)" Nullable="true" />
   </EntityType>
   <EntityType Name="SESENT_Order">
     <Key>
@@ -233,6 +236,7 @@
     <Property Name="MatchDate" Type="datetime" Nullable="false" />
     <Property Name="MatchWeek" Type="nvarchar" Nullable="false" MaxLength="10" />
     <Property Name="Fk_FnID" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="BeginTime" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="SESENT_FootBallGame">
     <Key>
@@ -261,6 +265,7 @@
     <Property Name="MatchDate" Type="datetime" Nullable="false" />
     <Property Name="MatchWeek" Type="nvarchar" Nullable="false" MaxLength="10" />
     <Property Name="Fk_FnID" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="BeginTime" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="SESENT_BasketBallGame">
     <Key>
@@ -310,6 +315,28 @@
     <Property Name="AccountID" Type="nvarchar" Nullable="false" MaxLength="100" />
     <Property Name="GameType" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="SESENT_GenDan">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AccountID" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreateDateTime" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="GameType" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="GameID" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EndTime" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Status" Type="smallint" Nullable="true" />
+    <Property Name="BeginMoney" Type="decimal" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SENENT_GuanZhu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="followAccountID" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AccountID" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Status" Type="smallint" Nullable="true" />
+  </EntityType>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -338,6 +365,8 @@
           <EntitySet Name="SESENT_KJLottery" EntityType="Model.SESENT_KJLottery" />
           <EntitySet Name="SESENT_InfoMation" EntityType="Model.SESENT_InfoMation" />
           <EntitySet Name="SESENT_FootBallOrder" EntityType="Model.SESENT_FootBallOrder" />
+          <EntitySet Name="SESENT_GenDan" EntityType="Model.SESENT_GenDan" />
+          <EntitySet Name="SENENT_GuanZhu" EntityType="Model.SENENT_GuanZhu" />
           </EntityContainer>
         <EntityType Name="SESENT_USERS">
           <Documentation>
@@ -394,6 +423,7 @@
           <Property Name="UpgradeTime" Type="DateTime" />
           <Property Name="RealName" Type="String" MaxLength="20" Nullable="true" />
           <Property Name="IDCardNum" Type="String" Nullable="false" MaxLength="20" />
+          <Property Name="HeadImg" Type="Binary" />
         </EntityType>
         <EntityType Name="SESENT_Order">
           <Documentation>
@@ -591,6 +621,7 @@
           <Property Name="MatchDate" Type="DateTime" Nullable="false" />
           <Property Name="MatchWeek" Type="String" Nullable="false" MaxLength="10" />
           <Property Name="Fk_FnID" Type="String" Nullable="false" MaxLength="200" />
+          <Property Name="BeginTime" Type="String" Nullable="false" />
         </EntityType>
         <EntityType Name="SESENT_FootBallGame">
           <Key>
@@ -619,6 +650,7 @@
           <Property Name="MatchDate" Type="DateTime" Nullable="false" />
           <Property Name="MatchWeek" Type="String" Nullable="false" MaxLength="10" />
           <Property Name="Fk_FnID" Type="String" Nullable="false" MaxLength="200" />
+          <Property Name="BeginTime" Type="String" Nullable="false" />
         </EntityType>
         <EntityType Name="SESENT_BasketBallGame">
           <Key>
@@ -668,6 +700,28 @@
           <Property Name="AccountID" Type="String" Nullable="false" MaxLength="100" />
           <Property Name="GameType" Type="Int32" Nullable="false" />
         </EntityType>
+        <EntityType Name="SESENT_GenDan">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountID" Type="String" Nullable="false" />
+          <Property Name="CreateDateTime" Type="String" Nullable="false" />
+          <Property Name="GameType" Type="String" Nullable="false" />
+          <Property Name="GameID" Type="String" Nullable="false" />
+          <Property Name="EndTime" Type="String" Nullable="false" />
+          <Property Name="Status" Type="Int16" Nullable="true" />
+          <Property Name="BeginMoney" Type="Decimal" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SENENT_GuanZhu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="followAccountID" Type="String" Nullable="false" />
+          <Property Name="AccountID" Type="String" Nullable="false" />
+          <Property Name="Status" Type="Int16" Nullable="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -693,6 +747,7 @@
           <ScalarProperty Name="UpgradeTime" ColumnName="UpgradeTime" />
           <ScalarProperty Name="RealName" ColumnName="RealName" />
           <ScalarProperty Name="IDCardNum" ColumnName="IDCardNum" />
+          <ScalarProperty Name="HeadImg" ColumnName="HeadImg" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -892,6 +947,7 @@
           <ScalarProperty Name="MatchDate" ColumnName="MatchDate" />
           <ScalarProperty Name="MatchWeek" ColumnName="MatchWeek" />
           <ScalarProperty Name="Fk_FnID" ColumnName="Fk_FnID" />
+          <ScalarProperty Name="BeginTime" ColumnName="BeginTime" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -922,6 +978,7 @@
           <ScalarProperty Name="MatchDate" ColumnName="MatchDate" />
           <ScalarProperty Name="MatchWeek" ColumnName="MatchWeek" />
           <ScalarProperty Name="Fk_FnID" ColumnName="Fk_FnID" />
+          <ScalarProperty Name="BeginTime" ColumnName="BeginTime" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -974,6 +1031,30 @@
           <ScalarProperty Name="Type" ColumnName="Type" />
           <ScalarProperty Name="AccountID" ColumnName="AccountID" />
           <ScalarProperty Name="GameType" ColumnName="GameType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SESENT_GenDan">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.SESENT_GenDan)">
+        <MappingFragment StoreEntitySet="SESENT_GenDan">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+          <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+          <ScalarProperty Name="GameType" ColumnName="GameType" />
+          <ScalarProperty Name="GameID" ColumnName="GameID" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="BeginMoney" ColumnName="BeginMoney" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SENENT_GuanZhu">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.SENENT_GuanZhu)">
+        <MappingFragment StoreEntitySet="SENENT_GuanZhu">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="followAccountID" ColumnName="followAccountID" />
+          <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

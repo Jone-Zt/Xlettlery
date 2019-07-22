@@ -11,6 +11,11 @@ namespace PublicDefined
         FootBall=1,
         BasketBall=2,
     }
+    public enum FollowType
+    {
+        Follow=1,//关注
+        UnFollow=2//取消关注
+    }
     public enum ZqGameType
     {
         NotLatBallWithSigler=5,//不让球单关

@@ -48,5 +48,7 @@ namespace Model
         public DbSet<SESENT_KJLottery> SESENT_KJLottery { get; set; }
         public DbSet<SESENT_InfoMation> SESENT_InfoMation { get; set; }
         public DbSet<SESENT_FootBallOrder> SESENT_FootBallOrder { get; set; }
+        public DbSet<SESENT_GenDan> SESENT_GenDan { get; set; }
+        public DbSet<SENENT_GuanZhu> SENENT_GuanZhu { get; set; }
     }
 }
