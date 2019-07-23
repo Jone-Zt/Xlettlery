@@ -364,7 +364,7 @@
           <EntitySet Name="SESENT_BasketBallGame" EntityType="Model.SESENT_BasketBallGame" />
           <EntitySet Name="SESENT_KJLottery" EntityType="Model.SESENT_KJLottery" />
           <EntitySet Name="SESENT_InfoMation" EntityType="Model.SESENT_InfoMation" />
-          <EntitySet Name="SESENT_FootBallOrder" EntityType="Model.SESENT_FootBallOrder" />
+          <EntitySet Name="SESENT_BallOrder" EntityType="Model.SESENT_BallOrder" />
           <EntitySet Name="SESENT_GenDan" EntityType="Model.SESENT_GenDan" />
           <EntitySet Name="SENENT_GuanZhu" EntityType="Model.SENENT_GuanZhu" />
           </EntityContainer>
@@ -688,7 +688,7 @@
           <Property Name="ReaderCount" Type="Int32" Nullable="false" />
           <Property Name="Conver" Type="String" Nullable="false" />
         </EntityType>
-        <EntityType Name="SESENT_FootBallOrder">
+        <EntityType Name="SESENT_BallOrder">
           <Key>
             <PropertyRef Name="OrderID" />
           </Key>
@@ -1021,8 +1021,8 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="SESENT_FootBallOrder">
-      <EntityTypeMapping TypeName="IsTypeOf(Model.SESENT_FootBallOrder)">
+    <EntitySetMapping Name="SESENT_BallOrder">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.SESENT_BallOrder)">
         <MappingFragment StoreEntitySet="SESENT_FootBallOrder">
           <ScalarProperty Name="OrderID" ColumnName="OrderID" />
           <ScalarProperty Name="FIds" ColumnName="FIds" />

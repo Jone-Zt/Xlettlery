@@ -74,6 +74,9 @@
     <Compile Include="SESENT_AdminManger.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="SESENT_BallOrder.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="SESENT_BankCity.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -105,9 +108,6 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="SESENT_FootBallMatch.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SESENT_FootBallOrder.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="SESENT_GenDan.cs">

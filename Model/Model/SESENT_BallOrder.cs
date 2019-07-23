@@ -12,7 +12,7 @@ namespace Model
     using System;
     using System.Collections.Generic;
     
-    public partial class SESENT_FootBallOrder
+    public partial class SESENT_BallOrder
     {
         public long OrderID { get; set; }
         public string FIds { get; set; }

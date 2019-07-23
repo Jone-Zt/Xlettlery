@@ -533,7 +533,7 @@ namespace XlettlerRealization
                     long amount = workcount * 2 * Multiple;
                     if (_USERS.UseAmount < amount) { errMsg = "账户余额不足!"; return false; }
                     string parseType = string.Join(",", type.Select(i => i.ToString()).ToArray());
-                    SESENT_FootBallOrder order = new SESENT_FootBallOrder()
+                    SESENT_BallOrder order = new SESENT_BallOrder()
                     {
                         AccountID=AccountID,
                         GameType=(int)PublicDefined.LetteryType.FootBall,
@@ -560,26 +560,43 @@ namespace XlettlerRealization
             }
         }
         [MethordTimingHandler]
-        public bool QueryOrderWithFootBall(string AccountID, out DataTable result, out string errMsg)
+        public bool QueryOrderWithBall(string AccountID,bool Type,DateTime EndTime,out DataTable result, out string errMsg)
         {
             result = null;
             errMsg = string.Empty;
             try
             {
+                PublicDefined.OrderStatus orderStatus = OrderStatus.wait;
                 using (ModelContainer container = new ModelContainer())
                 {
                   SESENT_USERS uSERS=container.SESENT_USERS.Where(a => a.AccountID == AccountID).FirstOrDefault();
                     if (uSERS == null){errMsg = "未查询到该账号";return false;}
-                   var list=container.SESENT_FootBallOrder.Where(a => a.AccountID == AccountID).Select(b=>new {
-                         b.AccountID,
-                         EnterTime= b.EnterTime.ToString("yyyy-MM-dd HH:mm:ss"),
-                         b.FIds,
-                         b.GameType,
-                         b.OrderID,
-                         b.Status,
-                         b.Type,
-                   });
-                    result = UntilsObjToDic.ListToDataTable(list.ToList());
+                    IQueryable<SESENT_BallOrder> list = null;
+                    DateTime startTime = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-dd 0:0:0"));
+                    EndTime = DateTime.Parse(EndTime.ToString("yyyy-MM-dd 23:59:59"));
+                    if (Type)
+                        list = container.SESENT_BallOrder.Where(a => a.AccountID == AccountID && a.Status != (int)orderStatus&&(a.EnterTime>=startTime&&a.EnterTime<=EndTime));
+                    else
+                        list = container.SESENT_BallOrder.Where(a => a.AccountID == AccountID && a.Status == (int)orderStatus && (a.EnterTime >= startTime && a.EnterTime <= EndTime));
+                 var itemTor=list.GetEnumerator();
+                    List<object> kayOrders = new List<object>();
+                    while (itemTor.MoveNext())
+                    {
+                        SESENT_BallOrder ballOrder = itemTor.Current;
+                        DateTime time = ballOrder.EnterTime;
+                        int Yeay = time.Year;
+                        int Mouth = time.Month;
+                        int Day = time.Day;
+                        string Week = Verification.CaculateWeekDay(Yeay, Mouth, Day);
+                        kayOrders.Add(new
+                        {
+                            OrderID=ballOrder.OrderID,
+                            Week=Week,
+                            GameType=ballOrder.GameType,
+                            Status=ballOrder.Status,
+                        });
+                    }
+                    result = UntilsObjToDic.ListToDataTable(kayOrders);
                     return true;
                 }
             }

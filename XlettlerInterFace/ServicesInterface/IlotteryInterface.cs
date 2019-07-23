@@ -36,7 +36,7 @@ namespace ServicesInterface
         [OperationContract]
         bool MakeOrderWithFootBallGame(string AccountID,int lotteryId, string Fids, int[] type, int Multiple,out object result,out string errMsg);
         [OperationContract]
-        bool QueryOrderWithFootBall(string AccountID,out DataTable result,out string errMsg);
+        bool QueryOrderWithBall(string AccountID,bool Type,DateTime endTime,out DataTable result,out string errMsg);
         [OperationContract]
         bool MakeUserFollow(string AccountID,string FollowID,int type,out string result,out string errMsg);
         [OperationContract]

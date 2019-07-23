@@ -47,7 +47,7 @@ namespace Model
         public DbSet<SESENT_BasketBallGame> SESENT_BasketBallGame { get; set; }
         public DbSet<SESENT_KJLottery> SESENT_KJLottery { get; set; }
         public DbSet<SESENT_InfoMation> SESENT_InfoMation { get; set; }
-        public DbSet<SESENT_FootBallOrder> SESENT_FootBallOrder { get; set; }
+        public DbSet<SESENT_BallOrder> SESENT_BallOrder { get; set; }
         public DbSet<SESENT_GenDan> SESENT_GenDan { get; set; }
         public DbSet<SENENT_GuanZhu> SENENT_GuanZhu { get; set; }
     }

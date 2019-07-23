@@ -17,6 +17,12 @@ namespace Models
             }
             return val;
         }
+        public static bool CheckBoolValue(HttpRequestBase reqesut, string paraName, string title, bool isNull)
+        {
+            if (bool.TryParse(reqesut[paraName], out bool val) && !isNull)
+                throw new Exception($"【{paraName}:{title}】不可为空");
+            return val;
+        }
         public static DateTime CheckDeteTimeValue(HttpRequestBase reqesut, string paraName, string title, bool isNull)
         {
             if (!DateTime.TryParse(reqesut[paraName], out DateTime val) && !isNull)

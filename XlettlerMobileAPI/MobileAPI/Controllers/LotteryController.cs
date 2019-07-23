@@ -40,7 +40,7 @@ namespace MobileAPI.Controllers
             }
             return Content(picker.ToString());
         }
-        public ActionResult QueryOrderWithFootBall()
+        public ActionResult QueryOrderWithBall()
         {
             ResponsePicker<DataTable> picker = new ResponsePicker<DataTable>();
             try
@@ -48,9 +48,10 @@ namespace MobileAPI.Controllers
                 string flowid = RequestCheck.CheckStringValue(Request, "flowID", "流水号", false);
                 picker.FlowID = flowid;
                 string AccountID = RequestCheck.CheckStringValue(Request, "AccountID", "用户编号", false);
+                bool Type = RequestCheck.CheckBoolValue(Request, "Type","查询类型[1:开奖 0:未开奖]",false);
+                DateTime dateTime = RequestCheck.CheckDeteTimeValue(Request,"EndTime","结束时间",false);
                 IlotteryInterface ilottery = GetManger();
-                if (ilottery == null) throw new Exception("未挂载对应函数!");
-                if (ilottery.QueryOrderWithFootBall(AccountID, out DataTable result, out string errMsg))
+                if (ilottery.QueryOrderWithBall(AccountID,Type, dateTime, out DataTable result, out string errMsg))
                     picker.Data = result;
                 else
                     picker.FailInfo = errMsg;
