@@ -1,5 +1,4 @@
-﻿using AOPHandlerManager.MethordHandler;
-using ChannelInterFace;
+﻿using ChannelInterFace;
 using ChannelManagement;
 using Model;
 using PublicDefined;
@@ -15,7 +14,6 @@ namespace XlettlerRealization
     [CallbackBehavior(UseSynchronizationContext =false)]
     public class ChannelNotifyService : IChannelNotify
     {
-        [MethordTimingHandler]
         public bool Notify(string OrderID, string ChannelID, string[] pathArges, Dictionary<string, string> UrlArges, byte[] postBuffer, out string BackStr)
         {
             BackStr = string.Empty;

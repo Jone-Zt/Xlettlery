@@ -21,5 +21,8 @@ namespace Model
         public string Type { get; set; }
         public string AccountID { get; set; }
         public int GameType { get; set; }
+        public decimal Amount { get; set; }
+        public Nullable<short> SettlementStatus { get; set; }
+        public System.DateTime SettlementDate { get; set; }
     }
 }

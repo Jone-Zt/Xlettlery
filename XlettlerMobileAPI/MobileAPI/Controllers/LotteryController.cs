@@ -48,11 +48,14 @@ namespace MobileAPI.Controllers
                 string flowid = RequestCheck.CheckStringValue(Request, "flowID", "流水号", false);
                 picker.FlowID = flowid;
                 string AccountID = RequestCheck.CheckStringValue(Request, "AccountID", "用户编号", false);
-                bool Type = RequestCheck.CheckBoolValue(Request, "Type","查询类型[1:开奖 0:未开奖]",false);
+                int? Type = RequestCheck.CheckIntValue(Request, "Type","查询类型[1:开奖 0:未开奖]",false);
+                if (Type != 0 && Type != 1)throw new Exception("查询类型错误!");
+                bool parseType = Type == 0 ? false : true;
+                DateTime startTime = RequestCheck.CheckDeteTimeValue(Request, "StartTime", "开始时间", false);
                 DateTime dateTime = RequestCheck.CheckDeteTimeValue(Request,"EndTime","结束时间",false);
                 IlotteryInterface ilottery = GetManger();
-                if (ilottery.QueryOrderWithBall(AccountID,Type, dateTime, out DataTable result, out string errMsg))
-                    picker.Data = result;
+                if (ilottery.QueryOrderWithBall(AccountID, parseType, startTime,dateTime, out DataTable result, out string errMsg))
+                    picker.Data = result??new DataTable();
                 else
                     picker.FailInfo = errMsg;
             }

@@ -17,7 +17,6 @@ namespace XlettlerRealization
     [CallbackBehavior(UseSynchronizationContext = false)]
     public class LotteryService : IlotteryInterface
     {
-        [MethordTimingHandler]
         public bool QueryBasketBallLottery(int lotteryId, out Dictionary<string,List<MySlefGeneratePicker<dynamic, Dictionary<string, object>>>> result, out string errMsg)
         {
             result = null;
@@ -114,7 +113,6 @@ namespace XlettlerRealization
                 return false;
             }
         }
-        [MethordTimingHandler]
         public bool QueryFootBallLotteryWithType(int lotteryId, long FootBallID, int? type, out MySlefGeneratePicker<dynamic, Dictionary<string, object>> result, out string errMsg)
         {
             result = null;
@@ -254,7 +252,6 @@ namespace XlettlerRealization
                 return false;
             }
         }
-        [MethordTimingHandler]
         public bool QueryFootBallLotteryWithMeach(int lotteryId, int type, out Dictionary<string,List<MySlefGeneratePicker<object, Dictionary<string, object>>>> result, out string errMsg)
         {
             result = null;
@@ -313,7 +310,6 @@ namespace XlettlerRealization
                 return false;
             }
         }
-        [MethordTimingHandler]
         public bool QueryFootBallLottery(int lotteryId, out Dictionary<string,List<MySlefGeneratePicker<object, Dictionary<string, object>>>> result, out string errMsg)
         {
             result = null;
@@ -414,7 +410,6 @@ namespace XlettlerRealization
                 return false;
             }
         }
-        [MethordTimingHandler]
         public bool QuerySuportLottery(out IList<SESENT_Lottery> result, out string errMsg)
         {
             result = null;
@@ -433,7 +428,6 @@ namespace XlettlerRealization
                 return false;
             }
         }
-        [MethordTimingHandler]
         public bool QueryBasketBallLotteryWithType(int lotteryId, long BaskBallID, int type, out MySlefGeneratePicker<dynamic, Dictionary<string, object>> result, out string errMsg)
         {
             result = null;
@@ -484,7 +478,6 @@ namespace XlettlerRealization
                 return false;
             }
         }
-        [MethordTimingHandler]
         public bool MakeOrderWithFootBallGame(string AccountID, int lotteryId, string Fids, int[] type, int Multiple, out object result, out string errMsg)
         {
             result = null;
@@ -541,14 +534,22 @@ namespace XlettlerRealization
                         FIds = makeOrders,
                         OrderID = long.Parse(RuleUtility.RuleGenerateOrder.GetOrderID()),
                         Status = (int)PublicDefined.OrderStatus.wait,
-                        Type = parseType
+                        Type = parseType,
+                        Amount=amount
                     };
                     _USERS.UseAmount -= amount;
                     container.Entry(order).State = System.Data.Entity.EntityState.Added;
                     container.Entry(_USERS).State = System.Data.Entity.EntityState.Modified;
                     bool isSuccess = container.SaveChanges() > 0;
                     if (isSuccess)
-                        result = "投注成功!尽请期待,祝君中奖。";
+                    {
+                        Dictionary<string, string> keyValuePairs = new Dictionary<string, string>();
+                        keyValuePairs.Add("OrderID", order.OrderID.ToString());
+                        keyValuePairs.Add("PayAmount", amount.ToString("0.00"));
+                        keyValuePairs.Add("GameType",((int)PublicDefined.LetteryType.FootBall).ToString());
+                        keyValuePairs.Add("ChargeBalance", _USERS.UseAmount.ToString("0.00"));
+                        result = keyValuePairs;
+                    }
                     return isSuccess;
                 }
             }
@@ -559,8 +560,7 @@ namespace XlettlerRealization
                 return false;
             }
         }
-        [MethordTimingHandler]
-        public bool QueryOrderWithBall(string AccountID,bool Type,DateTime EndTime,out DataTable result, out string errMsg)
+        public bool QueryOrderWithBall(string AccountID,bool Type,DateTime startTime,DateTime EndTime,out DataTable result, out string errMsg)
         {
             result = null;
             errMsg = string.Empty;
@@ -572,7 +572,7 @@ namespace XlettlerRealization
                   SESENT_USERS uSERS=container.SESENT_USERS.Where(a => a.AccountID == AccountID).FirstOrDefault();
                     if (uSERS == null){errMsg = "未查询到该账号";return false;}
                     IQueryable<SESENT_BallOrder> list = null;
-                    DateTime startTime = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-dd 0:0:0"));
+                    startTime = DateTime.Parse(startTime.ToString("yyyy-MM-dd 0:0:0"));
                     EndTime = DateTime.Parse(EndTime.ToString("yyyy-MM-dd 23:59:59"));
                     if (Type)
                         list = container.SESENT_BallOrder.Where(a => a.AccountID == AccountID && a.Status != (int)orderStatus&&(a.EnterTime>=startTime&&a.EnterTime<=EndTime));
@@ -590,10 +590,12 @@ namespace XlettlerRealization
                         string Week = Verification.CaculateWeekDay(Yeay, Mouth, Day);
                         kayOrders.Add(new
                         {
+                            Date = Mouth + "/" + Day,
                             OrderID=ballOrder.OrderID,
                             Week=Week,
                             GameType=ballOrder.GameType,
                             Status=ballOrder.Status,
+                            Amount=ballOrder.Amount,
                         });
                     }
                     result = UntilsObjToDic.ListToDataTable(kayOrders);
@@ -691,6 +693,43 @@ namespace XlettlerRealization
             {
                 errMsg = "未知错误!";
                 LogTool.LogWriter.WriteError($"发起跟单接口失败:【账号:{AccountID}】{err.Message}");
+                return false;
+            }
+        }
+
+        public bool QueryOrderWithBallDetail(string AccountID,int OrderID, out DataTable result, out string errMsg)
+        {
+            result = null;
+            errMsg = string.Empty;
+            try
+            {
+                using (Model.ModelContainer container = new ModelContainer())
+                {
+                    SESENT_USERS uSERS=container.SESENT_USERS.Where(a => a.AccountID == AccountID).FirstOrDefault();
+                    if (uSERS == null) { errMsg = "未查询到该用户!";return false; }
+                    SESENT_BallOrder ballOrder=container.SESENT_BallOrder.Where(a=>a.AccountID==uSERS.AccountID&&a.OrderID==OrderID).FirstOrDefault();
+                    if (ballOrder == null) { errMsg = "未查询到该订单!";return false; }
+                    if (ballOrder.GameType == (int)LetteryType.FootBall)
+                    {
+                      Dictionary<string,string> keyValuePairs=UntilsObjToDic.ProductDetailList(ballOrder.FIds);
+                      var itemtor = keyValuePairs.GetEnumerator();
+                        while (itemtor.MoveNext())
+                        {
+
+                        }
+                        return true;
+                    }
+                    else
+                    {
+                        errMsg = "未开放其他玩法查询接口!";
+                        return false;
+                    }
+                }
+            }
+            catch (Exception err)
+            {
+                errMsg = "未知错误!";
+                LogTool.LogWriter.WriteError($"查询投注详情:【订单号:{OrderID}】{err}");
                 return false;
             }
         }

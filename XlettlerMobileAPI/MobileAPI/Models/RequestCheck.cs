@@ -19,7 +19,7 @@ namespace Models
         }
         public static bool CheckBoolValue(HttpRequestBase reqesut, string paraName, string title, bool isNull)
         {
-            if (bool.TryParse(reqesut[paraName], out bool val) && !isNull)
+            if (!bool.TryParse(reqesut[paraName], out bool val) && !isNull)
                 throw new Exception($"【{paraName}:{title}】不可为空");
             return val;
         }

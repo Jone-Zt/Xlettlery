@@ -70,7 +70,7 @@ namespace XlettlerRealization
                                 });
                                 uSERS.UseAmount += messageText.Gift;
                                 db.SESENT_USERS.Add(uSERS);
-                                db.Entry(uSERS).State = System.Data.Entity.EntityState.Unchanged;
+                                db.Entry(uSERS).State = System.Data.Entity.EntityState.Modified;
                             }
                             db.SaveChanges();
                             return true;
@@ -152,7 +152,7 @@ namespace XlettlerRealization
                     keyValues.Add("1", UntilsObjToDic.ListToDataTable(HasGift));
                     result.Add(keyValues);
                     Dictionary<string, DataTable> NokeyValues = new Dictionary<string, DataTable>();
-                    keyValues.Add("0", UntilsObjToDic.ListToDataTable(NoGift));
+                    NokeyValues.Add("0", UntilsObjToDic.ListToDataTable(NoGift));
                     result.Add(NokeyValues);
                 }
                 return true;

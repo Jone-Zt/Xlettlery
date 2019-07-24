@@ -24,19 +24,12 @@ namespace ServicesInterface
         bool QueryBasketBallLottery(int lotteryId, out Dictionary<string,List<MySlefGeneratePicker<object, Dictionary<string, object>>>> result, out string errMsg);
         [OperationContract]
         bool QueryBasketBallLotteryWithType(int lotteryId, long BaskBallID, int type, out MySlefGeneratePicker<object, Dictionary<string, object>> result, out string errMsg);
-        /// <summary>
-        /// 下单接口
-        /// </summary>
-        /// <param name="lotteryId">cp编号</param>
-        /// <param name="MainID">赛场编号</param>
-        /// <param name="Fids">玩法数据</param>
-        /// <param name="type">2串1:2 </param>
-        /// <param name="Multiple">倍数</param>
-        /// <returns></returns>
         [OperationContract]
         bool MakeOrderWithFootBallGame(string AccountID,int lotteryId, string Fids, int[] type, int Multiple,out object result,out string errMsg);
         [OperationContract]
-        bool QueryOrderWithBall(string AccountID,bool Type,DateTime endTime,out DataTable result,out string errMsg);
+        bool QueryOrderWithBall(string AccountID,bool Type,DateTime startTime,DateTime endTime,out DataTable result,out string errMsg);
+        [OperationContract]
+        bool QueryOrderWithBallDetail(string AccountID,int OrderID,out DataTable result,out string errMsg);
         [OperationContract]
         bool MakeUserFollow(string AccountID,string FollowID,int type,out string result,out string errMsg);
         [OperationContract]

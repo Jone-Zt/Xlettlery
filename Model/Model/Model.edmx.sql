@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 07/21/2019 23:44:23
+-- Date Created: 07/24/2019 23:20:20
 -- Generated from EDMX file: E:\Xlettlery\Model\Model\Model.edmx
 -- --------------------------------------------------
 
@@ -88,8 +88,8 @@ GO
 IF OBJECT_ID(N'[dbo].[SESENT_InfoMation]', 'U') IS NOT NULL
     DROP TABLE [dbo].[SESENT_InfoMation];
 GO
-IF OBJECT_ID(N'[dbo].[SESENT_FootBallOrder]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[SESENT_FootBallOrder];
+IF OBJECT_ID(N'[dbo].[SESENT_BallOrder]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[SESENT_BallOrder];
 GO
 IF OBJECT_ID(N'[dbo].[SESENT_GenDan]', 'U') IS NOT NULL
     DROP TABLE [dbo].[SESENT_GenDan];
@@ -373,15 +373,18 @@ CREATE TABLE [dbo].[SESENT_InfoMation] (
 );
 GO
 
--- Creating table 'SESENT_FootBallOrder'
-CREATE TABLE [dbo].[SESENT_FootBallOrder] (
+-- Creating table 'SESENT_BallOrder'
+CREATE TABLE [dbo].[SESENT_BallOrder] (
     [OrderID] bigint IDENTITY(1,1) NOT NULL,
     [FIds] nvarchar(max)  NOT NULL,
     [Status] smallint  NOT NULL,
     [EnterTime] datetime  NOT NULL,
     [Type] nvarchar(max)  NOT NULL,
     [AccountID] nvarchar(100)  NOT NULL,
-    [GameType] int  NOT NULL
+    [GameType] int  NOT NULL,
+    [Amount] decimal(18,0)  NOT NULL,
+    [SettlementStatus] smallint  NULL,
+    [SettlementDate] datetime  NOT NULL
 );
 GO
 
@@ -543,9 +546,9 @@ ADD CONSTRAINT [PK_SESENT_InfoMation]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [OrderID] in table 'SESENT_FootBallOrder'
-ALTER TABLE [dbo].[SESENT_FootBallOrder]
-ADD CONSTRAINT [PK_SESENT_FootBallOrder]
+-- Creating primary key on [OrderID] in table 'SESENT_BallOrder'
+ALTER TABLE [dbo].[SESENT_BallOrder]
+ADD CONSTRAINT [PK_SESENT_BallOrder]
     PRIMARY KEY CLUSTERED ([OrderID] ASC);
 GO
 

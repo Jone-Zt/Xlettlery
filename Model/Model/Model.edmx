@@ -28,7 +28,7 @@
     <EntitySet Name="SESENT_BasketBallGame" EntityType="Model.Store.SESENT_BasketBallGame" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="SESENT_KJLottery" EntityType="Model.Store.SESENT_KJLottery" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="SESENT_InfoMation" EntityType="Model.Store.SESENT_InfoMation" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="SESENT_FootBallOrder" EntityType="Model.Store.SESENT_FootBallOrder" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SESENT_BallOrder" EntityType="Model.Store.SESENT_BallOrder" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="SESENT_GenDan" EntityType="Model.Store.SESENT_GenDan" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="SENENT_GuanZhu" EntityType="Model.Store.SENENT_GuanZhu" store:Type="Tables" Schema="dbo" />
   </EntityContainer>
@@ -303,7 +303,7 @@
     <Property Name="ReaderCount" Type="int" Nullable="false" />
     <Property Name="Conver" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
-  <EntityType Name="SESENT_FootBallOrder">
+  <EntityType Name="SESENT_BallOrder">
     <Key>
       <PropertyRef Name="OrderID" />
     </Key>
@@ -314,6 +314,9 @@
     <Property Name="Type" Type="nvarchar(max)" Nullable="false" />
     <Property Name="AccountID" Type="nvarchar" Nullable="false" MaxLength="100" />
     <Property Name="GameType" Type="int" Nullable="false" />
+    <Property Name="Amount" Type="decimal" Nullable="false" />
+    <Property Name="SettlementStatus" Type="smallint" Nullable="true" />
+    <Property Name="SettlementDate" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="SESENT_GenDan">
     <Key>
@@ -699,6 +702,9 @@
           <Property Name="Type" Type="String" Nullable="false" />
           <Property Name="AccountID" Type="String" Nullable="false" MaxLength="100" />
           <Property Name="GameType" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Decimal" Nullable="false" />
+          <Property Name="SettlementStatus" Type="Int16" />
+          <Property Name="SettlementDate" Type="DateTime" Nullable="false" />
         </EntityType>
         <EntityType Name="SESENT_GenDan">
           <Key>
@@ -1023,7 +1029,7 @@
     </EntitySetMapping>
     <EntitySetMapping Name="SESENT_BallOrder">
       <EntityTypeMapping TypeName="IsTypeOf(Model.SESENT_BallOrder)">
-        <MappingFragment StoreEntitySet="SESENT_FootBallOrder">
+        <MappingFragment StoreEntitySet="SESENT_BallOrder">
           <ScalarProperty Name="OrderID" ColumnName="OrderID" />
           <ScalarProperty Name="FIds" ColumnName="FIds" />
           <ScalarProperty Name="Status" ColumnName="Status" />
@@ -1031,6 +1037,9 @@
           <ScalarProperty Name="Type" ColumnName="Type" />
           <ScalarProperty Name="AccountID" ColumnName="AccountID" />
           <ScalarProperty Name="GameType" ColumnName="GameType" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="SettlementStatus" ColumnName="SettlementStatus" />
+          <ScalarProperty Name="SettlementDate" ColumnName="SettlementDate" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

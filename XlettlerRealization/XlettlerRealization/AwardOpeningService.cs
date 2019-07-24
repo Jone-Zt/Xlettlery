@@ -1,5 +1,4 @@
-﻿using AOPHandlerManager.MethordHandler;
-using Model;
+﻿using Model;
 using ServicesInterface;
 using System;
 using System.Collections.Generic;
@@ -11,7 +10,6 @@ namespace XlettlerRealization
     [CallbackBehavior(UseSynchronizationContext = false)]
     public class AwardOpeningService : IAwardOpeningService
     {
-        [MethordTimingHandler]
         public bool GetFootBallAward(DateTime QueryTime,out List<dynamic> picker,out string errMsg)
         {
             errMsg = string.Empty;

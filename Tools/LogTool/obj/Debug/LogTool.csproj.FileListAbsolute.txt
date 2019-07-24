@@ -15,4 +15,3 @@ E:\WorkProject\Xlettlery\Tools\LogTool\obj\Debug\LogTool.csproj.CopyComplete
 E:\WorkProject\Xlettlery\Tools\LogTool\obj\Debug\LogTool.dll
 E:\WorkProject\Xlettlery\Tools\LogTool\obj\Debug\LogTool.pdb
 E:\WorkProject\Xlettlery\Tools\LogTool\obj\Debug\LogTool.csprojAssemblyReference.cache
-E:\Xlettlery\Tools\LogTool\obj\Debug\LogTool.csprojAssemblyReference.cache

@@ -16,20 +16,20 @@ namespace XlettlerRealization
     [CallbackBehavior(UseSynchronizationContext = false)]
     public class PayService : IPayInterface
     {
-        public bool BindCashBank(SESENT_CashCard cashCard,out string result,out string errMsg)
+        public bool BindCashBank(SESENT_CashCard cashCard, out string result, out string errMsg)
         {
             result = null;
-            errMsg =string.Empty;
+            errMsg = string.Empty;
             try
             {
                 using (ModelContainer db = new ModelContainer())
                 {
-                    SESENT_USERS uSERS=db.SESENT_USERS.Where(a => a.AccountID == cashCard.AccountID).FirstOrDefault();
-                    if (uSERS == null) { errMsg = "绑定用户不存在!";return false; }
-                    SESENT_CashCard bankCard=db.SESENT_CashCard.Where(a => a.BankNumber == cashCard.BankNumber && a.AccountID == cashCard.AccountID).FirstOrDefault();
-                    if (bankCard != null) { errMsg = "该用户已绑定该银行卡";return false;}
+                    SESENT_USERS uSERS = db.SESENT_USERS.Where(a => a.AccountID == cashCard.AccountID).FirstOrDefault();
+                    if (uSERS == null) { errMsg = "绑定用户不存在!"; return false; }
+                    SESENT_CashCard bankCard = db.SESENT_CashCard.Where(a => a.BankNumber == cashCard.BankNumber && a.AccountID == cashCard.AccountID).FirstOrDefault();
+                    if (bankCard != null) { errMsg = "该用户已绑定该银行卡"; return false; }
                     db.SESENT_CashCard.Add(cashCard);
-                    bool ret=db.SaveChanges()>0;
+                    bool ret = db.SaveChanges() > 0;
                     if (!ret)
                         errMsg = "绑定失败!";
                     else
@@ -48,9 +48,10 @@ namespace XlettlerRealization
         {
             //10001:未绑定真实姓名 10002:未绑定手机号 10003:一般错误  10004:提现正在受理中 10005:未绑定提现银行卡
             Dictionary<string, object> result = new Dictionary<string, object>();
-            if (amount <= 0) {
+            if (amount <= 0)
+            {
                 result.Add("Status", "10003");
-                result.Add("Info","提现金额错误!");
+                result.Add("Info", "提现金额错误!");
                 return result;
             }
             using (ModelContainer db = new ModelContainer())
@@ -58,18 +59,20 @@ namespace XlettlerRealization
                 try
                 {
                     SESENT_USERS uSERS = db.SESENT_USERS.Where(a => a.AccountID == accountID).FirstOrDefault();
-                    if (uSERS == null) {
+                    if (uSERS == null)
+                    {
                         result.Add("Status", "10003");
                         result.Add("Info", "账户不存在!");
                     }
                     if (string.IsNullOrEmpty(uSERS.RealName)) { result.Add("Status", "10001"); result.Add("Info", "未绑定真实姓名"); return result; }
-                    if (string.IsNullOrEmpty(uSERS.Phone)) {  result.Add("Status", "10002");  result.Add("Info", "未绑定手机号!"); return result; }
+                    if (string.IsNullOrEmpty(uSERS.Phone)) { result.Add("Status", "10002"); result.Add("Info", "未绑定手机号!"); return result; }
                     SESENT_CashCard cashCard = db.SESENT_CashCard.Where(a => a.AccountID == accountID && a.Id == bankID).FirstOrDefault();
-                    if (cashCard == null) {
+                    if (cashCard == null)
+                    {
                         result.Add("Status", "10005");
                         result.Add("Info", "未绑定提现银行卡!");
                         return result;
-                         }
+                    }
                     //查询当前用户可提现的金额
                     IQueryable<SESENT_ConsumptERecords> queryData = from val in db.SESENT_ConsumptERecords
                                                                     join order in db.SESENT_Order
@@ -158,7 +161,7 @@ namespace XlettlerRealization
                     if (payRecharge == null) { errMsg = "未找到通道文件"; return false; }
                     IThridRecharge thrid = payRecharge as IThridRecharge;
                     if (thrid == null) { errMsg = "通道未实现"; return false; }
-                    bool ret = thrid.MakeOrder(channelID,order.OrderID,amount, order.OrderTime, out result, out errMsg);
+                    bool ret = thrid.MakeOrder(channelID, order.OrderID, amount, order.OrderTime, out result, out errMsg);
                     if (ret) { order.Status = (short)OrderStatus.wait; }
                     return true;
                 }
@@ -186,7 +189,7 @@ namespace XlettlerRealization
             {
                 using (ModelContainer db = new ModelContainer())
                 {
-                    result= db.SESENT_BankLineNumber.Select(a => a.BankName).Distinct().ToList();
+                    result = db.SESENT_BankLineNumber.Select(a => a.BankName).Distinct().ToList();
                     return true;
                 }
             }
@@ -198,7 +201,7 @@ namespace XlettlerRealization
             }
         }
 
-        public bool QueryCashBank(string accountID,out IList<SESENT_CashCard> result , out string errMsg)
+        public bool QueryCashBank(string accountID, out IList<SESENT_CashCard> result, out string errMsg)
         {
             result = null;
             errMsg = string.Empty;
@@ -206,9 +209,9 @@ namespace XlettlerRealization
             {
                 using (ModelContainer db = new ModelContainer())
                 {
-                    SESENT_USERS uSERS=db.SESENT_USERS.Where(a => a.AccountID == accountID).FirstOrDefault();
-                    if (uSERS == null) { errMsg = "查询用户不存在!"; return false;}
-                    result=db.SESENT_CashCard.Where(a => a.AccountID == accountID).OrderBy(a=>a.EnterTime).ToList();
+                    SESENT_USERS uSERS = db.SESENT_USERS.Where(a => a.AccountID == accountID).FirstOrDefault();
+                    if (uSERS == null) { errMsg = "查询用户不存在!"; return false; }
+                    result = db.SESENT_CashCard.Where(a => a.AccountID == accountID).OrderBy(a => a.EnterTime).ToList();
                     return true;
                 }
             }
@@ -236,21 +239,56 @@ namespace XlettlerRealization
             }
         }
 
-        public bool QueryNetSite(string Province, string City, string BankName,string NetSite, out SESENT_BankLineNumber[] result,out string errMsg)
+        public bool QueryNetSite(string Province, string City, string BankName, string NetSite, out SESENT_BankLineNumber[] result, out string errMsg)
         {
             errMsg = string.Empty;
             result = null;
             using (ModelContainer container = new ModelContainer())
             {
                 var customers = (from c in container.SESENT_BankCity
-                                where c.Province.Contains(Province)&&c.City.Contains(City) 
-                                select c).FirstOrDefault();
+                                 where c.Province.Contains(Province) && c.City.Contains(City)
+                                 select c).FirstOrDefault();
                 result = container.SESENT_BankLineNumber.Where(a => a.Provinceid == customers.ID && a.NetSite.Contains(NetSite) && (string.IsNullOrEmpty(BankName) ? a.BankName == BankName : true)).ToArray();
                 return true;
             }
         }
 
-        public QueryOrderPicker QueryOrder(string accountID, DateTime BeginTime,DateTime EndTime, int type, int pageIndex, int pageSize, out string errMsg)
+        public bool QueryNewOrder(string AccountID, out object result, out string errMsg)
+        {
+            result = null;
+            errMsg = string.Empty;
+            try
+            {
+                using (ModelContainer container = new ModelContainer())
+                {
+                    Dictionary<string, string> keyValuePairs = new Dictionary<string, string>();
+                    SESENT_USERS uSERS = container.SESENT_USERS.Where(a => a.AccountID == AccountID).FirstOrDefault();
+                    var userNameParam = new System.Data.SqlClient.SqlParameter
+                    {
+                        ParameterName = "@AccountID",
+                        Value = AccountID
+                    };
+                    SESENT_Order order=container.Database.SqlQuery<SESENT_Order> ("select * from [dbo].[SESENT_Order] where OrderTime=(select max(OrderTime) from[dbo].[SESENT_Order] where AccountID = @AccountID)", userNameParam).FirstOrDefault();
+                    bool exits=order != null;
+                    if (exits) {
+                        keyValuePairs.Add("Status",order.Status.ToString());
+                        keyValuePairs.Add("OrderID", order.OrderID.ToString());
+                        result = keyValuePairs;
+                    }
+                    else
+                        errMsg = "未查询到订单!";
+                    return exits;
+                }
+            }
+            catch (Exception err)
+            {
+                LogTool.LogWriter.WriteError($"查询订单接口失败!【账号:{AccountID}查询时间:{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}】", err);
+                errMsg = "未知错误！";
+                return false;
+            }
+        }
+
+        public QueryOrderPicker QueryOrder(string accountID, DateTime BeginTime, DateTime EndTime, int type, int pageIndex, int pageSize, out string errMsg)
         {
             errMsg = string.Empty;
             QueryOrderPicker picker = new QueryOrderPicker();
@@ -260,9 +298,9 @@ namespace XlettlerRealization
                 try
                 {
                     EndTime = new DateTime(EndTime.Year, EndTime.Month, EndTime.Day, 23, 59, 59);
-                    BeginTime = new DateTime(BeginTime.Year,BeginTime.Month,BeginTime.Day,0,0,0);
+                    BeginTime = new DateTime(BeginTime.Year, BeginTime.Month, BeginTime.Day, 0, 0, 0);
                     if (uSERS == null) { errMsg = "查询账户不存在!"; return null; }
-                    picker.Orders=container.SESENT_Order.Where(a => a.AccountID == accountID && (a.OrderTime >= BeginTime||a.OrderTime<=EndTime)  && a.OrderType == type).OrderByDescending(b=>b.OrderTime).Skip((pageIndex-1) * pageSize).Take(pageSize).ToList();
+                    picker.Orders = container.SESENT_Order.Where(a => a.AccountID == accountID && (a.OrderTime >= BeginTime || a.OrderTime <= EndTime) && a.OrderType == type).OrderByDescending(b => b.OrderTime).Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
                     int count = container.SESENT_Order.Where(a => a.AccountID == accountID && (a.OrderTime >= BeginTime || a.OrderTime <= EndTime) && a.OrderType == type).Count();
                     int totalPage = (count + pageSize - 1) / pageSize;
                     picker.PageNums = totalPage;

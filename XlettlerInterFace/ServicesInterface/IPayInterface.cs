@@ -15,6 +15,8 @@ namespace ServicesInterface
         [OperationContract]
         bool MakeOrder(decimal amount,string accountID,string channelID,out MakeOrderNewData result, out string errMsg);
         [OperationContract]
+        bool QueryNewOrder(string AccountID,out object Order,out string errMsg);
+        [OperationContract]
         QueryOrderPicker QueryOrder(string accountID,DateTime BeginTime,DateTime EndTime,int type,int pageIndex,int pageSize,out string errMsg);
         [OperationContract]
         Dictionary<string, object> CashWithdrawal(string accountID,decimal amount,int bankID);

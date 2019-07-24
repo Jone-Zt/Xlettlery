@@ -64,6 +64,26 @@ namespace MobileAPI.Controllers
             }
             return Content(picker.ToString());
         }
+        public ActionResult QueryNewOrder()
+        {
+            ResponsePicker<object> picker = new ResponsePicker<object>();
+            try
+            {
+                string flowid = RequestCheck.CheckStringValue(Request, "flowID", "流水号", false);
+                picker.FlowID = flowid;
+                string accountID = RequestCheck.CheckStringValue(Request, "accountID", "账号", false);
+                IPayInterface pay = GetManger();
+                if (pay.QueryNewOrder(accountID, out object result, out string errMsg))
+                    picker.Data = result;
+                else
+                    picker.FailInfo = errMsg;
+            }
+            catch (Exception err)
+            {
+                picker.FailInfo = (err as MyException)?.outErrMsg ?? err.Message;
+            }
+            return Content(picker.ToString());
+        }
 
         public ActionResult QueryCashBank()
         {
